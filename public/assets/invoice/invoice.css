@@ -1,0 +1,246 @@
+/* Invoice Styles for Centrova Retail */
+
+/* Centrova Brand Colors */
+:root {
+    --centrova-blue: #02adf0;
+    --centrova-blue-dark: #0092e6;
+    --centrova-accent: #ffb901;
+    --centrova-gray: #f8fafc;
+    --centrova-text: #1f2937;
+    --centrova-gradient: linear-gradient(135deg, #02adf0 0%, #0092e6 100%);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-shadow {
+        box-shadow: none !important;
+    }
+    
+    .invoice-container {
+        margin: 0;
+        padding: 20px;
+        max-width: none;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* Custom Centrova Styles */
+.centrova-gradient {
+    background: linear-gradient(135deg, var(--centrova-blue) 0%, var(--centrova-blue-dark) 100%);
+}
+
+.centrova-accent {
+    background-color: var(--centrova-accent);
+}
+
+.text-centrova-blue {
+    color: var(--centrova-blue);
+}
+
+.text-centrova-accent {
+    color: var(--centrova-accent);
+}
+
+.border-centrova {
+    border-color: var(--centrova-blue);
+}
+
+.bg-centrova-light {
+    background-color: #e0f7ff;
+}
+
+/* Invoice specific styles */
+.invoice-header {
+    border-bottom: 3px solid var(--centrova-blue);
+    padding-bottom: 2rem;
+}
+
+.invoice-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--centrova-gradient);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(2, 173, 240, 0.25);
+}
+
+.invoice-number {
+    background: linear-gradient(135deg, var(--centrova-blue), var(--centrova-blue-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.customer-info {
+    background: linear-gradient(135deg, #e0f7ff 0%, #f0f9ff 100%);
+    border-left: 4px solid var(--centrova-blue);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.items-table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.items-table thead {
+    background: var(--centrova-gradient);
+}
+
+.items-table tbody tr:hover {
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease;
+}
+
+.total-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.total-amount {
+    color: var(--centrova-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.payment-info {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 4px solid var(--centrova-accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.invoice-footer {
+    border-top: 2px solid #e2e8f0;
+    text-align: center;
+    padding-top: 1.5rem;
+    color: #6b7280;
+}
+
+/* Button Styles */
+.btn-centrova {
+    background: var(--centrova-gradient);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-centrova:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(2, 173, 240, 0.3);
+}
+
+.btn-pdf {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-pdf:hover {
+    background: #b91c1c;
+}
+
+.btn-email {
+    background: #059669;
+    color: white;
+}
+
+.btn-email:hover {
+    background: #047857;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .invoice-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .invoice-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .invoice-actions button {
+        width: 100%;
+    }
+    
+    .items-table {
+        font-size: 0.875rem;
+    }
+    
+    .total-section {
+        margin-top: 1rem;
+    }
+}
+
+/* Animation */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Status badges */
+.status-paid {
+    background: #dcfce7;
+    color: #166534;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-overdue {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}

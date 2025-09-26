@@ -1,0 +1,108 @@
+/* Company Profile Page Styles */
+
+/* Alpine.js Cloak */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Scrollbar Utilities */
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Text Utilities */
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 4;
+}
+
+/* Background Utilities */
+.lazy-bg {
+    background-color: #f3f4f6;
+}
+
+/* Filter Scroll Drag */
+.filter-scroll-drag {
+    cursor: grab;
+}
+
+.filter-scroll-drag.active {
+    cursor: grabbing;
+}
+
+/* Floating WhatsApp Button */
+.floating-wa {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.floating-wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+    }
+    100% {
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .floating-wa {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Swiper Customizations */
+.swiper {
+    padding-bottom: 0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    display: none;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    cursor: pointer;
+}
+
+.swiper-button-prev-custom:active,
+.swiper-button-next-custom:active {
+    transform: scale(0.95);
+}
+
+.swiper-pagination-bullet-active {
+    background: #128AEB !important;
+}
