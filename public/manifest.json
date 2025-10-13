@@ -1,0 +1,26 @@
+{
+    "name": "Centrova - Platform Digital Terdepan Indonesia",
+    "short_name": "Centrova",
+    "description": "Centrova - Platform digital terdepan untuk solusi web development, hosting, dan layanan teknologi modern di Indonesia",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/assets/brand/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/brand/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["business", "technology", "utilities"],
+    "lang": "id",
+    "scope": "/",
+    "dir": "ltr"
+}

@@ -1,4 +1,4 @@
-@extends('partials.layouts.home')
+@extends('partials.layouts.main')
 
 @section('content')
 <div class="bg-gradient-to-r from-blue-600 to-blue-800 py-16">

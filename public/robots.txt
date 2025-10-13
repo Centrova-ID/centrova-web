@@ -1,2 +1,48 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap location
+Sitemap: https://centrova.id/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /account/
+Disallow: /secure/
+Disallow: /office/
+Disallow: /test/
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /.env
+Disallow: /config/
+
+# Allow public assets
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /favicon/
+Allow: /build/
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

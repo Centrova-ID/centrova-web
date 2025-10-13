@@ -49,4 +49,24 @@ return [
         'user_id' => env('DOMAIN_REGISTRAR_USER_ID', 'demo-user'),
     ],
 
+    'google' => [
+        'analytics_id' => env('GOOGLE_ANALYTICS_ID'),
+        'site_verification' => env('GOOGLE_SITE_VERIFICATION'),
+        'tag_manager_id' => env('GOOGLE_TAG_MANAGER_ID'),
+    ],
+
+    'bing' => [
+        'site_verification' => env('BING_SITE_VERIFICATION'),
+    ],
+
+    'facebook' => [
+        'app_id' => env('FACEBOOK_APP_ID'),
+        'pixel_id' => env('FACEBOOK_PIXEL_ID'),
+    ],
+
+    'twitter' => [
+        'site' => env('TWITTER_SITE', '@centrova_id'),
+        'creator' => env('TWITTER_CREATOR', '@centrova_id'),
+    ],
+
 ];

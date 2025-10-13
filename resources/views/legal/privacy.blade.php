@@ -6,7 +6,7 @@
 <section class="relative bg-white py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-md:text-left pb-12">
         <h1 class="text-4xl sm:text-5xl font-semibold text-slate-800 mb-6">Kebijakan privasi <span class="text-[#128AEB]">komitmen kami dalam menjaga data anda</span></h1>
-        <h2 class="font-semibold text-xl text-slate-900 mb-4">Diperbarui 30 Juli 2025</h2>
+        <h2 class="font-semibold text-xl text-slate-900 mb-4">Diperbarui 28 September 2025</h2>
         <h2 class="text-xl font-medium text-neutral-900 mb-2">Data Anda bersifat pribadi di kantor, di rumah, dan dalam perjalanan.</h2>
         
         <div class="mt-6 max-w-2xl mx-auto">
