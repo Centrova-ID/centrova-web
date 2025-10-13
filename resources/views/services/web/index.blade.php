@@ -1077,21 +1077,6 @@
                     },
                     projectPlans: [
                         {
-                            name: 'Personal',
-                            price: 'Rp 560.000',
-                            period: '/ project',
-                            description: 'Cocok untuk bisnis kecil dan personal brand yang butuh website fungsional tanpa ribet.',
-                            features: [
-                                'Desain Profesional (Standard)',
-                                'Hingga 3 Halaman Website',
-                                'Mobile-Friendly & UI/UX Optimization',
-                                'Formulir Kontak Dasar',
-                                'Gratis Hingga 2 Kali Revisi',
-                                '15 hari Support Teknis'
-                            ],
-                            featured: false
-                        },
-                        {
                             name: 'Basic',
                             price: 'Rp 1.600.000',
                             period: '/ project',

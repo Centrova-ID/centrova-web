@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebijakan Privasi - Centrova</title>
     <style>
+        /* Ensure dompdf knows the target page size and margins */
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+        }
         body {
             font-family: 'DejaVu Sans', Arial, sans-serif;
-            line-height: 1.5;
+            /* slightly larger font-size and more line-height for readability in PDF */
+            font-size: 12px;
+            line-height: 1.6;
             color: #1a202c;
             margin: 0;
-            padding: 15px;
-            font-size: 11px;
+            /* use mm units to match @page margins and avoid rounding issues */
+            padding: 10mm;
         }
         
         .container {
@@ -187,7 +194,7 @@
     <div class="container">
         <!-- Header -->
         <h1>Kebijakan privasi <span class="subtitle">komitmen kami dalam menjaga data anda</span></h1>
-        <h2>Diperbarui 30 Juli 2025</h2>
+        <h2>Diperbarui 27 September 2025</h2>
         <h2>Data Anda bersifat pribadi di kantor, di rumah, dan dalam perjalanan.</h2>
         
         <div class="intro-text">

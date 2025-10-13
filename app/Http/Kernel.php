@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\CleanupExpiredDevices::class,
             \App\Http\Middleware\TypoRedirectMiddleware::class,
             \App\Http\Middleware\CaptureFailedLogin::class,
+            \App\Http\Middleware\SEOMiddleware::class,
         ],
 
         'api' => [

@@ -29,13 +29,15 @@ class LegalController extends Controller
         // Set paper size and orientation
         $pdf->setPaper('A4', 'portrait');
         
-        // Set options for better rendering
+        // Set options for better rendering. Use DejaVu Sans (bundled with dompdf)
+        // and increase DPI so fonts and spacing look closer to the web layout
         $pdf->setOptions([
             'isHtml5ParserEnabled' => true,
             'isPhpEnabled' => true,
             'isRemoteEnabled' => true,
-            'defaultFont' => 'sans-serif',
-            'dpi' => 96,
+            'defaultFont' => 'DejaVu Sans',
+            // raise DPI to improve font metrics and reduce "squashed" appearance
+            'dpi' => 150,
             'fontSubsetting' => true,
         ]);
         

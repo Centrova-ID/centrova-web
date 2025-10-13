@@ -5,11 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\SearchService;
+use App\Services\SEOService;
 
 class HomeController extends Controller
 {
+    protected $seoService;
+
+    public function __construct(SEOService $seoService)
+    {
+        $this->seoService = $seoService;
+    }
+
     public function index()
     {
+        // Set SEO untuk homepage
+        $this->seoService->setHomepageSEO();
+
         return view('home.index', [
             'user' => Auth::user()
         ]);
@@ -17,6 +28,13 @@ class HomeController extends Controller
 
     public function products()
     {
+        // Set SEO untuk halaman produk
+        $this->seoService->setPageSEO([
+            'title' => 'Produk & Layanan | Centrova',
+            'description' => 'Jelajahi berbagai produk dan layanan teknologi terbaik dari Centrova. Web development, hosting, domain, dan solusi digital lainnya.',
+            'keywords' => ['produk centrova', 'layanan teknologi', 'web development', 'hosting indonesia', 'domain murah']
+        ]);
+
         return view('home.products.index', [
             'user' => Auth::user()
         ]);
@@ -24,6 +42,13 @@ class HomeController extends Controller
 
     public function contact()
     {
+        // Set SEO untuk halaman kontak
+        $this->seoService->setPageSEO([
+            'title' => 'Hubungi Kami | Centrova',
+            'description' => 'Hubungi tim Centrova untuk konsultasi gratis tentang kebutuhan teknologi digital bisnis Anda. Kami siap membantu 24/7.',
+            'keywords' => ['kontak centrova', 'konsultasi gratis', 'hubungi centrova', 'customer service']
+        ]);
+
         return view('home.contact', [
             'user' => Auth::user()
         ]);

@@ -61,11 +61,106 @@
 {{-- External CSS --}}
 @section('link-head')
     <link rel="stylesheet" href="{{ asset('css/company-profile.css') }}">
+    {{-- Resource Hints for Performance --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://wa.me" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//api.whatsapp.com">
+    
+    {{-- Structured Data for SEO --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Jasa Pembuatan Website Company Profile",
+        "description": "Layanan pembuatan website company profile profesional dengan desain responsif, optimasi SEO, dan performa loading cepat mulai dari Rp 699.000",
+        "provider": {
+            "@type": "Organization",
+            "name": "Centrova",
+            "url": "https://centrova.id",
+            "telephone": "+6285817909560",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "ID"
+            },
+            "logo": "https://centrova.id/assets/image/logo/centrova-logo.png",
+            "sameAs": [
+                "https://www.instagram.com/centrova.id/",
+                "https://wa.me/6285817909560"
+            ]
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "699000",
+            "priceCurrency": "IDR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2024-01-01",
+            "priceValidUntil": "2025-12-31"
+        },
+        "serviceType": "Website Development",
+        "areaServed": "Indonesia",
+        "category": "Web Development Services",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Paket Website Company Profile",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Paket Basic",
+                        "description": "Website company profile dasar dengan fitur lengkap"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Paket Professional",
+                        "description": "Website company profile professional dengan fitur premium"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Paket Enterprise",
+                        "description": "Website company profile enterprise dengan semua fitur"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    {{-- Additional SEO Meta Tags --}}
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="Indonesian">
+    <meta name="geo.region" content="ID">
+    <meta name="geo.country" content="Indonesia">
+    <meta name="theme-color" content="#128AEB">
+    <meta name="msapplication-TileColor" content="#128AEB">
 @endsection
 
 @section('content')
+    {{-- Skip Links for Accessibility --}}
+    <nav aria-label="Skip links" class="sr-only">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#packages" class="skip-link">Skip to packages</a>
+        <a href="#faq-heading" class="skip-link">Skip to FAQ</a>
+    </nav>
+
     {{-- Hero Section --}}
-    <section class="w-full bg-white pt-32 max-md:pt-16">
+    <section class="w-full bg-white pt-32 max-md:pt-16" aria-labelledby="hero-heading">
         <div class="w-full max-w-6xl mx-auto px-4">
             <div 
                 class="w-full max-w-6xl mx-auto flex flex-col items-center justify-center text-center" 
@@ -74,7 +169,7 @@
                 data-aos-once="true" 
                 data-aos-offset="10"
             >
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
+                <h1 id="hero-heading" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 leading-tight">
                   Jasa Website <span class="text-[#128AEB]">Murah dan Profesional</span> untuk Perusahaan Anda!
                 </h1>
                 <p class="text-sm sm:text-base md:text-lg max-w-3xl my-7 text-slate-700">
@@ -82,48 +177,49 @@
                 </p>
 
                 <div class="flex items-center gap-x-5 mt-5">
-                    <a href="https://wa.me/6285817909560?text=Halo%20Centrova,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website%20company%20profile.%20Bisakah%20kita%20diskusi%20lebih%20lanjut?" target="_blank" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-medium px-7 py-3.5 rounded-full transition flex items-center text-base justify-center">Pesan Sekarang</a>
-                    <a href="#packages" class="bg-transparent hover:bg-[#0f75c6] text-[#128AEB] hover:text-white font-medium px-7 py-3.5 rounded-full border-2 border-[#128AEB] hover:border-[#0f75c6] transition flex items-center text-base justify-center">Lihat Paket</a>
+                    <a href="https://wa.me/6285817909560?text=Halo%20Centrova,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website%20company%20profile.%20Bisakah%20kita%20diskusi%20lebih%20lanjut?" target="_blank" rel="noopener noreferrer" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-medium px-7 py-3.5 rounded-full transition flex items-center text-base justify-center focus:outline-none focus:ring-4 focus:ring-blue-300" aria-label="Hubungi kami via WhatsApp untuk konsultasi gratis pembuatan website">Pesan Sekarang</a>
+                    <a href="#packages" class="bg-transparent hover:bg-[#0f75c6] text-[#128AEB] hover:text-white font-medium px-7 py-3.5 rounded-full border-2 border-[#128AEB] hover:border-[#0f75c6] transition flex items-center text-base justify-center focus:outline-none focus:ring-4 focus:ring-blue-300" aria-label="Lihat paket jasa pembuatan website company profile">Lihat Paket</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <main id="main-content" tabindex="-1">
     {{-- Showcase Frames Section --}}
-    <section class="w-full bg-white overflow-x-hidden pt-32 pb-20 max-md:py-16">
+    <section class="w-full bg-white overflow-x-hidden pt-32 pb-20 max-md:py-16" aria-label="Showcase portfolio website company profile">
         <div class="w-full max-w-7xl mx-auto">
 
             <!-- Animated Frames Container -->
-            <div class="relative overflow-visible" x-data="showcaseFrames" x-init="init()">
+            <div class="relative overflow-visible" x-data="showcaseFrames" x-init="init()" role="region" aria-label="Galeri contoh website company profile">
                 <!-- Desktop View -->
                 <div class="hidden lg:flex gap-6 transition-transform duration-300 ease-out justify-center items-center min-h-[500px]" 
-                     :style="'transform: translateX(' + scrollOffset + 'px)'">
+                     :style="'transform: translateX(' + scrollOffset + 'px)'" role="img" aria-label="Koleksi tampilan website company profile untuk desktop dan mobile">
                     
                     <!-- Frame 1 - Desktop -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[420px] aspect-video w-auto rounded-xl">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/CNs2eplv76z8jP-JwFcytnUDaAgVqXLuO0ZIYW9m3RfTE1h5S_GHMiB4dbkoKQxr.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/CNs2eplv76z8jP-JwFcytnUDaAgVqXLuO0ZIYW9m3RfTE1h5S_GHMiB4dbkoKQxr.png') }}" alt="Contoh tampilan website company profile desktop - desain modern dan profesional" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="600" height="338">
                     </div>
 
                     <!-- Frame 2 - Mobile -->
                     <div id="frame-2" class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[420px] aspect-[9/16] w-auto rounded-xl transition-transform duration-500 ease-out"
                          :style="'transform: translateY(' + frame2Offset + 'px)'">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/wMeFg842SPuEvAYz6ktjiXNbCOHa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/wMeFg842SPuEvAYz6ktjiXNbCOHa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="Tampilan mobile website company profile - responsif dan user friendly" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="236" height="420">
                     </div>
 
                     <!-- Frame 3 - Desktop -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[420px] aspect-video w-auto rounded-xl">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/FaYv6P52ixEIGtTqJe-wKClypumQHgz7NjAhb_ZSMX3Vc0fWUDO1dnLR9s8kr4Bo.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/FaYv6P52ixEIGtTqJe-wKClypumQHgz7NjAhb_ZSMX3Vc0fWUDO1dnLR9s8kr4Bo.png') }}" alt="Portfolio website company profile Centrova - showcase produk dan layanan" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="600" height="338">
                     </div>
 
                     <!-- Frame 4 - Mobile -->
                     <div id="frame-4" class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[420px] aspect-[9/16] w-auto rounded-xl transition-transform duration-500 ease-out"
                          :style="'transform: translateY(' + frame4Offset + 'px)'">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/3my1DrdUCksRK2I_xAGPvMu4pVFQTZNlX8athEbweW6gq7HBzjLS5ofiY0-cOnJ9.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/3my1DrdUCksRK2I_xAGPvMu4pVFQTZNlX8athEbweW6gq7HBzjLS5ofiY0-cOnJ9.png') }}" alt="Interface mobile website company profile - navigasi mudah dan intuitif" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="236" height="420">
                     </div>
 
                     <!-- Frame 5 - Desktop -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[420px] aspect-video w-auto rounded-xl">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/ulVnvQ6DkP1r4O3EBUJHSdCTm8yix_WqLwpAN5c72zhtMRos-FgZ0faKebIGjY9X.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/ulVnvQ6DkP1r4O3EBUJHSdCTm8yix_WqLwpAN5c72zhtMRos-FgZ0faKebIGjY9X.png') }}" alt="Contoh halaman about us website company profile - storytelling perusahaan" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="600" height="338">
                     </div>
 
                 </div>
@@ -132,17 +228,17 @@
                 <div class="lg:hidden flex justify-center items-center min-h-[500px] overflow-hidden">
                     <!-- Left Desktop Frame (partial view) -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[280px] aspect-video w-auto rounded-xl opacity-40 -translate-x-5">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/ulVnvQ6DkP1r4O3EBUJHSdCTm8yix_WqLwpAN5c72zhtMRos-FgZ0faKebIGjY9X.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/ulVnvQ6DkP1r4O3EBUJHSdCTm8yix_WqLwpAN5c72zhtMRos-FgZ0faKebIGjY9X.png') }}" alt="Website company profile tampilan desktop" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="225">
                     </div>
 
                     <!-- Center Mobile Frame (main focus) -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[480px] aspect-[9/16] w-auto rounded-xl shadow-lg z-10">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/vBFgNpCytRWLXqAoXMUEKJpOahY39dTNxtMJULC_fv7OwRgKXNMBTECpqloYMRJubCwaFnsXt93Pk18.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/vBFgNpCytRWLXqAoXMUEKJpOahY39dTNxtMJULC_fv7OwRgKXNMBTECpqloYMRJubCwaFnsXt93Pk18.png') }}" alt="Tampilan mobile website company profile yang responsif dan modern" class="w-full h-full object-cover object-top" loading="eager" decoding="async" width="270" height="480">
                     </div>
 
                     <!-- Right Desktop Frame (partial view) -->
                     <div class="bg-white flex-shrink-0 border border-gray-200 overflow-hidden h-[280px] aspect-video w-auto rounded-xl opacity-40 translate-x-5">
-                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/CNs2eplv76z8jP-JwFcytnUDaAgVqXLuO0ZIYW9m3RfTE1h5S_GHMiB4dbkoKQxr.png') }}" class="w-full h-full object-cover object-top">
+                        <img src="{{ asset('assets/image/services/web-development/web-company-profile/CNs2eplv76z8jP-JwFcytnUDaAgVqXLuO0ZIYW9m3RfTE1h5S_GHMiB4dbkoKQxr.png') }}" alt="Website company profile tampilan desktop" class="w-full h-full object-cover object-top" loading="lazy" decoding="async" width="400" height="225">
                     </div>
                 </div>
             </div>
@@ -158,10 +254,10 @@
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- Features Section with Educational Insights --}}
-    <section class="w-full bg-white py-20 max-md:py-16">
-        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mx-auto">
+    <section class="w-full bg-white py-20 max-md:py-16" aria-labelledby="features-heading">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+                <h2 id="features-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
                     Kenapa Memilih Jasa Website <span class="text-[#128AEB]">Centrova</span>?
                 </h2>
                 <p class="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto">
@@ -170,11 +266,11 @@
             </div>
 
             <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20" role="list" aria-label="Keunggulan layanan website Centrova">
                 <!-- Feature 1 -->
-                <div class="bg-[#128AEB] p-8 rounded-[32px] text-white relative overflow-hidden min-h-[640px] group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                <div class="bg-[#128AEB] p-8 rounded-[32px] text-white relative overflow-hidden min-h-[640px] group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" role="listitem">
                     <div class="relative z-10 md:p-8">
-                        <p class="text-gray-100 font-medium uppercase text-base mb-4">Tampilan Responsif</p>
+                        <p class="text-gray-100 font-medium uppercase text-base mb-4" role="presentation">Tampilan Responsif</p>
                         <h3 class="text-4xl font-bold mb-6">Otomatis menyesuaikan tampilan desktop, tablet, hingga mobile.</h3>
                         
                         <!-- Responsive Illustration -->
@@ -262,12 +358,13 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-[#128AEB]/10 p-8 rounded-[32px] relative overflow-hidden min-h-[640px]" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+                <div class="bg-[#128AEB]/10 p-8 rounded-[32px] relative overflow-hidden min-h-[640px]" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" role="listitem">
                     <div class="relative z-10 md:p-8">
-                        <p class="text-gray-500 font-medium uppercase text-base mb-4">Memprioritaskan performa</p>
+                        <p class="text-gray-500 font-medium uppercase text-base mb-4" role="presentation">Memprioritaskan performa</p>
                         <h3 class="text-4xl font-bold text-gray-900 mb-6">Optimasi performa untuk loading super cepat di semua perangkat.</h3>
                         
-                        <svg class="h-[24rem] mx-auto mt-20" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="h-[24rem] mx-auto mt-20" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ikon kecepatan dan performa website">
+                        <title>Ikon Performa Website Cepat</title>
                         <g clip-path="url(#clip0_4331_472)">
                         <path d="M54.8502 37.33C54.2063 39.2054 53.3685 41.0085 52.3502 42.71H4.03023C3.0027 41.0121 2.16118 39.2083 1.52024 37.33C-0.388703 31.7591 -0.505072 25.7302 1.18747 20.0898C2.88001 14.4494 6.29646 9.48063 10.9572 5.88111C15.6179 2.28158 21.2889 0.232035 27.174 0.0202043C33.0591 -0.191627 38.8628 1.44489 43.7702 4.70001L39.6902 8.15003C35.4864 5.73818 30.6297 4.71152 25.8095 5.21576C20.9892 5.72001 16.4501 7.72953 12.8364 10.9592C9.22275 14.1888 6.71797 18.4745 5.67755 23.2081C4.63713 27.9417 5.1139 32.8827 7.04024 37.33H49.4202C51.7322 31.9795 51.9323 25.952 49.9802 20.46L54.1102 17.01C56.8705 23.4567 57.1342 30.6996 54.8502 37.33Z" fill="#0e63a8"/>
                         <path d="M24.1008 31.6C23.5416 30.9559 23.1375 30.1921 22.9195 29.3674C22.7016 28.5426 22.6757 27.6789 22.8437 26.8426C23.0117 26.0063 23.3693 25.2197 23.8889 24.5431C24.4084 23.8666 25.0762 23.3182 25.8408 22.94L49.7808 10.13L32.9308 31.42C32.421 32.102 31.7622 32.6588 31.0048 33.048C30.2474 33.4371 29.4112 33.6484 28.5598 33.6658C27.7084 33.6831 26.8643 33.5061 26.0916 33.1481C25.3189 32.7902 24.6381 32.2607 24.1008 31.6Z" fill="#128aeb"/>
@@ -287,13 +384,13 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-[32px] relative overflow-hidden min-h-[640px] border border-slate-300" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+                <div class="bg-white p-8 rounded-[32px] relative overflow-hidden min-h-[640px] border border-slate-300" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300" role="listitem">
                     <div class="relative z-10 md:p-8">
-                        <p class="text-gray-500 font-medium uppercase text-base mb-4">SEO Optimized</p>
+                        <p class="text-gray-500 font-medium uppercase text-base mb-4" role="presentation">SEO Optimized</p>
                         <h3 class="text-4xl font-bold text-gray-900 mb-6">Mudah ditemukan di Google dengan optimasi SEO terbaik.</h3>
                         
                         <!-- SEO Illustration -->
-                        <img src="{{ asset('/assets/image/services/web-development/web-company-profile/eFg842SPuEvAYz6ktjiXa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="">
+                        <img src="{{ asset('/assets/image/services/web-development/web-company-profile/eFg842SPuEvAYz6ktjiXa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="Ilustrasi SEO optimization - website mudah ditemukan di Google" loading="lazy" decoding="async" width="400" height="300">
                         
                         <div class="-mt-16 text-center">
                             <p class="text-gray-600 text-sm">Ranking #1 di hasil pencarian Google</p>
@@ -303,9 +400,9 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-[#0e63a8] p-8 rounded-[32px] text-white relative overflow-hidden min-h-[640px]" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+                <div class="bg-[#0e63a8] p-8 rounded-[32px] text-white relative overflow-hidden min-h-[640px]" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400" role="listitem">
                     <div class="relative z-10 md:p-8">
-                        <p class="text-gray-100 font-medium uppercase text-base mb-4">Keamanan Tinggi</p>
+                        <p class="text-gray-100 font-medium uppercase text-base mb-4" role="presentation">Keamanan Tinggi</p>
                         <h3 class="text-4xl font-bold mb-6">SSL Certificate gratis dan perlindungan data terbaik untuk website Anda.</h3>
                         
                         <!-- Security Illustration -->
@@ -351,10 +448,10 @@
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- Why Choose Us Section --}}
-    <section class="w-full bg-white py-20 max-md:py-16">
+    <section class="w-full bg-white py-20 max-md:py-16" aria-labelledby="why-choose-heading">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+                <h2 id="why-choose-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
                     Kenapa Perusahaan Wajib Punya Website?
                 </h2>
                 <p class="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto">
@@ -362,7 +459,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" role="list" aria-label="Perbandingan dampak memiliki dan tidak memiliki website">
                 <!-- Problem Card -->
                 <div class="bg-red-50 p-8 rounded-[32px]  relative overflow-hidden group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                     <div class="relative z-10 md:p-8">
@@ -473,10 +570,10 @@
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- Everything is Easy Section --}}
-    <section class="w-full bg-white py-20 max-md:py-16" x-data="easySection">
+    <section class="w-full bg-white py-20 max-md:py-16" x-data="easySection" aria-labelledby="easy-section-heading">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+                <h2 id="easy-section-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
                     Di Centrova <span class="text-[#128AEB]">Semua Serba Mudah!</span>
                 </h2>
                 <p class="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto">
@@ -485,7 +582,7 @@
             </div>
 
             <!-- Easy Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" role="list" aria-label="Kemudahan layanan Centrova">
                 <template x-for="(feature, index) in easyFeatures" :key="index">
                     <div class="bg-[#128AEB]/5 p-8 rounded-[32px] relative overflow-hidden min-h-[500px]" 
                          data-aos="fade-up" 
@@ -556,10 +653,10 @@
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- Centrova Technology Excellence Section --}}
-    <section class="w-full bg-white py-20 max-md:py-16">
+    <section class="w-full bg-white py-20 max-md:py-16" aria-labelledby="technology-heading">
         <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="text-center mb-16 max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+                <h2 id="technology-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
                     <span class="text-[#128AEB]">Kecanggihan teknologi</span> Centrova<br>
                     untuk website perusahaan Anda
                 </h2>
@@ -569,12 +666,12 @@
                 {{-- Left Content - Technical Illustration --}}
                 <div class="relative" data-aos="fade-left" data-aos-duration="700" data-aos-delay="200">
                     
-                    <img src="{{ asset('/assets/image/services/web-development/web-company-profile/KXoMLaUhgJCXMqNEypRdLsnTYJxOfA_CMUNwpbtXOyv7fgRzTQEMNKC9uAiqXjtlo7b84v.png') }}" class="w-[450px]">
+                    <img src="{{ asset('/assets/image/services/web-development/web-company-profile/KXoMLaUhgJCXMqNEypRdLsnTYJxOfA_CMUNwpbtXOyv7fgRzTQEMNKC9uAiqXjtlo7b84v.png') }}" alt="Teknologi canggih Centrova untuk pengembangan website perusahaan modern" class="w-[450px] max-w-full h-auto" loading="lazy" decoding="async" width="450" height="400">
 
                 </div>
 
                 {{-- Right Content --}}
-                <div class="space-y-8" data-aos="fade-right" data-aos-duration="700" data-aos-delay="100">
+                <div class="space-y-8" data-aos="fade-right" data-aos-duration="700" data-aos-delay="100" role="list" aria-label="Teknologi unggulan Centrova">
                     <!-- Feature 1 -->
                     <div class="flex items-start gap-4">
                         <div>
@@ -673,10 +770,10 @@
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- Service Packages Section --}}
-    <section class="w-full bg-white py-20 max-md:py-16" x-data="packagesSection" id="packages">
+    <section class="w-full bg-white py-20 max-md:py-16" x-data="packagesSection" id="packages" aria-labelledby="packages-heading">
         <div class="w-full max-w-6xl mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+                <h2 id="packages-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
                     Paket Jasa Website <span class="text-[#128AEB]">Perusahaan</span>
                 </h2>
                 <p class="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto">
@@ -684,7 +781,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list" aria-label="Daftar paket layanan website">
                 <template x-for="(pkg, index) in packages" :key="index">
                     <div class="bg-white border-2 rounded-3xl p-8 transition-colors relative flex flex-col justify-between" :class="{'border-[#128AEB] shadow-lg shadow-sky-200': pkg.popular, 'border-neutral-200': !pkg.popular}" data-aos="fade-up" data-aos-duration="700" :data-aos-delay="(index + 1) * 100">
                         <div>
@@ -739,15 +836,15 @@
     </section>
 
     {{-- FAQ Section --}}
-    <section class="py-20 max-md:py-16 bg-neutral-50" x-data="faqSection">
+    <section class="py-20 max-md:py-16 bg-neutral-50" x-data="faqSection" aria-labelledby="faq-heading">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-          <h3 class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
+          <h2 id="faq-heading" class="text-4xl lg:text-5xl font-semibold text-gray-900 max-md:px-3 mb-6">
               Pertanyaan yang Sering Diajukan
-          </h3>
+          </h2>
         </div>
 
-        <div>
+        <div role="list" aria-label="Daftar pertanyaan yang sering diajukan">
           <template x-for="(faq, index) in faqs" :key="index">
             <div class="py-0 border-b border-neutral-300 focus-within:border-b-2 focus-within:border-[#128AEB] transition">
               <!-- Button -->
@@ -813,10 +910,12 @@
         @endonce
         @endpush
     </section>
+    </main>
 
     {{-- Floating WhatsApp Button --}}
-    <a href="https://wa.me/6285817909560?text=Halo%20Centrova,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website%20company%20profile.%20Bisa%20kita%20diskusi?" target="_blank" class="floating-wa" title="Chat WhatsApp">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="https://wa.me/6285817909560?text=Halo%20Centrova,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website%20company%20profile.%20Bisa%20kita%20diskusi?" target="_blank" rel="noopener noreferrer" class="floating-wa focus:outline-none focus:ring-4 focus:ring-green-300" title="Chat WhatsApp untuk konsultasi gratis" aria-label="Hubungi kami via WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <title>WhatsApp Icon</title>
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488" fill="white"/>
         </svg>
     </a>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+use Carbon\Carbon;
 
 class SitemapController extends Controller
 {
@@ -15,6 +18,96 @@ class SitemapController extends Controller
     {
         $sitemapData = $this->generateSitemapData();
         return view('home.sitemap', compact('sitemapData'));
+    }
+
+    /**
+     * Generate XML sitemap
+     */
+    public function xml()
+    {
+        $sitemap = Sitemap::create();
+
+        // Add static pages with priority and frequency
+        $staticPages = [
+            ['url' => '/', 'priority' => 1.0, 'changefreq' => 'daily'],
+            ['url' => '/about', 'priority' => 0.8, 'changefreq' => 'monthly'],
+            ['url' => '/services', 'priority' => 0.9, 'changefreq' => 'weekly'],
+            ['url' => '/portfolio', 'priority' => 0.7, 'changefreq' => 'weekly'],
+            ['url' => '/contact', 'priority' => 0.8, 'changefreq' => 'monthly'],
+            ['url' => '/blog', 'priority' => 0.9, 'changefreq' => 'daily'],
+            ['url' => '/pricing', 'priority' => 0.8, 'changefreq' => 'weekly'],
+        ];
+
+        foreach ($staticPages as $page) {
+            $sitemap->add(
+                Url::create(url($page['url']))
+                    ->setLastModificationDate(Carbon::now())
+                    ->setChangeFrequency($page['changefreq'])
+                    ->setPriority($page['priority'])
+            );
+        }
+
+        // Add dynamic content (blog posts, services, etc.)
+        $this->addDynamicContent($sitemap);
+
+        return $sitemap->render();
+    }
+
+    /**
+     * Add dynamic content to sitemap
+     */
+    private function addDynamicContent($sitemap)
+    {
+        // Add blog posts if you have a blog model
+        // Example:
+        /*
+        if (class_exists('\App\Models\Post')) {
+            $posts = \App\Models\Post::where('published', true)
+                ->orderBy('updated_at', 'desc')
+                ->get();
+            
+            foreach ($posts as $post) {
+                $sitemap->add(
+                    Url::create(route('blog.show', $post->slug))
+                        ->setLastModificationDate($post->updated_at)
+                        ->setChangeFrequency('monthly')
+                        ->setPriority(0.6)
+                );
+            }
+        }
+        */
+
+        // Add service pages if you have a service model
+        /*
+        if (class_exists('\App\Models\Service')) {
+            $services = \App\Models\Service::where('active', true)->get();
+            
+            foreach ($services as $service) {
+                $sitemap->add(
+                    Url::create(route('services.show', $service->slug))
+                        ->setLastModificationDate($service->updated_at)
+                        ->setChangeFrequency('weekly')
+                        ->setPriority(0.7)
+                );
+            }
+        }
+        */
+
+        // Add portfolio items if you have a portfolio model
+        /*
+        if (class_exists('\App\Models\Portfolio')) {
+            $portfolios = \App\Models\Portfolio::where('published', true)->get();
+            
+            foreach ($portfolios as $portfolio) {
+                $sitemap->add(
+                    Url::create(route('portfolio.show', $portfolio->slug))
+                        ->setLastModificationDate($portfolio->updated_at)
+                        ->setChangeFrequency('yearly')
+                        ->setPriority(0.5)
+                );
+            }
+        }
+        */
     }
 
     /**

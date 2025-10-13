@@ -233,6 +233,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RouteHelperServiceProvider::class,
+        App\Providers\SEOServiceProvider::class,
 
     ],
 

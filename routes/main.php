@@ -9,6 +9,7 @@ use App\Http\Controllers\Account\MultiAccountController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\PrivacyRequestController;
 use App\Http\Controllers\WebUIController;
+use App\Http\Controllers\Products\BusinessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::domain('centrova.test')->middleware(['web', 'language'])->group(function 
     Route::get('/team', [HomeController::class, 'teamIndex'])->name('team.index');
     Route::get('/team/{slug}', [HomeController::class, 'teamProfile'])->name('team.profile');
     Route::get('/sitemap', [SitemapController::class, 'index'])->name('sitemap');
+    Route::get('/sitemap.xml', [SitemapController::class, 'xml'])->name('sitemap.xml');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('search.suggestions');
 
@@ -79,6 +81,18 @@ Route::domain('centrova.test')->middleware(['web', 'language'])->group(function 
     Route::get('/mobile-app-development', [ServiceController::class, 'mobileAppDevelopment'])->name('services.mobile-app-development');
     Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('services.uiux-design');
 });
+
+    // Business product landing route
+        Route::get('/app/business', [BusinessController::class, 'show'])->name('products.business.index');
+    
+    // Business Suite Application Routes
+    Route::prefix('app/business')->name('products.business.')->group(function () {
+        Route::get('/crm', [BusinessController::class, 'crm'])->name('crm');
+        Route::get('/sales', [BusinessController::class, 'sales'])->name('sales');
+        Route::get('/erp', [BusinessController::class, 'erp'])->name('erp');
+        Route::get('/pos', [BusinessController::class, 'pos'])->name('pos');
+        Route::get('/rental', [BusinessController::class, 'rental'])->name('rental');
+    });
 
     // Multi-Account Management Routes untuk domain utama
     Route::middleware(['auth', 'multi.account'])->prefix('accounts')->name('main.accounts.')->group(function () {
