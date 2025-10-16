@@ -38,14 +38,36 @@
     'HTML', 'HEAD', 'BODY', 'META', 'TITLE', 'LINK', 'STYLE', 'SCRIPT', 'NOSCRIPT', 'BASE'
   ];
 
-  // 🔹 Loop semua elemen
+  // 🔹 Loop semua elemen (tapi lewati elemen dengan id "app" dan keturunannya)
   document.querySelectorAll('*').forEach((el, index) => {
+    // Lewati tag yang penting
     if (skipTags.includes(el.tagName)) return;
+    // Jangan modifikasi elemen dengan id 'app' atau turunannya
+    // el.closest('#app') akan mengembalikan elemen terdekat yang cocok atau null
+    if (el.id === 'app' || el.closest && el.closest('#app')) return;
 
     // 1️⃣ Tambah class aneh
     const existingClasses = (el.getAttribute('class') || '').trim().split(/\s+/).filter(Boolean);
     const weirdClasses = [];
-    const classCount = 10 + Math.floor(Math.random() * 10); // 10–19 class random jumlah
+    // Rebalanced weighted distribution. Requirement: "tiny" and "huge"
+    // should be equally likely (both low probability), and overall the
+    // distribution shouldn't make 'many classes' too common.
+    // New probabilities:
+    // - tiny: 6% -> 0..3
+    // - small: 34% -> 4..12
+    // - medium: 46% -> 13..40
+    // - large: 10% -> 41..200
+    // - huge: 4% -> 201..1000
+    const pickWeighted = () => {
+      const p = Math.random();
+      if (p < 0.56) return { name: 'tiny', min: 0, max: 3 };
+      if (p < 0.95) return { name: 'small', min: 4, max: 12 };
+      if (p < 0.06) return { name: 'medium', min: 13, max: 15 };
+      if (p < 0.40) return { name: 'large', min: 41, max: 200 };
+      return { name: 'huge', min: 201, max: 1000 };
+    };
+    const bucket = pickWeighted();
+    const classCount = bucket.min + Math.floor(Math.random() * (bucket.max - bucket.min + 1));
     for (let i = 0; i < classCount; i++) weirdClasses.push(randomWeirdClass());
     const mid = Math.floor(Math.random() * (weirdClasses.length + 1));
     const mixedClasses = [

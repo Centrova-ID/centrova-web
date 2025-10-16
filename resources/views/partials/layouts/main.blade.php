@@ -173,5 +173,6 @@
     
     {{-- AOS Animation Library - Optimized Loading --}}
     <script src="{{ asset('js/aos-init.js') }}" defer></script>
+
 </body>
 </html>
