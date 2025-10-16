@@ -32,7 +32,6 @@
         html {
             scroll-behavior: smooth;
         }
-        @yield('style')
     </style>
 
     @include('partials.components.font')
