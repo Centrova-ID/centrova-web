@@ -86,7 +86,7 @@
 @section('content')
 <div class="py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl font-bold text-slate-700 mb-8">Profil Tim Kami</h1>
+        <h1 class="text-4xl font-medium text-slate-700 mb-8">Profil Tim Kami</h1>
         
         {{-- Loading State --}}
         <div id="loading-state" class="flex items-center justify-center py-20">
@@ -94,7 +94,7 @@
         </div>
         
         {{-- Team Grid --}}
-        <div id="team-grid" class="w-full flex max-md:flex-col gap-6 max-md:gap-16 justify-start max-md:items-center max-md:pb-32" style="display: none;">
+        <div id="team-grid" class="w-full flex max-md:flex-col gap-6 max-md:gap-16 justify-start max-md:items-center max-md:pb-32 grid grid-cols-3" style="display: none;">
             {{-- Team members will be dynamically inserted here --}}
         </div>
     </div>
@@ -133,8 +133,8 @@
         const container = document.getElementById('team-grid');
         
         container.innerHTML = teamMembers.map(member => `
-            <a href="/team/${member.slug}" class="w-[300px] h-[250px] flex-col group cursor-pointer">
-                <div class="w-full h-[200px] bg-gradient-to-b from-neutral-200 to-white rounded-xl overflow-hidden relative">
+            <a href="/team/${member.slug}" class="w-full h-auto flex-col group cursor-pointer">
+                <div class="w-full aspect-[10/7] bg-gradient-to-b from-neutral-200 to-white rounded-3xl overflow-hidden relative">
                     <img src="${member.heroImage || '/images/default-profile.jpg'}" 
                          srcset="${member.heroImage || '/images/default-profile.jpg'} 1x, ${member.heroImage || '/images/default-profile.jpg'} 2x"
                          sizes="(max-width: 768px) 300px, (max-width: 1024px) 280px, 300px"
@@ -144,12 +144,12 @@
                          onerror="this.src='/images/default-profile.jpg'; this.style.opacity='0.7';">
                     <!-- Fallback jika foto tidak ada -->
                     <div class="absolute inset-0 flex items-center justify-center text-neutral-400" style="display: none;" id="fallback-${member.slug}">
-                        <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-28 h-28" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                         </svg>
                     </div>
                 </div>
-                <div class="w-full py-3">
+                <div class="w-full pt-4">
                     <h1 class="text-lg text-blue-500 font-medium text-left group-hover:underline">${member.name}</h1>
                     <h2 class="text-lg text-neutral-600 text-left">${member.position}</h2>
                 </div>

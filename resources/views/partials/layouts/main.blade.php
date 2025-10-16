@@ -99,10 +99,6 @@
       data-turbo-track="reload" 
       data-turbo-cache="true"
       data-turbo-preview="true">
-<body class="font-sans antialiased max-w-[2560px] mx-auto" 
-      data-turbo-track="reload" 
-      data-turbo-cache="true"
-      data-turbo-preview="true">
     {{-- Main Application Wrapper - Turbo Frame Target --}}
     <div id="app" data-turbo-permanent>
         {{-- Navigation Bar - Persistent across Turbo visits --}}

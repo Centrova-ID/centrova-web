@@ -172,16 +172,16 @@
                 
                 container.innerHTML = `
                     {{-- Hero Section --}}
-                    <div class="relative max-md:h-[250px] h-[460px] -mt-1 md:-mt-[60px] md:pt-[60px] bg-gradient-to-b from-neutral-100 to-neutral-50 overflow-hidden">
+                    <div class="relative max-md:h-[250px] h-[560px] -mt-1 md:-mt-[60px] md:py-[60px] bg-gradient-to-b from-neutral-100 to-neutral-50 overflow-hidden">
                         <div class="absolute inset-0"></div>
-                        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center" data-aos="fade-up">
                             <div class="flex w-full h-full gap-8 items-center relative">
-                                <div class="text-slate-700 max-md:hidden">
-                                    <h1 class="text-4xl md:text-5xl tracking-tight font-semibold mb-4">${getName()}</h1>
+                                <div class="text-slate-800 max-md:hidden">
+                                    <h1 class="text-4xl md:text-5xl tracking-tight font-medium mb-4">${getName()}</h1>
                                     <p class="text-3xl md:text-2xl mb-4">${getPosition()}</p>
                                 </div>
-                                <div class="flex-1 w-full justify-center h-full relative flex items-end pt-8">
-                                    <img src="${getHeroImage()}" class="h-full object-cover flex-shrink-0" alt="${getName()}" onerror="this.src='/images/default-profile.jpg'">
+                                <div class="flex-1 w-full justify-end h-full relative flex items-end pt-8">
+                                    <img src="${getHeroImage()}" class="h-full object-cover bg-neutral-200 aspect-[8/6] rounded-3xl flex-shrink-0" alt="${getName()}" onerror="this.src='/images/default-profile.jpg'">
                                 </div>
                             </div>
                         </div>
@@ -189,15 +189,15 @@
 
                     {{-- Bio Section --}}
                     <div class="py-12 md:py-24 bg-white">
-                        <div class="max-w-6xl gap-x-8 max-md:gap-y-4 flex max-md:flex-col mx-auto px-4 sm:px-8 lg:px-8 text-neutral-600 text-lg">
+                        <div class="max-w-4xl gap-x-8 max-md:gap-y-4 flex max-md:flex-col mx-auto px-4 sm:px-8 lg:px-8 text-neutral-800 text-lg">
                             <div class="text-slate-700 md:hidden">
                                 <h1 class="text-4xl md:text-5xl font-semibold mb-4">${getName()}</h1>
                                 <p class="text-2xl mb-4">${getPosition()}</p>
                             </div>
                             <div class="prose prose-lg ${getBioColumnClass(member && member.bio ? member.bio : {})}">
-                                ${member && member.bio && member.bio.intro ? `<p class="leading-relaxed mb-8">${member.bio.intro}</p>` : ''}
+                                ${member && member.bio && member.bio.intro ? `<p class="leading-relaxed mb-4">${member.bio.intro}</p>` : ''}
                                 ${member && member.bio && member.bio.content && Array.isArray(member.bio.content) ? 
-                                    member.bio.content.map(paragraph => `<p class="mb-6">${paragraph}</p>`).join('') : 
+                                    member.bio.content.map(paragraph => `<p class="mb-4">${paragraph}</p>`).join('') : 
                                     '<p class="mb-6">Bio sedang dalam proses pembaruan.</p>'
                                 }
                             </div>
