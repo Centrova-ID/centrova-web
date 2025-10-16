@@ -209,7 +209,7 @@
                     <article class="overflow-hidden">
                         <a href="{{ route('news.home') }}">
                             <div class="aspect-video bg-neutral-200 overflow-hidden rounded-3xl relative">
-                                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=870&auto=format&fit=crop" alt="Digital Transformation" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://lookaside.fbsbx.com/elementpath/media/?media_id=1320873176424839&version=1757543352&transcode_extension=webp" alt="Digital Transformation" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="pt-6">
                                 <h3 class="text-xl text-slate-900">5 Tren Digital Transformation yang Harus Diketahui di 2024</h3>
@@ -220,7 +220,7 @@
                     <article class="overflow-hidden">
                         <a href="{{ route('news.home') }}">
                             <div class="aspect-video bg-neutral-200 overflow-hidden rounded-3xl relative">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=815&auto=format&fit=crop" alt="Business Analytics" class="w-full h-full object-cover" loading="lazy">
+                                <img src="https://lookaside.fbsbx.com/elementpath/media/?media_id=1531311658047829&version=1757543328&transcode_extension=webp" alt="Business Analytics" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="pt-6">
                                 <h3 class="text-xl text-slate-900">Mengoptimalkan Business Intelligence dengan Data Analytics</h3>
