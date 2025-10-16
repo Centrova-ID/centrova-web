@@ -34,7 +34,7 @@
     <section class="max-w-4xl mx-auto mt-12 px-4 sm:px-6 lg:px-8" x-data="privacyPolicySection">
         <div class="divide-y divide-neutral-300">
             <template x-for="(section, index) in sections" :key="index">
-                <div class="py-0 focus-within:border-b-2 focus-within:border-[#128AEB] transition">
+                <div :id="`privacy-section-${index}`" class="py-0 focus-within:border-b-2 focus-within:border-[#128AEB] transition">
                     <!-- Button -->
                     <button 
                         @click="toggleSection(index)"
@@ -244,7 +244,7 @@
                         title: 'Pihak Ketiga dan Transfer Data',
                         content: `
                             <p class="text-neutral-900 text-lg leading-relaxed mb-4">
-                                Berdasarkan implementasi sistem Centrova, kami bekerja sama dengan penyedia layanan tepercaya yang membantu kami mengoperasikan platform teknologi. Semua berbagi data dilakukan untuk mendukung tujuan yang telah dijelaskan di bagian <a href="#" onclick="document.querySelector('[x-data]').__x.$data.openSection = 3" class="text-[#128AEB] hover:underline">Tujuan dan Dasar Hukum Pemrosesan</a> dengan langkah-langkah keamanan sebagaimana dijelaskan di bagian <a href="#" onclick="document.querySelector('[x-data]').__x.$data.openSection = 6" class="text-[#128AEB] hover:underline">Pengamanan Data</a>.
+                                    Berdasarkan implementasi sistem Centrova, kami bekerja sama dengan penyedia layanan tepercaya yang membantu kami mengoperasikan platform teknologi. Semua berbagi data dilakukan untuk mendukung tujuan yang telah dijelaskan di bagian <a href="#" data-open-privacy="Tujuan dan Dasar Hukum Pemrosesan" onclick="openPrivacySection('Tujuan dan Dasar Hukum Pemrosesan')" class="text-[#128AEB] hover:underline">Tujuan dan Dasar Hukum Pemrosesan</a> dengan langkah-langkah keamanan sebagaimana dijelaskan di bagian <a href="#" data-open-privacy="Pengamanan Data" onclick="openPrivacySection('Pengamanan Data')" class="text-[#128AEB] hover:underline">Pengamanan Data</a>.
                             </p>
 
                             <div class="mb-6">
@@ -294,8 +294,8 @@
                     {
                         title: 'Pengamanan Data',
                         content: `
-                            <p class="text-neutral-900 text-lg leading-relaxed mb-4">
-                                Keamanan data pribadi Anda adalah prioritas utama kami. Berdasarkan implementasi sistem aktual Centrova, kami menerapkan langkah-langkah keamanan teknis dan organisasi yang komprehensif untuk melindungi data dari akses yang tidak sah, kehilangan, atau penyalahgunaan. Sistem keamanan kami terintegrasi dengan proses pemrosesan data yang telah dijelaskan di bagian <a href="#" onclick="document.querySelector('[x-data]').__x.$data.openSection = 3" class="text-[#128AEB] hover:underline">Tujuan dan Dasar Hukum Pemrosesan</a>.
+                                <p class="text-neutral-900 text-lg leading-relaxed mb-4">
+                                Keamanan data pribadi Anda adalah prioritas utama kami. Berdasarkan implementasi sistem aktual Centrova, kami menerapkan langkah-langkah keamanan teknis dan organisasi yang komprehensif untuk melindungi data dari akses yang tidak sah, kehilangan, atau penyalahgunaan. Sistem keamanan kami terintegrasi dengan proses pemrosesan data yang telah dijelaskan di bagian <a href="#" onclick="openPrivacySection('Tujuan dan Dasar Hukum Pemrosesan')" class="text-[#128AEB] hover:underline">Tujuan dan Dasar Hukum Pemrosesan</a>.
                             </p>
 
                             <div class="mb-6">
@@ -342,7 +342,7 @@
                             </div>
 
                             <p class="text-neutral-900 text-lg leading-relaxed mb-4">
-                                Meskipun kami menerapkan langkah-langkah keamanan terbaik, tidak ada sistem yang 100% aman. Jika terjadi pelanggaran data, SecurityNotificationService kami akan segera memberitahu Anda dan otoritas yang berwenang sesuai dengan peraturan yang berlaku. Untuk memahami hak-hak Anda terkait keamanan data, silakan lihat bagian <a href="#" onclick="document.querySelector('[x-data]').__x.$data.openSection = 1" class="text-[#128AEB] hover:underline">Hak Privasi Anda</a>.
+                                Meskipun kami menerapkan langkah-langkah keamanan terbaik, tidak ada sistem yang 100% aman. Jika terjadi pelanggaran data, SecurityNotificationService kami akan segera memberitahu Anda dan otoritas yang berwenang sesuai dengan peraturan yang berlaku. Untuk memahami hak-hak Anda terkait keamanan data, silakan lihat bagian <a href="#" onclick="openPrivacySection('Hak Privasi Anda Sebagai Subjek Data')" class="text-[#128AEB] hover:underline">Hak Privasi Anda</a>.
                             </p>
                         `
                     },
@@ -350,7 +350,7 @@
                         title: 'Cara Mengajukan Permintaan Data',
                         content: `
                             <p class="text-neutral-900 text-lg leading-relaxed mb-4">
-                                Untuk menggunakan hak-hak privasi Anda sebagaimana dijelaskan di bagian <a href="#" onclick="document.querySelector('[x-data]').__x.$data.openSection = 1" class="text-[#128AEB] hover:underline">Hak Privasi Anda</a>, atau jika Anda memiliki pertanyaan tentang cara kami menangani data pribadi Anda, silakan hubungi tim kami melalui cara-cara berikut yang telah terimplementasi dalam sistem kami.
+                                Untuk menggunakan hak-hak privasi Anda sebagaimana dijelaskan di bagian <a href="#" onclick="openPrivacySection('Hak Privasi Anda Sebagai Subjek Data')" class="text-[#128AEB] hover:underline">Hak Privasi Anda</a>, atau jika Anda memiliki pertanyaan tentang cara kami menangani data pribadi Anda, silakan hubungi tim kami melalui cara-cara berikut yang telah terimplementasi dalam sistem kami.
                             </p>
 
                             <div class="mb-6">
@@ -458,12 +458,170 @@
                 toggleSection(index) {
                     this.openSection = this.openSection === index ? null : index;
                 },
+                openSectionBy(titleOrIndex) {
+                    // open by index or title (robust inside Alpine)
+                    let idx = -1;
+                    if (typeof titleOrIndex === 'number' || String(parseInt(titleOrIndex)) === String(titleOrIndex)) {
+                        idx = parseInt(titleOrIndex);
+                    } else {
+                        const needle = String(titleOrIndex).trim().toLowerCase();
+                        idx = this.sections.findIndex(s => s.title && s.title.trim().toLowerCase() === needle);
+                        if (idx === -1) {
+                            idx = this.sections.findIndex(s => s.title && s.title.trim().toLowerCase().includes(needle));
+                        }
+                    }
+                    if (idx === -1) return;
+                    this.openSection = idx;
+                    // wait for DOM to reflect open state then scroll
+                    setTimeout(() => {
+                        const el = document.getElementById(`privacy-section-${idx}`);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                },
                 init() {
                     // Pastikan tidak ada section yang terbuka saat init
                     this.openSection = null;
+                    // Listen for global event to open sections (more robust than external __x access)
+                    window.addEventListener('open-privacy-section', (ev) => {
+                        try {
+                            this.openSectionBy(ev && ev.detail);
+                        } catch (e) {
+                            // ignore
+                        }
+                    });
                 }
             }));
         });
+        // Global helper to open a privacy section by title or index and scroll it into view
+        window.openPrivacySection = function openPrivacySection(titleOrIndex) {
+            // dispatch event so Alpine component can handle opening reliably
+            try { window.dispatchEvent(new CustomEvent('open-privacy-section', { detail: titleOrIndex })); } catch (e) {}
+            // robust helper: waits for Alpine component to be available up to a timeout
+            const start = Date.now();
+            const timeout = 2000; // ms
+
+            function attempt() {
+                try {
+                    console.debug('[openPrivacySection] attempt for', titleOrIndex);
+                    const root = document.querySelector('[x-data="privacyPolicySection"]');
+                    if (!root || !root.__x) {
+                        console.debug('[openPrivacySection] Alpine root not ready');
+                        if (Date.now() - start < timeout) {
+                            return setTimeout(attempt, 50);
+                        }
+                        return; // give up
+                    }
+                    console.debug('[openPrivacySection] Alpine root found');
+                    const data = root.__x.$data;
+                    let idx = -1;
+                    if (typeof titleOrIndex === 'number' || String(parseInt(titleOrIndex)) === String(titleOrIndex)) {
+                        idx = parseInt(titleOrIndex);
+                    } else {
+                        const needle = String(titleOrIndex).trim().toLowerCase();
+                        idx = data.sections.findIndex(s => s.title && s.title.trim().toLowerCase() === needle);
+                        if (idx === -1) {
+                            // try partial match
+                            idx = data.sections.findIndex(s => s.title && s.title.trim().toLowerCase().includes(needle));
+                        }
+                    }
+                    if (idx === -1) {
+                        console.debug('[openPrivacySection] section not found for', titleOrIndex);
+                        return;
+                    }
+                    console.debug('[openPrivacySection] opening section index', idx);
+                    data.openSection = idx;
+                    // allow alpine to render open state then scroll
+                    setTimeout(() => {
+                        const el = document.getElementById(`privacy-section-${idx}`);
+                        if (el) {
+                            // if there's a fixed header, consider offset; otherwise normal
+                            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 80);
+                } catch (e) {
+                    if (Date.now() - start < timeout) {
+                        return setTimeout(attempt, 50);
+                    }
+                    console.error('openPrivacySection error', e);
+                }
+            }
+
+            attempt();
+        };
+
+        // Fallback: intercept clicks on links that should open privacy sections
+        document.addEventListener('click', (ev) => {
+            try {
+                const a = ev.target.closest && ev.target.closest('a');
+                if (!a) return;
+                // data-open-privacy explicitly marks a link to open a section
+                const explicit = a.getAttribute('data-open-privacy');
+                if (explicit) {
+                    ev.preventDefault();
+                    openPrivacySection(explicit);
+                    return;
+                }
+
+                // fallback: if href is '#' and textContent matches a section title, open it
+                const href = a.getAttribute('href');
+                if (href === '#') {
+                    const txt = (a.textContent || '').trim();
+                    if (txt) {
+                        // try to open by the link text
+                        openPrivacySection(txt);
+                        // allow normal navigation prevention
+                        ev.preventDefault();
+                    }
+                }
+            } catch (e) {
+                // ignore
+            }
+        }, { capture: true });
+
+        // After Alpine is ready, attach direct listeners to anchors inside rendered section content
+        (function attachAnchorsToSections() {
+            const start = Date.now();
+            const timeout = 2000;
+            function attempt() {
+                const root = document.querySelector('[x-data="privacyPolicySection"]');
+                if (!root || !root.__x) {
+                    if (Date.now() - start < timeout) return setTimeout(attempt, 50);
+                    return;
+                }
+
+                // find all section content containers rendered by x-html
+                const contents = root.querySelectorAll('[x-html]');
+                contents.forEach((container, index) => {
+                    // container may contain anchors inserted by x-html; attach listener
+                    container.querySelectorAll && container.querySelectorAll('a').forEach(a => {
+                        // avoid double-binding
+                        if (a.__openPrivacyAttached) return;
+                        a.__openPrivacyAttached = true;
+                        a.addEventListener('click', (ev) => {
+                            try {
+                                const explicit = a.getAttribute('data-open-privacy');
+                                if (explicit) {
+                                    ev.preventDefault();
+                                    openPrivacySection(explicit);
+                                    return;
+                                }
+                                const href = a.getAttribute('href');
+                                if (href === '#') {
+                                    const txt = (a.textContent || '').trim();
+                                    if (txt) {
+                                        ev.preventDefault();
+                                        openPrivacySection(txt);
+                                    }
+                                }
+                            } catch (e) {
+                                // ignore
+                            }
+                        });
+                    });
+                });
+            }
+            attempt();
+        })();
     </script>
     @endonce
     @endpush

@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If domain_pricing already exists, skip creating it.
+        if (Schema::hasTable('domain_pricing')) {
+            return;
+        }
+
         Schema::create('domain_pricing', function (Blueprint $table) {
             $table->id();
             $table->string('tld', 10)->unique(); // .com, .id, .net, etc.

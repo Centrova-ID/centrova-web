@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If domain_notifications already exists on the 'account' connection or default, skip creating it.
+        if (Schema::connection('account')->hasTable('domain_notifications') || Schema::hasTable('domain_notifications')) {
+            return;
+        }
+
         Schema::connection('account')->create('domain_notifications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('domain_id');

@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If the domains table already exists (either on the 'account' connection or default), skip.
+        if (Schema::connection('account')->hasTable('domains') || Schema::hasTable('domains')) {
+            return;
+        }
+
         Schema::connection('account')->create('domains', function (Blueprint $table) {
             $table->id();
             $table->string('domain_name')->unique();

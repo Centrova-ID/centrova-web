@@ -390,7 +390,7 @@
                         <h3 class="text-4xl font-bold text-gray-900 mb-6">Mudah ditemukan di Google dengan optimasi SEO terbaik.</h3>
                         
                         <!-- SEO Illustration -->
-                        <img src="{{ asset('/assets/image/services/web-development/web-company-profile/eFg842SPuEvAYz6ktjiXa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="Ilustrasi SEO optimization - website mudah ditemukan di Google" loading="lazy" decoding="async" width="400" height="300">
+                        <img src="{{ asset('/assets/image/services/web-development/web-company-profile/eFg842SPuEvAYz6ktjiXa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="Ilustrasi SEO optimization - website mudah ditemukan di Google" loading="lazy" decoding="async" width="400" height="300" class="mx-auto">
                         
                         <div class="-mt-16 text-center">
                             <p class="text-gray-600 text-sm">Ranking #1 di hasil pencarian Google</p>
