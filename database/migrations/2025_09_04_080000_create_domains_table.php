@@ -11,6 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If the domains table already exists, skip creating it. This handles cases where
+        // the table was created by an imported SQL dump or another migration.
+        if (Schema::hasTable('domains')) {
+            return;
+        }
+
         Schema::create('domains', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

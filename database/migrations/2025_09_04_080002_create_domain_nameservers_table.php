@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If domain_nameservers already exists, skip creating it.
+        if (Schema::hasTable('domain_nameservers')) {
+            return;
+        }
+
         Schema::create('domain_nameservers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('domain_id')->constrained()->onDelete('cascade');

@@ -11,6 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // If domain_pricing already exists on the 'account' connection or default, skip creating it.
+        if (Schema::connection('account')->hasTable('domain_pricing') || Schema::hasTable('domain_pricing')) {
+            return;
+        }
+
         Schema::connection('account')->create('domain_pricing', function (Blueprint $table) {
             $table->id();
             $table->string('tld', 10)->unique(); // .com, .id, .co.id, etc.
