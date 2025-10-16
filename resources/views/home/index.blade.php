@@ -159,40 +159,51 @@
         <div class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Hero Box -->
-                <div class="w-full bg-sky-100 rounded-[36px] p-8 sm:p-12 lg:p-16 min-h-[400px] lg:h-[540px] flex items-center justify-center lg:justify-start">
-                    <div class="max-w-md text-center lg:text-left">
-                        <span class="text-base font-medium text-slate-900">Jasa Pembuatan Website</span>
+                <div class="w-full bg-sky-100 rounded-[36px] min-h-[400px] lg:h-[540px] flex items-center justify-center lg:justify-start relative overflow-hidden">
+                    <div class="absolute w-full h-full">
+                        <div class="w-full h-full bg-gradient-to-r from-pink-100 to-transparent"></div>
+                        <img src="https://www.exabytes.co.id/wp-content/uploads/1180x540-parentpage-design.webp" alt="">
+                    </div>
+                    <div class="max-w-md h-full flex flex-col justify-center text-center lg:text-left z-10 p-8 sm:p-12 lg:p-16 bg-gradient-to-r from-pink-100 via-pink-100/60 to-pink-100/0">
+                        <span class="text-base font-medium text-slate-900">Jasa Desain Website</span>
                         <h1 class="font-bold text-slate-900 text-3xl sm:text-4xl mt-2 leading-snug">
-                            Ubah Ide Anda Menjadi Kenyataan
+                            Paket Design <br> Web Super Lengkap
                         </h1>
                         <p class="text-slate-800 mt-4 text-base sm:text-lg">
-                            Mulailah bangun "rumah" online Anda dengan memiliki website untuk merek Anda.
+                            Dapatkan website profesional yang memperkuat brand dan meningkatkan penjualan.
                         </p>
-                        <a href="{{ localizedRoute('services.index') }}?utm_source=learn"
+                        <div>
+                            <a href="{{ localizedRoute('services.index') }}?utm_source=learn"
                            class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#128AEB] hover:bg-[#0F76C6] transition duration-150 mt-8">
-                            Dapatkan Sekarang
-                        </a>
+                            Dapatkan Sekarang</a>
+                        </div>
                     </div>
                 </div>
 
                 {{-- Cards Section. Reff: https://www.exabytes.co.id/design --}}
                 <div class="grid grid-cols-4 gap-7 mt-12">
-                    {{-- Card 1 --}}
+                    {{-- Feature: Gratis Nama Domain --}}
                     <div class="w-full bg-slate-100 p-8 rounded-3xl">
-                        <h1 class="text-xl font-medium mb-5">Pengelolaan Layanan</h1>
-                        <p class="text-base text-slate-800">Kami akan melakukan segalanya untuk Anda, mulai dari pembuatan hingga peluncuran, dan memastikan website Anda bekerja secara optimal.</p>
+                        <h1 class="text-xl font-medium mb-5">Gratis Nama Domain</h1>
+                        <p class="text-base text-slate-800">Pilih nama domain .COM / .ID / .CO.ID gratis saat Anda membuat website bersama kami.</p>
                     </div>
+
+                    {{-- Feature: Personalisasi Sesuai Keinginan --}}
                     <div class="w-full bg-slate-100 p-8 rounded-3xl">
-                        <h1 class="text-xl font-medium mb-5">Pengelolaan Layanan</h1>
-                        <p class="text-base text-slate-800">Kami akan melakukan segalanya untuk Anda, mulai dari pembuatan hingga peluncuran, dan memastikan website Anda bekerja secara optimal.</p>
+                        <h1 class="text-xl font-medium mb-5">Personalisasi Sesuai Keinginan</h1>
+                        <p class="text-base text-slate-800">Desain profesional dan copywriting yang dibuat khusus untuk merek dan tujuan bisnis Anda.</p>
                     </div>
+
+                    {{-- Feature: Dioptimalkan Untuk SEO & Mobile --}}
                     <div class="w-full bg-slate-100 p-8 rounded-3xl">
-                        <h1 class="text-xl font-medium mb-5">Pengelolaan Layanan</h1>
-                        <p class="text-base text-slate-800">Kami akan melakukan segalanya untuk Anda, mulai dari pembuatan hingga peluncuran, dan memastikan website Anda bekerja secara optimal.</p>
+                        <h1 class="text-xl font-medium mb-5">Dioptimalkan untuk SEO & Mobile</h1>
+                        <p class="text-base text-slate-800">Website SEO-friendly dan responsif di semua perangkat untuk meningkatkan visibilitas dan konversi.</p>
                     </div>
+
+                    {{-- Feature: Dasbor Ramah Pengguna --}}
                     <div class="w-full bg-slate-100 p-8 rounded-3xl">
-                        <h1 class="text-xl font-medium mb-5">Pengelolaan Layanan</h1>
-                        <p class="text-base text-slate-800">Kami akan melakukan segalanya untuk Anda, mulai dari pembuatan hingga peluncuran, dan memastikan website Anda bekerja secara optimal.</p>
+                        <h1 class="text-xl font-medium mb-5">Dasbor Ramah Pengguna</h1>
+                        <p class="text-base text-slate-800">Kelola konten dan update website dengan mudah lewat dasbor intuitif tanpa perlu keahlian teknis.</p>
                     </div>
                 </div>
             </div>
