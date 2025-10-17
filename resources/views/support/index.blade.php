@@ -1,15 +1,14 @@
 @extends('partials.layouts.main')
 
 @section('content')
-<section class="w-full h-[400px] bg-black">
-    <img src="https://images.pexels.com/photos/7477693/pexels-photo-7477693.jpeg?cs=srgb&dl=pexels-kampus-production-7477693.jpg&fm=jpg" class="w-full h-full object-cover opacity-80">
-</section>
-
-<div class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-6xl font-bold text-center text-neutral-800">Centrova Support</h1>
+<section class="w-full h-[400px] bg-black relative flex justify-center items-center">
+    <img src="{{ asset('assets/image/support/hero-banner-support-home_image_large_2x.jpg') }}" class="w-full object-cover bottom-0 absolute">
+    <div class="flex flex-col z-10 text-center">
+        <h2 class="text-5xl font-medium text-slate-800 mb-2">Selamat Datang di Dukungan Centrova</h2>
+        <h5 class="text-2xl font-medium text-slate-800">Ada yang bisa kami bantu?</h5>
+        <input type="text" name="search" class="w-full mt-4 outline-none p-3 hover:border-[#128aeb] hover:border-2 transition-all bg-white border border-neutral-300 rounded-xl h-12">
     </div>
-</div>
+</section>
 
 <div class="w-full grid grid-cols-3 gap-5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-8">
     <button class="flex-col px-6 py-4 text-left group">
