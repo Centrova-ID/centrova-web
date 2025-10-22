@@ -2,6 +2,11 @@
 
 @section('title', 'Layanan Jasa Pengembangan Perangkat Lunak - Centrova')
 
+<meta charset=utf-8>
+<meta name=description content="Centrova menyediakan aplikasi bisnis.">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="keywords" content="aplikasi bisnis, aplikasi bisnis no. 1">
+
 {{-- Navbar --}}
 @section('navbar')
     {{-- Navbar --}}
@@ -201,21 +206,6 @@
                             short: 'Support & maintenance setelah proyek selesai.',
                             desc: 'Setelah proyek selesai, tim kami tetap siap membantu Anda melalui layanan support dan maintenance, agar aplikasi selalu optimal.'
                         },
-                        {
-                            title: 'Harga Kompetitif',
-                            short: 'Layanan premium dengan harga terjangkau.',
-                            desc: 'Kami percaya solusi digital berkualitas tidak harus mahal. Centrova menawarkan layanan premium dengan harga yang sesuai dengan kebutuhan dan budget bisnis Anda.'
-                        },
-                        {
-                            title: 'Customizable Solution',
-                            short: 'Fitur & desain disesuaikan dengan visi Anda.',
-                            desc: 'Setiap bisnis itu unik. Karena itu, kami selalu menyesuaikan fitur, desain, dan alur kerja aplikasi agar benar-benar relevan dengan visi Anda.'
-                        },
-                        {
-                            title: 'Garansi Revisi',
-                            short: 'Garansi revisi sesuai scope project.',
-                            desc: 'Kami memberikan garansi revisi sesuai kesepakatan project scope. Tujuan kami adalah memastikan hasil akhirnya 100% memuaskan Anda.'
-                        },
                     ],
                     backgroundImages: [
                         '/assets/image/services/keunggulan/tim-berpengalaman.jpg',
@@ -224,9 +214,6 @@
                         '/assets/image/services/keunggulan/technology.png',
                         '/assets/image/services/keunggulan/end-to-end.jpg',
                         'https://images.unsplash.com/photo-1580893246395-52aead8960dc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                        'https://i.pinimg.com/736x/fb/0e/8e/fb0e8e750dd98dd11adb2194385ea92f.jpg',
-                        'https://i.pinimg.com/736x/6e/47/a8/6e47a8f87a40d77d786d8aac5af859dc.jpg',
-                        'https://i.pinimg.com/736x/6e/47/a8/6e47a8f87a40d77d786d8aac5af859dc.jpg',
                     ],
                     showModal: false,
                     modalIndex: null,
@@ -325,116 +312,5 @@
     </style>
 
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
-
-    {{-- Mengapa Harus Digitalisasi Bisnis --}}
-    <section class="w-full bg-white py-32 max-md:py-16 px-4 sm:px-6 lg:px-8">
-        <div class="w-full max-w-6xl mx-auto">
-            {{-- Heading --}}
-            <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-4xl font-bold text-slate-900 mb-4">
-                    Mengapa Harus Mendigitalisasi Bisnis Anda?
-                </h2>
-                <p class="text-xl text-slate-700 max-w-3xl mx-auto mb-8">
-                    Di era digital, bisnis bisa tumbuh lebih cepat dan menjangkau pasar yang lebih luas.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                {{-- Jangkauan Pasar Lebih Luas --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Ekspansi Pasar Global</h3>
-                    <p class="text-slate-700 leading-relaxed">Platform digital memungkinkan akses customer 24/7 dari seluruh dunia, membuka peluang revenue stream yang tak terbatas.</p>
-                </div>
-
-                {{-- Efisiensi Operasional --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Efisiensi Operasional</h3>
-                    <p class="text-slate-700 leading-relaxed">Otomatisasi proses bisnis mengurangi human error, meningkatkan produktivitas, dan mengoptimalkan alokasi resources.</p>
-                </div>
-
-                {{-- Kredibilitas Professional --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Brand Credibility</h3>
-                    <p class="text-slate-700 leading-relaxed">Digital presence yang profesional membangun trust dan diferensiasi brand dalam kompetisi market yang ketat.</p>
-                </div>
-
-                {{-- Data & Analytics --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Data-Driven Insights</h3>
-                    <p class="text-slate-700 leading-relaxed">Analytics platform memberikan business intelligence untuk strategic decision making dan growth optimization.</p>
-                </div>
-
-                {{-- Cost Effective --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">ROI Berkelanjutan</h3>
-                    <p class="text-slate-700 leading-relaxed">Investasi teknologi menghasilkan compound returns melalui scalability dan operational efficiency jangka panjang.</p>
-                </div>
-
-                {{-- Competitive Advantage --}}
-                <div class="bg-white rounded-3xl border border-neutral-200 p-8 text-center hover:shadow-md transition-all duration-300" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                    <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg width="32" height="32" fill="none" stroke="#128AEB" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Competitive Advantage</h3>
-                    <p class="text-slate-700 leading-relaxed">Digital transformation memberikan first-mover advantage dan sustainable competitive moat dalam industry landscape.</p>
-                </div>
-            </div>
-
-            {{-- Call to Action --}}
-            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">
-                <div class="bg-gradient-to-r from-[#128AEB]/5 to-[#128AEB]/10 rounded-3xl border border-[#128AEB]/10 p-8 md:p-12 text-center">
-                    <h3 class="text-xl md:text-2xl font-semibold text-slate-900 mb-4">
-                        Ready to Transform Your Business?
-                    </h3>
-                    <p class="text-base md:text-lg text-slate-700 mb-8 max-w-2xl mx-auto">
-                        Jangan biarkan kompetitor unggul terlebih dahulu. Mulai digital transformation journey bersama partner teknologi terpercaya.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#" class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-[#128AEB] text-white font-semibold hover:bg-[#0F76C6] transition">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="mr-2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                            </svg>
-                            Strategic Consultation
-                        </a>
-                        <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-3 rounded-full border border-[#128AEB] text-[#128AEB] font-semibold hover:bg-[#128AEB]/5 transition">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="mr-2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                            </svg>
-                            Explore Portfolio
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 @endsection
