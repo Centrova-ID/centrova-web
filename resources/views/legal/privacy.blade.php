@@ -263,7 +263,7 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">6.2 Dasar Hukum Berbagi Data</h3>
-                                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                <div class="bg-neutral-100 rounded-3xl p-6">
                                     <ul class="text-neutral-900 text-lg space-y-2">
                                         <li><strong>Service Order Processing:</strong> Legal basis "Contract" - untuk memproses pesanan layanan pengembangan</li>
                                         <li><strong>Security Monitoring:</strong> Legal basis "Legitimate Interest" - untuk deteksi ancaman dan perlindungan platform</li>
@@ -286,7 +286,7 @@
                                 </ul>
                             </div>
 
-                            <p class="text-neutral-900 text-sm italic bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <p class="text-neutral-900 text-sm bg-neutral-100 rounded-3xl p-6">
                                 <strong>Jaminan Kami:</strong> Centrova tidak menjual, menyewakan, atau memperdagangkan data pribadi Anda kepada pihak ketiga untuk tujuan komersial. Semua sharing data dilakukan semata-mata untuk operational necessity dengan perjanjian kerahasiaan yang ketat.
                             </p>
                         `
@@ -313,7 +313,7 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">7.2 Security Monitoring & Response</h3>
-                                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                <div class="bg-neutral-100 rounded-3xl p-6">
                                     <ul class="text-neutral-900 text-lg space-y-2">
                                         <li><strong>Real-time Threat Detection:</strong> SecurityNotificationService untuk deteksi login dari device baru atau lokasi mencurigakan</li>
                                         <li><strong>Failed Login Protection:</strong> Automatic alerts untuk multiple failed attempts (threshold: 3+ attempts dalam 24 jam)</li>
@@ -355,7 +355,7 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">8.1 Portal Online (Recommended)</h3>
-                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                                <div class="bg-neutral-100 rounded-3xl p-6 mb-4">
                                     <p class="text-neutral-900 text-lg leading-relaxed mb-3">
                                         <strong>Halaman Hak Data Pribadi:</strong> <a href="{{ route('data-rights.index') }}" class="text-[#128AEB] hover:underline font-semibold">{{ route('data-rights.index') }}</a>
                                     </p>
@@ -367,7 +367,7 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">8.2 Kontak Data Protection Officer</h3>
-                                <div class="border border-gray-200 rounded-lg p-6">
+                                <div class="border border-neutral-100 rounded-3xl p-6">
                                     <div class="space-y-3 text-neutral-900">
                                         <p><strong>Email Utama:</strong> <a href="mailto:privacy@centrova.com" class="text-[#128AEB] hover:underline">privacy@centrova.com</a></p>
                                         <p><strong>Form Kontak:</strong> <a href="{{ route('legal.privacy.contact') }}" class="text-[#128AEB] hover:underline">{{ route('legal.privacy.contact') }}</a></p>
@@ -380,19 +380,19 @@
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">8.3 Jenis Permintaan yang Dapat Diajukan</h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                    <div class="bg-neutral-100 rounded-2xl p-6">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Export (Portability)</h4>
                                         <p class="text-sm text-gray-700">Download semua data pribadi Anda dalam format JSON/ZIP melalui DataRightsController.</p>
                                     </div>
-                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                    <div class="bg-neutral-100 rounded-2xl p-6">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Rectification</h4>
                                         <p class="text-sm text-gray-700">Mengajukan perbaikan data yang tidak akurat dengan sistem tracking approval.</p>
                                     </div>
-                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                    <div class="bg-neutral-100 rounded-2xl p-6">
                                         <h4 class="font-semibold text-slate-800 mb-2">Account Deletion</h4>
                                         <p class="text-sm text-gray-700">Permintaan penghapusan akun dengan verifikasi password dan approval workflow.</p>
                                     </div>
-                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                    <div class="bg-neutral-100 rounded-2xl p-6">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Access Request</h4>
                                         <p class="text-sm text-gray-700">Meminta informasi tentang data apa saja yang kami simpan tentang Anda.</p>
                                     </div>
@@ -401,7 +401,7 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">8.4 Timeline Pemrosesan</h3>
-                                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                                <div class="bg-neutral-100 rounded-3xl p-6">
                                     <ul class="text-neutral-900 space-y-2">
                                         <li><strong>Konfirmasi Penerimaan:</strong> 2 hari kerja (automated system)</li>
                                         <li><strong>Data Export:</strong> Instantly available untuk download</li>
@@ -412,7 +412,7 @@
                                 </div>
                             </div>
 
-                            <p class="text-neutral-900 text-sm italic bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <p class="text-neutral-900 text-sm bg-amber-300 rounded-2xl p-6">
                                 <strong>Catatan:</strong> Semua permintaan data akan dilog dalam sistem GDPR audit kami untuk compliance tracking. Anda akan menerima konfirmasi email dan reference number untuk setiap permintaan yang diajukan.
                             </p>
                         `
@@ -420,7 +420,7 @@
                     {
                         title: 'Tanggal Berlaku dan Riwayat Perubahan',
                         content: `
-                            <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="bg-neutral-100 rounded-3xl p-6">
                                 <div class="mb-6">
                                     <h3 class="text-lg font-semibold mb-2">Kebijakan Saat Ini</h3>
                                     <p class="text-neutral-900"><strong>Berlaku sejak:</strong> 10 Agustus 2025</p>
@@ -429,7 +429,7 @@
                                 <div class="mb-6">
                                     <h3 class="text-lg font-semibold mb-2">Riwayat Perubahan</h3>
                                     <div class="space-y-3">
-                                        <div class="border-l-4 border-slate-500 pl-4">
+                                        <div>
                                             <p class="font-medium">Versi 2.0 - 10 Agustus 2025</p>
                                             <p class="text-sm text-gray-600">
                                                 • Pembaruan struktur sesuai standar GDPR<br>
@@ -438,13 +438,13 @@
                                                 • Perincian langkah keamanan teknis dan organisasi
                                             </p>
                                         </div>
-                                        <div class="border-l-4 border-gray-400 pl-4">
+                                        <div>
                                             <p class="font-medium">Versi 1.0 - [Tanggal versi sebelumnya]</p>
                                             <p class="text-sm text-gray-600">• Kebijakan privasi versi awal</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="bg-gray-50 border border-gray-200 rounded p-4">
+                                <div class="bg-neutral-50 rounded-2xl p-4">
                                     <h4 class="font-semibold text-slate-800 mb-2">Pemberitahuan Perubahan</h4>
                                     <p class="text-gray-700 text-sm">
                                         Kami akan memberitahukan setiap perubahan material pada kebijakan ini melalui email 
