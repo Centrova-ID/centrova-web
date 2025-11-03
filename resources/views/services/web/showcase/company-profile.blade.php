@@ -393,7 +393,7 @@
                         <img src="{{ asset('/assets/image/services/web-development/web-company-profile/eFg842SPuEvAYz6ktjiXa9Tfx73RB0symo_Ld-hI1rGZpVUc5lDqJWKQn.png') }}" alt="Ilustrasi SEO optimization - website mudah ditemukan di Google" loading="lazy" decoding="async" width="400" height="300" class="mx-auto">
                         
                         <div class="-mt-16 text-center">
-                            <p class="text-gray-600 text-sm">Ranking #1 di hasil pencarian Google</p>
+                            <p class="text-gray-600 text-base">Ranking #1 di hasil pencarian Google</p>
                         </div>
                     </div>
                     <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#128AEB] bg-opacity-5 rounded-full"></div>

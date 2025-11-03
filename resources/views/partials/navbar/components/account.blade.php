@@ -95,60 +95,72 @@
     {{-- Tombol login untuk user yang belum login --}}
     <a href="{{ route('login') }}" class="w-8 h-8 border-[2px] border-[#128AEB] rounded-full overflow-hidden flex justify-center items-center">
         <img src="/assets/icons/ui/account/sign-in.svg" 
-            class="w-5.5 h-5.5 ml-0.5 object-cover">
+            class="w-5.5 h-5.5 ml-0.5 object-cover" alt="Sign In Icon">
     </a>
 @endauth
 
-{{-- JavaScript untuk Account Switcher --}}
+{{-- JavaScript untuk Account Switcher hanya dijalankan sekali --}}
+@once
 <script>
-    // Data yang sudah tersedia dari server
-    let navbarAccountDataNav = @json($multiAccountData ?? null);
+    // Pastikan variabel global hanya didefinisikan sekali
+    if (typeof window.navbarAccountDataNav === 'undefined') {
+        window.navbarAccountDataNav = @json($multiAccountData ?? null);
+    }
 
     // Fungsi untuk menangani klik tombol beralih akun
-    function handleAccountSwitch() {
-        
-        // Jika tidak ada data atau hanya 1 akun, arahkan ke add account endpoint
-        if (!navbarAccountDataNav || !navbarAccountDataNav.has_multiple) {
-            // Redirect ke endpoint login dengan mode add-different-account
-            window.location.href = '{{ route('login') }}?mode=add-different-account';
-            return;
-        }
-        
-        // Jika sudah ada beberapa akun, tampilkan modal
-        showAccountSwitcher();
+    if (typeof window.handleAccountSwitch === 'undefined') {
+        window.handleAccountSwitch = function() {
+            // Jika tidak ada data atau hanya 1 akun, arahkan ke add account endpoint
+            if (!window.navbarAccountDataNav || !window.navbarAccountDataNav.has_multiple) {
+                // Redirect ke endpoint login dengan mode add-different-account
+                window.location.href = '{{ route('login') }}?mode=add-different-account';
+                return;
+            }
+            
+            // Jika sudah ada beberapa akun, tampilkan modal
+            showAccountSwitcher();
+        };
     }
 
     // Fungsi untuk menampilkan modal account switcher
-    function showAccountSwitcher() {
-        const modal = document.getElementById('account-switcher-modal');
-        if (modal) {
-            modal.classList.remove('hidden');
-            // Inisialisasi modal dengan data yang sudah tersedia
-            if (typeof initializeAccountSwitcher === 'function') {
-                initializeAccountSwitcher();
+    if (typeof window.showAccountSwitcher === 'undefined') {
+        window.showAccountSwitcher = function() {
+            const modal = document.getElementById('account-switcher-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                // Inisialisasi modal dengan data yang sudah tersedia
+                if (typeof initializeAccountSwitcher === 'function') {
+                    initializeAccountSwitcher();
+                }
+            } else {
+                console.error('Account switcher modal not found');
             }
-        } else {
-            console.error('Account switcher modal not found');
-        }
+        };
     }
 
     // Update teks tombol berdasarkan jumlah akun
-    function updateAccountSwitchButton() {
-        const switchText = document.getElementById('account-switch-text');
-        
-        if (switchText && navbarAccountDataNav) {
-            if (navbarAccountDataNav.has_multiple) {
-                switchText.textContent = 'Beralih Akun';
-            } else {
-                switchText.textContent = 'Tambah Akun';
+    if (typeof window.updateAccountSwitchButton === 'undefined') {
+        window.updateAccountSwitchButton = function() {
+            const switchText = document.getElementById('account-switch-text');
+            
+            if (switchText && window.navbarAccountDataNav) {
+                if (window.navbarAccountDataNav.has_multiple) {
+                    switchText.textContent = 'Beralih Akun';
+                } else {
+                    switchText.textContent = 'Tambah Akun';
+                }
             }
-        }
+        };
     }
 
-    // Inisialisasi saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', function() {
-        @auth
-            updateAccountSwitchButton();
-        @endauth
-    });
+    // Inisialisasi saat halaman dimuat (hanya sekali)
+    if (typeof window.navbarAccountInitialized === 'undefined') {
+        window.navbarAccountInitialized = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            @auth
+                window.updateAccountSwitchButton();
+            @endauth
+        });
+    }
 </script>
+@endonce

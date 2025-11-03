@@ -37,12 +37,16 @@
                 <div :id="`privacy-section-${index}`" class="py-0 focus-within:border-b-2 focus-within:border-[#128AEB] transition">
                     <!-- Button -->
                     <button 
+                        type="button"
                         @click="toggleSection(index)"
-                        class="w-full py-4 text-left flex items-center justify-between focus:z-20 my-0.5 transition-colors gap-2 group"
+                        :aria-expanded="openSection === index"
+                        :aria-controls="'privacy-section-'+index"
+                        class="w-full py-4 px-3 text-left flex items-center justify-between focus:z-20 my-0.5 transition-colors gap-2 group focus:outline-none focus:ring-2 focus:ring-[#128AEB] focus:ring-offset-2"
                     >
                         <span class="font-bold text-slate-900 text-xl sm:text-2xl leading-snug sm:leading-normal flex-wrap sm:flex-nowrap max-w-[80%] group-hover:text-[#128AEB]" x-text="section.title"></span>
                         <svg 
-                            class="w-5 h-5 text-gray-500 group-hover:text-[#128AEB] transform transition-transform duration-300 flex-shrink-0"
+                            aria-hidden="true"
+                            class="w-5 h-5 text-gray-700 group-hover:text-[#128AEB] transform transition-transform duration-300 flex-shrink-0"
                             :class="{ 'rotate-180': openSection === index }"
                             fill="none" 
                             stroke="currentColor" 
@@ -357,7 +361,7 @@
                                 <h3 class="text-xl font-semibold mb-3">8.1 Portal Online (Recommended)</h3>
                                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
                                     <p class="text-neutral-900 text-lg leading-relaxed mb-3">
-                                        <strong>Halaman Hak Data Pribadi:</strong> <a href="{{ route('data-rights.index') }}" class="text-[#128AEB] hover:underline font-semibold">{{ route('data-rights.index') }}</a>
+                                        <strong>Halaman Hak Data Pribadi:</strong> <a href="{{ route('data-rights.index') }}" class="text-[#128AEB] hover:underline font-semibold inline-block py-2">{{ route('data-rights.index') }}</a>
                                     </p>
                                     <p class="text-neutral-900 text-base">
                                         Portal ini memungkinkan Anda untuk langsung mengajukan permintaan GDPR seperti data export, rectification, dan deletion request dengan sistem tracking yang terintegrasi.
@@ -379,22 +383,22 @@
 
                             <div class="mb-6">
                                 <h3 class="text-xl font-semibold mb-3">8.3 Jenis Permintaan yang Dapat Diajukan</h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Export (Portability)</h4>
-                                        <p class="text-sm text-gray-700">Download semua data pribadi Anda dalam format JSON/ZIP melalui DataRightsController.</p>
+                                        <p class="text-base text-neutral-900">Download semua data pribadi Anda dalam format JSON/ZIP melalui DataRightsController.</p>
                                     </div>
                                     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Rectification</h4>
-                                        <p class="text-sm text-gray-700">Mengajukan perbaikan data yang tidak akurat dengan sistem tracking approval.</p>
+                                        <p class="text-base text-neutral-900">Mengajukan perbaikan data yang tidak akurat dengan sistem tracking approval.</p>
                                     </div>
                                     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                         <h4 class="font-semibold text-slate-800 mb-2">Account Deletion</h4>
-                                        <p class="text-sm text-gray-700">Permintaan penghapusan akun dengan verifikasi password dan approval workflow.</p>
+                                        <p class="text-base text-neutral-900">Permintaan penghapusan akun dengan verifikasi password dan approval workflow.</p>
                                     </div>
                                     <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
                                         <h4 class="font-semibold text-slate-800 mb-2">Data Access Request</h4>
-                                        <p class="text-sm text-gray-700">Meminta informasi tentang data apa saja yang kami simpan tentang Anda.</p>
+                                        <p class="text-base text-neutral-900">Meminta informasi tentang data apa saja yang kami simpan tentang Anda.</p>
                                     </div>
                                 </div>
                             </div>
@@ -431,7 +435,7 @@
                                     <div class="space-y-3">
                                         <div class="border-l-4 border-slate-500 pl-4">
                                             <p class="font-medium">Versi 2.0 - 10 Agustus 2025</p>
-                                            <p class="text-sm text-gray-600">
+                                            <p class="text-base text-neutral-700">
                                                 • Pembaruan struktur sesuai standar GDPR<br>
                                                 • Penambahan hak subjek data yang lebih detail<br>
                                                 • Klarifikasi jaminan tidak memperjualbelikan data<br>
@@ -440,13 +444,13 @@
                                         </div>
                                         <div class="border-l-4 border-gray-400 pl-4">
                                             <p class="font-medium">Versi 1.0 - [Tanggal versi sebelumnya]</p>
-                                            <p class="text-sm text-gray-600">• Kebijakan privasi versi awal</p>
+                                            <p class="text-base text-neutral-700">• Kebijakan privasi versi awal</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="bg-gray-50 border border-gray-200 rounded p-4">
                                     <h4 class="font-semibold text-slate-800 mb-2">Pemberitahuan Perubahan</h4>
-                                    <p class="text-gray-700 text-sm">
+                                    <p class="text-neutral-900 text-base">
                                         Kami akan memberitahukan setiap perubahan material pada kebijakan ini melalui email 
                                         dan notifikasi di platform kami minimal 30 hari sebelum perubahan berlaku.
                                     </p>
