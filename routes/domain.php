@@ -73,6 +73,8 @@ Route::domain('account.centrova.test')->middleware(['web', 'auth'])->prefix('dom
     Route::post('/{domain}/privacy', [DomainManagementController::class, 'togglePrivacy'])->name('privacy');
 });
 
+// office admin centrova (main) = dukungan purna jual
+
 // Office/Admin domain routes
 Route::domain('office.centrova.test')->middleware(['web', 'office.access', 'block.customer'])->prefix('domains')->name('admin.domains.')->group(function () {
     
