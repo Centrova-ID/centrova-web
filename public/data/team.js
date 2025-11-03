@@ -2,11 +2,11 @@
 const teamData = {
     'sultan-rahmatulloh': {
         name: 'Sultan Rahmatulloh',
-        position: 'Founder dan Software Developer',
+        position: 'System & Software Developer',
         email: 'sultan@centrova.com',
         linkedin: 'https://linkedin.com/in/tanbopp',
-        photo: '/assets/image/team/sultan/sultan.png',
-        heroImage: '/assets/image/team/sultan/sultan.png',
+        photo: '/assets/image/team/sultan_image_small.jpg',
+        heroImage: '/assets/image/team/sultan_image_large.jpg',
         bio: {
             intro: 'Sultan Rahmatulloh adalah seorang pengusaha dan programmer yang mencetuskan ide lahirnya Centrova, sebuah platform teknologi untuk solusi digitalisasi bisnis di Indonesia.',
             content: [
@@ -120,11 +120,11 @@ const teamData = {
     },
     'syahied-ramadhan': {
         name: 'Syahied Ramadhan',
-        position: 'Co-Founder dan Chief Marketing Officer',
+        position: 'Marketing & Relations',
         email: 'syahied@centrova.com',
         linkedin: 'https://linkedin.com/in/tanbopp',
-        photo: '/assets/image/team/sultan/sultan.png',
-        heroImage: '/assets/image/team/sultan/sultan.png',
+        photo: '/assets/image/team/syahied_image_small.jpg',
+        heroImage: '/assets/image/team/syahied_image_large.jpg',
         bio: {
             intro: 'Syahied Ramadhan adalah Co-Founder dan Chief Marketing Officer di Centrova. Ia memimpin strategi pemasaran, brand, dan pertumbuhan pelanggan untuk memperluas adopsi solusi digital Centrova di seluruh Indonesia.',
             content: [
@@ -194,7 +194,7 @@ const teamData = {
     },
     'muhammad-fadli': {
         name: 'Muhammad Fadli',
-        position: 'Co-Founder dan Chief Technology Officer',
+        position: 'Technical Support',
         email: 'muhammad.fadli@centrova.com',
         linkedin: 'https://linkedin.com/in/muhammad-fadli',
         photo: '/assets/image/team/muhammad-fadli/muhammad-fadli.png',

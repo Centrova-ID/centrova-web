@@ -19,11 +19,8 @@
     {{-- Google Fonts: Noto Sans --}}
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    {{-- Alpine.js --}}
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    {{-- Tailwind CSS --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- Vite Assets: Include Tailwind CSS dan Alpine.js --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- Custom Styles --}}
     <link rel="stylesheet" href="css/button.css">
@@ -63,32 +60,39 @@
     
     {{-- Hotwire Turbo for SPA-like Navigation --}}
     <script type="module">
-        import { Turbo } from "https://cdn.skypack.dev/@hotwired/turbo@^8.0.0";
-        
-        // Turbo Configuration
-        Turbo.session.drive = true;
-        Turbo.setFormMode("optin");
-        
-        // Event Listeners untuk Turbo
-        document.addEventListener("turbo:load", function() {
-            // Reinitialize Alpine.js setelah Turbo navigation
-            if (window.Alpine) {
-                window.Alpine.initTree(document.body);
-            }
+        try {
+            const { Turbo } = await import("https://cdn.skypack.dev/@hotwired/turbo@^8.0.0");
             
-            // Reinitialize AOS animations
-            if (window.AOS) {
-                window.AOS.refresh();
-            }
-        });
-        
-        // Handle form submissions dengan CSRF
-        document.addEventListener("turbo:before-fetch-request", function(event) {
-            const token = document.querySelector('meta[name="csrf-token"]');
-            if (token) {
-                event.detail.fetchOptions.headers["X-CSRF-TOKEN"] = token.getAttribute("content");
-            }
-        });
+            // Turbo Configuration
+            Turbo.session.drive = true;
+            Turbo.setFormMode("optin");
+            
+            // Make Turbo available globally
+            window.Turbo = Turbo;
+            
+            // Event Listeners untuk Turbo
+            document.addEventListener("turbo:load", function() {
+                // Reinitialize Alpine.js setelah Turbo navigation
+                if (window.Alpine) {
+                    window.Alpine.initTree(document.body);
+                }
+                
+                // Reinitialize AOS animations
+                if (window.AOS) {
+                    window.AOS.refresh();
+                }
+            });
+            
+            // Handle form submissions dengan CSRF
+            document.addEventListener("turbo:before-fetch-request", function(event) {
+                const token = document.querySelector('meta[name="csrf-token"]');
+                if (token) {
+                    event.detail.fetchOptions.headers["X-CSRF-TOKEN"] = token.getAttribute("content");
+                }
+            });
+        } catch (error) {
+            console.warn('Turbo could not be loaded:', error);
+        }
         
         // Preserve scroll position untuk navigasi back/forward
         document.addEventListener("turbo:before-visit", function(event) {

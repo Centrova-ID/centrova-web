@@ -94,7 +94,8 @@
         </div>
         
         {{-- Team Grid --}}
-        <div id="team-grid" class="w-full flex max-md:flex-col gap-6 max-md:gap-16 justify-start max-md:items-center max-md:pb-32 grid grid-cols-3" style="display: none;">
+        {{-- Initially hidden via Tailwind class so we can toggle it without conflicting inline styles --}}
+        <div id="team-grid" class="w-full gap-6 max-md:gap-16 max-md:pb-32 grid max-[620px]:grid-cols-1 max-md:grid-cols-2 grid-cols-3 hidden">
             {{-- Team members will be dynamically inserted here --}}
         </div>
     </div>
@@ -133,14 +134,14 @@
         const container = document.getElementById('team-grid');
         
         container.innerHTML = teamMembers.map(member => `
-            <a href="/team/${member.slug}" class="w-full h-auto flex-col group cursor-pointer">
-                <div class="w-full aspect-[10/7] bg-gradient-to-b from-neutral-200 to-white rounded-3xl overflow-hidden relative">
-                    <img src="${member.heroImage || '/images/default-profile.jpg'}" 
-                         srcset="${member.heroImage || '/images/default-profile.jpg'} 1x, ${member.heroImage || '/images/default-profile.jpg'} 2x"
+            <a href="/team/${member.slug}" class="w-full h-auto flex flex-col group cursor-pointer">
+                <div class="w-full aspect-[10/7] bg-gradient-to-b from-neutral-200 to-white rounded-3xl overflow-hidden relative border border-neutral-200">
+                    <img src="${member.photo || '/images/default-profile.jpg'}" 
+                         srcset="${member.photo || '/images/default-profile.jpg'} 1x, ${member.photo || '/images/default-profile.jpg'} 2x"
                          sizes="(max-width: 768px) 300px, (max-width: 1024px) 280px, 300px"
                          alt="${member.name}" 
-                         class="w-full h-full object-contain object-top opacity-90 group-hover:opacity-100 transition-opacity"
-                         onload="this.style.opacity='100'" loading="lazy"
+                         class="w-full h-full object-contain object-top"
+                         onload="this.style.opacity='1'" loading="lazy"
                          onerror="this.src='/images/default-profile.jpg'; this.style.opacity='0.7';">
                     <!-- Fallback jika foto tidak ada -->
                     <div class="absolute inset-0 flex items-center justify-center text-neutral-400" style="display: none;" id="fallback-${member.slug}">
@@ -171,8 +172,12 @@
     }
 
     function hideLoadingState() {
-        document.getElementById('loading-state').style.display = 'none';
-        document.getElementById('team-grid').style.display = 'flex';
+        // hide spinner and reveal the grid by removing the Tailwind 'hidden' class
+        const loading = document.getElementById('loading-state');
+        if (loading) loading.style.display = 'none';
+
+        const grid = document.getElementById('team-grid');
+        if (grid) grid.classList.remove('hidden');
     }
 </script>
 @endsection

@@ -6,18 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
     {{-- Hotwire Turbo Configuration --}}
     <meta name="turbo-cache-control" content="no-preview">
     <meta name="turbo-root" content="{{ url('/') }}">
     <meta name="turbo-refresh-method" content="morph">
     <meta name="turbo-refresh-scroll" content="preserve">
-
-    {{-- SEO Meta Tags - Powered by SEOTools --}}
-    {!! SEO::generate() !!}
-    
     {{-- Additional SEO Meta Tags --}}
     @yield('seoMetaTags')
+    {{-- SEO Meta Tags - Powered by SEOTools --}}
+    {{-- {!! SEO::generate() !!} --}}
+
+    {{-- Title --}}
+    <title>@yield('title')</title>
     
     {{-- JSON-LD Structured Data --}}
     @stack('structured-data')
@@ -41,10 +41,11 @@
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
-    {{-- DNS Prefetch for Performance --}}
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//unpkg.com">
-    <link rel="dns-prefetch" href="//cdn.skypack.dev">
+    {{-- Preconnect / DNS Prefetch for Performance (faster TLS & early connection) --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.skypack.dev">
 
     {{-- Preload Fonts --}}
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -61,7 +62,7 @@
     {{-- Additional Links from Views --}}
     @yield('link-head')
 
-    {{-- External JavaScript Libraries --}}
+    {{-- External JavaScript Libraries (defer non-critical JS to reduce render-blocking) --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     

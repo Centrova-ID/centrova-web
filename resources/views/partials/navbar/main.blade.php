@@ -87,7 +87,7 @@
             </div>
             {{-- Logo + Menu Desktop --}}
             <div class="flex items-center gap-x-6">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" class="select-none">
                     <img src="{{ asset('/assets/brand/centrova-logo.svg') }}" class="h-[26px] w-auto" alt="Centrova Logo" draggable="false" />
                 </a>
                 <div class="hidden md:flex md:gap-x-2 text-base font-medium text-neutral-800 items-center text-sm text-left">
