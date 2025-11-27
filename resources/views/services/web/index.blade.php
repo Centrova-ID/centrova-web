@@ -79,14 +79,10 @@
 
 @section('content')
     {{-- Hero Section --}}
-    <section class="w-full bg-white py-32 max-md:py-16">
+    {{-- <section class="w-full bg-white py-32 max-md:py-16">
         <div class="w-full max-w-3xl mx-auto pt-24 md:pt-38 lg:pt-32 px-4">
             <div 
                 class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center" 
-                data-aos="fade-up" 
-                data-aos-duration="700" 
-                data-aos-once="true" 
-                data-aos-offset="10"
             >
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 mb-6 sm:mb-8 md:mb-10 leading-tight">
                     Jasa Pembuatan Website <br class="block sm:hidden">
@@ -97,20 +93,54 @@
                 </p>
             </div>
         </div>
+    </section> --}}
+
+    {{-- Hero Section --}}
+    <section class="w-full bg-white py-16 pt-32">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div class="max-w-3xl">
+                <h1 class="text-[3.6rem] max-lg:text-[3rem] max-md:text-[2.6rem] leading-snug font-bold mb-6 bg-gradient-to-r from-blue-600 to-[#128aeb] bg-clip-text text-transparent">Jasa Pembuatan Website</h1>
+                <p class="text-xl max-md:text-lg leading-snug text-neutral-700 mb-6">Ciptakan website profesional dengan desain yang memenuhi ekspektasi. Hasil luar biasa dan posisi terbaik di mesin pencari, selesai dalam waktu singkat, hanya 3 hari kerja.</p>
+                <a href="#" 
+                class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#128AEB] hover:bg-[#0F76C6] transition duration-150 min-h-[44px]">
+                    Pelajari selengkapnya
+                </a>
+            </div>
+        </div>
     </section>
 
-    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
+    <section class="w-full bg-neutral-100 py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="max-w-7xl mx-auto text-center mb-12 px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-semibold text-neutral-900 mb-3 leading-snug">
+                    Apa yang Membuat Website Kami Lebih Mudah Digunakan oleh Anda?
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-3 max-md:grid-cols-1 max-lg:grid-cols-3 gap-8">
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">Kecepatan Loading Website 10x Lebih Cepat</h1>
+                    <p>Jalankan website Anda pada disk SSD! Website Anda akan memuat lebih cepat daripada website pada umumnya.</p>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">Ramah Mesin Pencari</h1>
+                    <p>Website Anda terjamin ramah SEO (Search Engine Optimization), sehingga mampu menempati peringkat teratas di mesin pencarian seperti Google.</p>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">100% Perlindungan Kemanan</h1>
+                    <p>Website Anda memiliki rangkaian lengkap sertifikasi SSL untuk perlindungan keamanan, anti-spam, firewall, dan backup harian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
    {{-- Sudah saatnya --}}
    <section class="w-full overflow-hidden py-32 max-md:py-16">
-       <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center" 
-            data-aos="fade-up" 
-            data-aos-duration="700" 
-            data-aos-once="true" 
-            data-aos-offset="10">
+      <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
            
            {{-- Heading --}}
-           <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+           <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6">
                <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
                    Sudah Saatnya Bisnismu Naik Level
                </h2>
@@ -141,14 +171,10 @@
 
     {{-- Bagaimana Cara Kerjanya --}}
     <section class="w-full overflow-hidden py-32 max-md:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center" 
-             data-aos="fade-up" 
-             data-aos-duration="700" 
-             data-aos-once="true" 
-             data-aos-offset="10">
+        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
             
             {{-- Heading --}}
-            <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+            <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
                     Bagaimana Cara Kerjanya?
                 </h2>
@@ -216,7 +242,7 @@
     @endpush
     <section id="pilihan-layanan" class="w-full px-4 sm:px-6 lg:px-8 py-32 max-md:py-16" x-data="pilihanLayananSection">
         {{-- Heading --}}
-        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
                 Pilihan & Jenis Layanan Website
             </h2>
@@ -229,7 +255,7 @@
         <div class="w-full max-w-screen-xl mx-auto">
             {{-- Mobile Swiper --}}
             <div class="swiper services-swiper block lg:hidden">
-                <div class="swiper-wrapper" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+                <div class="swiper-wrapper">
                     <template x-for="(item, idx) in services" :key="idx">
                         <div class="swiper-slide py-3">
                             <div
@@ -262,7 +288,7 @@
             </div>
 
             {{-- Desktop Grid --}}
-            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <template x-for="(item, idx) in services" :key="idx">
                     <div class="py-3">
                         <div
@@ -529,7 +555,7 @@
     @endpush
     <section id="keunggulan" class="w-full px-4 sm:px-6 lg:px-8 py-32 max-md:py-16" x-data="webDevAdvantagesSection">
         {{-- Heading --}}
-        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
                 Keunggulan Layanan Website Kami
             </h2>
@@ -539,7 +565,7 @@
         </div>
         <div class="w-full max-w-screen-xl mx-auto">
             <div class="swiper advantages-swiper">
-                <div class="swiper-wrapper" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+                <div class="swiper-wrapper">
                     <template x-for="(item, idx) in advantages" :key="idx">
                         <div class="swiper-slide py-3">
                             <div

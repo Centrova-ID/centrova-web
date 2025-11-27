@@ -54,10 +54,10 @@
     </noscript>
 
     {{-- Preload AOS Animation CSS --}}
-    <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    {{-- <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    </noscript>
+    </noscript> --}}
 
     {{-- Additional Links from Views --}}
     @yield('link-head')
