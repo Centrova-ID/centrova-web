@@ -93,7 +93,6 @@
                 <div class="hidden md:flex md:gap-x-2 text-base font-medium text-neutral-800 items-center text-sm text-left">
                     <a href="{{ route('home') }}" class="px-2 hover:text-black transition duration-500 hidden">Beranda</a>
                     <a href="{{ route('about') }}" class="px-2 hover:text-black transition duration-500 hidden">Tentang</a>
-<<<<<<< HEAD
                     
                     {{-- Dropdown Aplikasi Bisnis --}}
                     <div class="relative group"
@@ -176,14 +175,6 @@
                     </div>
                     <a href="{{ localizedRoute('contact') }}" class="px-2 hover:text-black transition duration-500 hidden">Kontak</a>
                     <a href="{{ route('support.home') }}" class="px-2 hover:text-black transition duration-500">Dukungan</a>
-=======
-                    <a href="{{ localizedRoute('services.web.index') }}" class="px-2 hover:text-black transition duration-500">Website</a>
-                    <a href="{{ localizedRoute('services.app.index') }}" class="px-2 hover:text-black transition duration-500">Aplikasi</a>
-                    <a href="{{ localizedRoute('services.uiux.index') }}" class="px-2 hover:text-black transition duration-500">Desain</a>
-                    <a href="#" class="px-2 hover:text-black transition duration-500">Marketing</a>
-                    <a href="#" class="px-2 hover:text-black transition duration-500">Server</a>
-                    <a href="#" class="px-2 hover:text-black transition duration-500">Cloud</a>
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                 </div>
             </div>
             {{-- Aksi Desktop --}}

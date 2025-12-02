@@ -79,14 +79,10 @@
 
 @section('content')
     {{-- Hero Section --}}
-    <section class="w-full bg-white py-32 max-md:py-16">
+    {{-- <section class="w-full bg-white py-32 max-md:py-16">
         <div class="w-full max-w-3xl mx-auto pt-24 md:pt-38 lg:pt-32 px-4">
             <div 
                 class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center" 
-                data-aos="fade-up" 
-                data-aos-duration="700" 
-                data-aos-once="true" 
-                data-aos-offset="10"
             >
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 mb-6 sm:mb-8 md:mb-10 leading-tight">
                     Jasa Pembuatan Website <br class="block sm:hidden">
@@ -97,130 +93,62 @@
                 </p>
             </div>
         </div>
+    </section> --}}
+
+    {{-- Hero Section --}}
+    <section class="w-full bg-white py-16 pt-32">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div class="max-w-3xl">
+                <h1 class="text-[3.6rem] max-lg:text-[3rem] max-md:text-[2.6rem] leading-snug font-bold mb-6 bg-gradient-to-r from-blue-600 to-[#128aeb] bg-clip-text text-transparent">Jasa Pembuatan Website</h1>
+                <p class="text-xl max-md:text-lg leading-snug text-neutral-700 mb-6">Ciptakan website profesional dengan desain yang memenuhi ekspektasi. Hasil luar biasa dan posisi terbaik di mesin pencari, selesai dalam waktu singkat, hanya 3 hari kerja.</p>
+                <a href="#" 
+                class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#128AEB] hover:bg-[#0F76C6] transition duration-150 min-h-[44px]">
+                    Pelajari selengkapnya
+                </a>
+            </div>
+        </div>
     </section>
 
-    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
-
-   {{-- Sudah saatnya --}}
-   <section class="w-full overflow-hidden py-32 max-md:py-16">
-       <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center" 
-            data-aos="fade-up" 
-            data-aos-duration="700" 
-            data-aos-once="true" 
-            data-aos-offset="10">
-           
-           {{-- Heading --}}
-           <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-               <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
-                   Sudah Saatnya Bisnismu Naik Level
-               </h2>
-               <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
-                   Memiliki website bisnis yang profesional dapat memperluas jangkauan pasar dan meningkatkan penjualan Anda.
-               </p>
-           </div>
-           
-           <div class="w-full mt-10 md:mt-16 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16">
-               
-               {{-- Kiri --}}
-               <div class="text-center md:text-left max-w-xl">
-                   <h2 class="text-slate-900 font-medium text-2xl sm:text-3xl mb-4 sm:mb-6 leading-snug">Bisnis Anda harus punya website berkelas</h2>
-                   <p class="text-base sm:text-lg text-slate-600">Centrova menyediakan jasa pembuatan website profesional dengan harga terjangkau dan desain yang disesuaikan dengan kebutuhan bisnis Anda. Website yang kami buat untuk bisnis Anda sudah teroptimasi SEO agar lebih mudah ditemukan di mesin pencari. Dengan fokus pada kecepatan, keamanan, dan tampilan yang mencerminkan brand, kami siap menjadi partner digital terpercaya untuk membantu digitaliasi bisnis Anda.</p>
-               </div>
-
-               {{-- Kanan --}}
-               <img src="{{ asset('/assets/image/services/web-development/section_1.png') }}" 
-                    alt="Ilustrasi jasa pembuatan website"
-                    class="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg flex-shrink-0"
-                    loading="lazy"
-                    decoding="async" />
-           </div>
-       </div>
-   </section>
-
-    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
-
-    {{-- Bagaimana Cara Kerjanya --}}
-    <section class="w-full overflow-hidden py-32 max-md:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center" 
-             data-aos="fade-up" 
-             data-aos-duration="700" 
-             data-aos-once="true" 
-             data-aos-offset="10">
-            
+    <section class="w-full bg-neutral-100 py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             {{-- Heading --}}
-            <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
-                    Bagaimana Cara Kerjanya?
+            <div class="max-w-7xl mx-auto text-left mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Kenapa memilih jasa website Centrova?
                 </h2>
-                <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
-                    Proses pembuatan website yang mudah dan terstruktur dari konsultasi hingga website siap digunakan.
-                </p>
             </div>
-            
-            <div class="w-full mt-10 md:mt-16 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
-                
-                {{-- Kiri - Gambar --}}
-                <img src="https://teleporthq.io/Website%20dev%20service/website-development-service-how-it-works-1200w.png" 
-                     alt="Cara kerja pembuatan website"
-                     class="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg flex-shrink-0"
-                     loading="lazy"
-                     decoding="async" />
 
-                {{-- Kanan - Konten --}}
-                <div class="text-center text-left max-w-xl">
-                    {{-- Point 1 --}}
-                    <div class="flex items-start gap-4 mb-6 text-left">
-                        <div class="flex-shrink-0 w-8 h-8 bg-[#128AEB] text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                            1
-                        </div>
-                        <div>
-                            <h4 class="text-slate-900 font-semibold text-lg mb-2">Konsultasi dan Penawaran</h4>
-                            <p class="text-slate-600 text-base">Proses dimulai dari memahami kebutuhan Anda lewat WhatsApp, DM, atau form di website. Kami kirim katalog layanan dan mengajak diskusi singkat untuk memahami tujuan proyek. Setelah itu, kami siapkan proposal berisi ruang lingkup pekerjaan, estimasi waktu, dan biaya.</p>
-                        </div>
-                    </div>
-
-                    {{-- Point 2 --}}
-                    <div class="flex items-start gap-4 mb-6 text-left">
-                        <div class="flex-shrink-0 w-8 h-8 bg-[#128AEB] text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                            2
-                        </div>
-                        <div>
-                            <h4 class="text-slate-900 font-semibold text-lg mb-2">Desain dan Pengembangan</h4>
-                            <p class="text-slate-600 text-base">Setelah kesepakatan dan DP, kami mulai tahap produksi: riset, desain antarmuka (UI), dan pengembangan teknis menggunakan teknologi modern. Kami libatkan Anda dalam proses revisi dan pengujian, agar hasil akhirnya sesuai ekspektasi.</p>
-                        </div>
-                    </div>
-
-                    {{-- Point 3 --}}
-                    <div class="flex items-start gap-4 text-left">
-                        <div class="flex-shrink-0 w-8 h-8 bg-[#128AEB] text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                            3
-                        </div>
-                        <div>
-                            <h4 class="text-slate-900 font-semibold text-lg mb-2">Testing. Hosting dan Dukungan</h4>
-                            <p class="text-slate-600 text-base">Website ditunjukkan melalui demo final. Setelah pelunasan, kami serahkan seluruh file dan akses yang dibutuhkan. Kami juga memberikan garansi 30 hari untuk bug ringan, serta penawaran maintenance opsional untuk keberlanjutan website Anda.</p>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-3 max-md:grid-cols-1 max-lg:grid-cols-3 gap-8">
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">Kecepatan Loading Website 10x Lebih Cepat</h1>
+                    <p>Jalankan website Anda pada disk SSD! Website Anda akan memuat lebih cepat daripada website pada umumnya.</p>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">Ramah Mesin Pencari</h1>
+                    <p>Website Anda terjamin ramah SEO (Search Engine Optimization), sehingga mampu menempati peringkat teratas di mesin pencarian seperti Google.</p>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-bold text-2xl mb-1">100% Perlindungan Kemanan</h1>
+                    <p>Website Anda memiliki rangkaian lengkap sertifikasi SSL untuk perlindungan keamanan, anti-spam, firewall, dan backup harian.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <hr class="w-[80%] max-w-4xl h-px bg-gray-200 mx-auto border-0">
-
     {{-- Pilihan dan Jenis Layanan --}}
     @push('styles')
-    @once
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
-    @endonce
+        @once
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+        @endonce
     @endpush
-    <section id="pilihan-layanan" class="w-full px-4 sm:px-6 lg:px-8 py-32 max-md:py-16" x-data="pilihanLayananSection">
+    <section id="pilihan-layanan" class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16" x-data="pilihanLayananSection">
         {{-- Heading --}}
-        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
+        <div class="text-left mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
                 Pilihan & Jenis Layanan Website
             </h2>
-            <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
+            <p class="text-base text-lg text-slate-700 md:max-w-4xl">
                 Kami menyediakan berbagai jenis layanan website sesuai kebutuhan
             </p>
         </div>
@@ -229,11 +157,11 @@
         <div class="w-full max-w-screen-xl mx-auto">
             {{-- Mobile Swiper --}}
             <div class="swiper services-swiper block lg:hidden">
-                <div class="swiper-wrapper" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+                <div class="swiper-wrapper">
                     <template x-for="(item, idx) in services" :key="idx">
                         <div class="swiper-slide py-3">
                             <div
-                            class="group relative cursor-pointer rounded-3xl flex flex-col justify-between overflow-hidden border border-neutral-200 shadow hover:shadow-md bg-white/80 transition-all duration-300 min-h-[500px] max-h-[500px] lazy-bg-services"
+                            class="group relative cursor-pointer flex flex-col rounded-2xl justify-between overflow-hidden border border-neutral-200 shadow hover:shadow-md bg-white/80 min-h-[500px] max-h-[500px] lazy-bg-services"
                             :data-bg="item.image"
                             @click="handleClick(idx)">
                                 <div class="relative z-10 flex flex-col h-full px-7 py-6 justify-between">
@@ -262,11 +190,11 @@
             </div>
 
             {{-- Desktop Grid --}}
-            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
+            <div class="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <template x-for="(item, idx) in services" :key="idx">
                     <div class="py-3">
                         <div
-                        class="group relative cursor-pointer rounded-3xl flex flex-col justify-between overflow-hidden border border-neutral-200 shadow hover:shadow-md bg-white/80 transition-all duration-300 min-h-[500px] max-h-[500px] lazy-bg-services"
+                        class="group relative cursor-pointer flex flex-col rounded-2xl justify-between overflow-hidden border border-neutral-200 shadow hover:shadow-md bg-white/80 min-h-[500px] max-h-[500px] lazy-bg-services"
                         :data-bg="item.image"
                         @click="handleClick(idx)">
                             <div class="relative z-10 flex flex-col h-full px-7 py-6 justify-between">
@@ -291,20 +219,6 @@
                         </div>
                     </div>
                 </template>
-            </div>
-
-            {{-- Custom Navigation Buttons for Mobile --}}
-            <div class="flex justify-end items-center gap-3 mt-8 lg:hidden">
-                <button class="swiper-button-prev-services flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB]/5 border-0 text-[#128AEB] hover:border hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/15 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="swiper-button-next-services flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB]/5 border-0 text-[#128AEB] hover:border hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/15 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
         </div>
 
@@ -337,34 +251,6 @@
                     document.head.appendChild(script);
                 } else {
                     initSwiperServicesComponents();
-                }
-            };
-
-            const initSwiperServicesComponents = () => {
-                // Initialize swiper components if they exist
-                if (window.Alpine && Alpine.store) {
-                    setTimeout(() => {
-                        const swiperElements = document.querySelectorAll('.services-swiper');
-                        swiperElements.forEach(el => {
-                            if (!el.swiper) {
-                                new Swiper(el, {
-                                    slidesPerView: 1,
-                                    spaceBetween: 24,
-                                    loop: true,
-                                    speed: 600,
-                                    grabCursor: true,
-                                    navigation: {
-                                        nextEl: '.swiper-button-next-services',
-                                        prevEl: '.swiper-button-prev-services'
-                                    },
-                                    breakpoints: {
-                                        640: { slidesPerView: 1.2 },
-                                        768: { slidesPerView: 2 }
-                                    }
-                                });
-                            }
-                        });
-                    }, 100);
                 }
             };
 
@@ -520,394 +406,137 @@
 
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
-    {{-- Keunggulan Layanan Kami --}}
-    @push('styles')
-    @once
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
-    @endonce
-    @endpush
-    <section id="keunggulan" class="w-full px-4 sm:px-6 lg:px-8 py-32 max-md:py-16" x-data="webDevAdvantagesSection">
-        {{-- Heading --}}
-        <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
-                Keunggulan Layanan Website Kami
-            </h2>
-            <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
-                Jasa Pembuatan Website yang kami sediakan memiliki keunggulan yang bisa membuat bisnismu berkembang
-            </p>
-        </div>
-        <div class="w-full max-w-screen-xl mx-auto">
-            <div class="swiper advantages-swiper">
-                <div class="swiper-wrapper" data-aos="fade-in" data-aos-duration="300" data-aos-delay="200" data-aos-once="true">
-                    <template x-for="(item, idx) in advantages" :key="idx">
-                        <div class="swiper-slide py-3">
-                            <div
-                            class="group relative cursor-pointer rounded-3xl flex flex-col justify-between overflow-hidden border border-neutral-200 shadow hover:shadow-md bg-white/80 transition-all duration-300 flex flex-col min-h-[500px] max-h-[500px] lazy-bg-advantages"
-                            :data-bg="item.image"
-                            @click="handleClick(idx)">
-                                <div class="relative z-10 flex flex-col h-full px-7 py-6 justify-between">
-                                    <span class="text-base font-medium mb-1 transition text-neutral-600 text-left w-full" x-text="item.title"></span>
-                                    <span class="text-2xl font-semibold transition text-slate-900 text-left w-full" x-text="item.short"></span>
-                                </div>
-                                <template x-if="item.video_caption">
-                                    <div class="w-full bg-white p-7">
-                                        <span x-text="item.video_caption"></span>
-                                    </div>
-                                </template>
-                                <template x-if="item.consultation">
-                                    <div class="w-full bg-white/90 backdrop-blur-xl px-7 py-4 flex justify-between items-center">
-                                        <div>
-                                            <span x-text="item.consultation.name" class="text-lg font-medium text-slate-900"></span><br>
-                                            <span x-text="item.consultation.role" class="text-slate-600"></span>
-                                        </div>
-                                        <div class="w-12 h-12 flex-shrink-0 flex justify-center items-center">
-                                            <img src="{{ asset('assets/icons/ui/services/web/support.svg') }}" 
-                                                 class="h-[28px]"
-                                                 loading="lazy"
-                                                 decoding="async"
-                                                 alt="Support icon">
-                                        </div>
-                                    </div>
-                                </template>
+    {{-- Kenapa Wajib Punya Website --}}
+    <section class="w-full py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="text-left mb-8">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Kenapa Perusahaan Wajib Punya Website?
+                </h2>
+                <p class="text-base text-lg text-slate-700 md:max-w-4xl">
+                    Jangan biarkan kompetitor unggul! Dapatkan website profesional yang akan membuat perusahaan tampil lebih credible dan menarik lebih banyak customer
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" role="list" aria-label="Perbandingan dampak memiliki dan tidak memiliki website">
+                <!-- Problem Card -->
+                <div class="bg-red-50 p-8 rounded-2xl  relative overflow-hidden group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                    <div class="relative z-10 md:p-8">
+                        <p class="text-red-600 font-medium uppercase text-base mb-4">Tanpa Website</p>
+                        <h3 class="text-4xl text-red-950 font-bold mb-6">Bisnis Anda Kehilangan Banyak Peluang!</h3>
+                        
+                        <div class="space-y-4 mt-8">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-red-950">Customer tidak bisa menemukan bisnis Anda secara online</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-red-950">Kehilangan kepercayaan karena terlihat kurang profesional</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-red-950">Sulit bersaing dengan kompetitor yang sudah online</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-red-950">Terbatasnya jangkauan pemasaran dan penjualan</p>
                             </div>
                         </div>
-                    </template>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+                </div>
+
+                <!-- Solution Card -->
+                <div class="bg-[#128AEB]/10 p-8 rounded-2xl text-white relative overflow-hidden group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+                    <div class="relative z-10 md:p-8">
+                        <p class="text-gray-500 font-medium uppercase text-base mb-4">Dengan Website</p>
+                        <h3 class="text-4xl text-slate-900 font-bold mb-6">Bisnis Anda Akan Berkembang Pesat!</h3>
+                        
+                        <div class="space-y-4 mt-8">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-slate-900">Tampil profesional dan terpercaya di mata customer</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-slate-900">Mudah ditemukan customer melalui Search Engine</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-slate-900">Jangkauan pasar lebih luas, 24 jam nonstop</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <p class="text-slate-900">Meningkatkan penjualan dan revenue secara signifikan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
                 </div>
             </div>
-
-            {{-- Custom Navigation Buttons --}}
-            <div class="flex justify-end items-center gap-3 mt-8">
-                <button class="swiper-button-prev-custom flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB]/5 border-0 text-[#128AEB] hover:border hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/15 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="swiper-button-next-custom flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB]/5 border-0 text-[#128AEB] hover:border hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/15 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
         </div>
-
-        {{-- Advantages Modal --}}
-        <div x-show="showModal"
-        x-cloak
-        x-transition:enter="transition ease-out duration-400"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        class="fixed inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-md overflow-y-auto">
-            <div class="relative bg-white rounded-3xl shadow-2xl max-w-3xl w-full py-12 px-16 mx-4 border border-[#128AEB]/10 flex flex-col items-center max-md:py-16" @click.away="closeModal()">
-                <button @click="closeModal()" class="absolute top-5 right-5 text-[#128AEB] bg-neutral-100 rounded-full w-8 h-8 flex items-center justify-center hover:bg-neutral-200 transition"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
-                <span class="text-3xl font-bold text-slate-900 mb-6 text-left block w-full" x-text="modalTitle"></span>
-                <div class="text-slate-800 text-xl leading-relaxed text-left" x-html="modalDesc"></div>
-            </div>
-        </div>
-        @push('scripts')
-        @once
-        <script>
-            // Load Swiper asynchronously
-            const loadSwiper = () => {
-                if (typeof Swiper === 'undefined') {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-                    script.async = true;
-                    script.onload = initSwiperComponents;
-                    document.head.appendChild(script);
-                } else {
-                    initSwiperComponents();
-                }
-            };
-
-            const initSwiperComponents = () => {
-                // Initialize swiper components if they exist
-                if (window.Alpine && Alpine.store) {
-                    setTimeout(() => {
-                        const swiperElements = document.querySelectorAll('.advantages-swiper');
-                        swiperElements.forEach(el => {
-                            if (!el.swiper) {
-                                new Swiper(el, {
-                                    slidesPerView: 1,
-                                    spaceBetween: 24,
-                                    loop: true,
-                                    speed: 600,
-                                    grabCursor: true,
-                                    navigation: {
-                                        nextEl: '.swiper-button-next-custom',
-                                        prevEl: '.swiper-button-prev-custom'
-                                    },
-                                    breakpoints: {
-                                        768: { slidesPerView: 2 },
-                                        1024: { slidesPerView: 3 }
-                                    }
-                                });
-                            }
-                        });
-                    }, 100);
-                }
-            };
-
-            // Load Swiper when page is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', loadSwiper);
-            } else {
-                loadSwiper();
-            }
-
-            // Lazy load background images for advantages section
-            const lazyBgAdvantagesObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const element = entry.target;
-                        const bgUrl = element.dataset.bg;
-                        if (bgUrl) {
-                            element.style.backgroundImage = `url(${bgUrl})`;
-                            element.style.backgroundSize = 'cover';
-                            element.style.backgroundPosition = 'center';
-                            element.classList.remove('lazy-bg-advantages');
-                            lazyBgAdvantagesObserver.unobserve(element);
-                        }
-                    }
-                });
-            }, {
-                rootMargin: '50px 0px'
-            });
-
-            // Observe lazy background elements when Alpine is ready
-            document.addEventListener('alpine:initialized', () => {
-                setTimeout(() => {
-                    document.querySelectorAll('.lazy-bg-advantages').forEach(el => {
-                        lazyBgAdvantagesObserver.observe(el);
-                    });
-                }, 100);
-            });
-        </script>
-        @endonce
-        @endpush
-        @push('scripts')
-        @once
-        <script>
-            document.addEventListener('alpine:init', () => {
-                Alpine.data('webDevAdvantagesSection', () => ({
-                    advantages: [
-                        {
-                            title: 'Konsultasi',
-                            short: 'Butuh Bantuan dari Agent Kami?',
-                            desc: 'Selain Web Company & Toko Online, kami juga siap untuk membuat Website Kompleks',
-                            consultation: {
-                                name: 'Frisca Wijaya',
-                                role: 'Web Consultants',
-                            },
-                            route: {
-                                url: "https://cdn.botpress.cloud/webchat/v3.1/shareable.html?configUrl=https://files.bpcontent.cloud/2025/07/20/11/20250720111006-21LG1QXY.json",
-                                target: '_blank',
-                                window_size: 'window'
-                            },
-                            image: '/assets/image/services/web-development/2.jpg'
-                        },
-                        {
-                            title: 'Kustomisasi',
-                            short: 'Setiap fitur, desain, dan fungsi dibuat khusus sesuai permintaan dan kebutuhan.',
-                            title_modal: 'Kustomisasi Website Sesuai Kebutuhan Bisnis Anda',
-                            desc: 'Setiap bisnis itu unik. Kami memahami bahwa solusi digital tidak bisa dipukul rata. Centrova menawarkan layanan pembuatan website yang sepenuhnya bisa disesuaikan — mulai dari desain, fitur, hingga sistem kerja di belakang layar.',
-                            image: '/assets/image/services/web-development/4.jpg'
-                        },
-                        {
-                            title: 'Tampilan Responsif',
-                            short: 'Otomatis menyesuaikan tampilan desktop, tablet, hingga mobile.',
-                            title_modal: 'Desain Responsif untuk Semua Perangkat',
-                            desc: 'Website Anda akan dirancang agar tampil optimal di berbagai ukuran layar—mulai dari desktop, laptop, tablet, hingga smartphone.<br><br>Desain responsif tidak hanya membuat tampilan lebih rapi dan profesional, tetapi juga meningkatkan pengalaman pengguna (user experience), mempercepat loading, serta membantu peringkat SEO.<br><br>Kami memastikan setiap elemen—menu, gambar, teks, tombol—teradaptasi secara otomatis agar tetap mudah dibaca dan digunakan di semua perangkat.',
-                            image: '/assets/image/services/web-development/3.jpg'
-                        },
-                        {
-                            title: 'Pengembangan Cepat & Transparan',
-                            short: 'Progres cepat, terstruktur, dan bisa kamu ikuti setiap tahapnya.',
-                            title_modal: 'Proses Pengembangan yang Cepat, Terstruktur, dan Transparan',
-                            desc: 'Kami menerapkan metode kerja yang efisien dan terstruktur untuk memastikan website selesai tepat waktu tanpa mengorbankan kualitas.<br><br>Setiap tahap dikerjakan dengan standar yang jelas—mulai dari perencanaan, desain, pengembangan, hingga uji coba akhir. Kamu akan mendapatkan pembaruan rutin tentang progres pengerjaan sehingga bisa mengikuti dan memberi masukan secara langsung.<br><br>Dengan komunikasi terbuka dan dokumentasi lengkap, kamu tidak hanya menunggu hasil akhir, tapi terlibat dalam proses yang berjalan cepat dan transparan.',
-                            image: '/assets/image/services/web-development/5.jpg'
-                        },
-                        {
-                            title: 'Support Jangka Panjang',
-                            short: 'Layanan after-sales dan perawatan website tetap terjamin.',
-                            desc: 'Kami memberikan dukungan dan maintenance berkelanjutan setelah website Anda selesai dibuat. Termasuk pengiriman file, upload ke hosting, bahkan rilis ke Play Store jika dibutuhkan.',
-                            image: '/assets/image/services/web-development/1.jpg'
-                        },
-                    ],
-                showModal: false,
-                modalIndex: null,
-                modalTitle: '',
-                modalDesc: '',
-                handleClick(idx) {
-                    const item = this.advantages[idx];
-
-                    if (item.route && item.route.url) {
-                        const url = item.route.url;
-                        const winSize = item.route.window_size === 'window' ? 'width=375,height=667' : '';
-
-                        if (item.route.target === '_blank') {
-                            window.open(url, '_blank', winSize);
-                        } else {
-                            window.location.href = url;
-                        }
-
-                    } else if (item.link && item.link.url) {
-                        const url = item.link.url;
-                        const winSize = item.link.window_size === 'window' ? 'width=375,height=667' : '';
-
-                        if (item.link.target === '_blank') {
-                            window.open(url, '_blank', winSize);
-                        } else {
-                            window.location.href = url;
-                        }
-
-                    } else {
-                        this.openModal(idx);
-                    }
-                },
-                openModal(idx) {
-                    this.modalIndex = idx;
-                    const item = this.advantages[idx];
-                    this.modalTitle = item.title_modal ?? item.title;
-                    this.modalDesc = item.desc;
-                    this.showModal = true;
-                    document.body.style.overflow = 'hidden';
-                },
-                closeModal() {
-                    this.showModal = false;
-                    document.body.style.overflow = 'auto';
-
-                    {{-- Tunda reset konten modal setelah animasi selesai (misal: 300ms) --}}
-                    setTimeout(() => {
-                        this.modalIndex = null;
-                        this.modalTitle = '';
-                        this.modalDesc = '';
-                    }, 300);
-                },
-                swiper: null,
-                init() {
-                    {{-- Pastikan modal tidak aktif saat init --}}
-                    this.showModal = false;
-                    this.modalIndex = null;
-                    this.modalTitle = '';
-                    this.modalDesc = '';
-
-                    this.$nextTick(() => {
-                        if (this.swiper) this.swiper.destroy();
-                        this.swiper = new Swiper('.advantages-swiper', {
-                            slidesPerView: 1,
-                            spaceBetween: 24,
-                            loop: true,
-                            speed: 600,
-                            grabCursor: true,
-                            pagination: {
-                                el: '.swiper-pagination',
-                                clickable: true
-                            },
-                            navigation: {
-                                nextEl: '.swiper-button-next-custom',
-                                prevEl: '.swiper-button-prev-custom'
-                            },
-                            breakpoints: {
-                                768: {
-                                    slidesPerView: 2
-                                },
-                                1024: {
-                                    slidesPerView: 3
-                                }
-                            },
-                        });
-                    });
-                }
-                }));
-            });
-        </script>
-        @endonce
-        @endpush
     </section>
 
-    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
-
-    {{-- Paket & Harga Section --}}
-    <section id="harga" x-data="pricingSection" class="py-32 max-md:py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-900 mb-4">Paket & Harga</h2>
-                <p class="text-xl text-slate-700 max-w-3xl mx-auto mb-8">
-                    Pilih paket yang sesuai dengan kebutuhan dan budget bisnis Anda
+    {{-- Kenapa Wajib Punya Website --}}
+    <section class="w-full py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="text-left mb-8">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Kenapa Perusahaan Wajib Punya Website?
+                </h2>
+                <p class="text-base text-lg text-slate-700 md:max-w-4xl">
+                    Jangan biarkan kompetitor unggul! Dapatkan website profesional yang akan membuat perusahaan tampil lebih credible dan menarik lebih banyak customer
                 </p>
-
-                {{-- Pricing Toggle --}}
-                <div class="mx-auto">
-                    <div class="flex items-center justify-center rounded-full overflow-x-auto overflow-y-hidden p-1 gap-1 w-auto scrollbar-hide select-none mx-auto">
-                        <span
-                            @click="billingType = 'project'"
-                            :class="billingType === 'project' 
-                                ? 'bg-[#128AEB] text-white' 
-                                : 'text-gray-700 hover:bg-neutral-100 cursor-pointer'"
-                            class="px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 whitespace-nowrap"
-                        >
-                            Per Project
-                        </span>
-                        <span
-                            @click="billingType = 'monthly'"
-                            :class="billingType === 'monthly' 
-                                ? 'bg-[#128AEB] text-white' 
-                                : 'text-gray-700 hover:bg-neutral-100 cursor-pointer'"
-                            class="px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 whitespace-nowrap"
-                        >
-                            Monthly Retainer
-                        </span>
-                    </div>
-                </div>
             </div>
 
-            {{-- Pricing Cards --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <template x-for="(plan, index) in currentPlans" :key="index">
-                    <div class="relative bg-white text-slate-900 border border-slate-200 rounded-3xl p-8 hover:shadow-sm transition-all duration-500">
-
-                        <div x-show="plan.featured" class="absolute -top-4 left-1/2 transform -translate-x-1/2 hidden">
-                            <span class="bg-orange-400 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                                Most Popular
-                            </span>
-                        </div>
-
-                        <div class="text-center mb-4">
-                            <h3 class="text-3xl font-bold mb-4" x-text="plan.name"></h3>
-                            <div class="mb-4">
-                                <span class="text-3xl font-semibold" x-text="plan.price"></span>
-                                <span class="text-base opacity-80" x-text="plan.period"></span>
+            <!-- Easy Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" role="list" aria-label="Kemudahan layanan Centrova">
+                <template x-for="(feature, index) in easyFeatures" :key="index">
+                    <div class="bg-[#128AEB]/5 p-8 rounded-[32px] relative overflow-hidden min-h-[500px]" 
+                         data-aos="fade-up" 
+                         data-aos-duration="700" 
+                         :data-aos-delay="index * 100">
+                        <div class="relative z-10 md:p-8">
+                            <h3 class="text-4xl font-bold text-gray-900 mb-6" x-text="feature.title"></h3>
+                            <p class="text-slate-800 leading-relaxed mb-8" x-text="feature.description"></p>
+                            
+                            <!-- Easy Steps -->
+                            <div class="space-y-4 mt-8">
+                                <template x-for="step in feature.steps" :key="step">
+                                    <div class="flex items-start">
+                                        <svg class="w-6 h-6 text-[#128AEB] mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <p class="text-slate-900" x-text="step"></p>
+                                    </div>
+                                </template>
                             </div>
-                            <p class="text-slate-600" x-text="plan.description"></p>
                         </div>
-
-                        <button 
-                            @click="selectPlan(plan)"
-                            :class="plan.featured ? 
-                                'bg-[#128AEB] text-white hover:bg-[#0F76C6]' : 
-                                'bg-white text-[#128AEB] hover:bg-slate-50 border border-neutral-300'"
-                            class="bg-[#128AEB] hover:bg-[#0f75c6] font-semibold px-6 py-2 rounded-full transition flex items-center w-full justify-center text-center mb-8">
-                            Pilih Paket
-                        </button>
-
-                        <ul class="space-y-3">
-                            <template x-for="feature in plan.features" :key="feature">
-                                <li class="flex items-start text-sm">
-                                    <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0 text-[#128AEB]" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                    </svg>
-                                    <span x-text="feature"></span>
-                                </li>
-                            </template>
-                        </ul>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#128AEB] bg-opacity-5 rounded-full"></div>
                     </div>
                 </template>
             </div>
         </div>
+<<<<<<< HEAD
 
         {{-- Modal Konsultasi untuk User Belum Login --}}
         <div x-show="showConsultationModal"
@@ -1293,9 +922,9 @@
         </script>
         @endonce
         @endpush
+=======
+>>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
     </section>
-
-    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
     {{-- CTA Konsultasi --}}
     <div id="konsultasi" class="text-center py-32 max-md:py-16 px-4 sm:px-6 lg:px-8">
@@ -1460,4 +1089,5 @@
         @endonce
         @endpush
     </section>
+    
 @endsection
