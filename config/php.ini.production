@@ -1,0 +1,154 @@
+; =========================================
+; PHP.INI PERFORMANCE OPTIMIZATION
+; Centrova Web - Production Configuration
+; =========================================
+
+; GENERAL SETTINGS
+; =========================================
+max_execution_time = 60
+max_input_time = 60
+memory_limit = 256M
+post_max_size = 20M
+upload_max_filesize = 20M
+
+; ERROR REPORTING (Production)
+; =========================================
+display_errors = Off
+display_startup_errors = Off
+error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+log_errors = On
+error_log = /var/log/php/error.log
+
+; OPCACHE SETTINGS (CRITICAL FOR PERFORMANCE!)
+; =========================================
+[opcache]
+; Enable OPcache
+opcache.enable = 1
+opcache.enable_cli = 0
+
+; Memory settings
+opcache.memory_consumption = 256
+opcache.interned_strings_buffer = 16
+opcache.max_accelerated_files = 10000
+
+; Revalidation settings
+opcache.revalidate_freq = 0
+opcache.validate_timestamps = 0  ; IMPORTANT: Disable in production!
+; NOTE: After code changes, restart PHP-FPM: sudo systemctl restart php8.1-fpm
+
+; Performance optimizations
+opcache.fast_shutdown = 1
+opcache.enable_file_override = 1
+
+; JIT Compilation (PHP 8.0+)
+opcache.jit_buffer_size = 100M
+opcache.jit = tracing  ; Options: disable, tracing, function
+
+; Advanced OPcache settings
+opcache.optimization_level = 0x7FFEBFFF
+opcache.save_comments = 0  ; Disable for production
+opcache.load_comments = 0
+
+; REALPATH CACHE
+; =========================================
+realpath_cache_size = 4M
+realpath_cache_ttl = 600
+
+; SESSION SETTINGS
+; =========================================
+session.save_handler = redis
+session.save_path = "tcp://127.0.0.1:6379?database=2"
+session.gc_maxlifetime = 7200
+session.cookie_lifetime = 0
+session.cookie_secure = 1       ; HTTPS only
+session.cookie_httponly = 1
+session.cookie_samesite = "Lax"
+session.use_strict_mode = 1
+
+; SESSION PERFORMANCE
+session.lazy_write = 1
+session.serialize_handler = php_serialize
+
+; FILE UPLOADS
+; =========================================
+file_uploads = On
+upload_tmp_dir = /tmp
+max_file_uploads = 20
+
+; OUTPUT BUFFERING
+; =========================================
+output_buffering = 4096
+zlib.output_compression = Off  ; Let Nginx handle compression
+
+; TIMEOUTS
+; =========================================
+default_socket_timeout = 60
+
+; DATE/TIME
+; =========================================
+date.timezone = Asia/Jakarta
+
+; PERFORMANCE TWEAKS
+; =========================================
+expose_php = Off  ; Hide PHP version
+allow_url_fopen = On
+allow_url_include = Off
+
+; Disable functions for security (optional)
+; disable_functions = exec,passthru,shell_exec,system,proc_open,popen
+
+; EXTENSIONS (Enable as needed)
+; =========================================
+extension=curl
+extension=gd
+extension=mbstring
+extension=mysqli
+extension=pdo_mysql
+extension=redis
+extension=zip
+extension=opcache
+
+; XDEBUG (DISABLE IN PRODUCTION!)
+; =========================================
+; zend_extension=xdebug.so
+; xdebug.mode=off
+
+; =========================================
+; MONITORING & DEBUGGING (Development Only)
+; =========================================
+; [xdebug]
+; xdebug.mode = develop,debug,profile
+; xdebug.start_with_request = yes
+; xdebug.output_dir = /tmp/xdebug
+
+; =========================================
+; PERFORMANCE CHECKLIST
+; =========================================
+; ✓ OPcache enabled with validate_timestamps=0
+; ✓ JIT enabled (PHP 8.0+)
+; ✓ Redis session handler
+; ✓ Realpath cache configured
+; ✓ Output buffering enabled
+; ✓ XDebug disabled in production
+; ✓ Error display disabled
+; ✓ Memory limit appropriate (256M)
+
+; =========================================
+; RESTART PHP AFTER CHANGES
+; =========================================
+; Ubuntu/Debian: sudo systemctl restart php8.1-fpm
+; Windows: Restart PHP service/XAMPP/WAMP
+; Docker: docker-compose restart php
+
+; =========================================
+; VERIFY OPCACHE STATUS
+; =========================================
+; Create info.php:
+; <?php
+; phpinfo();
+; opcache_get_status();
+; ?>
+
+; Check via CLI:
+; php -v
+; php -i | grep opcache

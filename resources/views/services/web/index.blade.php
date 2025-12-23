@@ -536,7 +536,6 @@
                 </template>
             </div>
         </div>
-<<<<<<< HEAD
 
         {{-- Modal Konsultasi untuk User Belum Login --}}
         <div x-show="showConsultationModal"
@@ -922,8 +921,6 @@
         </script>
         @endonce
         @endpush
-=======
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
     </section>
 
     {{-- CTA Konsultasi --}}

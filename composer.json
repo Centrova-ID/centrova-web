@@ -7,10 +7,7 @@
     "require": {
         "php": "^8.1",
         "artesaos/seotools": "^1.3",
-<<<<<<< HEAD
-=======
         "aws/aws-sdk-php": "^3.363",
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
         "barryvdh/laravel-dompdf": "^3.1",
         "guzzlehttp/guzzle": "^7.2",
         "jenssegers/agent": "^2.6",
@@ -18,10 +15,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.6",
-<<<<<<< HEAD
-=======
         "league/flysystem-aws-s3-v3": "^3.30",
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
         "silber/page-cache": "*",
         "spatie/laravel-sitemap": "^7.3",
         "spatie/laravel-tags": "^4.10"

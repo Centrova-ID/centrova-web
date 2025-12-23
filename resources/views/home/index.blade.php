@@ -45,15 +45,9 @@
         <div class="relative">
             {{-- Background image with overlay --}}
                 <div class="absolute inset-0">
-<<<<<<< HEAD
-                    <img src="{{ asset('assets/image/home/hero_image_business.jpg') }}"
-                         class="w-full h-full object-cover"
-                         alt="Hero background - Solusi Digital Centrova"
-=======
                     <img src="{{ asset('assets/image/home/hero_image_business.webp') }}"
                          class="w-full h-full object-cover"
                          alt="Solusi Digital Centrova"
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                          loading="eager"
                          decoding="async"
                          fetchpriority="high"
@@ -126,11 +120,7 @@
                     </div>
 
                     <div class="glass-card-news rounded-2xl overflow-hidden bg-white text-slate-800 border border-neutral-200 hover:shadow transition-shadow duration-150">
-<<<<<<< HEAD
-                    <img src="{{ asset('assets/image/home/cs_20251017_17282871894827354.jpg') }}"
-=======
                     <img src="{{ asset('assets/image/home/cs_20251017_17282871894827354.webp') }}"
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                         alt="Dukungan teknis tim Centrova"
                         loading="lazy"
                         decoding="async"
@@ -150,11 +140,7 @@
                     </div>
 
                     <div class="glass-card-news rounded-2xl overflow-hidden bg-white text-slate-800 border border-neutral-200 hover:shadow transition-shadow duration-150">
-<<<<<<< HEAD
-                    <img src="{{ asset('assets/image/home/data_security_x7a3m2q9t0l5c1z8n6r4y3b9v1p7f0d5g2s6j8w4k9h1.jpg') }}"
-=======
                     <img src="{{ asset('assets/image/home/data_security_x7a3m2q9t0l5c1z8n6r4y3b9v1p7f0d5g2s6j8w4k9h1.webp') }}"
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                         alt="Keamanan data dan privasi"
                         loading="lazy"
                         decoding="async"
@@ -197,11 +183,7 @@
                         </div>
                     </div>
                     <div class="absolute w-full h-full">
-<<<<<<< HEAD
-                        <img src="{{ asset('assets/image/home/a2d67684-5efc-6ad8-2cb3-6034d420e88cba88d902848fa4415ffca75da09a257e0c938ac6.jpg') }}" class="h-full bg-cover w-full" alt="Ilustrasi pembuatan website - Centrova" loading="lazy" decoding="async">
-=======
                         <img src="{{ asset('assets/image/home/a2d67684-5efc-6ad8-2cb3-6034d420e88cba88d902848fa4415ffca75da09a257e0c938ac6.webp') }}" class="h-full bg-cover w-full" alt="Ilustrasi pembuatan website - Centrova" loading="lazy" decoding="async">
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                     </div>
                 </div>
 
@@ -247,16 +229,12 @@
         </div>
 
         {{-- Paket Lengkap Section --}}
-        <div class="py-10">
+        <div class="py-10 hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Hero Box -->
                 <div class="w-full bg-sky-100 rounded-[36px] min-h-[400px] lg:h-[540px] flex items-center justify-center lg:justify-start relative overflow-hidden">
                     <div class="absolute w-full h-full">
-<<<<<<< HEAD
-                            <img src="{{ asset('assets/image/home/f416765167bbdf72.jpg') }}" class="h-full bg-cover w-full" alt="Paket layanan Centrova" loading="lazy" decoding="async">
-=======
                             <img src="{{ asset('assets/image/home/f416765167bbdf72.webp') }}" class="h-full bg-cover w-full" alt="Paket layanan Centrova" loading="lazy" decoding="async">
->>>>>>> b20a386de13eb1e2811f24d762e7f9c9b0e7a71d
                         </div>
                     <div class="max-w-md h-full flex flex-col justify-center text-center lg:text-left z-10 p-8 sm:p-12 lg:p-16">
                         <span class="text-base font-medium text-slate-900">Jasa Desain Website</span>
