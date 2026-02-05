@@ -1,422 +1,487 @@
+{{-- Layout --}}
 @extends('partials.layouts.main')
 
-@section('title', 'Layanan - Mobile App Development')
+{{-- Title --}}
+@section('title', 'Jasa Pembuatan Aplikasi Mobile Profesional - Centrova')
 
+{{-- Navbar --}}
 @section('navbar')
     @include('partials.navbar.services')
     @include('partials.navbar.subnavbar.services', [
         'servicesLinkText' => 'Mobile App Development',
         'servicesLinkUrl' => route('services.mobile-app.index'),
         'menuItems' => [
-            ['text' => 'Layanan', 'url' => url('#')],
-            ['text' => 'Portfolio', 'url' => url('#')],
-            ['text' => 'Teknologi', 'url' => url('#')],
-            ['text' => 'Konsultasi', 'url' => url('#')],
+            ['text' => 'Layanan', 'url' => url('#layanan')],
+            ['text' => 'Keunggulan', 'url' => url('#keunggulan')],
+            ['text' => 'Harga', 'url' => url('#harga')],
+            ['text' => 'Konsultasi', 'url' => url('#konsultasi')],
         ],
     ])
 @endsection
 
+{{-- SEO & Meta Tags --}}
+@section('seoMetaTags')
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="index, follow, max-image-preview:large"/>
+    <meta property="og:description" content="Centrova menyediakan jasa pembuatan aplikasi mobile Android & iOS profesional. Aplikasi hybrid dan native yang powerful untuk kebutuhan bisnis modern!"/>
+    <meta name="twitter:site" content="@centrovaid"/>
+    <meta property="og:title" content="Jasa Pembuatan Aplikasi Mobile Android & iOS | Centrova"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:image" content="https://centrova.id/assets/image/services/mobile-app-development/og-image.jpg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://centrova.id/services/mobile-app"/>
+    <meta name="description" content="Jasa pembuatan aplikasi mobile iOS & Android profesional dengan teknologi hybrid atau native. Siap publish ke Play Store & App Store!"/>
+    <link rel="canonical" href="https://centrova.id/services/mobile-app"/>
+@endsection
+
+{{-- Critical CSS --}}
+@section('style-css')
+    <style>
+        [x-cloak]{display:none!important}
+        .scrollbar-hide{scrollbar-width:none;-ms-overflow-style:none}
+        .scrollbar-hide::-webkit-scrollbar{display:none}
+        .lazy-bg{background-color:#f3f4f6}
+        .list-check{list-style:none;margin:0;padding:0}
+        .list-check li{position:relative;padding-left:32px}
+        .list-check li::before{content:"";position:absolute;left:4px;top:12px;transform:translateY(-50%);width:15px;height:11px;background-repeat:no-repeat;background-size:15px 11px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 15 11' fill='none'><path d='M13.7319 0.295798C13.639 0.20207 13.5284 0.127675 13.4065 0.0769067C13.2846 0.026138 13.1539 0 13.0219 0C12.8899 0 12.7592 0.026138 12.6373 0.0769067C12.5155 0.127675 12.4049 0.20207 12.3119 0.295798L4.86192 7.7558L1.73192 4.6158C1.6354 4.52256 1.52146 4.44925 1.3966 4.40004C1.27175 4.35084 1.13843 4.32671 1.00424 4.32903C0.870064 4.33135 0.737655 4.36008 0.614576 4.41357C0.491498 4.46706 0.380161 4.54428 0.286922 4.6408C0.193684 4.73732 0.12037 4.85126 0.0711659 4.97612C0.0219619 5.10097 -0.00216855 5.2343 0.000152918 5.36848C0.00247438 5.50266 0.0312022 5.63507 0.0846957 5.75814C0.138189 5.88122 0.215401 5.99256 0.311922 6.0858L4.15192 9.9258C4.24489 10.0195 4.35549 10.0939 4.47735 10.1447C4.59921 10.1955 4.72991 10.2216 4.86192 10.2216C4.99393 10.2216 5.12464 10.1955 5.2465 10.1447C5.36836 10.0939 5.47896 10.0195 5.57192 9.9258L13.7319 1.7658C13.8334 1.67216 13.9144 1.5585 13.9698 1.432C14.0252 1.30551 14.0539 1.1689 14.0539 1.0308C14.0539 0.892697 14.0252 0.756091 13.9698 0.629592C13.9144 0.503092 13.8334 0.389441 13.7319 0.295798Z' fill='%23128AEB'/></svg>");}
+    </style>
+@endsection
+
+{{-- Non-critical CSS --}}
+@push('styles')
+@once
 <style>
-    .bg-own {
-        background-color: #ffffff90 !important;
-        backdrop-filter: blur(32px) !important;
-        -webkit-backdrop-filter: blur(32px); /* Untuk dukungan Safari */
-    }
-    
-    /* Simple smooth scrolling */
-    html {
-        scroll-behavior: smooth;
-    }
-    
-    /* Mobile touch scrolling */
-    @media (max-width: 768px) {
-        html {
-            -webkit-overflow-scrolling: touch;
-        }
-    }
-    
-    /* Hide elements until Alpine.js loads */
-    [x-cloak] { 
-        display: none !important; 
-    }
+    .swiper{padding-bottom:0}
+    .swiper-button-next,.swiper-button-prev{display:none}
+    .swiper-button-prev-custom,.swiper-button-next-custom{cursor:pointer}
+    .swiper-button-prev-custom:active,.swiper-button-next-custom:active{transform:scale(.95)}
+    .swiper-pagination-bullet-active{background:#128AEB!important}
 </style>
+@endonce
+@endpush
 
 @section('content')
-<div>
-    {{-- Parallax Section 1 --}}
-    <section class="relative min-h-screen overflow-hidden parallax-section" data-parallax="0.5">
-      <div class="absolute inset-0 bg-cover bg-center z-0 bg-fixed" 
-           style="background-image: url('/assets/image/services/mobile-app-development/hero-section/mobile-apps.jpg');"></div>
-      <div class="absolute inset-0 z-5"></div>
-      <div class="relative z-10 flex items-center justify-center h-screen">
-        <div class="text-center parallax-content max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-          <h1 class="text-slate-900 text-4xl md:text-6xl font-bold mb-4">Aplikasi Mobile yang Memukau</h1>
+    {{-- Hero Section --}}
+    <section class="w-full bg-white py-16 pt-32">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div class="max-w-3xl">
+                <h1 class="text-[3.6rem] max-lg:text-[3rem] max-md:text-[2.6rem] leading-snug font-bold mb-6 text-slate-900">Aplikasi Mobile yang Menjangkau Jutaan Pengguna</h1>
+                <p class="text-xl max-md:text-lg leading-snug text-neutral-700 mb-6">Kembangkan aplikasi mobile Android dan iOS yang powerful dengan teknologi hybrid atau native. Dari konsep hingga publish di Play Store dan App Store, kami siap mewujudkan aplikasi mobile impian Anda.</p>
+                <a href="#konsultasi" 
+                aria-label="Hubungi kami untuk konsultasi aplikasi mobile gratis"
+                class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#128AEB] hover:bg-[#0F76C6] transition duration-150 min-h-[44px]">
+                    Hubungi Sekarang
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="relative z-10 flex items-start justify-center min-h-screen">
-        <div class="text-center parallax-content max-w-xl mx-auto font-semibold">
-          <p class="text-slate-600/80 text-lg md:text-2xl max-w-2xl mx-auto px-4 mb-6" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-            Pembuatan <span class="text-slate-900">aplikasi mobile Android/iOS</span> menggunakan teknologi hybrid atau native untuk kebutuhan UMKM hingga startup.
-          </p>
-          <p class="text-slate-600/80 text-lg md:text-2xl max-w-2xl mx-auto px-4 mb-6" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-            Dengan <span class="text-slate-900">interface yang intuitif</span>, aplikasi yang ringan, dan <span class="text-slate-900">integrasi backend</span> yang seamless.
-          </p>
-          <p class="text-slate-600/80 text-lg md:text-2xl max-w-2xl mx-auto px-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-            Solusi <span class="text-slate-900">cross-platform</span> yang efisien untuk menjangkau lebih banyak pengguna.
-          </p>
-        </div>
-      </div>
     </section>
 
-    {{-- Parallax Section 2 --}}
-    <section class="relative min-h-screen overflow-hidden parallax-section" data-parallax="0.3">
-      <div class="absolute inset-0 bg-cover bg-center z-0 bg-fixed" 
-           style="background-image: url('/assets/image/services/mobile-app-development/hero-section/app-store.jpg');"></div>
-      <div class="absolute inset-0 z-5"></div>
-      <div class="relative z-10 flex items-center justify-center h-full">
-        <div class="text-center parallax-content" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-          <h1 class="text-white text-4xl md:text-6xl font-bold mb-4">Ready for App Store</h1>
-          <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Aplikasi yang siap publish di Google Play Store dan Apple App Store
-          </p>
-        </div>
-      </div>
-    </section>
+    <section id="keunggulan" class="w-full bg-neutral-100 py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div class="max-w-7xl mx-auto text-left mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Kenapa Memilih Aplikasi Mobile dari Centrova?
+                </h2>
+            </div>
 
-    {{-- Tentang Layanan --}}
-    <div class="max-w-4xl mx-auto px-4 max-md:px-8 lg:px-8 text-center border-none border-neutral-300 py-32">
-        <p class="mt-8 text-2xl max-lg:text-xl max-w-3xl mx-auto font-medium text-slate-900/60" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
-            Kami menawarkan <span class="text-slate-900">layanan pengembangan aplikasi mobile</span> yang user-friendly, ringan, dan powerful—mulai dari aplikasi bisnis hingga e-commerce. Semua dikembangkan secara custom sesuai kebutuhan bisnismu, dengan desain modern, performa optimal, dan <span class="text-slate-900">siap publish</span> ke App Store dan Play Store.
-        </p>
-    </div>
-
-    {{-- Fokus Layanan --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <section class="w-full bg-neutral-50 py-24 px-4 sm:px-6 lg:px-8" x-data="mobileAppAdvantagesSection">
-        <div class="max-w-4xl mx-auto text-center mb-6">
-            <h2 class="text-4xl font-bold text-slate-900 mb-3">Keunggulan Aplikasi Mobile Kami</h2>
-            <p class="text-xl text-slate-700">Mengapa memilih Centrova untuk aplikasi mobile Anda?</p>
-        </div>
-        <div class="w-full max-w-screen-2xl mx-auto">
-            <div class="swiper advantages-swiper">
-                <div class="swiper-wrapper">
-                    <template x-for="(item, idx) in advantages" :key="idx">
-                        <div class="swiper-slide py-3">
-                            <div
-                                class="group relative cursor-pointer rounded-3xl overflow-hidden shadow hover:shadow-md bg-white/80 transition-all duration-300 flex flex-col min-h-[500px]"
-                                x-bind:style="'background-image:url(' + backgroundImages[idx] + ');background-size:cover;background-position:center;'"
-                                @click="openModal(idx)" loading="lazy">
-                                <!-- Overlay gelap agar teks putih lebih jelas -->
-                                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 z-0"></div>
-                                <div class="relative z-10 flex flex-col h-full px-7 py-6 justify-between">
-                                    <span class="text-[26px] font-semibold mb-1 transition text-slate-900 text-left w-full" x-text="item.title"></span>
-                                    <span class="text-lg font-normal transition text-slate-800 text-left w-full" x-text="item.short"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
+            <div class="grid grid-cols-3 max-lg:grid-cols-1 text-slate-900 gap-12">
+                <div class="flex flex-col items-start">
+                    <h1 class="font-medium text-xl mb-5">Cross-Platform Development</h1>
+                    <p class="text-gray-600 text-lg">Dengan teknologi hybrid seperti React Native atau Flutter, kami develop sekali untuk Android dan iOS sekaligus. Hemat biaya, lebih cepat, dengan performa mendekati native.</p>
                 </div>
-                <!-- Navigasi panah - dipindah ke bawah -->
-            </div>
-            <!-- Custom Navigation Buttons -->
-            <div class="flex justify-end items-center mt-8 gap-3">
-                <button class="swiper-button-prev-custom flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-200 text-gray-400 hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/5 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="swiper-button-next-custom flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-200 text-gray-400 hover:border-[#128AEB] hover:text-[#128AEB] hover:bg-[#128AEB]/5 transition-all duration-300 shadow-sm">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-medium text-xl mb-5">UI/UX yang Intuitif & Menarik</h1>
+                    <p class="text-gray-600 text-lg">Interface yang user-friendly mengikuti design guidelines iOS dan Android. Pengalaman pengguna yang smooth dan enjoyable meningkatkan engagement dan retention rate.</p>
+                </div>
+                <div class="flex flex-col items-start">
+                    <h1 class="font-medium text-xl mb-5">Ready for App Store</h1>
+                    <p class="text-gray-600 text-lg">Kami bantu proses submission hingga aplikasi Anda live di Google Play Store dan Apple App Store. Lengkap dengan dokumentasi, asset requirements, dan compliance guidelines.</p>
+                </div>
             </div>
         </div>
-        <!-- Advantages Modal -->
-        <div x-show="showModal"
-             x-cloak
-             x-transition:enter="transition ease-out duration-400"
-             x-transition:enter-start="opacity-0"
-             x-transition:enter-end="opacity-100"
-             x-transition:leave="transition ease-in duration-300"
-             x-transition:leave-start="opacity-100"
-             x-transition:leave-end="opacity-0"
-             class="fixed inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-md">
-            <div class="relative bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl max-w-2xl w-full p-12 mx-4 border border-[#128AEB]/10 flex flex-col items-center" @click.away="closeModal()">
-                <button @click="closeModal()" class="absolute top-5 right-5 text-[#128AEB] bg-white/80 rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#e0f2fe] transition"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
-                <span class="text-3xl font-bold text-slate-900 mb-6 text-center block" x-text="modalTitle"></span>
-                <div class="text-slate-800 text-xl leading-relaxed text-center" x-text="modalDesc"></div>
-            </div>
+    </section>
+
+    {{-- Separator --}}
+    <div class="w-full h-[6px] flex"><div class="w-full bg-[#128AEB] h-full"></div><div class="w-full bg-sky-500 h-full"></div><div class="w-[30%] bg-sky-300 h-full"></div></div>
+
+    {{-- Jenis Aplikasi Mobile --}}
+    <section id="layanan" class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16" x-data="mobileAppSection">
+        <div class="text-left mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                Jenis Aplikasi Mobile yang Kami Kembangkan
+            </h2>
+            <p class="text-base text-lg text-slate-700 md:max-w-4xl">
+                Dari aplikasi bisnis hingga social media, kami siap mewujudkan ide aplikasi mobile Anda
+            </p>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        
+        <div class="w-full max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <template x-for="(item, idx) in services" :key="idx">
+                <div class="bg-white rounded-2xl border border-neutral-200 shadow hover:shadow-md transition-all duration-300 p-6">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 bg-[#128AEB]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-[#128AEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x-html="item.icon"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2" x-text="item.title"></h3>
+                    <p class="text-gray-600 text-base" x-text="item.description"></p>
+                </div>
+            </template>
+        </div>
+
+        @push('scripts')
+        @once
         <script>
             document.addEventListener('alpine:init', () => {
-                Alpine.data('mobileAppAdvantagesSection', () => ({
-                    advantages: [{
-                            title: 'User-Friendly',
-                            short: 'Interface yang intuitif dan mudah digunakan untuk semua pengguna.',
-                            desc: 'Desain UI/UX yang mengutamakan kemudahan pengguna dengan navigasi yang intuitif dan user flow yang smooth. Cocok untuk semua kalangan dari yang tech-savvy hingga awam teknologi.'
+                Alpine.data('mobileAppSection', () => ({
+                    services: [
+                        {
+                            title: 'E-Commerce & Marketplace',
+                            description: 'Aplikasi toko online mobile-first dengan fitur product catalog, shopping cart, payment gateway, order tracking, push notification untuk promo, dan review system.',
+                            icon: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z'
                         },
                         {
-                            title: 'Ringan & Efisien',
-                            short: 'Aplikasi yang efisien dalam penggunaan memori dan baterai.',
-                            desc: 'Optimasi code dan resource management yang baik menghasilkan aplikasi yang ringan, tidak boros baterai, dan dapat berjalan lancar di berbagai spesifikasi device.'
+                            title: 'Social Media & Community',
+                            description: 'Platform social networking dengan fitur posting, commenting, messaging, feed algorithm, user profiles, media sharing, dan real-time notifications.',
+                            icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
                         },
                         {
-                            title: 'Integrasi Backend',
-                            short: 'Koneksi seamless dengan sistem backend dan web service.',
-                            desc: 'API integration yang robust dengan real-time data sync, offline capability, dan security layer yang kuat untuk melindungi data pengguna.'
+                            title: 'Food Delivery & Restaurant',
+                            description: 'Aplikasi pesan-antar makanan dengan menu digital, real-time order tracking, multiple payment options, rating & review, loyalty program, dan driver app.',
+                            icon: 'M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7'
                         },
                         {
-                            title: 'Cross-Platform',
-                            short: 'Satu kode untuk Android dan iOS dengan performa native.',
-                            desc: 'Menggunakan teknologi hybrid modern seperti React Native atau Flutter yang memungkinkan development yang efisien tanpa mengorbankan performa dan user experience.'
+                            title: 'On-Demand Services & Booking',
+                            description: 'Platform booking layanan seperti salon, spa, home service, konsultasi online dengan fitur appointment scheduling, payment integrated, dan service provider management.',
+                            icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
                         },
                         {
-                            title: 'App Store Ready',
-                            short: 'Siap publish ke Google Play Store dan Apple App Store.',
-                            desc: 'Mengikuti guidelines dan best practices dari kedua platform, termasuk app signing, privacy policy, dan compliance dengan store policies untuk proses approval yang smooth.'
+                            title: 'Learning Management System (LMS)',
+                            description: 'Aplikasi e-learning dengan video courses, quiz & assignments, progress tracking, certificates, discussion forums, dan gamification untuk engaging learning experience.',
+                            icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
                         },
                         {
-                            title: 'Maintenance & Support',
-                            short: 'Update berkala dan support teknis berkelanjutan.',
-                            desc: 'Tim support siap membantu dengan bug fixes, feature updates, dan compatibility updates untuk OS terbaru. Termasuk analytics dan crash reporting untuk monitoring performa.'
+                            title: 'Health & Fitness Tracker',
+                            description: 'Aplikasi kesehatan dengan activity tracking, calorie counter, workout plans, medication reminders, health metrics dashboard, dan integration dengan wearable devices.',
+                            icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+                        }
+                    ]
+                }));
+            });
+        </script>
+        @endonce
+        @endpush
+    </section>
+
+    {{-- Why Mobile App --}}
+    <section class="w-full overflow-hidden py-32 max-md:py-16">
+        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center">
+            <div class="max-w-4xl mx-auto text-center mb-12 px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
+                    Mengapa Bisnis Anda Butuh Aplikasi Mobile?
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
+                    Di era mobile-first, aplikasi mobile bukan lagi opsional tapi kebutuhan untuk pertumbuhan bisnis.
+                </p>
+            </div>
+
+            <div class="w-full mt-10 md:mt-16 flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16">
+                <div class="text-center md:text-left max-w-xl">
+                    <h2 class="text-slate-900 font-medium text-2xl sm:text-3xl mb-4 sm:mb-6 leading-snug">Jangkau Customer di Mana Pun Mereka Berada</h2>
+                    <p class="text-base sm:text-lg text-slate-600">Lebih dari 70% pengguna internet Indonesia mengakses melalui smartphone. Dengan aplikasi mobile, bisnis Anda hadir langsung di smartphone pelanggan - meningkatkan engagement, loyalty, dan conversion rate. Push notification memungkinkan komunikasi real-time, sementara fitur offline-first memastikan customer tetap dapat mengakses layanan bahkan tanpa koneksi internet. Aplikasi mobile juga memberikan brand presence yang lebih kuat dan customer experience yang superior dibanding website mobile.</p>
+                </div>
+
+                <img src="{{ asset('/assets/image/services/mobile-app-development/section_1.png') }}"
+                    alt="Ilustrasi aplikasi mobile profesional"
+                    class="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-lg flex-shrink-0" loading="lazy"
+                    decoding="async" />
+            </div>
+        </div>
+    </section>
+
+    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
+
+    {{-- Tech Stack --}}
+    <section class="w-full overflow-hidden py-32 max-md:py-16">
+        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-neutral-900 mb-3 leading-snug">
+                    Teknologi yang Kami Gunakan
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl text-slate-700 max-w-2xl mx-auto">
+                    Framework dan tools modern untuk menghasilkan aplikasi mobile berkualitas tinggi
+                </p>            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow hover:shadow-md transition-all">
+                    <h3 class="text-2xl font-semibold text-slate-900 mb-4">Hybrid Development</h3>
+                    <ul class="space-y-3 list-check">
+                        <li>React Native - JavaScript framework dari Facebook</li>
+                        <li>Flutter - Dart framework dari Google</li>
+                        <li>Ionic - HTML5 hybrid framework</li>
+                        <li>One codebase untuk iOS & Android</li>
+                        <li>Faster development & lower cost</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow hover:shadow-md transition-all">
+                    <h3 class="text-2xl font-semibold text-slate-900 mb-4">Native Development</h3>
+                    <ul class="space-y-3 list-check">
+                        <li>Swift untuk iOS development</li>
+                        <li>Kotlin untuk Android development</li>
+                        <li>Maximum performance & native feel</li>
+                        <li>Full access ke device features</li>
+                        <li>Best user experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
+
+    {{-- Paket & Harga --}}
+    <section id="harga" x-data="pricingSection" class="py-32 max-md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Paket & Estimasi Harga</h2>
+                <p class="text-xl text-slate-700 max-w-3xl mx-auto">
+                    Pilih paket development yang sesuai dengan kompleksitas dan kebutuhan aplikasi mobile Anda
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="(plan, index) in plans" :key="index">
+                    <div class="relative bg-white text-slate-900 border border-slate-200 rounded-3xl p-8 hover:shadow-sm transition-all duration-500">
+                        <div class="text-center mb-4">
+                            <h3 class="text-3xl font-bold mb-4" x-text="plan.name"></h3>
+                            <div class="mb-4">
+                                <span class="text-3xl font-semibold" x-text="plan.price"></span>
+                            </div>
+                            <p class="text-slate-600" x-text="plan.description"></p>
+                        </div>
+
+                        <button @click="selectPlan(plan)" 
+                            class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-2 rounded-full transition flex items-center w-full justify-center text-center mb-8">
+                            Pilih Paket
+                        </button>
+
+                        <ul class="space-y-3">
+                            <template x-for="feature in plan.features" :key="feature">
+                                <li class="flex items-start text-sm">
+                                    <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0 text-[#128AEB]" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span x-text="feature"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        @push('scripts')
+        @once
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('pricingSection', () => ({
+                    plans: [
+                        {
+                            name: 'MVP Starter',
+                            price: 'Rp 15.000.000',
+                            description: 'Perfect untuk validasi konsep dan launch cepat dengan fitur essential.',
+                            features: [
+                                'Hybrid development (React Native/Flutter)',
+                                'Basic UI/UX design',
+                                '5-8 screens/pages',
+                                'User authentication',
+                                'Basic API integration',
+                                'Android & iOS apps',
+                                '2 bulan timeline',
+                                '3 bulan support'
+                            ]
                         },
+                        {
+                            name: 'Professional',
+                            price: 'Rp 35.000.000',
+                            description: 'Aplikasi production-ready dengan fitur lengkap untuk bisnis berkembang.',
+                            features: [
+                                'Semua fitur MVP',
+                                'Custom UI/UX design',
+                                '12-20 screens',
+                                'Push notifications',
+                                'Payment gateway integration',
+                                'Analytics & crashlytics',
+                                'Admin dashboard web',
+                                '3-4 bulan timeline',
+                                '6 bulan support'
+                            ],
+                            featured: true
+                        },
+                        {
+                            name: 'Enterprise',
+                            price: 'Mulai Rp 75jt',
+                            description: 'Solusi enterprise-grade dengan fitur advanced dan scalability tinggi.',
+                            features: [
+                                'Native atau hybrid',
+                                'Premium UI/UX design',
+                                'Unlimited screens',
+                                'Real-time features',
+                                'Advanced security',
+                                'Cloud infrastructure setup',
+                                'DevOps & CI/CD',
+                                'Wearable integration',
+                                '5-8 bulan timeline',
+                                '12 bulan premium support'
+                            ]
+                        }
                     ],
-                    backgroundImages: [
-                        '/assets/image/services/mobile-app-development/user-friendly.jpg',
-                        '/assets/image/services/mobile-app-development/lightweight.jpg',
-                        '/assets/image/services/mobile-app-development/backend-integration.jpg',
-                        '/assets/image/services/mobile-app-development/cross-platform.jpg',
-                        '/assets/image/services/mobile-app-development/app-store-ready.jpg',
-                        '/assets/image/services/mobile-app-development/maintenance-support.jpg',
-                    ],
-                    showModal: false,
-                    modalIndex: null,
-                    modalTitle: '',
-                    modalDesc: '',
-                    openModal(idx) {
-                        this.modalIndex = idx;
-                        this.modalTitle = this.advantages[idx].title;
-                        this.modalDesc = this.advantages[idx].desc;
-                        this.showModal = true;
-                        document.body.style.overflow = 'hidden';
-                    },
-                    closeModal() {
-                        this.showModal = false;
-                        this.modalIndex = null;
-                        document.body.style.overflow = 'unset';
+                    selectPlan(plan) {
+                        const phoneNumber = '6285817909560';
+                        let message = `Halo, saya tertarik dengan paket *${plan.name}* untuk layanan Mobile App Development.\n\n`;
+                        message += `Detail Paket:\n• Harga: ${plan.price}\n• Deskripsi: ${plan.description}\n\nMohon informasi lebih lanjut. Terima kasih!`;
+                        const encodedMessage = encodeURIComponent(message);
+                        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
                     }
                 }));
             });
         </script>
+        @endonce
+        @endpush
     </section>
-    <style>
-        .line-clamp-4 {
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-clamp: 4;
-        }
 
-        .swiper {
-            padding-bottom: 0px;
-        }
+    <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
-        /* Hide default swiper navigation */
-        .swiper-button-next,
-        .swiper-button-prev {
-            display: none;
-        }
-
-        /* Custom navigation buttons */
-        .swiper-button-prev-custom,
-        .swiper-button-next-custom {
-            cursor: pointer;
-        }
-
-        .swiper-button-prev-custom:active,
-        .swiper-button-next-custom:active {
-            transform: scale(0.95);
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #128AEB !important;
-        }
-    </style>
-
-    {{-- Layanan Mobile App --}}
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{-- FAQ --}}
+    <section class="py-32 max-md:py-16 bg-neutral-50" x-data="faqSection">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Layanan Mobile App</h2>
-                <p class="text-xl text-slate-700 max-w-3xl mx-auto">
-                    Berbagai jenis aplikasi mobile yang dapat kami kembangkan sesuai kebutuhan bisnis Anda
-                </p>
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4">
+                    Pertanyaan yang Sering Diajukan
+                </h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-purple-100 p-3 rounded-xl">
-                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            <div>
+                <template x-for="(faq, index) in faqs" :key="index">
+                    <div class="py-0 border-b border-neutral-300 focus-within:border-b-2 focus-within:border-[#128AEB] transition">
+                        <button @click="toggleFaq(index)" class="w-full py-4 text-left flex items-center justify-between focus:z-20 my-0.5 transition-colors gap-2">
+                            <span class="font-semibold text-sky-700 text-xl sm:text-2xl leading-snug sm:leading-normal flex-wrap sm:flex-nowrap max-w-[80%]" x-text="faq.question"></span>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300 flex-shrink-0" :class="{ 'rotate-180': openFaq === index }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Native Apps</h3>
-                            <p class="text-slate-600 mb-4">Aplikasi native Android dan iOS dengan performa optimal.</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>Performa maksimal</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>Akses penuh fitur device</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>User experience terbaik</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>Optimasi platform-specific</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                        </button>
 
-                <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-blue-100 p-3 rounded-xl">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Hybrid Apps</h3>
-                            <p class="text-slate-600 mb-4">Solusi cross-platform yang efisien untuk Android dan iOS.</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Satu kode untuk dua platform</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Development time lebih cepat</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Cost-effective</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>Maintenance lebih mudah</li>
-                            </ul>
+                        <div x-show="openFaq === index"
+                            x-transition:enter="transition-[max-height] duration-[600ms] ease-in"
+                            x-transition:leave="transition-[max-height] duration-[600ms] ease-out"
+                            x-transition:enter-start="max-h-0" x-transition:enter-end="max-h-[300px]"
+                            x-transition:leave-start="max-h-[300px]" x-transition:leave-end="max-h-0"
+                            class="overflow-hidden">
+                            <div class="pb-6 pt-2 text-slate-700 text-base sm:text-lg leading-relaxed max-w-full sm:max-w-[90%]" x-text="faq.answer"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-green-100 p-3 rounded-xl">
-                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3">E-commerce Apps</h3>
-                            <p class="text-slate-600 mb-4">Aplikasi mobile untuk toko online dengan sistem pembayaran terintegrasi.</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Payment gateway integration</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Product catalog management</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Order tracking system</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Push notifications</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-orange-100 p-3 rounded-xl">
-                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Enterprise Apps</h3>
-                            <p class="text-slate-600 mb-4">Aplikasi bisnis yang aman dan scalable untuk perusahaan.</p>
-                            <ul class="space-y-2 text-sm text-slate-600">
-                                <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>Enterprise-grade security</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>Role-based access control</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>Data analytics dashboard</li>
-                                <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>API integration</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                </template>
             </div>
         </div>
+
+        @push('scripts')
+        @once
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('faqSection', () => ({
+                    openFaq: null,
+                    faqs: [
+                        {
+                            question: 'Hybrid atau Native, mana yang lebih baik?',
+                            answer: 'Hybrid (React Native/Flutter) cocok untuk MVP dan budget terbatas dengan development lebih cepat. Native (Swift/Kotlin) untuk aplikasi kompleks yang butuh performa maksimal. Kami akan rekomendasikan yang paling sesuai dengan kebutuhan Anda.'
+                        },
+                        {
+                            question: 'Berapa lama waktu pengembangan aplikasi mobile?',
+                            answer: 'MVP sederhana: 2-3 bulan. Aplikasi standard dengan fitur lengkap: 3-5 bulan. Enterprise complex app: 6-12 bulan. Timeline bisa bervariasi tergantung scope dan kompleksitas fitur.'
+                        },
+                        {
+                            question: 'Apakah harga sudah termasuk publish ke App Store & Play Store?',
+                            answer: 'Ya, kami bantu proses submission hingga aplikasi live di kedua platform. Developer account fee (Apple $99/tahun, Google $25 sekali bayar) ditanggung klien. Kami handle semua technical requirements dan compliance.'
+                        },
+                        {
+                            question: 'Apakah bisa update fitur setelah aplikasi launch?',
+                            answer: 'Tentu! Kami menyediakan layanan maintenance dan feature enhancement berkelanjutan. Aplikasi dirancang modular untuk memudahkan penambahan fitur atau update di kemudian hari tanpa rebuild dari nol.'
+                        },
+                        {
+                            question: 'Bagaimana sistem pembayaran untuk project mobile app?',
+                            answer: 'Payment term: 30% DP, 30% saat prototype/design approved, 30% saat pre-launch testing, 10% setelah publish live. Atau bisa disesuaikan dengan agreement di proposal.'
+                        },
+                        {
+                            question: 'Apakah source code akan diberikan kepada klien?',
+                            answer: 'Ya, setelah project selesai dan pelunasan, seluruh source code, documentation, dan asset menjadi milik penuh klien. Anda memiliki full ownership dan dapat melanjutkan development sendiri jika diperlukan.'
+                        }
+                    ],
+                    toggleFaq(index) {
+                        this.openFaq = this.openFaq === index ? null : index;
+                    }
+                }));
+            });
+        </script>
+        @endonce
+        @endpush
     </section>
 
-    {{-- Call-to-Action Section --}}
-    <section class="py-24 bg-gradient-to-r from-[#128AEB] to-[#0F76C6]">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                Siap Mengembangkan Aplikasi Mobile Anda?
-            </h2>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                Konsultasikan ide aplikasi mobile Anda dengan tim expert kami. Gratis konsultasi dan estimasi proyek.
+    {{-- CTA Konsultasi --}}
+    <div id="konsultasi" class="text-center py-32 max-md:py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 mb-4">
+                Konsultasi Gratis Ide Aplikasi Mobile Anda
+            </h3>
+            <p class="text-slate-600 text-base sm:text-lg mb-6">
+                Diskusikan konsep dan requirement aplikasi Anda bersama tim expert kami. Dapatkan estimasi dan roadmap yang jelas.
             </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-white text-[#128AEB] rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                    </svg>
-                    Konsultasi Gratis
-                </a>
-                <a href="#" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-[#128AEB] transition-all duration-300 transform hover:scale-105">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                    </svg>
-                    Lihat Portfolio
-                </a>
-            </div>
+            <button onclick="window.open('{{ route('support.web.consult') }}', '_blank')"
+                class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+                Hubungi Kami
+            </button>
+        </div>
+    </div>
 
-            <!-- Trust Indicators -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-                <div class="text-center">
-                    <div class="text-3xl font-bold mb-2">100+</div>
-                    <div class="text-white/80">Mobile Apps</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold mb-2">5M+</div>
-                    <div class="text-white/80">Downloads</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold mb-2">4.8★</div>
-                    <div class="text-white/80">Average Rating</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold mb-2">24/7</div>
-                    <div class="text-white/80">Support</div>
-                </div>
+    {{-- Quick Links --}}
+    <section class="w-full pt-10 bg-neutral-100" x-data="quickLinksSection">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <h1 class="font-semibold text-2xl mb-4">Quick Links</h1>
+            <div class="flex justify-start gap-3 items-center w-full border-b border-neutral-300 pb-10 flex-wrap">
+                <template x-for="(link, index) in quickLinks" :key="index">
+                    <a :href="link.url" :target="link.target || '_self'"
+                        class="px-4 py-1 font-normal border border-neutral-700 rounded-full hover:bg-neutral-700 hover:text-white hover:underline transition-colors duration-200"
+                        x-text="link.text">
+                    </a>
+                </template>
             </div>
         </div>
-    </section>
 
-    <script>
-        // Initialize Swiper when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                if (document.querySelector('.advantages-swiper')) {
-                    new Swiper('.advantages-swiper', {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        loop: true,
-                        navigation: {
-                            nextEl: '.swiper-button-next-custom',
-                            prevEl: '.swiper-button-prev-custom',
-                        },
-                        autoplay: {
-                            delay: 5000,
-                            disableOnInteraction: false,
-                        },
-                        breakpoints: {
-                            640: {
-                                slidesPerView: 2,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                        },
-                    });
-                }
-            }, 100);
-        });
-    </script>
-    
-</div>
+        @push('scripts')
+        @once
+        <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('quickLinksSection', () => ({
+                    quickLinks: [
+                        { text: "Konsultasi Gratis", url: "{{ route('support.web.consult') }}", target: "_blank" },
+                        { text: "Pusat Bantuan", url: "{{ route('support.services.home') }}", target: "_self" },
+                        { text: "Pembatalan Layanan", url: "{{ route('services.cancellation.index') }}", target: "_self" },
+                    ]
+                }));
+            });
+        </script>
+        @endonce
+        @endpush
+    </section>
 @endsection
