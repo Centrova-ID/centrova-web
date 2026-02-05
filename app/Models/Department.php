@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cache;
 
 class Department extends Model
 {
@@ -40,6 +41,23 @@ class Department extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+    
+    /**
+     * Boot the model
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        
+        // Clear cache after any data modification
+        static::saved(function () {
+            Cache::forget('active_departments');
+        });
+        
+        static::deleted(function () {
+            Cache::forget('active_departments');
+        });
+    }
 
     /**
      * Get the manager of the department.

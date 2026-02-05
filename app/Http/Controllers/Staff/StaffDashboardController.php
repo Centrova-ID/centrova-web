@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Department;
@@ -115,10 +116,12 @@ class StaffDashboardController extends Controller
             }
         }
         
-        // Load departments for dropdown
-        $departments = Department::where('status', 'active')
-                                ->orderBy('name', 'asc')
-                                ->get();
+        // Load departments for dropdown - cache for 1 hour
+        $departments = Cache::remember('active_departments', 3600, function() {
+            return Department::where('status', 'active')
+                           ->orderBy('name', 'asc')
+                           ->get();
+        });
         
         return view('staff.management.staff.index', compact('staffUsers', 'selectedStaff', 'selectedStaffUid', 'departments'));
     }

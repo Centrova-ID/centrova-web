@@ -8,6 +8,7 @@ use App\Models\UiComponent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class UIComponentController extends Controller
 {
@@ -34,7 +35,11 @@ class UIComponentController extends Controller
         }
 
         $components = $query->ordered()->paginate(15);
-        $categories = UiCategory::active()->ordered()->get();
+        
+        // Cache categories for 1 hour (frequently accessed, rarely changed)
+        $categories = Cache::remember('ui_categories_active', 3600, function() {
+            return UiCategory::active()->ordered()->get();
+        });
 
         return view('staff.ui-components.index', compact('components', 'categories'));
     }
@@ -44,7 +49,10 @@ class UIComponentController extends Controller
      */
     public function create()
     {
-        $categories = UiCategory::active()->ordered()->get();
+        // Cache categories for 1 hour
+        $categories = Cache::remember('ui_categories_active', 3600, function() {
+            return UiCategory::active()->ordered()->get();
+        });
         return view('staff.ui-components.create', compact('categories'));
     }
 
@@ -93,7 +101,10 @@ class UIComponentController extends Controller
      */
     public function edit(UiComponent $uiComponent)
     {
-        $categories = UiCategory::active()->ordered()->get();
+        // Cache categories for 1 hour
+        $categories = Cache::remember('ui_categories_active', 3600, function() {
+            return UiCategory::active()->ordered()->get();
+        });
         $component = $uiComponent; // For view consistency
         return view('staff.ui-components.edit', compact('component', 'categories'));
     }

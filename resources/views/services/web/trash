@@ -1859,3 +1859,122 @@
         @endpush
     </section>
     @endsection
+
+
+
+    {{-- Kenapa Wajib Punya Website --}}
+    <section class="w-full py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="text-left mb-8">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Kenapa Perusahaan Wajib Punya Website?
+                </h2>
+                <p class="text-base text-lg text-slate-700 md:max-w-4xl">
+                    Jangan biarkan kompetitor bisnis Anda lebih unggul! Dapatkan website profesional yang akan membuat
+                    perusahaan tampil lebih credible dan menarik lebih banyak customer
+                </p>
+            </div>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" role="list"
+                aria-label="Perbandingan dampak memiliki dan tidak memiliki website">
+                <!-- Problem Card -->
+                <div class="bg-red-50 p-8 rounded-2xl  relative overflow-hidden group" data-aos="fade-up"
+                    data-aos-duration="700" data-aos-delay="100">
+                    <div class="relative z-10 md:p-8">
+                        <p class="text-red-600 font-medium uppercase text-base mb-4">Tanpa Website</p>
+                        <h3 class="text-4xl text-red-950 font-bold mb-6">Bisnis Anda Kehilangan Banyak Peluang!</h3>
+    
+                        <div class="space-y-4 mt-8">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-red-950">Customer tidak bisa menemukan bisnis Anda secara online</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-red-950">Kehilangan kepercayaan karena terlihat kurang profesional</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-red-950">Sulit bersaing dengan kompetitor yang sudah online</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-red-950">Terbatasnya jangkauan pemasaran dan penjualan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+                </div>
+    
+                <!-- Solution Card -->
+                <div class="bg-[#128AEB]/10 p-8 rounded-2xl text-white relative overflow-hidden group" data-aos="fade-up"
+                    data-aos-duration="700" data-aos-delay="200">
+                    <div class="relative z-10 md:p-8">
+                        <p class="text-gray-500 font-medium uppercase text-base mb-4">Dengan Website</p>
+                        <h3 class="text-4xl text-slate-900 font-bold mb-6">Bisnis Anda Akan Berkembang Pesat!</h3>
+    
+                        <div class="space-y-4 mt-8">
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-slate-900">Tampil profesional dan terpercaya di mata customer</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-slate-900">Mudah ditemukan customer melalui Search Engine</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-slate-900">Jangkauan pasar lebih luas, 24 jam nonstop</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-slate-900">Meningkatkan penjualan dan revenue secara signifikan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>

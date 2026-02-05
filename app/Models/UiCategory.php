@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class UiCategory extends Model
@@ -41,6 +42,15 @@ class UiCategory extends Model
             if (empty($category->slug)) {
                 $category->slug = Str::slug($category->name);
             }
+        });
+        
+        // Clear cache after any data modification
+        static::saved(function () {
+            Cache::forget('ui_categories_active');
+        });
+        
+        static::deleted(function () {
+            Cache::forget('ui_categories_active');
         });
     }
 

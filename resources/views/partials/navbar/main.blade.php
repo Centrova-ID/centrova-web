@@ -187,6 +187,7 @@
                         </div>
                         
                         <a href="{{ route('support.home') }}" 
+                           data-turbo-prefetch
                            class="py-2 hover:text-black transition-colors duration-200">
                             Dukungan
                         </a>
@@ -224,6 +225,7 @@
                                 Unggulan
                             </h3>
                             <a href="{{ route('products.business.index') }}" 
+                               data-turbo-prefetch
                                class="mega-menu-item">Centrova Enterprise</a>
                         </div>
                         
@@ -234,10 +236,13 @@
                             </h3>
                             <div class="space-y-2">
                                 <a href="{{ route('products.business.crm') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">CRM</a>
                                 <a href="{{ route('products.business.sales') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">Sales</a>
                                 <a href="{{ route('products.business.erp') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">ERP</a>
                             </div>
                         </div>
@@ -287,6 +292,7 @@
                                 Jelajahi
                             </h3>
                             <a href="{{ localizedRoute('services.index') }}" 
+                               data-turbo-prefetch
                                class="mega-menu-item">Semua Layanan</a>
                         </div>
                         
@@ -297,10 +303,13 @@
                             </h3>
                             <div class="space-y-2">
                                 <a href="{{ localizedRoute('services.web.index') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">Pengembangan Web</a>
                                 <a href="{{ localizedRoute('services.app.index') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">Aplikasi Desktop</a>
                                 <a href="{{ localizedRoute('services.mobile-app.index') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">iOS & Android native</a>
                             </div>
                         </div>
@@ -312,6 +321,7 @@
                             </h3>
                             <div class="space-y-2">
                                 <a href="{{ localizedRoute('services.uiux.index') }}" 
+                                   data-turbo-prefetch
                                    class="mega-menu-item">UI/UX Design</a>
                             </div>
                         </div>

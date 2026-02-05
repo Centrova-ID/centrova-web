@@ -42,15 +42,23 @@
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
     {{-- Preconnect / DNS Prefetch for Performance (faster TLS & early connection) --}}
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="preconnect" href="https://cdn.skypack.dev">
+    <link rel="dns-prefetch" href="https://cdn.skypack.dev">
 
     {{-- Preload Fonts --}}
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+          as="style" 
+          onload="this.onload=null;this.rel='stylesheet'">
+
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap">
+        <link rel="stylesheet" 
+              href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap">
     </noscript>
 
     {{-- Preload AOS Animation CSS --}}
@@ -64,6 +72,7 @@
 
     {{-- External JavaScript Libraries (defer non-critical JS to reduce render-blocking) --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- TailwindCSS CDN - Non-blocking load with immediate stylesheet --}}
     <script src="https://cdn.tailwindcss.com"></script>
     
     {{-- Google Analytics / GA4 --}}
@@ -83,6 +92,31 @@
         // Ensure Alpine.js works with Turbo navigation
         document.addEventListener('alpine:init', () => {
             // Alpine configuration if needed
+        });
+        
+        // Prefetch optimization: preload likely navigation targets
+        document.addEventListener('DOMContentLoaded', () => {
+            // Prefetch high-priority navigation links after page load
+            const prefetchLinks = document.querySelectorAll('a[data-turbo-prefetch]');
+            prefetchLinks.forEach(link => {
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const href = entry.target.getAttribute('href');
+                                if (href && !href.startsWith('#')) {
+                                    const prefetchLink = document.createElement('link');
+                                    prefetchLink.rel = 'prefetch';
+                                    prefetchLink.href = href;
+                                    document.head.appendChild(prefetchLink);
+                                }
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    });
+                    observer.observe(link);
+                }
+            });
         });
     </script>
     
@@ -133,8 +167,20 @@
     <script type="module">
         import { Turbo } from "https://cdn.skypack.dev/@hotwired/turbo@^8.0.0";
         
-        // Turbo Configuration
+        // Turbo Configuration - Enhanced for instant navigation
         Turbo.session.drive = true;
+        
+        // Enable aggressive prefetching on hover
+        document.addEventListener('turbo:load', () => {
+            const links = document.querySelectorAll('a[href^="/"]');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    if (!link.hasAttribute('data-turbo-prefetch-disabled')) {
+                        Turbo.visit(link.href, { action: 'prefetch' });
+                    }
+                }, { once: true, passive: true });
+            });
+        });
         
         // CSRF Token untuk Request Turbo
         Turbo.setFormMode("optin");

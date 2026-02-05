@@ -26,10 +26,7 @@
     {{-- Resource hints untuk performa --}}
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://jasterweb.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://unpkg.com">
     
     {{-- Preload critical images --}}
     <link rel="preload" href="https://jasterweb.com/wp-content/uploads/2024/07/jasa-website.png" as="image">
@@ -61,6 +58,11 @@
         .lazy-bg{background-color:#f3f4f6}
         .filter-scroll-drag{cursor:grab}
         .filter-scroll-drag.active{cursor:grabbing}
+    </style>
+    <style>
+        .list-check{list-style:none;margin:0;padding:0}
+        .list-check li{position:relative;padding-left:32px}
+        .list-check li::before{content:"";position:absolute;left:4px;top:12px;transform:translateY(-50%);width:15px;height:11px;background-repeat:no-repeat;background-size:15px 11px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='11' viewBox='0 0 15 11' fill='none'><path d='M13.7319 0.295798C13.639 0.20207 13.5284 0.127675 13.4065 0.0769067C13.2846 0.026138 13.1539 0 13.0219 0C12.8899 0 12.7592 0.026138 12.6373 0.0769067C12.5155 0.127675 12.4049 0.20207 12.3119 0.295798L4.86192 7.7558L1.73192 4.6158C1.6354 4.52256 1.52146 4.44925 1.3966 4.40004C1.27175 4.35084 1.13843 4.32671 1.00424 4.32903C0.870064 4.33135 0.737655 4.36008 0.614576 4.41357C0.491498 4.46706 0.380161 4.54428 0.286922 4.6408C0.193684 4.73732 0.12037 4.85126 0.0711659 4.97612C0.0219619 5.10097 -0.00216855 5.2343 0.000152918 5.36848C0.00247438 5.50266 0.0312022 5.63507 0.0846957 5.75814C0.138189 5.88122 0.215401 5.99256 0.311922 6.0858L4.15192 9.9258C4.24489 10.0195 4.35549 10.0939 4.47735 10.1447C4.59921 10.1955 4.72991 10.2216 4.86192 10.2216C4.99393 10.2216 5.12464 10.1955 5.2465 10.1447C5.36836 10.0939 5.47896 10.0195 5.57192 9.9258L13.7319 1.7658C13.8334 1.67216 13.9144 1.5585 13.9698 1.432C14.0252 1.30551 14.0539 1.1689 14.0539 1.0308C14.0539 0.892697 14.0252 0.756091 13.9698 0.629592C13.9144 0.503092 13.8334 0.389441 13.7319 0.295798Z' fill='%23128AEB'/></svg>");}
     </style>
 @endsection
 
@@ -99,17 +101,18 @@
     <section class="w-full bg-white py-16 pt-32">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div class="max-w-3xl">
-                <h1 class="text-[3.6rem] max-lg:text-[3rem] max-md:text-[2.6rem] leading-snug font-bold mb-6 bg-gradient-to-r from-blue-600 to-[#128aeb] bg-clip-text text-transparent">Jasa Pembuatan Website</h1>
-                <p class="text-xl max-md:text-lg leading-snug text-neutral-700 mb-6">Ciptakan website profesional dengan desain yang memenuhi ekspektasi. Hasil luar biasa dan posisi terbaik di mesin pencari, selesai dalam waktu singkat, hanya 3 hari kerja.</p>
-                <a href="#" 
+                <h1 class="text-[3.6rem] max-lg:text-[3rem] max-md:text-[2.6rem] leading-snug font-bold mb-6 text-slate-900">Jasa Pembuatan Website</h1>
+                <p class="text-xl max-md:text-lg leading-snug text-neutral-700 mb-6">Ciptakan website profesional dengan desain yang memenuhi ekspektasi. Hasil luar biasa dan posisi terbaik di mesin pencari, selesai dalam waktu singkat.</p>
+                <a href="#konsultasi" 
+                aria-label="Hubungi kami untuk konsultasi website gratis"
                 class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-[#128AEB] hover:bg-[#0F76C6] transition duration-150 min-h-[44px]">
-                    Pelajari selengkapnya
+                    Hubungi Sekarang
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="w-full bg-neutral-100 py-16">
+    <section id="keunggulan" class="w-full bg-neutral-100 py-16">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             {{-- Heading --}}
             <div class="max-w-7xl mx-auto text-left mb-12">
@@ -118,22 +121,25 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-3 max-md:grid-cols-1 max-lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-3 max-lg:grid-cols-1 text-slate-900 gap-12">
                 <div class="flex flex-col items-start">
-                    <h1 class="font-bold text-2xl mb-1">Kecepatan Loading Website 10x Lebih Cepat</h1>
-                    <p>Jalankan website Anda pada disk SSD! Website Anda akan memuat lebih cepat daripada website pada umumnya.</p>
+                    <h1 class="font-medium text-xl mb-5">Kecepatan Loading Website 10x Lebih Cepat</h1>
+                    <p class="text-gray-600 text-lg">Website Anda akan memuat lebih cepat daripada website pada umumnya. Kami memastikan setiap pengunjung mendapatkan informasi secara instan tanpa hambatan.</p>
                 </div>
                 <div class="flex flex-col items-start">
-                    <h1 class="font-bold text-2xl mb-1">Ramah Mesin Pencari</h1>
-                    <p>Website Anda terjamin ramah SEO (Search Engine Optimization), sehingga mampu menempati peringkat teratas di mesin pencarian seperti Google.</p>
+                    <h1 class="font-medium text-xl mb-5">Ramah Mesin Pencari, Otomatis Menjadi yang Teratas</h1>
+                    <p class="text-gray-600 text-lg">Website Anda terjamin ramah SEO (Search Engine Optimization), sehingga mampu menempati peringkat teratas di mesin pencarian seperti Google.</p>
                 </div>
                 <div class="flex flex-col items-start">
-                    <h1 class="font-bold text-2xl mb-1">100% Perlindungan Kemanan</h1>
-                    <p>Website Anda memiliki rangkaian lengkap sertifikasi SSL untuk perlindungan keamanan, anti-spam, firewall, dan backup harian.</p>
+                    <h1 class="font-medium text-xl mb-5">100% Perlindungan Keamanan</h1>
+                    <p class="text-gray-600 text-lg">Website Anda memiliki rangkaian lengkap sertifikasi SSL untuk perlindungan keamanan, anti-spam, dan firewall.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    {{-- Separator --}}
+    <div class="w-full h-[6px] flex"><div class="w-full bg-[#128AEB] h-full"></div><div class="w-full bg-sky-500 h-full"></div><div class="w-[30%] bg-sky-300 h-full"></div></div>
 
     {{-- Pilihan dan Jenis Layanan --}}
     @push('styles')
@@ -142,7 +148,7 @@
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
         @endonce
     @endpush
-    <section id="pilihan-layanan" class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16" x-data="pilihanLayananSection">
+    <section id="layanan" class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16" x-data="pilihanLayananSection">
         {{-- Heading --}}
         <div class="text-left mb-8">
             <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
@@ -233,7 +239,7 @@
         x-transition:leave-end="opacity-0"
         class="fixed inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-md overflow-y-auto">
             <div class="relative bg-white rounded-3xl shadow-2xl max-w-3xl w-full py-12 px-16 mx-4 border border-[#128AEB]/10 flex flex-col items-center max-md:py-16" @click.away="closeModal()">
-                <button @click="closeModal()" class="absolute top-5 right-5 text-[#128AEB] bg-neutral-100 rounded-full w-8 h-8 flex items-center justify-center hover:bg-neutral-200 transition"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
+                <button @click="closeModal()" aria-label="Tutup modal" class="absolute top-5 right-5 text-[#128AEB] bg-neutral-100 rounded-full w-8 h-8 flex items-center justify-center hover:bg-neutral-200 transition"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></button>
                 <span class="text-3xl font-bold text-slate-900 mb-6 text-left block w-full" x-text="modalTitle"></span>
                 <div class="text-slate-800 text-xl leading-relaxed text-left" x-html="modalDesc"></div>
             </div>
@@ -246,7 +252,7 @@
                 if (typeof Swiper === 'undefined') {
                     const script = document.createElement('script');
                     script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-                    script.async = true;
+                    script.defer = true;
                     script.onload = initSwiperServicesComponents;
                     document.head.appendChild(script);
                 } else {
@@ -406,521 +412,411 @@
 
     <hr class="w-[80%] max-w-4xl h-px bg-neutral-200 mx-auto border-0">
 
-    {{-- Kenapa Wajib Punya Website --}}
-    <section class="w-full py-16">
+    {{-- Paket Layanan Jasa --}}
+    <section id="paket" class="w-full py-16">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             {{-- Heading --}}
-            <div class="text-left mb-8">
+            <div class="text-left mb-12">
                 <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
-                    Kenapa Perusahaan Wajib Punya Website?
+                    Paket Layanan Jasa Pembuatan Website
                 </h2>
                 <p class="text-base text-lg text-slate-700 md:max-w-4xl">
-                    Jangan biarkan kompetitor unggul! Dapatkan website profesional yang akan membuat perusahaan tampil lebih credible dan menarik lebih banyak customer
+                    Pilih paket yang cocok untuk kebutuhan Anda
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12" role="list" aria-label="Perbandingan dampak memiliki dan tidak memiliki website">
-                <!-- Problem Card -->
-                <div class="bg-red-50 p-8 rounded-2xl  relative overflow-hidden group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
-                    <div class="relative z-10 md:p-8">
-                        <p class="text-red-600 font-medium uppercase text-base mb-4">Tanpa Website</p>
-                        <h3 class="text-4xl text-red-950 font-bold mb-6">Bisnis Anda Kehilangan Banyak Peluang!</h3>
-                        
-                        <div class="space-y-4 mt-8">
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-red-950">Customer tidak bisa menemukan bisnis Anda secara online</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-red-950">Kehilangan kepercayaan karena terlihat kurang profesional</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-red-950">Sulit bersaing dengan kompetitor yang sudah online</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-red-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-red-950">Terbatasnya jangkauan pemasaran dan penjualan</p>
-                            </div>
-                        </div>
+            <div class="w-full grid grid-cols-4 gap-5 p-4 bg-neutral-50 rounded-3xl max-lg:grid-cols-1">
+                {{-- Paket 1: Starter --}}
+                <div class="w-full px-4 py-8 rounded-3xl">
+                    <h1 class="text-4xl font-medium text-slate-800 mb-4">Starter</h1>
+                    <button aria-label="Pilih paket Starter" class="w-full px-6 py-2.5 text-sm font-medium text-[#0b57d0] hover:bg-gray-200 transition border border-neutral-300 rounded-2xl">Coba Sekarang</button>
+                    <div class="mt-8 space-y-2">
+                        <span class="font-medium">Starter menyertakan:</span>
+                        <ul class="space-y-2 list-check">
+                            <li>Desain Profesional</li>
+                            <li>Website Full Dinamis</li>
+                            <li>Responsive & User Friendly</li>
+                            <li>Integrasi Medsos & WhatsApp</li>
+                            <li>SEO Friendly & Triendex Google</li>
+                            <li>Multi admin</li>
+                            <li>Notifikasi Website</li>
+                            <li>Panduan Kelola Website</li>
+                            <li>Gratis Konsultasi</li>
+                            <li>Lifetime support & Maintnance</li>
+                        </ul>
                     </div>
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
                 </div>
 
-                <!-- Solution Card -->
-                <div class="bg-[#128AEB]/10 p-8 rounded-2xl text-white relative overflow-hidden group" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
-                    <div class="relative z-10 md:p-8">
-                        <p class="text-gray-500 font-medium uppercase text-base mb-4">Dengan Website</p>
-                        <h3 class="text-4xl text-slate-900 font-bold mb-6">Bisnis Anda Akan Berkembang Pesat!</h3>
-                        
-                        <div class="space-y-4 mt-8">
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-slate-900">Tampil profesional dan terpercaya di mata customer</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-slate-900">Mudah ditemukan customer melalui Search Engine</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-slate-900">Jangkauan pasar lebih luas, 24 jam nonstop</p>
-                            </div>
-                            <div class="flex items-start">
-                                <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-slate-900">Meningkatkan penjualan dan revenue secara signifikan</p>
-                            </div>
-                        </div>
+                {{-- Paket 2: Start Up --}}
+                <div class="w-full px-4 py-8 border-2 border-[#128aeb] rounded-3xl">
+                    <h1 class="text-4xl font-medium text-slate-800 mb-4">Start Up</h1>
+                    <button aria-label="Pilih paket Start Up - Paling Populer" class="w-full px-6 py-2.5 text-sm font-medium bg-[#128aeb] hover:bg-sky-600 text-white transition hover:shadow-md rounded-2xl">Coba Sekarang</button>
+                    <div class="mt-8 space-y-2">
+                        <span class="font-medium">Start Up menyertakan:</span>
+                        <ul class="space-y-2 list-check">
+                            <li>Gratis Domain (.com) sebulan</li>
+                            <li>Cloud Hosting 35 GB SSD</li>
+                            <li>Desain Profesional</li>
+                            <li>Website Full Dinamis</li>
+                            <li>Responsive & User Friendly</li>
+                            <li>Integrasi Medsos & WhatsApp</li>
+                            <li>SEO Friendly & Triendex Google</li>
+                            <li>Full Akses Kepemilikan Hosting & Domain</li>
+                            <li>Unlimited Jumlah Halaman</li>
+                            <li>Panduan Kelola Website</li>
+                            <li>Gratis Konsultasi</li>
+                            <li>Lifetime support & Maintnance</li>
+                        </ul>
                     </div>
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white bg-opacity-10 rounded-full"></div>
+                </div>
+
+                {{-- Paket 3: Professional --}}
+                <div class="w-full px-4 py-8 rounded-3xl">
+                    <h1 class="text-4xl font-medium text-slate-800 mb-4">Professional</h1>
+                    <button aria-label="Pilih paket Professional" class="w-full px-6 py-2.5 text-sm font-medium text-[#0b57d0] hover:bg-gray-200 transition border border-neutral-300 rounded-2xl">Coba Sekarang</button>
+                    <div class="mt-8 space-y-2">
+                        <span class="font-medium">Professional menyertakan:</span>
+                        <ul class="space-y-2 list-check">
+                            <li>Gratis Domain (.com) sebulan</li>
+                            <li>Cloud Hosting 50 GB SSD</li>
+                            <li>Desain Premium</li>
+                            <li>Website Full Dinamis</li>
+                            <li>Responsive & User Friendly</li>
+                            <li>Integrasi Medsos & WhatsApp</li>
+                            <li>SEO Friendly & Triendex Google</li>
+                            <li>Full Akses Kepemilikan Hosting & Domain</li>
+                            <li>Unlimited Jumlah Halaman</li>
+                            <li>Multi admin & Role Management</li>
+                            <li>Email Profesional</li>
+                            <li>Panduan Kelola Website</li>
+                            <li>Gratis Konsultasi</li>
+                            <li>Lifetime support & Maintnance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {{-- Paket 4: Corporate --}}
+                <div class="w-full px-4 py-8 rounded-3xl">
+                    <h1 class="text-4xl font-medium text-slate-800 mb-4">Corporate</h1>
+                    <button aria-label="Pilih paket Corporate" class="w-full px-6 py-2.5 text-sm font-medium text-[#0b57d0] hover:bg-gray-200 transition border border-neutral-300 rounded-2xl">Coba Sekarang</button>
+                    <div class="mt-8 space-y-2">
+                        <span class="font-medium">Corporate menyertakan:</span>
+                        <ul class="space-y-2 list-check">
+                            <li>Gratis Domain (.com) sebulan</li>
+                            <li>Cloud Hosting 100 GB SSD</li>
+                            <li>Desain Premium Custom</li>
+                            <li>Website Full Dinamis</li>
+                            <li>Responsive & User Friendly</li>
+                            <li>Integrasi Medsos & WhatsApp</li>
+                            <li>SEO Friendly & Triendex Google</li>
+                            <li>Full Akses Kepemilikan Hosting & Domain</li>
+                            <li>Unlimited Jumlah Halaman</li>
+                            <li>Multi admin & Advanced Role Management</li>
+                            <li>Email Profesional (10 akun)</li>
+                            <li>SSL Certificate Premium</li>
+                            <li>Dedicated Support</li>
+                            <li>Panduan Kelola Website</li>
+                            <li>Gratis Konsultasi</li>
+                            <li>Lifetime support & Maintnance</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Kenapa Wajib Punya Website --}}
+    {{-- Penawaran Harga Add-ons --}}
     <section class="w-full py-16">
         <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             {{-- Heading --}}
-            <div class="text-left mb-8">
+            <div class="text-left mb-12">
                 <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
-                    Kenapa Perusahaan Wajib Punya Website?
+                    Lihat Penawaran Add-On dari Centrova
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8">
+                {{-- Domain Pricing Table --}}
+                <div class="w-full">
+                    <h2 class="text-2xl font-bold text-neutral-900 mb-6">Domain</h2>
+                    <div class="overflow-hidden">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-neutral-200">
+                                    <th class="text-left py-2 px-6 font-semibold text-slate-700">Add-On</th>
+                                    <th class="text-right py-2 px-4 font-semibold text-slate-700">Tahunan</th>
+                                    <th class="text-right py-2 px-6 font-semibold text-slate-700">Bulanan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-800">
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.com</td>
+                                    <td class="text-right py-1.5 px-4">Rp297.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp24.750</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.net</td>
+                                    <td class="text-right py-1.5 px-4">Rp308.675</td>
+                                    <td class="text-right py-1.5 px-6">Rp25.723</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.org</td>
+                                    <td class="text-right py-1.5 px-4">Rp272.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp22.667</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.co</td>
+                                    <td class="text-right py-1.5 px-4">Rp566.380</td>
+                                    <td class="text-right py-1.5 px-6">Rp47.198</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.dev</td>
+                                    <td class="text-right py-1.5 px-4">Rp318.175</td>
+                                    <td class="text-right py-1.5 px-6">Rp26.515</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.app</td>
+                                    <td class="text-right py-1.5 px-4">Rp456.550</td>
+                                    <td class="text-right py-1.5 px-6">Rp38.879</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.io</td>
+                                    <td class="text-right py-1.5 px-4">Rp1.022.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp85.167</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.tech</td>
+                                    <td class="text-right py-1.5 px-4">Rp1.023.175</td>
+                                    <td class="text-right py-1.5 px-6">Rp85.265</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.online</td>
+                                    <td class="text-right py-1.5 px-4">Rp514.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp42.833</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.store</td>
+                                    <td class="text-right py-1.5 px-4">Rp641.350</td>
+                                    <td class="text-right py-1.5 px-6">Rp53.446</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.xyz</td>
+                                    <td class="text-right py-1.5 px-4">Rp324.675</td>
+                                    <td class="text-right py-1.5 px-6">Rp27.056</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.id</td>
+                                    <td class="text-right py-1.5 px-4">Rp341.100</td>
+                                    <td class="text-right py-1.5 px-6">Rp28.425</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">.co.id</td>
+                                    <td class="text-right py-1.5 px-4">Rp383.400</td>
+                                    <td class="text-right py-1.5 px-6">Rp31.950</td>
+                                </tr>
+                                <tr class="transition">
+                                    <td class="py-1.5 px-6">.web.id</td>
+                                    <td class="text-right py-1.5 px-4">Rp65.900</td>
+                                    <td class="text-right py-1.5 px-6">Rp5.492</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {{-- Hosting Pricing Table --}}
+                <div class="w-full">
+                    <h2 class="text-2xl font-bold text-neutral-900 mb-6">Hosting</h2>
+                    <div class="overflow-hidden">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-neutral-200">
+                                    <th class="text-left py-2 px-6 font-semibold text-slate-700">Add-On</th>
+                                    <th class="text-right py-2 px-4 font-semibold text-slate-700">Tahunan</th>
+                                    <th class="text-right py-2 px-6 font-semibold text-slate-700">Bulanan</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-800">
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">Hosting 2GB</td>
+                                    <td class="text-right py-1.5 px-4">Rp420.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp35.000</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">Hosting 5GB</td>
+                                    <td class="text-right py-1.5 px-4">Rp660.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp55.000</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">Hosting 10GB</td>
+                                    <td class="text-right py-1.5 px-4">Rp1.080.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp90.000</td>
+                                </tr>
+                                <tr class="border-b border-neutral-200 transition">
+                                    <td class="py-1.5 px-6">Cloud VPS 2GB RAM</td>
+                                    <td class="text-right py-1.5 px-4">Rp1.800.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp150.000</td>
+                                </tr>
+                                <tr class="transition">
+                                    <td class="py-1.5 px-6">Cloud VPS 4GB RAM</td>
+                                    <td class="text-right py-1.5 px-4">Rp3.000.000</td>
+                                    <td class="text-right py-1.5 px-6">Rp250.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Proses Pembuatan Website --}}
+    <section class="w-full bg-white py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="text-left mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Proses Pembuatan Website yang Terstruktur
                 </h2>
                 <p class="text-base text-lg text-slate-700 md:max-w-4xl">
-                    Jangan biarkan kompetitor unggul! Dapatkan website profesional yang akan membuat perusahaan tampil lebih credible dan menarik lebih banyak customer
+                    Kami mengikuti metode yang jelas dan terukur untuk memastikan hasil yang maksimal
                 </p>
             </div>
 
-            <!-- Easy Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" role="list" aria-label="Kemudahan layanan Centrova">
-                <template x-for="(feature, index) in easyFeatures" :key="index">
-                    <div class="bg-[#128AEB]/5 p-8 rounded-[32px] relative overflow-hidden min-h-[500px]" 
-                         data-aos="fade-up" 
-                         data-aos-duration="700" 
-                         :data-aos-delay="index * 100">
-                        <div class="relative z-10 md:p-8">
-                            <h3 class="text-4xl font-bold text-gray-900 mb-6" x-text="feature.title"></h3>
-                            <p class="text-slate-800 leading-relaxed mb-8" x-text="feature.description"></p>
-                            
-                            <!-- Easy Steps -->
-                            <div class="space-y-4 mt-8">
-                                <template x-for="step in feature.steps" :key="step">
-                                    <div class="flex items-start">
-                                        <svg class="w-6 h-6 text-[#128AEB] mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                        </svg>
-                                        <p class="text-slate-900" x-text="step"></p>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#128AEB] bg-opacity-5 rounded-full"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB] text-white text-xl font-bold">1</span>
                     </div>
-                </template>
-            </div>
-        </div>
-
-        {{-- Modal Konsultasi untuk User Belum Login --}}
-        <div x-show="showConsultationModal"
-        x-cloak
-        x-transition:enter="transition ease-out duration-400"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-in duration-300"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        class="fixed inset-0 z-50 flex items-start justify-center bg-black/80 backdrop-blur-md overflow-y-auto">
-            <div class="relative bg-white rounded-[32px] mt-12 mb-44 shadow-2xl max-w-2xl w-full py-12 px-16 mx-4 border border-[#128AEB]/10 flex flex-col items-center max-md:py-8 max-md:px-8" @click.away="closeConsultationModal()">
-                <button @click="closeConsultationModal()" class="absolute top-8 right-8 text-[#128AEB] bg-neutral-100 rounded-full w-8 h-8 flex items-center justify-center hover:bg-neutral-200 transition">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-                
-                <div class="text-center mb-8">
-                    <h3 class="text-3xl font-bold text-slate-900 mb-4">Konsultasi Paket Website</h3>
-                    <p class="text-lg text-slate-600">
-                        @auth
-                            Mari kita diskusikan kebutuhan website Anda lebih detail
-                        @else
-                            Sebelum melanjutkan, mari kita diskusikan kebutuhan website Anda
-                        @endauth
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Konsultasi & Analisis</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Memahami kebutuhan bisnis Anda secara mendalam, menganalisis target audience, kompetitor, dan menentukan strategi digital yang tepat untuk mencapai tujuan.
                     </p>
                 </div>
 
-                {{-- Info Paket yang Dipilih --}}
-                <div class="w-full bg-gradient-to-r from-[#128AEB]/5 to-blue-50 rounded-2xl p-6 mb-8 border border-[#128AEB]/20">
-                    <h4 class="text-xl font-semibold text-slate-900 mb-3 flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-[#128AEB]" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        Paket Dipilih: <span x-text="selectedPlan?.name" class="text-[#128AEB]"></span>
-                    </h4>
-                    <div class="text-sm text-slate-700 space-y-1">
-                        <p><strong>Harga:</strong> <span x-text="selectedPlan?.price"></span> <span x-text="selectedPlan?.period"></span></p>
-                        <p><strong>Deskripsi:</strong> <span x-text="selectedPlan?.description"></span></p>
+                <div class="flex flex-col">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB] text-white text-xl font-bold">2</span>
                     </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Desain & Prototyping</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Membuat wireframe dan mockup visual yang mencerminkan identitas brand Anda. Kami akan melakukan iterasi desain hingga Anda benar-benar puas dengan tampilan website.
+                    </p>
                 </div>
 
-                {{-- Form Konsultasi Singkat --}}
-                <div class="w-full space-y-4 mb-8">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-2">Nama Lengkap</label>
-                        <input 
-                            type="text" 
-                            x-model="consultationForm.name"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-[#128AEB]/20 focus:border-[#128AEB] transition-colors"
-                            placeholder="Masukkan nama lengkap Anda"
-                            @auth
-                                value="{{ auth()->user()->name ?? '' }}"
-                            @endauth
-                        >
+                <div class="flex flex-col">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB] text-white text-xl font-bold">3</span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-2">Jenis Bisnis/Website</label>
-                        <select 
-                            x-model="consultationForm.businessType"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-[#128AEB]/20 focus:border-[#128AEB] transition-colors"
-                        >
-                            <option value="">Pilih jenis bisnis/website</option>
-                            <option value="company-profile">Company Profile</option>
-                            <option value="toko-online">Toko Online/E-commerce</option>
-                            <option value="portfolio">Portfolio/Personal Branding</option>
-                            <option value="blog">Blog/Media</option>
-                            <option value="sekolah">Sekolah/Institusi Pendidikan</option>
-                            <option value="rumah-sakit">Rumah Sakit/Klinik</option>
-                            <option value="restoran">Restoran/F&B</option>
-                            <option value="property">Property/Real Estate</option>
-                            <option value="lainnya">Lainnya</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-2">Fitur Khusus yang Dibutuhkan (Opsional)</label>
-                        <textarea 
-                            x-model="consultationForm.specialFeatures"
-                            rows="3"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-[#128AEB]/20 focus:border-[#128AEB] transition-colors resize-none"
-                            placeholder="Contoh: sistem booking, membership, integrasi payment gateway, dll"
-                        ></textarea>
-                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Development & Testing</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Mengembangkan website dengan teknologi terkini dan best practices. Setiap fitur diuji secara menyeluruh untuk memastikan performa optimal dan bebas dari bug.
+                    </p>
                 </div>
 
-                {{-- Tombol Action --}}
-                <div class="w-full">
-                    {{-- Tombol Batal --}}
-                    <button 
-                        @click="closeConsultationModal()"
-                        class="w-full mb-4 px-6 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-colors font-medium"
-                    >
-                        Batal
-                    </button>
-                    
-                    {{-- Pilihan Konsultasi --}}
-                    @auth
-                        {{-- User sudah login: Pilihan WhatsApp atau Chat Konsultan --}}
-                        <div class="space-y-3">
-                            <p class="text-center text-sm text-slate-600 mb-4">Pilih cara konsultasi yang Anda inginkan:</p>
-                            
-                            <button 
-                                @click="proceedToChat()"
-                                :disabled="!consultationForm.name || !consultationForm.businessType"
-                                :class="(!consultationForm.name || !consultationForm.businessType) 
-                                    ? 'bg-slate-300 cursor-not-allowed' 
-                                    : 'bg-[#128AEB] hover:bg-[#0F76C6]'"
-                                class="w-full px-6 py-3 text-white rounded-xl transition-colors font-medium flex items-center justify-center"
-                            >
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat dengan Konsultan di Website
-                            </button>
-                            
-                            <button 
-                                @click="proceedToWhatsApp()"
-                                :disabled="!consultationForm.name || !consultationForm.businessType"
-                                :class="(!consultationForm.name || !consultationForm.businessType) 
-                                    ? 'bg-slate-300 cursor-not-allowed' 
-                                    : 'bg-green-600 hover:bg-green-700'"
-                                class="w-full px-6 py-3 text-white rounded-xl transition-colors font-medium flex items-center justify-center"
-                            >
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.96-4.779-2.705-6.526-1.746-1.746-4.065-2.707-6.526-2.705-5.452.002-9.886 4.435-9.889 9.887-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.092-.645zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                                </svg>
-                                Lanjut ke WhatsApp
-                            </button>
-                        </div>
-                    @else
-                        {{-- User belum login: Hanya WhatsApp --}}
-                        <button 
-                            @click="proceedToWhatsApp()"
-                            :disabled="!consultationForm.name || !consultationForm.businessType"
-                            :class="(!consultationForm.name || !consultationForm.businessType) 
-                                ? 'bg-slate-300 cursor-not-allowed' 
-                                : 'bg-green-600 hover:bg-green-700'"
-                            class="w-full px-6 py-3 text-white rounded-xl transition-colors font-medium flex items-center justify-center"
-                        >
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.96-4.779-2.705-6.526-1.746-1.746-4.065-2.707-6.526-2.705-5.452.002-9.886 4.435-9.889 9.887-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.092-.645zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                            </svg>
-                            Lanjut ke WhatsApp
-                        </button>
-                        
-                        <p class="text-center text-xs text-slate-500 mt-3">
-                            Atau <a href="{{ route('login') }}" class="text-[#128AEB] hover:underline">login</a> untuk chat langsung dengan konsultan di website
-                        </p>
-                    @endauth
+                <div class="flex flex-col">
+                    <div class="mb-4">
+                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#128AEB] text-white text-xl font-bold">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Launch & Support</h3>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Meluncurkan website secara live dengan konfigurasi server yang optimal. Kami memberikan training dan dokumentasi lengkap, serta support berkelanjutan.
+                    </p>
                 </div>
             </div>
         </div>
+    </section>
 
-        @push('scripts')
-        @once
-        <script>
-            document.addEventListener('alpine:init', () => {
-                Alpine.data('pricingSection', () => ({
-                    billingType: 'project',
-                    showConsultationModal: false,
-                    selectedPlan: null,
-                    consultationForm: {
-                        name: '',
-                        businessType: '',
-                        specialFeatures: ''
-                    },
-                    projectPlans: [
-                        {
-                            name: 'Basic',
-                            price: 'Rp 1.600.000',
-                            period: '/ project',
-                            description: 'Cocok untuk bisnis kecil dan personal brand yang butuh website fungsional tanpa ribet.',
-                            features: [
-                                'Fitur Kustom Sesuai Permintaan',
-                                'Desain Profesional (Standard)',
-                                'Hingga 5 Halaman Website',
-                                'Mobile-Friendly & UI/UX Optimization',
-                                'Formulir Kontak Dasar',
-                                'Optimasi SEO Dasar',
-                                '1 Bulan Support Teknis'
-                            ],
-                            featured: false
-                        },
-                        {
-                            name: 'Professional',
-                            price: 'Rp 3.000.000',
-                            period: '/ project',
-                            description: 'Ideal untuk UKM dan bisnis berkembang yang ingin tampil lebih profesional dan fleksibel.',
-                            features: [
-                                'Desain Kustom Menyesuaikan Branding',
-                                '10–15 Halaman Website',
-                                'CMS Admin Panel',
-                                'Blog/Artikel Dinamis',
-                                'Optimasi SEO Lanjutan',
-                                'Integrasi WhatsApp & Analytics',
-                                '3 Bulan Support Teknis'
-                            ],
-                            featured: true
-                        },
-                        {
-                            name: 'Enterprise',
-                            price: 'Rp 8.***.***',
-                            period: '/ project',
-                            description: 'Solusi sistem website kompleks yang dikembangkan khusus untuk kebutuhan besar dan terintegrasi.',
-                            features: [
-                                'E-commerce atau Marketplace Skala Penuh',
-                                'Fitur Kustom Sesuai Permintaan',
-                                'Halaman Tidak Terbatas',
-                                'Multi-user & Manajemen Hak Akses',
-                                'Integrasi API & Database Eksternal',
-                                'Optimasi Performa & Keamanan',
-                                'Support Premium hingga 12 Bulan',
-                                'Estimasi Waktu & Harga Dihitung Berdasarkan Spesifikasi'
-                            ],
-                            featured: false
-                        },
-                    ],
-                    monthlyPlans: [
-                        {
-                            name: 'Maintenance',
-                            price: 'Rp 500rb',
-                            period: '/ bulan',
-                            description: 'Maintenance dan update rutin',
-                            features: [
-                                'Website monitoring',
-                                'Security updates',
-                                'Content updates',
-                                'Performance optimization',
-                                'Backup rutin',
-                                'Technical support',
-                                'Monthly report'
-                            ],
-                            featured: false
-                        },
-                        {
-                            name: 'Growth',
-                            price: 'Rp 2jt',
-                            period: '/ bulan',
-                            description: 'Pengembangan berkelanjutan',
-                            features: [
-                                'Semua fitur Maintenance',
-                                'Feature development',
-                                'A/B testing',
-                                'SEO optimization',
-                                'Analytics reporting',
-                                'Marketing automation',
-                                'Priority support'
-                            ],
-                            featured: true
-                        },
-                        {
-                            name: 'Scale',
-                            price: 'Rp 5jt',
-                            period: '/ bulan',
-                            description: 'Untuk bisnis yang berkembang pesat',
-                            features: [
-                                'Semua fitur Growth',
-                                'Advanced integrations',
-                                'Custom development',
-                                'Performance monitoring',
-                                'Security audits',
-                                'Dedicated developer',
-                                '24/7 support'
-                            ],
-                            featured: false
-                        }
-                    ],
-                    get currentPlans() {
-                        return this.billingType === 'project' ? this.projectPlans : this.monthlyPlans;
-                    },
-                    selectPlan(plan) {
-                        // Tampilkan modal konsultasi untuk semua user (login atau belum)
-                        this.selectedPlan = plan;
-                        this.showConsultationModal = true;
-                        document.body.style.overflow = 'hidden';
-                    },
-                    closeConsultationModal() {
-                        this.showConsultationModal = false;
-                        document.body.style.overflow = 'auto';
-                        
-                        // Reset form setelah modal ditutup
-                        setTimeout(() => {
-                            this.selectedPlan = null;
-                            this.consultationForm.name = '';
-                            this.consultationForm.businessType = '';
-                            this.consultationForm.specialFeatures = '';
-                        }, 300);
-                    },
-                    proceedToWhatsApp() {
-                        if (!this.consultationForm.name || !this.consultationForm.businessType) {
-                            return;
-                        }
-                        
-                        const plan = this.selectedPlan;
-                        const form = this.consultationForm;
-                        
-                        this.redirectToWhatsApp(plan, form);
-                        this.closeConsultationModal();
-                    },
-                    proceedToChat() {
-                        // Untuk user yang sudah login, redirect ke chat dengan data paket
-                        const plan = this.selectedPlan;
-                        const form = this.consultationForm;
-                        
-                        // Buat parameter untuk chat
-                        const chatData = {
-                            package_name: plan.name,
-                            package_price: plan.price + ' ' + plan.period,
-                            package_description: plan.description,
-                            package_features: plan.features.join(', ')
-                        };
-                        
-                        // Tambahkan data form jika ada
-                        if (form.name) chatData.customer_name = form.name;
-                        if (form.businessType) chatData.business_type = this.getBusinessTypeLabel(form.businessType);
-                        if (form.specialFeatures) chatData.special_features = form.specialFeatures;
-                        
-                        // Convert ke query string
-                        const queryString = new URLSearchParams(chatData).toString();
-                        
-                        // Redirect ke chat dengan data
-                        window.location.href = `{{ route('support.web.chat') }}?${queryString}`;
-                        
-                        this.closeConsultationModal();
-                    },
-                    redirectToWhatsApp(plan, form = null) {
-                        const phoneNumber = '6285817909560'; // Format internasional Indonesia (+62)
-                        
-                        let message = `Halo, saya tertarik dengan paket *${plan.name}* untuk layanan Website Development.\n\n`;
-                        
-                        // Tambahkan info konsultasi jika ada
-                        if (form && form.name && form.businessType) {
-                            message += `Info Calon Customer:\n`;
-                            message += `• Nama: ${form.name}\n`;
-                            message += `• Jenis Bisnis: ${this.getBusinessTypeLabel(form.businessType)}\n`;
-                            if (form.specialFeatures) {
-                                message += `• Fitur Khusus: ${form.specialFeatures}\n`;
-                            }
-                            message += `\n`;
-                        }
-                        
-                        message += `Detail Paket:\n`;
-                        message += `• Nama: ${plan.name}\n`;
-                        message += `• Harga: ${plan.price} ${plan.period}\n`;
-                        message += `• Deskripsi: ${plan.description}\n\n`;
-                        message += `Fitur yang termasuk:\n`;
-                        message += plan.features.map(feature => `• ${feature}`).join('\n') + '\n\n';
-                        message += `Mohon informasi lebih lanjut mengenai paket ini. Terima kasih!`;
-                        
-                        const encodedMessage = encodeURIComponent(message);
-                        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                        
-                        window.open(whatsappUrl, '_blank');
-                    },
-                    getBusinessTypeLabel(value) {
-                        const labels = {
-                            'company-profile': 'Company Profile',
-                            'toko-online': 'Toko Online/E-commerce',
-                            'portfolio': 'Portfolio/Personal Branding',
-                            'blog': 'Blog/Media',
-                            'sekolah': 'Sekolah/Institusi Pendidikan',
-                            'rumah-sakit': 'Rumah Sakit/Klinik',
-                            'restoran': 'Restoran/F&B',
-                            'property': 'Property/Real Estate',
-                            'lainnya': 'Lainnya'
-                        };
-                        return labels[value] || value;
-                    },
-                    init() {
-                        // Pastikan state awal yang benar
-                        this.billingType = 'project';
-                        this.showConsultationModal = false;
-                        this.selectedPlan = null;
-                        this.consultationForm = {
-                            name: @auth '{{ auth()->user()->name ?? "" }}' @else '' @endauth,
-                            businessType: '',
-                            specialFeatures: ''
-                        };
-                    }
-                }));
-            });
-        </script>
-        @endonce
-        @endpush
+    {{-- Separator --}}
+    <div class="w-full h-[6px] flex"><div class="w-full bg-[#128AEB] h-full"></div><div class="w-full bg-sky-500 h-full"></div><div class="w-[30%] bg-sky-300 h-full"></div></div>
+
+    {{-- Teknologi yang Kami Gunakan --}}
+    <section class="w-full bg-neutral-100 py-16">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            {{-- Heading --}}
+            <div class="text-left mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-3xl font-bold text-neutral-900 mb-3 leading-snug">
+                    Teknologi Modern untuk Hasil yang Maksimal
+                </h2>
+                <p class="text-base text-lg text-slate-700 md:max-w-4xl">
+                    Kami menggunakan stack teknologi terkini untuk membangun website yang cepat, aman, dan scalable
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 border border-neutral-200 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">Frontend Development</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">React & Next.js</span>
+                            <span class="text-sm text-slate-500">UI Framework</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">Tailwind CSS</span>
+                            <span class="text-sm text-slate-500">Styling</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">Alpine.js</span>
+                            <span class="text-sm text-slate-500">Interactivity</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-slate-700 font-medium">TypeScript</span>
+                            <span class="text-sm text-slate-500">Type Safety</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 border border-neutral-200 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">Backend Development</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">Laravel</span>
+                            <span class="text-sm text-slate-500">PHP Framework</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">Node.js</span>
+                            <span class="text-sm text-slate-500">Runtime</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">MySQL / PostgreSQL</span>
+                            <span class="text-sm text-slate-500">Database</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-slate-700 font-medium">Redis</span>
+                            <span class="text-sm text-slate-500">Caching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 border border-neutral-200 hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">DevOps & Infrastructure</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">AWS / DigitalOcean</span>
+                            <span class="text-sm text-slate-500">Cloud Hosting</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">Docker</span>
+                            <span class="text-sm text-slate-500">Containerization</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-neutral-100">
+                            <span class="text-slate-700 font-medium">GitHub Actions</span>
+                            <span class="text-sm text-slate-500">CI/CD</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-slate-700 font-medium">Cloudflare</span>
+                            <span class="text-sm text-slate-500">CDN & Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-sky-50 rounded-2xl border border-sky-100">
+                <p class="text-slate-700 text-base leading-relaxed">
+                    <span class="font-semibold text-slate-900">Kenapa teknologi penting?</span> Pemilihan stack teknologi yang tepat memastikan website Anda memiliki performa yang cepat, keamanan yang solid, dan kemudahan maintenance di masa depan. Kami selalu mengikuti perkembangan teknologi terkini untuk memberikan solusi terbaik.
+                </p>
+            </div>
+        </div>
     </section>
 
     {{-- CTA Konsultasi --}}
@@ -932,8 +828,8 @@
             <p class="text-slate-600 text-base sm:text-lg mb-6">
                 Lihat kenapa puluhan pelaku usaha mempercayakan pembuatan website mereka kepada Centrova.
             </p>
-            <button onclick="window.open('{{ route('support.web.consult') }}', '_blank')" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onclick="window.open('{{ route('support.web.consult') }}', '_blank')" aria-label="Hubungi kami untuk konsultasi gratis" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
@@ -957,6 +853,8 @@
               <!-- Button -->
               <button 
                 @click="toggleFaq(index)"
+                :aria-expanded="openFaq === index"
+                :aria-label="'Toggle FAQ: ' + faq.question"
                 class="w-full py-4 text-left flex items-center justify-between focus:z-20 my-0.5 transition-colors gap-2"
               >
                 <span class="font-semibold text-sky-700 text-xl sm:text-2xl leading-snug sm:leading-normal flex-wrap sm:flex-nowrap max-w-[80%]" x-text="faq.question"></span>
