@@ -73,7 +73,7 @@
     {{-- External JavaScript Libraries (defer non-critical JS to reduce render-blocking) --}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- TailwindCSS CDN - Non-blocking load with immediate stylesheet --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ asset('cdn/tailwindcss.min.js') }}"></script>
     
     {{-- Google Analytics / GA4 --}}
     @if(config('services.google.analytics_id'))
@@ -151,10 +151,10 @@
         {{-- Cookie Consent Banner - Persistent component --}}
         @include('components.cookie-consent')
 
-        {{-- Account Switcher Modal - Dynamic content for authenticated users --}}
-        @auth
+        {{-- Account Switcher Modal - Disabled --}}
+        {{-- @auth
             @include('auth.components.account-switcher')
-        @endauth
+        @endauth --}}
 
         {{-- Footer - Persistent across pages --}}
         @include('partials.footer')

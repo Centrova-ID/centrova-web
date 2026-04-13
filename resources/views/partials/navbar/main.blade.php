@@ -6,15 +6,16 @@
     
     /* Apple-style navbar with dynamic height */
     .apple-navbar {
-        transition: height 400ms cubic-bezier(0.4, 0, 0.2, 1);
-        will-change: height;
+        transition: height 600ms cubic-bezier(0.4, 0, 0.2, 1), background-color 400ms ease;
+        will-change: height, background-color;
+        overflow: hidden;
     }
     
     /* Apple-style backdrop blur */
     .apple-backdrop {
         backdrop-filter: saturate(180%) blur(20px);
         -webkit-backdrop-filter: saturate(180%) blur(20px);
-        background-color: rgba(255, 255, 255, 0.72);
+        background-color: rgba(255, 255, 255, 0.90);
     }
     
     /* Mega menu animations */
@@ -110,6 +111,29 @@
         -webkit-backdrop-filter: saturate(180%) blur(20px);
         background-color: rgba(0, 0, 0, 0.4);
     }
+
+    .navbar-transparent {
+        background-color: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-color: transparent !important;
+    }
+
+    .navbar-transparent .nav-link {
+        color: white !important;
+    }
+
+    .navbar-transparent .nav-logo,
+    .navbar-transparent svg,
+    .navbar-transparent img:not(.nav-logo) {
+        filter: brightness(0) invert(1) !important;
+    }
+
+    .navbar-transparent .border-\[#128AEB\],
+    .navbar-transparent .text-\[#128AEB\] {
+        border-color: white !important;
+        color: white !important;
+    }
 </style>
 
 <style type="text/tailwindcss">
@@ -119,7 +143,9 @@
 </style>
 
 {{-- Navbar Modern Apple Style --}}
+@unless(request()->routeIs('home'))
 <div class="h-[60px] w-full"></div>
+@endunless
 
 <div x-data="navbarMenu()" 
      @scroll.window="handleScroll"
@@ -127,6 +153,7 @@
      
     {{-- Main Navbar --}}
     <nav class="apple-navbar apple-backdrop border-b border-gray-200/50"
+         :class="{ 'navbar-transparent': isTransparent && activeMenu === null }"
          :style="'height: ' + navHeight + 'px'">
          
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,8 +162,8 @@
                 {{-- Hamburger Mobile --}}
                 <div class="md:hidden flex justify-center items-center">
                     <button @click="toggleMobileMenu" 
-                            class="hamburger text-[#1d1d1f]"
-                            :class="{ 'open': mobileMenuOpen }">
+                            class="hamburger"
+                            :class="{ 'open': mobileMenuOpen, 'text-white': isTransparent && activeMenu === null, 'text-[#1d1d1f]': !(isTransparent && activeMenu === null) }">
                         <div class="hamburger-container">
                             <div class="hamburger-top"></div>
                             <div class="hamburger-middle"></div>
@@ -149,7 +176,7 @@
                 <div class="flex items-center flex-shrink-0">
                     <a href="{{ route('home') }}" class="select-none">
                         <img src="{{ asset('/assets/brand/centrova-logo.svg') }}" 
-                             class="h-[26px] w-auto" 
+                             class="h-[26px] w-auto transition-all duration-300 nav-logo" 
                              alt="Centrova Logo" 
                              draggable="false" />
                     </a>
@@ -157,13 +184,14 @@
                 
                 {{-- Desktop Menu --}}
                 <div class="hidden md:flex md:items-center w-full md:gap-x-8">
-                    <div class="flex items-center gap-x-8 text-sm font-medium text-[#1d1d1f]">
+                    <div class="flex items-center gap-x-8 text-base font-normal transition-colors duration-300"
+                         :class="(isTransparent && activeMenu === null) ? 'text-white' : 'text-[#1d1d1f]'">
                         
                         {{-- Menu Item: Bisnis --}}
                         <div class="relative"
                              @mouseenter="openMenu('bisnis')"
                              @mouseleave="scheduleClose">
-                            <button class="py-2 hover:text-black transition-colors duration-200">
+                            <button class="py-2 hover:opacity-85 transition-opacity duration-200">
                                 Bisnis
                             </button>
                         </div>
@@ -172,7 +200,7 @@
                         <div class="relative"
                              @mouseenter="openMenu('layanan')"
                              @mouseleave="scheduleClose">
-                            <button class="py-2 hover:text-black transition-colors duration-200">
+                            <button class="py-2 hover:opacity-85 transition-opacity duration-200">
                                 Layanan
                             </button>
                         </div>
@@ -181,23 +209,24 @@
                         <div class="relative"
                              @mouseenter="openMenu('produk')"
                              @mouseleave="scheduleClose">
-                            <button class="py-2 hover:text-black transition-colors duration-200">
+                            <button class="py-2 hover:opacity-85 transition-opacity duration-200">
                                 Produk
                             </button>
                         </div>
                         
                         <a href="{{ route('support.home') }}" 
                            data-turbo-prefetch
-                           class="py-2 hover:text-black transition-colors duration-200">
+                           class="py-2 hover:opacity-85 transition-opacity duration-200">
                             Dukungan
                         </a>
                     </div>
                 </div>
                 
-                {{-- Account Actions --}}
-                <div class="flex items-center">
+                {{-- Account Actions (Disabled) --}}
+                {{-- <div class="flex items-center transition-colors duration-300" 
+                     :class="(isTransparent && activeMenu === null) ? 'text-white' : 'text-[#1d1d1f]'">
                     @include('partials.navbar.components.account')
-                </div>
+                </div> --}}
             </div>
         </div>
         
@@ -209,12 +238,12 @@
               {{-- Mega Menu: Bisnis --}}
               <div data-menu="bisnis" x-show="activeMenu === 'bisnis'" 
                  x-cloak
-                 x-transition:enter="transition ease-out duration-400"
-                 x-transition:enter-start="opacity-0 translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:enter="transition ease-out duration-600 delay-100"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
                  x-transition:leave="transition ease-in duration-200"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 translate-y-2">
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0">
                  
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div class="grid grid-cols-4 gap-8">
@@ -277,12 +306,12 @@
               {{-- Mega Menu: Layanan --}}
               <div data-menu="layanan" x-show="activeMenu === 'layanan'" 
                  x-cloak
-                 x-transition:enter="transition ease-out duration-400"
-                 x-transition:enter-start="opacity-0 translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:enter="transition ease-out duration-600 delay-100"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
                  x-transition:leave="transition ease-in duration-200"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 translate-y-2">
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0">
                  
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div class="grid grid-cols-5 gap-8">
@@ -332,6 +361,7 @@
                                 Layanan Lainnya
                             </h3>
                             <div class="space-y-0">
+                                <a href="{{ route('auditorlab') }}" class="mega-menu-item" style="font-size: 16px !important; font-weight: 500;">AuditorLab</a>
                                 <a href="{{ localizedRoute('services.web-company-profile') }}" class="mega-menu-item" style="font-size: 16px !important; font-weight: 500;">Company Profile</a>
                                 <a href="{{ localizedRoute('services.uiux.index') }}" class="mega-menu-item" style="font-size: 16px !important; font-weight: 500;">Toko Online</a>
                                 <a href="{{ localizedRoute('services.uiux.index') }}" class="mega-menu-item" style="font-size: 16px !important; font-weight: 500;">Portfolio</a>
@@ -357,12 +387,12 @@
               {{-- Mega Menu: Produk --}}
               <div data-menu="produk" x-show="activeMenu === 'produk'" 
                  x-cloak
-                 x-transition:enter="transition ease-out duration-400"
-                 x-transition:enter-start="opacity-0 translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:enter="transition ease-out duration-600 delay-100"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100"
                  x-transition:leave="transition ease-in duration-200"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 translate-y-2">
+                 x-transition:leave-start="opacity-100"
+                 x-transition:leave-end="opacity-0">
                  
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div class="grid grid-cols-3 gap-8">
@@ -480,8 +510,12 @@ function navbarMenu() {
         navHeight: 60,
         closeTimeout: null,
         lastScrollY: 0,
+        isHome: {{ request()->routeIs('home') ? 'true' : 'false' }},
+        isTransparent: {{ request()->routeIs('home') ? 'true' : 'false' }},
         
         init() {
+            // Initial scroll check
+            this.handleScroll();
             // Trigger staggered animation for mega menu items
             this.$watch('activeMenu', (value) => {
                     if (value !== null) {
@@ -499,7 +533,13 @@ function navbarMenu() {
                             });
                         });
                     } else {
-                        this.navHeight = 60;
+                        // Delay collapsing the height to allow content to fade out
+                        setTimeout(() => {
+                            if (this.activeMenu === null) {
+                                this.navHeight = 60;
+                            }
+                        }, 200);
+                        
                         document.querySelectorAll('.mega-menu-item').forEach(item => {
                             item.classList.remove('animate');
                         });
@@ -564,6 +604,14 @@ function navbarMenu() {
         handleScroll() {
             const currentScrollY = window.scrollY;
             
+            // Toggle transparency for home page hero
+            if (this.isHome) {
+                // Threshold matches hero min-height (550) - some buffer (100)
+                this.isTransparent = currentScrollY < 600;
+            } else {
+                this.isTransparent = false;
+            }
+
             // Close mega menu on scroll
             if (this.activeMenu !== null && Math.abs(currentScrollY - this.lastScrollY) > 50) {
                 this.closeMenu();

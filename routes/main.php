@@ -31,6 +31,13 @@ Route::domain('centrova.test')->middleware(['web', 'language'])->group(function 
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('search.suggestions');
 
+    // AuditorLab Service Page
+    Route::get('/auditorlab', [ServiceController::class, 'auditorLab'])->name('auditorlab');
+
+    // Growth Business Pages
+    Route::get('/growth-business/ai', [ServiceController::class, 'growthBusinessAI'])->name('growth-business.ai');
+    Route::get('/growth-business/customer-analytics', [ServiceController::class, 'growthBusinessCustomerAnalytics'])->name('growth-business.customer-analytics');
+
     // Legal Routes
     Route::prefix('legal')->group(function () {
         Route::get('/', [LegalController::class, 'index'])->name('legal.index');

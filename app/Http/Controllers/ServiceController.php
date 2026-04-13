@@ -36,6 +36,21 @@ class ServiceController extends Controller
         return view('services.custom-solution.index');
     }
 
+    public function auditorLab()
+    {
+        return view('services.auditorlab.index');
+    }
+
+    public function growthBusinessAI()
+    {
+        return view('growth-business.ai');
+    }
+
+    public function growthBusinessCustomerAnalytics()
+    {
+        return view('growth-business.customer-analytics');
+    }
+
     public function webPortfolio($slug, $page = null)
     {
         // Mapping slug ke folder portfolio
