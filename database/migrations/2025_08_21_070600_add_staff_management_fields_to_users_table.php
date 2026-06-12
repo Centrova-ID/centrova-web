@@ -11,38 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::connection('account')->table('users', function (Blueprint $table) {
-            // Work information fields (only add if they don't exist)
-            if (!Schema::connection('account')->hasColumn('users', 'department')) {
-                $table->string('department')->nullable()->after('role');
-            }
-            if (!Schema::connection('account')->hasColumn('users', 'position')) {
-                $table->string('position')->nullable()->after('department');
-            }
-            if (!Schema::connection('account')->hasColumn('users', 'location')) {
-                $table->string('location')->nullable()->after('position');
-            }
-            if (!Schema::connection('account')->hasColumn('users', 'employee_id')) {
-                $table->string('employee_id')->nullable()->after('location');
+        $cols = ['department' => 'string', 'position' => 'string', 'location' => 'string',
+                 'employee_id' => 'string', 'nationality' => 'string', 'emergency_contact' => 'string',
+                 'about' => 'text', 'description' => 'text'];
+        Schema::connection('account')->table('users', function (Blueprint $table) use ($cols) {
+            foreach ($cols as $col => $type) {
+                if (!Schema::connection('account')->hasColumn('users', $col)) {
+                    $type === 'text' ? $table->text($col)->nullable() : $table->string($col)->nullable();
+                }
             }
             if (!Schema::connection('account')->hasColumn('users', 'join_date')) {
-                $table->date('join_date')->nullable()->after('employee_id');
-            }
-            
-            // Personal information fields (only add if they don't exist)
-            if (!Schema::connection('account')->hasColumn('users', 'nationality')) {
-                $table->string('nationality')->nullable()->after('gender');
-            }
-            if (!Schema::connection('account')->hasColumn('users', 'emergency_contact')) {
-                $table->string('emergency_contact')->nullable()->after('country');
-            }
-            
-            // Alternative bio/description fields (only add if they don't exist)
-            if (!Schema::connection('account')->hasColumn('users', 'about')) {
-                $table->text('about')->nullable()->after('bio');
-            }
-            if (!Schema::connection('account')->hasColumn('users', 'description')) {
-                $table->text('description')->nullable()->after('about');
+                $table->date('join_date')->nullable();
             }
         });
     }

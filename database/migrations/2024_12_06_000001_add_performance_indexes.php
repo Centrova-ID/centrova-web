@@ -150,15 +150,14 @@ return new class extends Migration
         }
     }
 
-    /**
-     * Check if index exists
-     */
     private function indexExists(string $table, string $index): bool
     {
-        $connection = Schema::getConnection();
-        $indexes = $connection->getDoctrineSchemaManager()
-            ->listTableIndexes($table);
-        
-        return isset($indexes[$index]);
+        $indexes = Schema::getIndexes($table);
+        foreach ($indexes as $idx) {
+            if ($idx['name'] === $index) {
+                return true;
+            }
+        }
+        return false;
     }
 };

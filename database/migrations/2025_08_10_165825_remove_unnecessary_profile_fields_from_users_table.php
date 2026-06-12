@@ -12,19 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            // Remove emergency contact fields
-            $table->dropColumn([
-                'emergency_contact_name',
-                'emergency_contact_phone', 
-                'emergency_contact_relation'
-            ]);
-            
-            // Remove preferences fields
-            $table->dropColumn([
-                'language',
-                'timezone',
-                'currency'
-            ]);
+            $cols = ['emergency_contact_name', 'emergency_contact_phone', 'emergency_contact_relation',
+                     'language', 'timezone', 'currency'];
+            $existing = array_filter($cols, fn($c) => Schema::hasColumn('users', $c));
+            if ($existing) {
+                $table->dropColumn(array_values($existing));
+            }
         });
     }
 
