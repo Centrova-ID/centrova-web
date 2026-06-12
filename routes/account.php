@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
-| Account Subdomain Routes (account.centrova.test)
+| Account Subdomain Routes (account.centrova.id)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('account.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('account.centrova.id')->middleware(['web'])->group(function () {
     // Login routes - accessible for both guest and auth users (for confirm-password mode)
     Route::get('/login', [AccountController::class, 'loginView'])->name('login');
     Route::post('/login', [AccountController::class, 'login'])->name('login.post');

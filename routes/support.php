@@ -5,11 +5,11 @@ use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
-| Support Subdomain Routes (support.centrova.test)
+| Support Subdomain Routes (support.centrova.id)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('support.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('support.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('support.index'); })->name('support.home');
     Route::get('/help', function () { return view('support.help.index'); })->name('support.help.home');
     Route::get('/web/consult', function () { return view('support.web.consult'); })->name('support.web.consult');

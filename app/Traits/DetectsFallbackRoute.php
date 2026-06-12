@@ -17,7 +17,7 @@ trait DetectsFallbackRoute
         
         // Check if URL contains /{prefix}/ pattern and host is NOT the subdomain
         return str_contains($url, "/{$prefix}/") && 
-               !str_contains($host, "{$prefix}.centrova.test");
+               !str_contains($host, "{$prefix}.centrova.id");
     }
     
     /**

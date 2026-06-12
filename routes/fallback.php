@@ -104,7 +104,7 @@ Route::middleware(['web'])->group(function () {
 | They use prefixes to maintain functionality without subdomain routing.
 */
 
-// Support fallback routes (support.centrova.test -> /support/*)
+// Support fallback routes (support.centrova.id -> /support/*)
 // Fallback routes untuk support subdomain jika subdomain tidak bisa diakses
 Route::prefix('support')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('support.index'); })->name('support.fallback.home');
@@ -127,7 +127,7 @@ Route::prefix('support')->middleware(['web'])->group(function () {
     Route::get('/services/uiux', function () { return view('support.services.uiux'); })->name('support.fallback.services.uiux');
 });
 
-// Account fallback routes (account.centrova.test -> /account/*)
+// Account fallback routes (account.centrova.id -> /account/*)
 Route::prefix('account')->middleware(['web'])->group(function () {
     // Guest routes
     Route::middleware('guest')->group(function () {
@@ -239,25 +239,25 @@ Route::prefix('account')->middleware(['web'])->group(function () {
     });
 });
 
-// News fallback routes (news.centrova.test -> /news/*)
+// News fallback routes (news.centrova.id -> /news/*)
 Route::prefix('news')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('news.index'); })->name('news.fallback.home');
     Route::get('/detail', function () { return view('news.detail'); })->name('news.fallback.detail');
     Route::get('/editor', function () { return view('news.editor'); })->name('news.fallback.create');
 });
 
-// Developer fallback routes (developer.centrova.test -> /developer/*)
+// Developer fallback routes (developer.centrova.id -> /developer/*)
 Route::prefix('developer')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('developer.index'); })->name('developer.fallback.home');
     Route::get('/ui-kit', function () { return view('developer.ui-kit'); })->name('developer.fallback.ui-kit');
 });
 
-// Learn fallback routes (learn.centrova.test -> /learn/*)
+// Learn fallback routes (learn.centrova.id -> /learn/*)
 Route::prefix('learn')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('learn.index'); })->name('learn.fallback.index');
 });
 
-// Docs fallback routes (docs.centrova.test -> /docs/*)
+// Docs fallback routes (docs.centrova.id -> /docs/*)
 Route::prefix('docs')->middleware(['web'])->group(function () {
     Route::get('/services', function () { return view('docs.services.index'); })->name('docs.fallback.services.index');
     Route::get('/services/web', function () { return view('docs.services.web'); })->name('docs.fallback.services.web');

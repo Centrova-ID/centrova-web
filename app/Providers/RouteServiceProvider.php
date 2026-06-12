@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = 'http://account.centrova.test/account';
+    public const HOME = 'https://account.centrova.id/account';
 
     /**
      * Get the appropriate home URL based on current request context
@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
         
         // Check if current request is from fallback route
         $isFallbackRoute = str_contains($request->url(), '/account/') && 
-                          !str_contains($request->getHost(), 'account.centrova.test');
+                          !str_contains($request->getHost(), 'account.centrova.id');
         
         if ($isFallbackRoute) {
             // Return fallback account route URL

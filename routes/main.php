@@ -13,12 +13,12 @@ use App\Http\Controllers\Products\BusinessController;
 
 /*
 |--------------------------------------------------------------------------
-| Main Domain Routes (centrova.test)
+| Main Domain Routes (centrova.id)
 |--------------------------------------------------------------------------
 */
 
 // Indonesian routes (default - no prefix)
-Route::domain('centrova.test')->middleware(['web', 'language'])->group(function () {
+Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/products', [HomeController::class, 'products'])->name('home.products.index');
     Route::get('/about', [HomeController::class, 'about'])->name('about');

@@ -22,7 +22,7 @@ class BlockCustomerAccess
         $allowedRoles = ['admin', 'staff', 'customer_service', 'privacy_officer'];
         
         // IMMEDIATELY block if this is office subdomain
-        if ($request->getHost() === 'office.centrova.test') {
+        if ($request->getHost() === 'office.centrova.id') {
             
             // Check both guards for any user
             $webUser = Auth::guard('web')->user();

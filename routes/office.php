@@ -13,11 +13,11 @@ use App\Http\Controllers\Staff\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
-| Office Subdomain Routes (office.centrova.test)
+| Office Subdomain Routes (office.centrova.id)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('office.centrova.test')->group(function () {
+Route::domain('office.centrova.id')->group(function () {
     // Public authentication routes - NO middleware restrictions
     Route::middleware(['web'])->group(function () {
         Route::get('/login', [StaffAuthController::class, 'showLoginForm'])->name('staff.login');

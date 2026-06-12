@@ -63,7 +63,7 @@ Route::middleware(['auth'])->prefix('domain')->name('domain.')->group(function (
 });
 
 // Account subdomain routes for domains
-Route::domain('account.centrova.test')->middleware(['web', 'auth'])->prefix('domains')->name('account.domains.')->group(function () {
+Route::domain('account.centrova.id')->middleware(['web', 'auth'])->prefix('domains')->name('account.domains.')->group(function () {
     Route::get('/', [DomainManagementController::class, 'index'])->name('index');
     Route::get('/{domain}', [DomainManagementController::class, 'show'])->name('show');
     Route::post('/{domain}/renew', [DomainManagementController::class, 'renew'])->name('renew');
@@ -76,7 +76,7 @@ Route::domain('account.centrova.test')->middleware(['web', 'auth'])->prefix('dom
 // office admin centrova (main) = dukungan purna jual
 
 // Office/Admin domain routes
-Route::domain('office.centrova.test')->middleware(['web', 'office.access', 'block.customer'])->prefix('domains')->name('admin.domains.')->group(function () {
+Route::domain('office.centrova.id')->middleware(['web', 'office.access', 'block.customer'])->prefix('domains')->name('admin.domains.')->group(function () {
     
     // Domain Administration
     Route::get('/', [DomainAdminController::class, 'index'])->name('index');

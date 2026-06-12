@@ -36,7 +36,7 @@ class TestWhatsAppOtp extends Command
         // Create a temporary user for testing
         $testUser = new User([
             'name' => 'Test User',
-            'email' => 'test@centrova.test',
+            'email' => 'test@centrova.id',
             'phone' => $phone
         ]);
         $testUser->id = 999999; // Fake ID for testing

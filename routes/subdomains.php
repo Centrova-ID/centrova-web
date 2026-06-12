@@ -9,32 +9,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 // News subdomain
-Route::domain('news.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('news.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('news.index'); })->name('news.home');
     Route::get('/detail', function () { return view('news.detail'); })->name('news.detail');
     Route::get('/editor', function () { return view('news.editor'); })->name('news.create');
 });
 
 // Developer subdomain
-Route::domain('developer.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('developer.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('developer.index'); })->name('developer.home');
     Route::get('/ui-kit', function () { return view('developer.ui-kit'); })->name('developer.ui-kit');
 });
 
 // Career subdomain
-Route::domain('careers.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('careers.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/', function () { return view('careers.index'); })->name('careers.home');
 });
 
 // Learn subdomain
-Route::domain('learn.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('learn.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/', function () {
         return view('learn.index');
     })->name('learn.index');
 });
 
 // Docs subdomain
-Route::domain('docs.centrova.test')->middleware(['web'])->group(function () {
+Route::domain('docs.centrova.id')->middleware(['web'])->group(function () {
     Route::get('/services', function () {
         return view('docs.services.index');
     });

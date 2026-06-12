@@ -313,7 +313,7 @@ class PaymentService
     private function generateEwalletPaymentUrl(DomainOrder $order, array $paymentData)
     {
         // This would integrate with actual e-wallet APIs
-        return "https://payment.centrova.test/ewallet/{$paymentData['provider']}/{$order->order_number}";
+        return "https://payment.centrova.id/ewallet/{$paymentData['provider']}/{$order->order_number}";
     }
 
     /**

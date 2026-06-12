@@ -15,13 +15,13 @@ class RestrictOfficeAccess
      * Handle an incoming request.
      * 
      * This middleware ensures ONLY staff members can access the office subdomain.
-     * Customer accounts are completely blocked from accessing office.centrova.test
+     * Customer accounts are completely blocked from accessing office.centrova.id
      * Staff accounts that are already logged in on main domain can access office area.
      */
     public function handle(Request $request, Closure $next): Response
     {
         // IMMEDIATE CHECK: Block if this is not the office subdomain
-        if ($request->getHost() !== 'office.centrova.test') {
+        if ($request->getHost() !== 'office.centrova.id') {
             return $next($request);
         }
         

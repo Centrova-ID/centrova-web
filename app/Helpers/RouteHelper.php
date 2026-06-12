@@ -241,7 +241,7 @@ class RouteHelper
         $host = $request->getHost();
         
         return str_contains($url, '/account/') && 
-               !str_contains($host, 'account.centrova.test');
+               !str_contains($host, 'account.centrova.id');
     }
     
     /**

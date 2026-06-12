@@ -120,14 +120,14 @@ class SitemapController extends Controller
         
         // Define which domains and patterns should be included in sitemap
         $allowedDomains = [
-            'centrova.test',
-            'support.centrova.test',
-            'news.centrova.test',
-            'developer.centrova.test',
-            'careers.centrova.test',
-            'learn.centrova.test',
-            'docs.centrova.test',
-            'account.centrova.test'
+            'centrova.id',
+            'support.centrova.id',
+            'news.centrova.id',
+            'developer.centrova.id',
+            'careers.centrova.id',
+            'learn.centrova.id',
+            'docs.centrova.id',
+            'account.centrova.id'
         ];
         
         // Define excluded patterns (routes that shouldn't be in sitemap)
@@ -209,7 +209,7 @@ class SitemapController extends Controller
             $publicRoutes[] = [
                 'uri' => $uri === '/' ? '' : '/' . ltrim($uri, '/'),
                 'name' => $name,
-                'domain' => $domain ?: 'centrova.test',
+                'domain' => $domain ?: 'centrova.id',
                 'title' => $this->generateRouteTitle($uri, $name)
             ];
         }
@@ -301,31 +301,31 @@ class SitemapController extends Controller
     private function organizeSitemapData($routes)
     {
         $organized = [
-            'centrova.test' => [
+            'centrova.id' => [
                 'Utama' => [],
                 'Layanan' => [],
                 'Tim & Lainnya' => [],
                 'Legal' => []
             ],
-            'support.centrova.test' => [
+            'support.centrova.id' => [
                 'Support' => []
             ],
-            'news.centrova.test' => [
+            'news.centrova.id' => [
                 'News' => []
             ],
-            'developer.centrova.test' => [
+            'developer.centrova.id' => [
                 'Developer' => []
             ],
-            'careers.centrova.test' => [
+            'careers.centrova.id' => [
                 'Karier' => []
             ],
-            'learn.centrova.test' => [
+            'learn.centrova.id' => [
                 'Pembelajaran' => []
             ],
-            'docs.centrova.test' => [
+            'docs.centrova.id' => [
                 'Dokumentasi' => []
             ],
-            'account.centrova.test' => [
+            'account.centrova.id' => [
                 'Akun' => []
             ]
         ];
@@ -339,7 +339,7 @@ class SitemapController extends Controller
             }
             
             // Categorize routes based on URI patterns
-            if ($domain === 'centrova.test') {
+            if ($domain === 'centrova.id') {
                 if (Str::startsWith($uri, '/services')) {
                     $organized[$domain]['Layanan'][] = $route;
                 } elseif (Str::startsWith($uri, '/legal')) {

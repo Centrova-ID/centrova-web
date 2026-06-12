@@ -19,29 +19,29 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Route files are organized by functionality for better maintainability:
-| - main.php: Main domain routes (centrova.test)
-| - support.php: Support subdomain routes (support.centrova.test)
-| - account.php: Account subdomain routes (account.centrova.test)
-| - office.php: Office subdomain routes (office.centrova.test) - Staff management
+| - main.php: Main domain routes (centrova.id)
+| - support.php: Support subdomain routes (support.centrova.id)
+| - account.php: Account subdomain routes (account.centrova.id)
+| - office.php: Office subdomain routes (office.centrova.id) - Staff management
 | - chat.php: Chat system routes
 | - subdomains.php: Other subdomain routes (news, docs, developer, etc.)
 | - fallback.php: Fallback routes and mobile compatibility
 |
 */
 
-// Main domain routes (centrova.test)
+// Main domain routes (centrova.id)
 require __DIR__.'/main.php';
 
-// Support subdomain routes (support.centrova.test)
+// Support subdomain routes (support.centrova.id)
 require __DIR__.'/support.php';
 
-// Account subdomain routes (account.centrova.test)
+// Account subdomain routes (account.centrova.id)
 require __DIR__.'/account.php';
 
 // OAuth routes
 require __DIR__.'/oauth.php';
 
-// Office subdomain routes (office.centrova.test) - Staff management
+// Office subdomain routes (office.centrova.id) - Staff management
 require __DIR__.'/office.php';
 
 // Chat routes for customers
