@@ -1,0 +1,85 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: centrova-app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+    ports:
+      - "8080:80"   # local access; Cloudflare Tunnel bypasses this
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - storage_data:/var/www/html/storage/app
+      - logs_data:/var/www/html/storage/logs
+    networks:
+      - centrova-net
+
+  mysql:
+    image: mysql:8.4
+    container_name: centrova-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secret_2024
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql-init.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
+      - ./setup_db/centrova_account.sql:/docker-entrypoint-initdb.d/01-centrova_account.sql:ro
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_secret_2024"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - centrova-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: centrova-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - centrova-net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: centrova-cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - app
+    networks:
+      - centrova-net
+
+volumes:
+  mysql_data:
+  redis_data:
+  storage_data:
+  logs_data:
+
+networks:
+  centrova-net:
+    driver: bridge
