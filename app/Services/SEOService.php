@@ -319,9 +319,9 @@ class SEOService
      */
     public function getRouteBasedSEO()
     {
-        $routeName = Route::currentRouteName();
+        $routeName = Route::currentRouteName() ?? 'home';
         $routeData = $this->getRouteData($routeName);
-        
+
         return $this->setPageSEO($routeData);
     }
 

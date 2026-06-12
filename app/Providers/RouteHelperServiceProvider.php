@@ -77,7 +77,7 @@ class RouteHelperServiceProvider extends ServiceProvider
      */
     protected function registerGlobalHelpers(): void
     {
-        if (!function_exists('smart_route')) {
+        if (!function_exists(__NAMESPACE__ . '\smart_route')) {
             /**
              * Generate smart route
              */
@@ -86,7 +86,7 @@ class RouteHelperServiceProvider extends ServiceProvider
             }
         }
         
-        if (!function_exists('is_subdomain_available')) {
+        if (!function_exists(__NAMESPACE__ . '\is_subdomain_available')) {
             /**
              * Check if subdomain is available
              */
@@ -95,7 +95,7 @@ class RouteHelperServiceProvider extends ServiceProvider
             }
         }
         
-        if (!function_exists('current_route_type')) {
+        if (!function_exists(__NAMESPACE__ . '\current_route_type')) {
             /**
              * Get current route type
              */
@@ -104,7 +104,7 @@ class RouteHelperServiceProvider extends ServiceProvider
             }
         }
         
-        if (!function_exists('current_subdomain')) {
+        if (!function_exists(__NAMESPACE__ . '\current_subdomain')) {
             /**
              * Get current subdomain
              */
@@ -113,7 +113,7 @@ class RouteHelperServiceProvider extends ServiceProvider
             }
         }
         
-        if (!function_exists('navigation_menu')) {
+        if (!function_exists(__NAMESPACE__ . '\navigation_menu')) {
             /**
              * Get navigation menu with proper routes
              */
