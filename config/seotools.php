@@ -10,13 +10,13 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => env('APP_NAME', 'Centrova'), // set false to total remove
-            'titleBefore'  => false, // Put defaults.title before page title, like 'Centrova - Dashboard'
-            'description'  => 'Centrova - Platform digital terdepan untuk solusi web development, hosting, dan layanan teknologi modern di Indonesia', // set false to total remove
+            'title'        => 'Centrova | AI Venture Engineering, Software Development & AI Agent Automation',
+            'titleBefore'  => false,
+            'description'  => 'PT Centrova Teknologi Indonesia - AI Venture Engineering company spesialis Software Development, AI-powered Systems, dan AI Agent Automation untuk transformasi digital bisnis Anda.',
             'separator'    => ' | ',
-            'keywords'     => ['web development', 'hosting', 'domain', 'teknologi', 'digital solution', 'indonesia', 'centrova'],
-            'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
-            'robots'       => 'index,follow', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
+            'keywords'     => ['Centrova', 'PT Centrova Teknologi Indonesia', 'AI Venture Engineering', 'Software Development', 'AI Agent Automation', 'Artificial Intelligence Indonesia', 'centrova.id', 'AI Solutions', 'Business Automation', 'digital transformation', 'web development Indonesia'],
+            'canonical'    => 'current',
+            'robots'       => 'index,follow',
         ],
         /*
          * Webmaster tags are always added.
@@ -37,12 +37,12 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => env('APP_NAME', 'Centrova'), // set false to total remove
-            'description' => 'Centrova - Platform digital terdepan untuk solusi web development, hosting, dan layanan teknologi modern di Indonesia', // set false to total remove
-            'url'         => 'current', // Set null for using Url::current(), set false to total remove
+            'title'       => 'Centrova | AI Venture Engineering, Software Development & AI Agent Automation',
+            'description' => 'PT Centrova Teknologi Indonesia - AI Venture Engineering company spesialis Software Development, AI-powered Systems, dan AI Agent Automation untuk transformasi digital bisnis Anda.',
+            'url'         => 'current',
             'type'        => 'website',
-            'site_name'   => env('APP_NAME', 'Centrova'),
-            'images'      => [env('APP_URL', 'https://centrova.id') . '/assets/images/centrova-og-image.jpg'],
+            'site_name'   => 'Centrova',
+            'images'      => [env('APP_URL', 'https://centrova.id') . '/thumbnail.png'],
         ],
     ],
     'twitter' => [

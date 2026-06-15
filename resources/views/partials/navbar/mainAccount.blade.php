@@ -61,12 +61,12 @@
     <a href="{{ url('/team') }}" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Our Tim</a>
     <a href="{{ route('contact') }}" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Hubungi Kami</a>
     @auth
-        <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ '#' }}">
             @csrf
             <button type="submit" class="mobile-link text-2xl font-semibold text-red-600 mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign Out</button>
         </form>
     @else
-        <a href="{{ route('login') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign In</a>
+        <a href="{{ '#' }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign In</a>
     @endauth
 </div>
 

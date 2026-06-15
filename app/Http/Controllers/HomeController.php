@@ -86,10 +86,17 @@ class HomeController extends Controller
 
     public function teamProfile($slug)
     {
-        return view('home.team.profile', [
-            'user' => Auth::user(),
-            'slug' => $slug
-        ]);
+        $views = [
+            'sultan-rahmatulloh' => 'home.team.sultan',
+            'syahied-ramadhan'   => 'home.team.syahied',
+            'muhammad-fadli'     => 'home.team.fadli',
+        ];
+
+        if (array_key_exists($slug, $views)) {
+            return view($views[$slug], ['user' => Auth::user()]);
+        }
+
+        abort(404);
     }
 
     public function search(Request $request, SearchService $searchService)

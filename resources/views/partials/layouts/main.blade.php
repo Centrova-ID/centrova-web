@@ -13,6 +13,8 @@
     <meta name="turbo-refresh-scroll" content="preserve">
     {{-- Additional SEO Meta Tags --}}
     @yield('seoMetaTags')
+    {{-- Canonical URL fallback --}}
+    <link rel="canonical" href="{{ url()->current() }}">
     {{-- SEO Meta Tags - Powered by SEOTools --}}
     {{-- {!! SEO::generate() !!} --}}
 
@@ -37,7 +39,6 @@
     
     {{-- Favicon and App Icons --}}
     <link rel="icon" type="image/svg+xml" href="{{ asset('/assets/brand/favicon.svg') }}">
-    <link rel="icon" type="image/png" href="{{ asset('/assets/brand/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
@@ -52,14 +53,17 @@
 
     {{-- Preload Fonts --}}
     <link rel="preload" 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" 
           as="style" 
           onload="this.onload=null;this.rel='stylesheet'">
 
     <noscript>
         <link rel="stylesheet" 
-              href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap">
+              href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap">
     </noscript>
+
+    {{-- Icons --}}
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 
     {{-- Preload AOS Animation CSS --}}
     {{-- <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -126,6 +130,9 @@
     {{-- Font Component --}}
     @include('partials.components.font')
 
+    {{-- Color Palletes --}}
+    @include('partials.components.color')
+
     {{-- View-specific Styles --}}
     @yield('style-css')
 </head>
@@ -133,7 +140,7 @@
 <body class="font-sans antialiased max-w-[2560px] mx-auto" 
       data-turbo-track="reload" 
       data-turbo-cache="true"
-      data-turbo-preview="true">
+      data-turbo-preview="true" x-data="{ mobileMenuOpen: false }">
     {{-- Main Application Wrapper - Turbo Frame Target --}}
     <div id="app" data-turbo-permanent>
         {{-- Navigation Bar - Persistent across Turbo visits --}}
@@ -157,7 +164,7 @@
         @endauth --}}
 
         {{-- Footer - Persistent across pages --}}
-        @include('partials.footer')
+        @include('partials.footer.main')
     </div>
 
     {{-- View-specific Scripts --}}

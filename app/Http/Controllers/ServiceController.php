@@ -36,6 +36,26 @@ class ServiceController extends Controller
         return view('services.custom-solution.index');
     }
 
+    public function consult()
+    {
+        return view('services.consult');
+    }
+
+    public function aiStrategy()
+    {
+        return view('services.ai.ai-strategy');
+    }
+
+    public function aiAgents()
+    {
+        return view('services.ai.ai-agents');
+    }
+
+    public function aiAutomation()
+    {
+        return view('services.ai.ai-automation');
+    }
+
     public function auditorLab()
     {
         return view('services.auditorlab.index');

@@ -103,7 +103,7 @@
             {{-- Logout section dengan border atas --}}
             <div class="border-t border-neutral-100 px-2 pt-1 space-y-1">
                 {{-- Form logout dengan CSRF token --}}
-                <form method="POST" action="{{ route('logout') }}" class="m-0">
+                <form method="POST" action="{{ '#' }}" class="m-0">
                     @csrf
                     <button type="submit" class="flex w-full items-center space-x-3 px-3 py-3 rounded-md text-sm text-red-700 hover:bg-red-100 transition-colors">
                         <svg class="h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@
     </div>
 @else
     {{-- Tombol login untuk user yang belum login --}}
-    <a href="{{ route('login') }}" class="w-8 h-8 border-[2px] border-[#128AEB] rounded-full overflow-hidden flex justify-center items-center">
+    <a href="{{ '#' }}" class="w-8 h-8 border-[2px] border-[#128AEB] rounded-full overflow-hidden flex justify-center items-center">
         <img src="/assets/icons/ui/account/sign-in.svg" 
             class="w-5.5 h-5.5 ml-0.5 object-cover">
     </a>

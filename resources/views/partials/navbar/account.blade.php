@@ -109,7 +109,7 @@
                                 </a>
                             </div>
                             <div class="border-t border-neutral-200 mt-2 px-2 py-2 space-y-1">
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="POST" action="{{ '#' }}">
                                     @csrf
                                     <button type="submit" class="flex w-full items-center space-x-3 px-3 py-2 rounded-md text-sm text-red-700 hover:bg-red-100 transition-colors">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 @else
-                    <a href="{{ route('login') }}" class="w-8 h-8 border-[2px] border-[#128AEB] rounded-full overflow-hidden flex justify-center items-center">
+                    <a href="{{ '#' }}" class="w-8 h-8 border-[2px] border-[#128AEB] rounded-full overflow-hidden flex justify-center items-center">
                         <img src="/assets/icons/ui/account/sign-in.svg" 
                             class="w-5.5 h-5.5 ml-0.5 object-cover">
                     </a>
@@ -155,12 +155,12 @@
     <a href="{{ url('/team') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Our Tim</a>
     <a href="{{ route('contact') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-8 opacity-0 translate-y-2 transition duration-200 delay-500">Hubungi Kami</a>
     @auth
-        <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ '#' }}">
             @csrf
             <button type="submit" class="mobile-link text-2xl font-semibold text-red-600 mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign Out</button>
         </form>
     @else
-        <a href="{{ route('login') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign In</a>
+        <a href="{{ '#' }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign In</a>
     @endauth
 </div>
 

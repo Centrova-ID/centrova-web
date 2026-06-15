@@ -1,5 +1,52 @@
 @extends('partials.layouts.main')
 
+@php
+$member = [
+    'name' => 'Muhammad Fadli',
+    'position' => 'Technical Support',
+    'email' => 'fadli@centrova.id',
+    'linkedin' => 'https://linkedin.com/in/muhammad-fadli',
+    'heroImage' => '/assets/image/team/muhammad-fadli/muhammad-fadli.png',
+    'bio' => [
+        'intro' => 'Tenaga teknis yang berdedikasi dalam memberikan solusi dan pendampingan kepada klien. Fadli memiliki kemampuan komunikasi teknis yang baik dan sigap dalam menangani berbagai permasalahan teknologi.',
+        'content' => [
+            'Sebagai Technical Support di Centrova, Fadli adalah garda terdepan dalam memastikan kepuasan klien. Ia bertanggung jawab menangani pertanyaan teknis, menyelesaikan kendala operasional, serta memberikan panduan penggunaan produk dan layanan Centrova.',
+            'Fadli memiliki pemahaman yang mendalam tentang berbagai platform teknologi yang digunakan Centrova, termasuk sistem hosting, domain, aplikasi web, dan layanan cloud. Pendekatannya yang sabar dan analitis membuat klien merasa didengar dan terbantu.',
+            'Fadli juga aktif menyusun dokumentasi teknis, panduan pengguna, dan materi edukasi untuk membantu klien memahami produk secara mandiri. Ia percaya bahwa dukungan teknis yang baik adalah kombinasi antara kompetensi dan empati.',
+        ],
+    ],
+    'education' => [
+        [
+            'degree' => 'D3 Teknik Informatika',
+            'institution' => 'Politeknik Negeri Jakarta',
+            'period' => '2018 – 2021',
+            'description' => 'Fokus pada jaringan komputer, administrasi sistem, dan layanan dukungan teknis.',
+        ],
+    ],
+    'certifications' => [
+        [
+            'name' => 'CompTIA IT Fundamentals (ITF+)',
+            'issuer' => 'CompTIA',
+            'year' => '2023',
+            'status' => 'Active',
+        ],
+        [
+            'name' => 'Google IT Support Professional',
+            'issuer' => 'Coursera / Google',
+            'year' => '2024',
+            'status' => 'Active',
+        ],
+    ],
+    'gallery' => [],
+];
+$hasEducation = !empty($member['education']);
+$hasCertifications = !empty($member['certifications']);
+$hasTestimonials = !empty($member['testimonials']);
+$hasGallery = !empty($member['gallery']);
+$bioTotalLength = strlen($member['bio']['intro'] ?? '') + strlen(implode(' ', $member['bio']['content'] ?? []));
+$useTwoColumns = $bioTotalLength > 1000;
+@endphp
+
 @section('title', $member['name'] . ' - ' . $member['position'] . ' | Centrova')
 
 @section('meta')
@@ -54,14 +101,6 @@
 @endsection
 
 @section('content')
-@php
-$hasEducation = !empty($member['education']);
-$hasCertifications = !empty($member['certifications']);
-$hasTestimonials = !empty($member['testimonials']);
-$hasGallery = !empty($member['gallery']);
-$bioTotalLength = strlen($member['bio']['intro'] ?? '') + strlen(implode(' ', $member['bio']['content'] ?? []));
-$useTwoColumns = $bioTotalLength > 1000;
-@endphp
 
 {{-- Hero Section --}}
 <div class="relative max-md:h-[250px] h-[560px] -mt-1 md:-mt-0 bg-white lg:bg-gradient-to-b from-neutral-100 to-neutral-50 overflow-hidden">
@@ -148,81 +187,6 @@ $useTwoColumns = $bioTotalLength > 1000;
                 </div>
             </div>
             @endif
-        </div>
-    </div>
-</div>
-@endif
-
-@if($hasTestimonials)
-{{-- Testimonials --}}
-<div class="py-12 lg:py-16 bg-white border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-        <h2 class="text-2xl font-semibold text-neutral-900 mb-8 text-center">Testimoni</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($member['testimonials'] as $testi)
-            <div class="bg-white rounded-xl p-6 border border-neutral-200">
-                <div class="flex items-center gap-1 mb-4">
-                    @for($i = 0; $i < ($testi['rating'] ?? 5); $i++)
-                    <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    @endfor
-                </div>
-                <p class="text-neutral-700 text-sm leading-relaxed mb-4 italic">"{{ $testi['quote'] }}"</p>
-                <div class="flex items-center gap-3">
-                    <img src="{{ $testi['photo'] }}" alt="{{ $testi['name'] }}" class="w-8 h-8 rounded-full object-cover" loading="lazy">
-                    <div>
-                        <p class="text-sm font-semibold text-neutral-900">{{ $testi['name'] }}</p>
-                        <p class="text-xs text-neutral-500">{{ $testi['position'] }}</p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endif
-
-@if($hasGallery)
-{{-- Gallery --}}
-<div class="py-12 lg:py-16 bg-neutral-50 border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-        <h2 class="text-2xl font-semibold text-neutral-900 mb-8 text-center">Galeri</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" x-data="{showModal: false, currentIndex: 0, photos: {{ json_encode($member['gallery']) }}}">
-            <template x-for="(photo, index) in photos" :key="index">
-                <div class="relative rounded-xl overflow-hidden border border-neutral-200 cursor-pointer group" @click="showModal = true; currentIndex = index">
-                    <img :src="photo.thumbnail" :alt="photo.caption" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-xs font-medium" x-text="photo.caption"></p>
-                    </div>
-                </div>
-            </template>
-
-            {{-- Modal --}}
-            <template x-if="showModal">
-                <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" @click.self="showModal = false">
-                    <div class="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden">
-                        <button @click="showModal = false" class="absolute top-3 right-3 z-10 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center hover:bg-white">
-                            <span class="material-symbols-outlined text-neutral-700">close</span>
-                        </button>
-                        <div class="flex items-center justify-between p-4 bg-white border-b border-neutral-100">
-                            <div>
-                                <p class="font-semibold text-neutral-900" x-text="photos[currentIndex].caption"></p>
-                                <p class="text-sm text-neutral-500" x-text="photos[currentIndex].description + ' &middot; ' + photos[currentIndex].date"></p>
-                            </div>
-                        </div>
-                        <img :src="photos[currentIndex].fullsize" :alt="photos[currentIndex].caption" class="w-full max-h-[70vh] object-contain bg-neutral-100">
-                        <div class="flex justify-between items-center px-4 py-3 bg-white border-t border-neutral-100">
-                            <button @click="currentIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1" class="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-primary-600">
-                                <span class="material-symbols-outlined text-base">chevron_left</span> Sebelumnya
-                            </button>
-                            <span class="text-sm text-neutral-500" x-text="(currentIndex + 1) + ' / ' + photos.length"></span>
-                            <button @click="currentIndex = (currentIndex + 1) % photos.length" class="flex items-center gap-1 text-sm font-medium text-neutral-700 hover:text-primary-600">
-                                Berikutnya <span class="material-symbols-outlined text-base">chevron_right</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </template>
         </div>
     </div>
 </div>

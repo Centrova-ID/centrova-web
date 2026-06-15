@@ -142,14 +142,9 @@
               x-transition:leave-end="max-md:opacity-0 transform max-md:-translate-y-16 max-h-0"
               class="space-y-2 text-xs md:block max-md:px-3 max-md:pt-3 max-md:pb-6"
               style="transition-property: opacity, transform, max-height;">
-            <li><a href="{{ route('developer.home') }}" class="hover:underline">Centrova Developer</a></li>
+            <li><a href="#" class="hover:underline">Centrova Developer</a></li>
             <li><a href="#" class="hover:underline">API Centrova</a></li>
-            <li><a href="#" class="hover:underline">Centrova Learn</a></li>
-            <li><a href="#" class="hover:underline">Support Aplikasi Pihak Ketiga</a></li>
             <li><a href="#" class="hover:underline">Komunitas Dev</a></li>
-            <li><a href="#" class="hover:underline">Marketplace Centrova</a></li>
-            <li><a href="#" class="hover:underline">Centrova AppSource</a></li>
-            <li><a href="#" class="hover:underline">Centrova Studio</a></li>
           </ul>
         </div>
       </div>
@@ -183,8 +178,6 @@
               style="transition-property: opacity, transform, max-height;">
             <li><a href="{{ url('/about') }}" class="hover:underline">Profil Centrova</a></li>
             <li><a href="{{ url('/team') }}" class="hover:underline">Tim Centrova</a></li>
-            <li><a href="{{ route('news.home') }}" class="hover:underline">Berita</a></li>
-            <li><a href="{{ route('careers.home') }}" class="hover:underline">Peluang Karir</a></li>
             <li><a href="#" class="hover:underline">Investor</a></li>
             <li><a href="{{ url('/contact') }}" class="hover:underline">Kontak Centrova</a></li>
           </ul>

@@ -79,9 +79,9 @@ class SEOService
     public function setHomepageSEO()
     {
         return $this->setPageSEO([
-            'title' => 'Centrova - Platform Digital Terdepan Indonesia',
-            'description' => 'Solusi lengkap web development, hosting berkualitas tinggi, dan layanan teknologi modern untuk bisnis Anda. Bergabunglah dengan ribuan klien yang mempercayai Centrova.',
-            'keywords' => ['web development indonesia', 'hosting murah', 'domain murah', 'jasa website', 'cloud hosting', 'ssl certificate', 'centrova'],
+            'title' => 'Centrova | AI Venture Engineering, Software Development & AI Agent Automation',
+            'description' => 'PT Centrova Teknologi Indonesia adalah AI Venture Engineering company yang membantu bisnis membangun software, AI-powered systems, dan AI Agent Automation untuk meningkatkan efisiensi, mempercepat pertumbuhan, dan mendorong transformasi digital.',
+            'keywords' => ['Centrova', 'PT Centrova Teknologi Indonesia', 'AI Venture Engineering', 'Software Development', 'AI Agent Automation', 'Artificial Intelligence Indonesia', 'AI Solutions', 'Business Automation', 'centrova.id', 'centrova indonesia', 'web development', 'custom software', 'digital transformation Indonesia'],
             'type' => 'website'
         ]);
     }

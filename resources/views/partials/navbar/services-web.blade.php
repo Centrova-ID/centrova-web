@@ -131,13 +131,13 @@
             <a href="{{ route('contact') }}" class="mobile-link block py-3 text-xl font-medium text-gray-900 border-b border-gray-100 opacity-0 translate-y-4 transition-all duration-300">Hubungi Kami</a>
             
             @auth
-                <form method="POST" action="{{ route('logout') }}" class="mt-6 pt-6 border-t border-gray-100">
+                <form method="POST" action="{{ '#' }}" class="mt-6 pt-6 border-t border-gray-100">
                     @csrf
                     <button type="submit" class="mobile-link block py-3 text-xl font-medium text-red-600 opacity-0 translate-y-4 transition-all duration-300">Keluar</button>
                 </form>
             @else
                 <div class="mt-6 pt-6 border-t border-gray-100">
-                    <a href="{{ route('login') }}" class="mobile-link block py-3 text-xl font-medium text-[#128AEB] opacity-0 translate-y-4 transition-all duration-300">Masuk</a>
+                    <a href="{{ '#' }}" class="mobile-link block py-3 text-xl font-medium text-[#128AEB] opacity-0 translate-y-4 transition-all duration-300">Masuk</a>
                 </div>
             @endauth
         </div>

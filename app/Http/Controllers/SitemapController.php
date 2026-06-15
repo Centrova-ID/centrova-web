@@ -21,93 +21,251 @@ class SitemapController extends Controller
     }
 
     /**
-     * Generate XML sitemap
+     * Generate XML sitemap — comprehensive, AI-ready, SEO-optimized
      */
     public function xml()
     {
+        $baseUrl = rtrim(config('app.url'), '/');
+        $now = Carbon::now();
+
         $sitemap = Sitemap::create();
 
-        // Add static pages with priority and frequency
-        $staticPages = [
-            ['url' => '/', 'priority' => 1.0, 'changefreq' => 'daily'],
-            ['url' => '/about', 'priority' => 0.8, 'changefreq' => 'monthly'],
-            ['url' => '/services', 'priority' => 0.9, 'changefreq' => 'weekly'],
-            ['url' => '/portfolio', 'priority' => 0.7, 'changefreq' => 'weekly'],
-            ['url' => '/contact', 'priority' => 0.8, 'changefreq' => 'monthly'],
-            ['url' => '/blog', 'priority' => 0.9, 'changefreq' => 'daily'],
-            ['url' => '/pricing', 'priority' => 0.8, 'changefreq' => 'weekly'],
+        // ================================================================
+        // 1. HOME (priority 1.0 — most important)
+        // ================================================================
+        $sitemap->add(Url::create($baseUrl)
+            ->setLastModificationDate($now)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(1.0));
+
+        $sitemap->add(Url::create($baseUrl . '/en')
+            ->setLastModificationDate($now)
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(0.9));
+
+        // ================================================================
+        // 2. CORE PAGES (priority 0.9)
+        // ================================================================
+        $corePages = [
+            '/about'          => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
+            '/contact'        => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
+            '/team'           => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.7],
+            '/search'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.6],
+            '/sitemap'        => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.5],
         ];
 
-        foreach ($staticPages as $page) {
-            $sitemap->add(
-                Url::create(url($page['url']))
-                    ->setLastModificationDate(Carbon::now())
-                    ->setChangeFrequency($page['changefreq'])
-                    ->setPriority($page['priority'])
-            );
+        foreach ($corePages as $path => $meta) {
+            $sitemap->add(Url::create($baseUrl . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency($meta['freq'])
+                ->setPriority($meta['prio']));
+
+            $sitemap->add(Url::create($baseUrl . '/en' . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency($meta['freq'])
+                ->setPriority($meta['prio'] - 0.1));
         }
 
-        // Add dynamic content (blog posts, services, etc.)
-        $this->addDynamicContent($sitemap);
+        // ================================================================
+        // 3. SERVICES PAGES (priority 0.9 — high commercial value)
+        // ================================================================
+        $servicePages = [
+            '/services'                     => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/web'                 => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/web-development'     => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/web-company-profile' => Url::CHANGE_FREQUENCY_MONTHLY,
+            '/services/ecommerce'           => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/app'                 => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/app-development'     => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/mobile-app'          => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/mobile-app-development' => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/uiux'                => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/uiux-design'         => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/custom-solution'     => Url::CHANGE_FREQUENCY_MONTHLY,
+            '/services/ai/ai-strategy'      => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/ai/ai-agents'        => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/services/ai/ai-automation'    => Url::CHANGE_FREQUENCY_WEEKLY,
+            '/service/consult'              => Url::CHANGE_FREQUENCY_MONTHLY,
+        ];
 
-        return $sitemap->render();
+        foreach ($servicePages as $path => $freq) {
+            $sitemap->add(Url::create($baseUrl . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency($freq)
+                ->setPriority(0.9));
+
+            $sitemap->add(Url::create($baseUrl . '/en' . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency($freq)
+                ->setPriority(0.8));
+        }
+
+        // ================================================================
+        // 4. LEGAL PAGES (priority 0.5 — important but static)
+        // ================================================================
+        $legalPages = [
+            '/legal',
+            '/legal/privacy',
+            '/legal/terms',
+            '/legal/license',
+            '/legal/trademark',
+            '/legal/copyright',
+            '/legal/compliance',
+            '/legal/opensource',
+            '/legal/cookies',
+            '/legal/disclaimer',
+        ];
+
+        foreach ($legalPages as $path) {
+            $sitemap->add(Url::create($baseUrl . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+                ->setPriority(0.5));
+
+            $sitemap->add(Url::create($baseUrl . '/en' . $path)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+                ->setPriority(0.4));
+        }
+
+        // ================================================================
+        // 5. TEAM PROFILES (priority 0.6)
+        // ================================================================
+        $teamMembers = ['daffa', 'sultan'];
+        foreach ($teamMembers as $slug) {
+            $sitemap->add(Url::create($baseUrl . '/team/' . $slug)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setPriority(0.6));
+
+            $sitemap->add(Url::create($baseUrl . '/en/team/' . $slug)
+                ->setLastModificationDate($now)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                ->setPriority(0.5));
+        }
+
+        // ================================================================
+        // 6. ADD DYNAMIC CONTENT FROM MODELS (if available)
+        // ================================================================
+        $this->addDynamicContent($sitemap, $baseUrl, $now);
+
+        return response($sitemap->render(), 200)
+            ->header('Content-Type', 'application/xml');
     }
 
     /**
-     * Add dynamic content to sitemap
+     * Add dynamic content to sitemap from database models
      */
-    private function addDynamicContent($sitemap)
+    private function addDynamicContent($sitemap, string $baseUrl, Carbon $now)
     {
-        // Add blog posts if you have a blog model
-        // Example:
-        /*
+        // --- Blog Posts ---
         if (class_exists('\App\Models\Post')) {
-            $posts = \App\Models\Post::where('published', true)
-                ->orderBy('updated_at', 'desc')
-                ->get();
-            
-            foreach ($posts as $post) {
-                $sitemap->add(
-                    Url::create(route('blog.show', $post->slug))
-                        ->setLastModificationDate($post->updated_at)
-                        ->setChangeFrequency('monthly')
-                        ->setPriority(0.6)
-                );
+            try {
+                $posts = \App\Models\Post::where('published', true)
+                    ->orderBy('updated_at', 'desc')
+                    ->take(500)
+                    ->get();
+
+                foreach ($posts as $post) {
+                    $url = $baseUrl . '/news/' . ($post->slug ?? $post->id);
+                    $sitemap->add(
+                        Url::create($url)
+                            ->setLastModificationDate($post->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                            ->setPriority(0.7)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip if table doesn't exist
             }
         }
-        */
 
-        // Add service pages if you have a service model
-        /*
-        if (class_exists('\App\Models\Service')) {
-            $services = \App\Models\Service::where('active', true)->get();
-            
-            foreach ($services as $service) {
-                $sitemap->add(
-                    Url::create(route('services.show', $service->slug))
-                        ->setLastModificationDate($service->updated_at)
-                        ->setChangeFrequency('weekly')
-                        ->setPriority(0.7)
-                );
-            }
-        }
-        */
-
-        // Add portfolio items if you have a portfolio model
-        /*
+        // --- Portfolio Items ---
         if (class_exists('\App\Models\Portfolio')) {
-            $portfolios = \App\Models\Portfolio::where('published', true)->get();
-            
-            foreach ($portfolios as $portfolio) {
-                $sitemap->add(
-                    Url::create(route('portfolio.show', $portfolio->slug))
-                        ->setLastModificationDate($portfolio->updated_at)
-                        ->setChangeFrequency('yearly')
-                        ->setPriority(0.5)
-                );
+            try {
+                $portfolios = \App\Models\Portfolio::where('published', true)
+                    ->orderBy('updated_at', 'desc')
+                    ->take(500)
+                    ->get();
+
+                foreach ($portfolios as $portfolio) {
+                    $slug = $portfolio->slug ?? $portfolio->id;
+                    $sitemap->add(
+                        Url::create($baseUrl . '/services/web/' . $slug)
+                            ->setLastModificationDate($portfolio->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                            ->setPriority(0.6)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
             }
         }
-        */
+
+        // --- Services (if dynamic model exists) ---
+        if (class_exists('\App\Models\Service')) {
+            try {
+                $services = \App\Models\Service::where('active', true)
+                    ->orderBy('updated_at', 'desc')
+                    ->take(200)
+                    ->get();
+
+                foreach ($services as $service) {
+                    $slug = $service->slug ?? $service->id;
+                    $sitemap->add(
+                        Url::create($baseUrl . '/services/' . $slug)
+                            ->setLastModificationDate($service->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                            ->setPriority(0.8)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
+            }
+        }
+
+        // --- Team Members (if dynamic model exists) ---
+        if (class_exists('\App\Models\TeamMember')) {
+            try {
+                $members = \App\Models\TeamMember::where('active', true)
+                    ->orderBy('updated_at', 'desc')
+                    ->get();
+
+                foreach ($members as $member) {
+                    $slug = $member->slug ?? $member->id;
+                    $sitemap->add(
+                        Url::create($baseUrl . '/team/' . $slug)
+                            ->setLastModificationDate($member->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                            ->setPriority(0.6)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
+            }
+        }
+
+        // --- News / Articles ---
+        if (class_exists('\App\Models\Article')) {
+            try {
+                $articles = \App\Models\Article::where('published', true)
+                    ->orderBy('updated_at', 'desc')
+                    ->take(500)
+                    ->get();
+
+                foreach ($articles as $article) {
+                    $slug = $article->slug ?? $article->id;
+                    $sitemap->add(
+                        Url::create($baseUrl . '/news/' . $slug)
+                            ->setLastModificationDate($article->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                            ->setPriority(0.7)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
+            }
+        }
     }
 
     /**

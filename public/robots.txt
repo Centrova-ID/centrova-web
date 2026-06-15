@@ -1,10 +1,16 @@
+# ============================================================
+# Centrova.id — robots.txt (SEO-optimized, AI-ready)
+# Last updated: 2026-06-14
+# ============================================================
+
+# --- Global Rules ---
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemaps (multiple for better crawling)
 Sitemap: https://centrova.id/sitemap.xml
 
-# Disallow admin and private areas
+# --- Disallow private / admin / sensitive areas ---
 Disallow: /admin/
 Disallow: /api/
 Disallow: /auth/
@@ -16,33 +22,161 @@ Disallow: /vendor/
 Disallow: /storage/
 Disallow: /.env
 Disallow: /config/
+Disallow: /bootstrap/
+Disallow: /database/
+Disallow: /docker/
+Disallow: /setup_db/
+Disallow: /artisan
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /phpunit.xml
+Disallow: /README.md
 
-# Allow public assets
+# Disallow dynamic / utility paths
+Disallow: /search/suggestions
+Disallow: /*?*    # block URLs with query strings (duplicate content)
+Disallow: /*.pdf$   # block PDFs if not needed
+Allow: /search
+Allow: /sitemap
+
+# --- Allow public assets ---
 Allow: /assets/
 Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /favicon/
 Allow: /build/
+Allow: /cdn/
+Allow: /public/
+Allow: /logo/
+Allow: /portfolio/
 
-# Crawl delay (optional - 1 second)
+# --- Crawl delay (gentle to server) ---
 Crawl-delay: 1
 
-# Specific rules for major search engines
+# ============================================================
+# Search Engine Specific Rules
+# ============================================================
+
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+Allow: /images/
+Allow: /favicon/
+Allow: /logo/
+Allow: /portfolio/
+Crawl-delay: 0
+
+# Google News
+User-agent: Googlebot-News
+Allow: /
+Crawl-delay: 0
+
+# Google Extended (Gemini / AI training — allow for better AI visibility)
+User-agent: Google-Extended
+Allow: /
+
+# Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
+# Yahoo (Slurp)
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# ============================================================
+# AI Crawler Rules (2025-2026)
+# ============================================================
+
+# OpenAI — GPTBot (chatgpt / GPT models)
+User-agent: GPTBot
+Allow: /
+
+# OpenAI — SearchBot (SearchGPT)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI — ChatGPT user agent
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+# Google — Gemini/DeepMind
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+User-agent: FacebookBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# CCBot (Common Crawl — used by many AI training sets)
+User-agent: CCBot
+Allow: /
+
+# Apple Intelligence / AppleBot
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# ============================================================
+# Social Media Crawlers
+# ============================================================
 
 User-agent: facebookexternalhit
 Allow: /
 
 User-agent: Twitterbot
 Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Whatsapp
+Allow: /
+
