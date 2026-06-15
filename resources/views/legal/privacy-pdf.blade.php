@@ -436,14 +436,14 @@
 
                 <h3>8.1 Portal Online (Recommended)</h3>
                 <div class="highlight-box">
-                    <p><strong>Halaman Hak Data Pribadi:</strong> centrova.test/data-rights</p>
+                    <p><strong>Halaman Hak Data Pribadi:</strong> centrova.id/data-rights</p>
                     <p>Portal ini memungkinkan Anda untuk langsung mengajukan permintaan GDPR seperti data export, rectification, dan deletion request dengan sistem tracking yang terintegrasi.</p>
                 </div>
 
                 <h3>8.2 Kontak Data Protection Officer</h3>
                 <div class="contact-box">
                     <p><strong>Email Utama:</strong> privacy@centrova.com</p>
-                    <p><strong>Form Kontak:</strong> centrova.test/legal/privacy/contact</p>
+                    <p><strong>Form Kontak:</strong> centrova.id/legal/privacy/contact</p>
                     <p><strong>Alamat Kantor:</strong> [Akan diupdate dengan alamat lengkap]</p>
                     <p><strong>Telepon:</strong> [Akan diupdate dengan nomor DPO]</p>
                 </div>

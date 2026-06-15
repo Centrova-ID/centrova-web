@@ -8,11 +8,11 @@ use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
-| Main Domain Routes (centrova.test)
+| Main Domain Routes (centrova.id)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('centrova.test')->middleware(['web', 'language'])->group(function () {
+Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');

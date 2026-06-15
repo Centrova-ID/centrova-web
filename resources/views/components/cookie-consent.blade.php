@@ -217,17 +217,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const expires = new Date();
             expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
             
-            // Get the main domain (e.g., centrova.test from support.centrova.test)
+            // Get the main domain (e.g., centrova.id from support.centrova.id)
             const hostname = window.location.hostname;
             let domain = hostname;
             
             // If it's a subdomain, extract the main domain
             const parts = hostname.split('.');
             if (parts.length > 2) {
-                // For subdomains like support.centrova.test, use .centrova.test
+                // For subdomains like support.centrova.id, use .centrova.id
                 domain = '.' + parts.slice(-2).join('.');
             } else if (parts.length === 2) {
-                // For main domain like centrova.test, use .centrova.test
+                // For main domain like centrova.id, use .centrova.id
                 domain = '.' + hostname;
             }
             // For localhost, don't set domain
@@ -584,8 +584,8 @@ document.addEventListener('DOMContentLoaded', function() {
      * - window.centrovaCookieConsentManager.getDebugInfo() : Lihat informasi debug lengkap
      * 
      * Example untuk testing cross-subdomain:
-     * 1. Buka centrova.test, terima cookie consent
-     * 2. Buka support.centrova.test, seharusnya consent sudah ada
+     * 1. Buka centrova.id, terima cookie consent
+     * 2. Buka support.centrova.id, seharusnya consent sudah ada
      * 3. Jalankan getDebugInfo() di kedua domain untuk membandingkan
      */
 });

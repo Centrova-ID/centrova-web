@@ -37,7 +37,7 @@
                 </div>
 
                 {{-- Add Account Section --}}
-                <a href="https://account.centrova.test/login?mode=add-different-account" id="show-add-account-btn" class="w-full flex items-center justify-start space-x-3 p-3 font-medium hover:bg-neutral-100 rounded-lg text-base" onclick="closeAccountSwitcher()"">>
+                <a href="https://account.centrova.id/login?mode=add-different-account" id="show-add-account-btn" class="w-full flex items-center justify-start space-x-3 p-3 font-medium hover:bg-neutral-100 rounded-lg text-base" onclick="closeAccountSwitcher()"">>
                     <div class="w-[40px] flex justify-center">
                         <svg class="h-[24px] text-[#128AEB]" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.5 11H13.5V5C13.5 4.73478 13.3946 4.48043 13.2071 4.29289C13.0196 4.10536 12.7652 4 12.5 4C12.2348 4 11.9804 4.10536 11.7929 4.29289C11.6054 4.48043 11.5 4.73478 11.5 5V11H5.5C5.23478 11 4.98043 11.1054 4.79289 11.2929C4.60536 11.4804 4.5 11.7348 4.5 12C4.5 12.2652 4.60536 12.5196 4.79289 12.7071C4.98043 12.8946 5.23478 13 5.5 13H11.5V19C11.5 19.2652 11.6054 19.5196 11.7929 19.7071C11.9804 19.8946 12.2348 20 12.5 20C12.7652 20 13.0196 19.8946 13.2071 19.7071C13.3946 19.5196 13.5 19.2652 13.5 19V13H19.5C19.7652 13 20.0196 12.8946 20.2071 12.7071C20.3946 12.5196 20.5 12.2652 20.5 12C20.5 11.7348 20.3946 11.4804 20.2071 11.2929C20.0196 11.1054 19.7652 11 19.5 11Z" fill="#128AEB"/>
