@@ -11,7 +11,7 @@
     <meta property="og:description" content="Konsultasi bisnis melalui form email atau hubungi kami langsung via WhatsApp untuk individu."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="{{ url()->current() }}"/>
-    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:site_name" content="Centrova Indonesia"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <link rel="canonical" href="{{ url()->current() }}"/>
     {{-- Memastikan x-cloak bekerja jika belum didefinisikan di app.css --}}

@@ -58,7 +58,7 @@
     <a href="#testimoni" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Testimoni</a>
     <a href="#tentang" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Tentang</a>
     <a href="#daftar" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Daftar</a>
-    <a href="{{ url('/team') }}" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Our Tim</a>
+    {{-- Team link removed --}}
     <a href="{{ route('contact') }}" class="mobile-link text-3xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-[400ms]">Hubungi Kami</a>
     @auth
         <form method="POST" action="{{ '#' }}">

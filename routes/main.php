@@ -17,11 +17,6 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.send');
-    Route::get('/team', [HomeController::class, 'teamIndex'])->name('team.index');
-    Route::get('/team/{slug}', [HomeController::class, 'teamProfile'])->name('team.profile');
-    Route::get('/team/sultan-rahmatulloh', [HomeController::class, 'teamProfile'])->defaults('slug', 'sultan-rahmatulloh')->name('team.sultan');
-    Route::get('/team/syahied-ramadhan', [HomeController::class, 'teamProfile'])->defaults('slug', 'syahied-ramadhan')->name('team.syahied');
-    Route::get('/team/muhammad-fadli', [HomeController::class, 'teamProfile'])->defaults('slug', 'muhammad-fadli')->name('team.fadli');
     Route::get('/sitemap', [SitemapController::class, 'index'])->name('sitemap');
     Route::get('/sitemap.xml', [SitemapController::class, 'xml'])->name('sitemap.xml');
     Route::get('/search', [HomeController::class, 'search'])->name('search');
@@ -66,11 +61,6 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/about', [HomeController::class, 'about'])->name('en.about');
         Route::get('/contact', [HomeController::class, 'contact'])->name('en.contact');
         Route::post('/contact', [HomeController::class, 'sendContact'])->name('en.contact.send');
-        Route::get('/team', [HomeController::class, 'teamIndex'])->name('en.team.index');
-        Route::get('/team/{slug}', [HomeController::class, 'teamProfile'])->name('en.team.profile');
-        Route::get('/team/sultan-rahmatulloh', [HomeController::class, 'teamProfile'])->defaults('slug', 'sultan-rahmatulloh')->name('en.team.sultan');
-        Route::get('/team/syahied-ramadhan', [HomeController::class, 'teamProfile'])->defaults('slug', 'syahied-ramadhan')->name('en.team.syahied');
-        Route::get('/team/muhammad-fadli', [HomeController::class, 'teamProfile'])->defaults('slug', 'muhammad-fadli')->name('en.team.fadli');
         Route::get('/sitemap', [SitemapController::class, 'index'])->name('en.sitemap');
         Route::get('/search', [HomeController::class, 'search'])->name('en.search');
         Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('en.search.suggestions');

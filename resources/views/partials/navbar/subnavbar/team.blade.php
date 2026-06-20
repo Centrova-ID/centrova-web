@@ -6,7 +6,7 @@
         <div x-ref="wrapper" class="max-w-7xl mx-auto flex flex-col px-4 sm:px-6 lg:px-8 transition-all duration-500">
             {{-- Header --}}
             <div class="flex w-full justify-between items-center h-full py-2">
-                <a href="{{ route('team.index') }}" class="text-xl font-semibold text-slate-900">Tim Centrova</a>
+                <span class="text-xl font-semibold text-slate-900">Centrova</span>
             </div>
 
             {{-- Mobile Menu --}}

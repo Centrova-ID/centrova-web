@@ -32,7 +32,7 @@
         <div class="sites-links-container">
             <h2>Tentang Centrova</h2>
             <ul>
-                <li><a href="{{ route('team.index') }}">Tim Centrova</a></li>
+                {{-- <li><a href="{{ route('team.index') }}">Tim Centrova</a></li> --}}
                 <li><a href="{{ route('careers.home') }}">Peluang Karir</a></li>
                 <li><a href="{{ route('contact') }}">Kontak Centrova</a></li>
                 <li><a href="{{ route('news.home') }}">Berita</a></li>

@@ -14,7 +14,7 @@
                     <a href="#fitur" class="px-2 hover:text-black transition duration-500">Produk</a>
                     <a href="#testimoni" class="px-2 hover:text-black transition duration-500 hidden">Testimoni</a>
                     <a href="{{ route('support.home') }}" class="px-2 hover:text-black transition duration-500">Dukungan</a>
-                    <a href="{{ url('/team') }}" class="px-2 hover:text-black transition duration-500 hidden">Tim Kami</a>
+                    {{-- <a href="{{ url('/team') }}" class="px-2 hover:text-black transition duration-500 hidden">Tim Kami</a> --}}
                 </div>
             </div>
             <!-- Aksi Desktop -->
@@ -41,7 +41,7 @@
     <a href="#testimoni" class="mobile-link text-2xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-500">Testimoni</a>
     <a href="#tentang" class="mobile-link text-2xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-500">Tentang</a>
     <a href="#daftar" class="mobile-link text-2xl font-semibold text-[#004E8D] mb-4 opacity-0 translate-y-2 transition duration-200 delay-500">Daftar</a>
-    <a href="{{ url('/team') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Our Tim</a>
+    {{-- Team link removed --}}
     <a href="{{ route('contact') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-8 opacity-0 translate-y-2 transition duration-200 delay-500">Hubungi Kami</a>
     <a href="{{ route('contact') }}" class="mobile-link text-2xl font-semibold text-[#128AEB] mt-2 opacity-0 translate-y-2 transition duration-200 delay-500">Sign In</a>
 </div>

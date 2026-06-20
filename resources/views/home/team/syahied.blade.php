@@ -16,7 +16,7 @@ $member = [
         ],
     ],
     'education' => [
-        ['degree' => 'S1 Ilmu Komunikasi', 'institution' => 'Universitas Padjadjaran', 'period' => '2017 – 2021', 'description' => 'Fokus pada komunikasi pemasaran, hubungan masyarakat, dan media digital.'],
+        ['degree' => 'S1 Ilmu Komunikasi', 'institution' => 'Universitas Padjadjaran', 'period' => '2017 ï¿½ 2021', 'description' => 'Fokus pada komunikasi pemasaran, hubungan masyarakat, dan media digital.'],
     ],
     'certifications' => [
         ['name' => 'Google Digital Marketing Certificate', 'issuer' => 'Google', 'year' => '2023', 'status' => 'Active'],
@@ -43,7 +43,7 @@ $hasCertifications = !empty($member['certifications']);
     <meta property="og:image" content="{{ asset($member['heroImage']) }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Centrova">
+    <meta property="og:site_name" content="Centrova Indonesia">
     <meta property="og:locale" content="id_ID">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
@@ -73,8 +73,7 @@ $hasCertifications = !empty($member['certifications']);
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type":"ListItem","position":1,"name":"Home","item":"{{ route('home') }}"},
-            {"@type":"ListItem","position":2,"name":"Tim Centrova","item":"{{ route('team.index') }}"},
-            {"@type":"ListItem","position":3,"name":"{{ $member['name'] }}","item":"{{ url()->current() }}"}
+            {"@type":"ListItem","position":2,"name":"{{ $member['name'] }}","item":"{{ url()->current() }}"}
         ]
     }
     </script>
@@ -168,14 +167,6 @@ $hasCertifications = !empty($member['certifications']);
 </section>
 @endif
 
-{{-- Back Link --}}
-<section class="py-8 bg-white border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-8">
-        <a href="{{ route('team.index') }}" class="inline-flex items-center gap-2 text-neutral-500 hover:text-primary-600 transition font-medium text-sm">
-            <span class="material-symbols-outlined text-base">arrow_back</span>
-            Kembali ke Tim
-        </a>
-    </div>
-</section>
+{{-- Back Link removed --}}
 
 @endsection

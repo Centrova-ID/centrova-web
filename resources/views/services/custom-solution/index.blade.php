@@ -32,7 +32,7 @@
     <meta name="twitter:site" content="@centrovaid"/>
     <meta property="og:title" content="Custom Software Solution - ERP, CRM, HR System | Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:site_name" content="Centrova Indonesia"/>
     <meta property="og:image" content="https://centrova.id/assets/image/services/custom-solution/og-image.jpg"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://centrova.id/services/custom-solution"/>

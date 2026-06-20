@@ -27,7 +27,7 @@
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1080">
     <meta property="og:image:alt" content="Centrova - AI Venture Engineering & Software Development Indonesia">
-    <meta property="og:site_name" content="Centrova">
+    <meta property="og:site_name" content="Centrova Indonesia">
     <meta property="og:locale" content="id_ID">
     <meta property="og:country-name" content="Indonesia">
     <meta property="business:contact_data:country_name" content="Indonesia">
@@ -205,69 +205,69 @@
                     
                     {{-- Card 1 --}}
                     <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
-                        <img src="https://plus.unsplash.com/premium_photo-1721080251127-76315300cc5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="{{ asset('assets/image/U2FuZGkxMjM.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
                              decoding="async"
+                             fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
                         <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
-                            <div class="flex-1 mb-6">
+                            <div class="flex-1 mb-4">
                                 <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">AI Venture Engineering</h3>
-                                <p class="text-lg text-neutral-900 font-normal leading-relaxed">Merancang dan membangun produk digital berbasis AI.</p>
+                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">Merancang dan membangun produk digital berbasis AI.</p>
                             </div>
                             
-                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-500 font-semibold transition group mt-auto">
-                                <span>Pelajari selengkapnya</span>
-                                <svg class="w-4 h-4 ml-1 mt-0.5 transform group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
+                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
+                                <span class="material-symbols-outlined text-2xl">
+                                    open_in_new
+                                </span>
                             </a>
                         </div>
                     </article>
 
                     {{-- Card 2 --}}
                     <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
-                        <img src="https://plus.unsplash.com/premium_photo-1721080251127-76315300cc5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="{{ asset('assets/image/3MjM1ZGaFuMlU.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
                              decoding="async"
+                             fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
                         <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
-                            <div class="flex-1 mb-6">
+                            <div class="flex-1 mb-4">
                                 <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">Software Development</h3>
-                                <p class="text-lg text-neutral-900 font-normal leading-relaxed">Web applications, mobile applications, SaaS platforms, dan custom software.</p>
+                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">Web applications, mobile applications, SaaS platforms, dan custom software.</p>
                             </div>
                             
-                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-500 font-semibold transition group mt-auto">
-                                <span>Pelajari selengkapnya</span>
-                                <svg class="w-4 h-4 ml-1 mt-0.5 transform group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
+                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
+                                <span class="material-symbols-outlined text-2xl">
+                                    open_in_new
+                                </span>
                             </a>
                         </div>
                     </article>
 
                     {{-- Card 3 --}}
                     <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
-                        <img src="https://plus.unsplash.com/premium_photo-1721080251127-76315300cc5c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="{{ asset('assets/image/X3MjM1ZGaFuMlU.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
                              decoding="async"
+                             fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
                         <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
-                            <div class="flex-1 mb-6">
+                            <div class="flex-1 mb-4">
                                 <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">AI Agent Automation</h3>
-                                <p class="text-lg text-neutral-900 font-normal leading-relaxed">AI Agents dan intelligent automation untuk mengurangi pekerjaan manual dan meningkatkan produktivitas.</p>
+                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">AI Agents dan intelligent automation untuk mengurangi pekerjaan manual dan meningkatkan produktivitas.</p>
                             </div>
                             
-                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-500 font-semibold transition group mt-auto">
-                                <span>Pelajari selengkapnya</span>
-                                <svg class="w-4 h-4 ml-1 mt-0.5 transform group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                </svg>
+                            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
+                                <span class="material-symbols-outlined text-2xl">
+                                    open_in_new
+                                </span>
                             </a>
                         </div>
                     </article>
@@ -281,7 +281,7 @@
                 {{-- Headline --}}
                 <div class="text-center mb-16 max-w-3xl mx-auto">
                     <h2 class="text-4xl max-w-4xl mx-auto font-medium tracking-tighter text-neutral-900 mb-4">
-                        Potensi Besar AI untuk Meningkatkan Kinerja Bisnis
+                        Akselerasi Efisiensi dan Pertumbuhan Bisnis dengan Integrasi AI
                     </h2>
                 </div>
 
@@ -289,31 +289,31 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center max-w-6xl mx-auto">
                     {{-- Stat 1 --}}
                     <div class="flex flex-col items-center px-4">
-                        <span class="text-4xl font-bold text-[#128AEB] mb-5 tracking-tight">
+                        <span class="text-4xl font-bold text-primary-600 mb-5 tracking-tight">
                             70%+
                         </span>
                         <p class="text-base text-neutral-900 font-normal leading-relaxed max-w-sm">
-                            Waktu kerja administratif masih dihabiskan untuk tugas berulang yang sebenarnya dapat diotomatisasi.
+                            Waktu operasional tim masih tersita oleh tugas repetitif yang dapat diotomatisasi sepenuhnya.
                         </p>
                     </div>
 
                     {{-- Stat 2 --}}
                     <div class="flex flex-col items-center px-4">
-                        <span class="text-4xl font-bold text-[#128AEB] mb-5 tracking-tight whitespace-nowrap">
-                            2x Lebih Cepat
+                        <span class="text-4xl font-bold text-primary-600 mb-5 tracking-tight whitespace-nowrap">
+                            2x Lipat
                         </span>
                         <p class="text-base text-neutral-900 font-normal leading-relaxed max-w-sm">
-                            Proses operasional dapat berjalan lebih efisien dengan integrasi AI dan workflow automation yang tepat.
+                            Peningkatan kecepatan proses bisnis melalui otomatisasi workflow yang cerdas.
                         </p>
                     </div>
 
                     {{-- Stat 3 --}}
                     <div class="flex flex-col items-center px-4">
-                        <span class="text-4xl font-bold text-[#128AEB] mb-5 tracking-tight">
+                        <span class="text-4xl font-bold text-primary-600 mb-5 tracking-tight">
                             24/7
                         </span>
                         <p class="text-base text-neutral-900 font-normal leading-relaxed max-w-sm">
-                            AI Agent mampu melayani pelanggan, menjawab pertanyaan, dan menjalankan proses bisnis tanpa henti.
+                            Layanan pelanggan dan eksekusi proses bisnis berjalan tanpa henti untuk menjamin kontinuitas operasional.
                         </p>
                     </div>
                 </div>

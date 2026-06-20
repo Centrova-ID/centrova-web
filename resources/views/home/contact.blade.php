@@ -2,7 +2,22 @@
 @extends('partials.layouts.main')
 
 {{-- Title --}}
-@section('title', 'Kontak Centrova')
+@section('title', 'Hubungi Centrova | Konsultasi Gratis & Tim Spesialis Siap Membantu')
+
+@section('seoMetaTags')
+    <meta name="description" content="Hubungi tim Centrova sekarang! Dapatkan konsultasi gratis untuk kebutuhan website, aplikasi, AI automation, dan solusi digital bisnis Anda. Tim spesialis siap membantu 24/7.">
+    <meta name="keywords" content="kontak centrova, hubungi centrova, konsultasi website, konsultasi AI, centrova.id, PT Centrova Teknologi Indonesia, tim centrova, spesialis website Indonesia, jasa pembuatan website, konsultasi digital gratis">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Hubungi Centrova | Konsultasi Gratis & Tim Spesialis Siap Membantu">
+    <meta property="og:description" content="Hubungi tim Centrova sekarang! Dapatkan konsultasi gratis untuk kebutuhan website, aplikasi, AI automation, dan solusi digital bisnis Anda.">
+    <meta property="og:site_name" content="Centrova Indonesia">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hubungi Centrova | Konsultasi Gratis">
+    <meta name="twitter:description" content="Konsultasi gratis dengan tim spesialis Centrova untuk solusi digital bisnis Anda.">
+@endsection
 
 {{-- Navbar --}}
 @section('navbar')

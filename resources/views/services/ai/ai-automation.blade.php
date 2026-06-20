@@ -15,7 +15,7 @@
     <meta property="og:description" content="Automate repetitive work. Scale operations faster. Centrova membantu merancang sistem otomatis yang mengurangi pekerjaan manual dan mempercepat proses operasional."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://centrova.id/services/ai/ai-automation"/>
-    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:site_name" content="Centrova Indonesia"/>
     <meta property="og:locale" content="id_ID"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="AI Automation | Centrova"/>

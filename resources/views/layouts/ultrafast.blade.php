@@ -8,7 +8,7 @@ Target: <1ms template render
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-preview">
+    {{-- Meta Tags --}}
     
     {{-- Critical CSS inline (no external request) --}}
     <style>body{margin:0;font-family:system-ui;background:#fff}[x-cloak]{display:none!important}</style>
@@ -25,7 +25,7 @@ Target: <1ms template render
 <body>
     {{-- Navbar (cached fragment, never re-renders) --}}
     @once
-        <nav id="navbar" data-turbo-permanent>
+        <nav id="navbar">
             @include('partials.navbar-cached')
         </nav>
     @endonce
@@ -37,7 +37,7 @@ Target: <1ms template render
     
     {{-- Footer (cached fragment, never re-renders) --}}
     @once
-        <footer id="footer" data-turbo-permanent>
+        <footer id="footer">
             @include('partials.footer-cached')
         </footer>
     @endonce

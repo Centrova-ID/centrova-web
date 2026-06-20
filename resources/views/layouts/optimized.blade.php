@@ -54,16 +54,5 @@
     {{-- Page-specific scripts --}}
     @stack('scripts')
     
-    {{-- Turbo progress bar --}}
-    <script>
-        // Turbo progress bar configuration
-        document.addEventListener('turbo:load', () => {
-            console.log('Turbo page loaded');
-        });
-        
-        document.addEventListener('turbo:before-fetch-request', () => {
-            // Show loading indicator if needed
-        });
-    </script>
 </body>
 </html>

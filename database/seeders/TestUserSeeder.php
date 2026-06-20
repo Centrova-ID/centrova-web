@@ -16,11 +16,11 @@ class TestUserSeeder extends Seeder
     {
         // Create test user if not exists
         User::firstOrCreate(
-            ['email' => 'test@centrova.test'],
+            ['email' => 'test@centrova.id'],
             [
                 'name' => 'Test User',
                 'username' => 'testuser',
-                'email' => 'test@centrova.test',
+                'email' => 'test@centrova.id',
                 'password' => Hash::make('password'),
                 'phone' => '+62812345678',
                 'email_verified_at' => now(),

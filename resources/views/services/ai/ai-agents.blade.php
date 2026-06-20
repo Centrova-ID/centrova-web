@@ -15,7 +15,7 @@
     <meta property="og:description" content="Deploy AI agents yang memahami konteks, membuat keputusan, menjalankan tugas, dan mengotomatisasi workflow bisnis di seluruh organisasi Anda."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://centrova.id/services/ai/ai-agents"/>
-    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:site_name" content="Centrova Indonesia"/>
     <meta property="og:locale" content="id_ID"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="AI Agents | Centrova"/>

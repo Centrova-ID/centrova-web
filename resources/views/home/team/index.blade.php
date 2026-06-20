@@ -47,7 +47,7 @@
 <div class="py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl font-medium text-neutral-800 mb-8">Profil Tim Kami</h1>
-        <div class="w-full gap-6 max-md:gap-16 max-md:pb-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="w-full gap-6 max-md:gap-16 max-md:pb-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <a href="{{ route('team.sultan') }}" class="w-full h-auto flex flex-col group cursor-pointer">
                 <div class="w-full aspect-square bg-gradient-to-b from-neutral-500 to-neutral-700 rounded-md overflow-hidden relative border border-neutral-200 relative">
                     <img src="{{ asset('assets/image/team/sultan_image_1b2713t4.jpg') }}" alt="Sultan Rahmatulloh" class="w-full h-full object-cover object-top" loading="lazy">

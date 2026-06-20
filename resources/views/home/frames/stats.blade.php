@@ -1,23 +1,21 @@
 {{--
-TURBO FRAME: Stats (Lazy Loaded)
-Only loads when visible, cached response
+STATS SECTION: Lazy Loaded
+Only loads when visible
 --}}
-<turbo-frame id="stats" src="{{ route('home.stats-frame') }}" loading="lazy">
+<section id="stats" data-lazy-src="{{ route('home.stats-frame') }}">
     {{-- Lightweight loading placeholder --}}
     <div class="stats-loading">
         <div class="skeleton"></div>
     </div>
-</turbo-frame>
+</section>
 
-{{-- When frame loads, serve this pre-cached content --}}
-@if(request()->header('Turbo-Frame') === 'stats')
-    @php
-        // Get pre-cached stats (no DB query)
-        $stats = Cache::get('home:stats', [
-            'users' => 1000,
-            'projects' => 250,
-            'clients' => 95
-        ]);
+@php
+    // Get pre-cached stats (no DB query)
+    $stats = Cache::get('home:stats', [
+        'users' => 1000,
+        'projects' => 250,
+        'clients' => 95
+    ]);
     @endphp
     
     <div id="stats-content" class="stats-grid">

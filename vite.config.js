@@ -29,7 +29,6 @@ export default defineConfig({
                 manualChunks: {
                     // Separate vendor chunks for better caching
                     'vendor-alpine': ['alpinejs', '@alpinejs/persist'],
-                    'vendor-turbo': ['@hotwired/turbo'],
                     'vendor-utils': ['cropperjs', 'axios'],
                 },
                 // Optimized chunk file names

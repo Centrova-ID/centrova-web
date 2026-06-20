@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    {{-- Hotwire Turbo Configuration --}}
-    <meta name="turbo-cache-control" content="no-preview">
-    <meta name="turbo-root" content="{{ url('/') }}">
-    <meta name="turbo-refresh-method" content="morph">
-    <meta name="turbo-refresh-scroll" content="preserve">
+    {{-- Meta Tags --}}
+
     
-    <link rel="website icon" href="{{ asset('/assets/brand/favicon.svg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('/assets/brand/favicon.svg') }}">
 
     <title>
         @hasSection('title')
@@ -50,9 +47,7 @@
 </head>
 
 <body class="font-sans antialiased max-w-[2560px] bg-neutral-100 mx-auto"
-      data-turbo-track="reload" 
-      data-turbo-cache="true"
-      data-turbo-preview="true">
+    >
 
     <main class="min-h-screen">
         @yield('content')
@@ -60,35 +55,8 @@
 
     @stack('scripts')
     
-    {{-- Hotwire Turbo for SPA-like Navigation --}}
-    <script type="module">
-        import { Turbo } from "https://cdn.skypack.dev/@hotwired/turbo@^8.0.0";
-        
-        // Turbo Configuration
-        Turbo.session.drive = true;
-        Turbo.setFormMode("optin");
-        
-        // Event Listeners untuk Turbo
-        document.addEventListener("turbo:load", function() {
-            // Reinitialize Alpine.js setelah Turbo navigation
-            if (window.Alpine) {
-                window.Alpine.initTree(document.body);
-            }
-            
-            // Reinitialize AOS animations
-            if (window.AOS) {
-                window.AOS.refresh();
-            }
-        });
-        
-        // Handle form submissions dengan CSRF
-        document.addEventListener("turbo:before-fetch-request", function(event) {
-            const token = document.querySelector('meta[name="csrf-token"]');
-            if (token) {
-                event.detail.fetchOptions.headers["X-CSRF-TOKEN"] = token.getAttribute("content");
-            }
-        });
-    </script>
+    {{-- Scripts Section --}}
+    @stack('scripts')
     
     {{-- Script --}}
     <script src="{{ asset('js/disable-image-copy.js') }}"></script> 

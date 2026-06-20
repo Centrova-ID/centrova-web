@@ -11,7 +11,7 @@
     <meta property="og:description" content="Audit kesiapan AI, prioritas use case, desain roadmap implementasi, dan governance untuk adopsi AI yang terukur."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://centrova.id/services/ai/ai-strategy"/>
-    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:site_name" content="Centrova Indonesia"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <link rel="canonical" href="https://centrova.id/services/ai/ai-strategy"/>
     <script type="application/ld+json">

@@ -89,7 +89,7 @@
                 class="space-y-3 text-base font-medium md:block py-4"
                 style="transition-property: opacity, transform, max-height;">
               <li><a href="{{ url('/about') }}" class="hover:underline">Profil Centrova</a></li>
-              <li><a href="{{ url('/team') }}" class="hover:underline">Tim Kami</a></li>
+              {{-- <li><a href="{{ url('/team') }}" class="hover:underline">Tim Kami</a></li> --}}
               <li><a href="{{ url('/contact') }}" class="hover:underline">Hubungi Kami</a></li>
             </ul>
           </div>
@@ -99,10 +99,7 @@
     </div>
 
     <div class="w-full px-8 max-lg:px-4 lg:border-t border-neutral-300 mt-8 max-md:mt-4 pt-6 max-md:pt-3 text-center text-base font-medium gap-x-10 flex justify-center max-lg:justify-center flex-wrap">
-      <span class="max-md:mt-3">&copy; Centrova <?= date('Y') ?></span>
-      <a href="{{ route('legal.privacy') }}" class="hover:underline max-md:mt-3">Kebijakan Privasi</a>
-      <a href="{{ route('legal.terms') }}" class="hover:underline max-md:mt-3">Syarat & Ketentuan</a>
-      <a href="{{ route('sitemap') }}" class="hover:underline max-md:mt-3">Peta Situs</a>
+      <span class="max-md:mt-3">&copy; Centrova <?= date('Y') ?>. Hak Cipta Dilindungi Undang-Undang.</span>
     </div>
   </div>
 </footer>

@@ -221,7 +221,7 @@ class WebContentIndexer
             'home.about' => 'about', 
             'home.contact' => 'contact',
             'home.search' => 'search',
-            'home.team.index' => 'team.index',
+            // 'home.team.index' => 'team.index',
             'services.index' => 'services.index',
             'services.web.index' => 'services.web.index',
             'services.app.index' => 'services.app.index',

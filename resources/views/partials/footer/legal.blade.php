@@ -177,7 +177,7 @@
               class="space-y-2 text-xs md:block max-md:px-3 max-md:pt-3 max-md:pb-6"
               style="transition-property: opacity, transform, max-height;">
             <li><a href="{{ url('/about') }}" class="hover:underline">Profil Centrova</a></li>
-            <li><a href="{{ url('/team') }}" class="hover:underline">Tim Centrova</a></li>
+            {{-- <li><a href="{{ url('/team') }}" class="hover:underline">Tim Centrova</a></li> --}}
             <li><a href="#" class="hover:underline">Investor</a></li>
             <li><a href="{{ url('/contact') }}" class="hover:underline">Kontak Centrova</a></li>
           </ul>

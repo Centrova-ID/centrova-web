@@ -13,7 +13,7 @@ Usage: @include('partials.seo.meta-tags', [
 
 @php
     // Default values
-    $site_name = $site_name ?? 'Centrova';
+    $site_name = $site_name ?? 'Centrova Indonesia';
     $site_url = $site_url ?? 'https://centrova.id';
     $default_image = $default_image ?? 'https://centrova.id/assets/image/services/web-development/og-image.jpg';
     $twitter_handle = $twitter_handle ?? '@centrovaid';

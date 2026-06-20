@@ -1,16 +1,20 @@
 # ============================================================
 # Centrova.id — robots.txt (SEO-optimized, AI-ready)
-# Last updated: 2026-06-14
+# Last updated: 2026-06-16
 # ============================================================
 
 # --- Global Rules ---
 User-agent: *
-Allow: /
 
-# Sitemaps (multiple for better crawling)
-Sitemap: https://centrova.id/sitemap.xml
+# Block URLs with query strings (duplicate content) 
+# PERINGATAN: Ini akan memblokir semua URL yang mengandung '?'. 
+# Jika halaman pencarian Anda menggunakan ?q=, halaman tersebut akan ikut terblokir.
+Disallow: /*?*
 
-# --- Disallow private / admin / sensitive areas ---
+# Block PDFs if not needed
+Disallow: /*.pdf$
+
+# Disallow private / admin / sensitive areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /auth/
@@ -36,12 +40,11 @@ Disallow: /README.md
 
 # Disallow dynamic / utility paths
 Disallow: /search/suggestions
-Disallow: /*?*    # block URLs with query strings (duplicate content)
-Disallow: /*.pdf$   # block PDFs if not needed
+
+# Allow public paths & assets
+Allow: /
 Allow: /search
 Allow: /sitemap
-
-# --- Allow public assets ---
 Allow: /assets/
 Allow: /css/
 Allow: /js/
@@ -53,130 +56,41 @@ Allow: /public/
 Allow: /logo/
 Allow: /portfolio/
 
-# --- Crawl delay (gentle to server) ---
+# Gentle crawl delay for generic scraping bots
 Crawl-delay: 1
 
 # ============================================================
-# Search Engine Specific Rules
+# Search Engine & AI Specific Rules (No Crawl Delay for Major Bots)
 # ============================================================
 
-# Google
 User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Google Images
 User-agent: Googlebot-Image
-Allow: /
-Allow: /assets/
-Allow: /images/
-Allow: /favicon/
-Allow: /logo/
-Allow: /portfolio/
-Crawl-delay: 0
-
-# Google News
 User-agent: Googlebot-News
-Allow: /
-Crawl-delay: 0
-
-# Google Extended (Gemini / AI training — allow for better AI visibility)
 User-agent: Google-Extended
-Allow: /
-
-# Bing
 User-agent: Bingbot
-Allow: /
+User-agent: DuckDuckBot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: PerplexityBot
+User-agent: cohere-ai
+User-agent: CCBot
+User-agent: Applebot
+User-agent: Applebot-Extended
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /.env
+# Bot utama di atas akan mematuhi aturan global, tetapi baris ini memastikan 
+# mereka merayapi halaman publik dengan kecepatan penuh (Crawl-delay: 0)
 Crawl-delay: 0
 
-# Yahoo (Slurp)
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# DuckDuckGo
-User-agent: DuckDuckBot
-Allow: /
-
-# Yandex
-User-agent: YandexBot
-Allow: /
-
-# Baidu
-User-agent: Baiduspider
-Allow: /
-
 # ============================================================
-# AI Crawler Rules (2025-2026)
+# Sitemaps
 # ============================================================
-
-# OpenAI — GPTBot (chatgpt / GPT models)
-User-agent: GPTBot
-Allow: /
-
-# OpenAI — SearchBot (SearchGPT)
-User-agent: OAI-SearchBot
-Allow: /
-
-# OpenAI — ChatGPT user agent
-User-agent: ChatGPT-User
-Allow: /
-
-# Anthropic — Claude
-User-agent: Claude-Web
-Allow: /
-User-agent: anthropic-ai
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-
-# Google — Gemini/DeepMind
-User-agent: Google-Extended
-Allow: /
-
-# Meta AI
-User-agent: meta-externalagent
-Allow: /
-User-agent: FacebookBot
-Allow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Allow: /
-
-# Cohere
-User-agent: cohere-ai
-Allow: /
-
-# CCBot (Common Crawl — used by many AI training sets)
-User-agent: CCBot
-Allow: /
-
-# Apple Intelligence / AppleBot
-User-agent: Applebot
-Allow: /
-User-agent: Applebot-Extended
-Allow: /
-
-# ============================================================
-# Social Media Crawlers
-# ============================================================
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Pinterestbot
-Allow: /
-
-User-agent: TelegramBot
-Allow: /
-
-User-agent: Whatsapp
-Allow: /
-
+Sitemap: https://centrova.id/sitemap.xml

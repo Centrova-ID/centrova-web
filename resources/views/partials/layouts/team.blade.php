@@ -6,37 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <link rel="website icon" href="/assets/brand/favicon.svg">
-
-    {{-- SEO Meta Tags - Powered by SEOTools --}}
-    {!! SEO::generate() !!}
-    
-    {{-- Additional SEO Meta Tags --}}
-    @yield('seoMetaTags')
-
-    <title>
-        @yield('title')
-    </title>
-    
-    {{-- JSON-LD Structured Data --}}
-    @stack('structured-data')
-    
-    {{-- Global Structured Data --}}
-    @if(isset($organizationSchema))
-    <script type="application/ld+json">
-        {!! $organizationSchema !!}
-    </script>
-    @endif
-    
-    @if(isset($websiteSchema))
-    <script type="application/ld+json">
-        {!! $websiteSchema !!}
-    </script>
-    @endif
-    
-    {{-- Favicon and App Icons --}}
+    {{-- Favicon --}}
     <link rel="icon" type="image/svg+xml" href="{{ asset('/assets/brand/favicon.svg') }}">
-    <link rel="icon" type="image/png" href="{{ asset('/assets/brand/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
@@ -76,13 +47,6 @@
         </script>
     @endif
     
-    {{-- Turbo-compatible initialization --}}
-    <script>
-        // Ensure Alpine.js works with Turbo navigation
-        document.addEventListener('alpine:init', () => {
-            // Alpine configuration if needed
-        });
-    </script>
     
     {{-- Head Scripts from Views --}}
     @yield('scripts-head')
@@ -107,7 +71,7 @@
             <div class="h-[60px]"></div>
         @endif
 
-        {{-- Main Content Area - Turbo-ready structure --}}
+        {{-- Main Content Area --}}
         <main class="min-h-screen tracking-[-0.020em]" id="main-content">
             @yield('content')
         </main>

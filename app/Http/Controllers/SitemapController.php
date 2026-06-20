@@ -22,6 +22,7 @@ class SitemapController extends Controller
 
     /**
      * Generate XML sitemap — comprehensive, AI-ready, SEO-optimized
+     * Only includes pages that have active routes registered.
      */
     public function xml()
     {
@@ -29,6 +30,9 @@ class SitemapController extends Controller
         $now = Carbon::now();
 
         $sitemap = Sitemap::create();
+
+        // Track all active routes for the centrova.test domain
+        $activeRoutes = $this->getActiveRoutes();
 
         // ================================================================
         // 1. HOME (priority 1.0 — most important)
@@ -38,119 +42,124 @@ class SitemapController extends Controller
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(1.0));
 
-        $sitemap->add(Url::create($baseUrl . '/en')
-            ->setLastModificationDate($now)
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.9));
-
         // ================================================================
-        // 2. CORE PAGES (priority 0.9)
+        // 2. CORE PAGES (priority 0.8)
         // ================================================================
         $corePages = [
             '/about'          => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
             '/contact'        => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
-            '/team'           => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.7],
             '/search'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.6],
             '/sitemap'        => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.5],
         ];
 
         foreach ($corePages as $path => $meta) {
-            $sitemap->add(Url::create($baseUrl . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency($meta['freq'])
-                ->setPriority($meta['prio']));
-
-            $sitemap->add(Url::create($baseUrl . '/en' . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency($meta['freq'])
-                ->setPriority($meta['prio'] - 0.1));
+            if (in_array($path, $activeRoutes)) {
+                $sitemap->add(Url::create($baseUrl . $path)
+                    ->setLastModificationDate($now)
+                    ->setChangeFrequency($meta['freq'])
+                    ->setPriority($meta['prio']));
+            }
         }
 
         // ================================================================
         // 3. SERVICES PAGES (priority 0.9 — high commercial value)
         // ================================================================
         $servicePages = [
-            '/services'                     => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/web'                 => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/web-development'     => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/web-company-profile' => Url::CHANGE_FREQUENCY_MONTHLY,
-            '/services/ecommerce'           => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/app'                 => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/app-development'     => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/mobile-app'          => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/mobile-app-development' => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/uiux'                => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/uiux-design'         => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/custom-solution'     => Url::CHANGE_FREQUENCY_MONTHLY,
-            '/services/ai/ai-strategy'      => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/ai/ai-agents'        => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/services/ai/ai-automation'    => Url::CHANGE_FREQUENCY_WEEKLY,
-            '/service/consult'              => Url::CHANGE_FREQUENCY_MONTHLY,
+            '/services'                     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/web'                 => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/web-development'     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/web-company-profile' => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
+            '/services/ecommerce'           => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/app'                 => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/app-development'     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/mobile-app'          => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/mobile-app-development' => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/uiux'                => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/uiux-design'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/custom-solution'     => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
+            '/services/ai/ai-strategy'      => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/ai/ai-agents'        => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/ai/ai-automation'    => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/service/consult'              => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
         ];
 
-        foreach ($servicePages as $path => $freq) {
-            $sitemap->add(Url::create($baseUrl . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency($freq)
-                ->setPriority(0.9));
-
-            $sitemap->add(Url::create($baseUrl . '/en' . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency($freq)
-                ->setPriority(0.8));
+        foreach ($servicePages as $path => $meta) {
+            if (in_array($path, $activeRoutes)) {
+                $sitemap->add(Url::create($baseUrl . $path)
+                    ->setLastModificationDate($now)
+                    ->setChangeFrequency($meta['freq'])
+                    ->setPriority($meta['prio']));
+            }
         }
 
         // ================================================================
-        // 4. LEGAL PAGES (priority 0.5 — important but static)
-        // ================================================================
-        $legalPages = [
-            '/legal',
-            '/legal/privacy',
-            '/legal/terms',
-            '/legal/license',
-            '/legal/trademark',
-            '/legal/copyright',
-            '/legal/compliance',
-            '/legal/opensource',
-            '/legal/cookies',
-            '/legal/disclaimer',
-        ];
-
-        foreach ($legalPages as $path) {
-            $sitemap->add(Url::create($baseUrl . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-                ->setPriority(0.5));
-
-            $sitemap->add(Url::create($baseUrl . '/en' . $path)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-                ->setPriority(0.4));
-        }
-
-        // ================================================================
-        // 5. TEAM PROFILES (priority 0.6)
-        // ================================================================
-        $teamMembers = ['daffa', 'sultan'];
-        foreach ($teamMembers as $slug) {
-            $sitemap->add(Url::create($baseUrl . '/team/' . $slug)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                ->setPriority(0.6));
-
-            $sitemap->add(Url::create($baseUrl . '/en/team/' . $slug)
-                ->setLastModificationDate($now)
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                ->setPriority(0.5));
-        }
-
-        // ================================================================
-        // 6. ADD DYNAMIC CONTENT FROM MODELS (if available)
+        // 4. ADD DYNAMIC CONTENT FROM MODELS (if available)
         // ================================================================
         $this->addDynamicContent($sitemap, $baseUrl, $now);
 
         return response($sitemap->render(), 200)
             ->header('Content-Type', 'application/xml');
+    }
+
+    /**
+     * Get all active GET route URIs for the centrova.test domain.
+     */
+    private function getActiveRoutes(): array
+    {
+        $routes = Route::getRoutes();
+        $active = [];
+
+        foreach ($routes as $route) {
+            $methods = $route->methods();
+            $domain = $route->getDomain();
+            $uri = '/' . $route->uri();
+
+            // Only include GET routes
+            if (!in_array('GET', $methods)) {
+                continue;
+            }
+
+            // Only include centrova.test domain routes
+            if ($domain && !str_contains($domain, 'centrova.test') && !str_contains($domain, 'centrova.id')) {
+                continue;
+            }
+
+            // Skip routes with URI parameters ({slug}, {page}, etc.)
+            if (str_contains($uri, '{')) {
+                continue;
+            }
+
+            // Skip API, admin, auth, and other non-public routes
+            $skipPatterns = [
+                '/api/', '/admin', '/staff', '/chat', '/logout',
+                '/dashboard', '/profile', '/settings', '/verify',
+                '/reset-password', '/password', '/confirm',
+                '/callback', '/send', '/messages', '/close',
+                '/office', '/_debugbar',
+            ];
+
+            $shouldSkip = false;
+            foreach ($skipPatterns as $pattern) {
+                if (str_starts_with($uri, $pattern)) {
+                    $shouldSkip = true;
+                    break;
+                }
+            }
+
+            if ($shouldSkip) {
+                continue;
+            }
+
+            // Skip POST-only routes
+            $routeMethods = $route->methods();
+            if (count($routeMethods) === 1 && $routeMethods[0] === 'POST') {
+                continue;
+            }
+
+            $active[] = $uri;
+        }
+
+        return array_unique($active);
     }
 
     /**
@@ -217,27 +226,6 @@ class SitemapController extends Controller
                             ->setLastModificationDate($service->updated_at ?? $now)
                             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                             ->setPriority(0.8)
-                    );
-                }
-            } catch (\Exception $e) {
-                // Silently skip
-            }
-        }
-
-        // --- Team Members (if dynamic model exists) ---
-        if (class_exists('\App\Models\TeamMember')) {
-            try {
-                $members = \App\Models\TeamMember::where('active', true)
-                    ->orderBy('updated_at', 'desc')
-                    ->get();
-
-                foreach ($members as $member) {
-                    $slug = $member->slug ?? $member->id;
-                    $sitemap->add(
-                        Url::create($baseUrl . '/team/' . $slug)
-                            ->setLastModificationDate($member->updated_at ?? $now)
-                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-                            ->setPriority(0.6)
                     );
                 }
             } catch (\Exception $e) {
@@ -381,10 +369,10 @@ class SitemapController extends Controller
     private function isAllowedDynamicRoute($uri, $name)
     {
         $allowedDynamicRoutes = [
-            'team/{slug}' => [
-                ['slug' => 'daffa', 'title' => 'Daffa'],
-                ['slug' => 'sultan', 'title' => 'Sultan']
-            ]
+            // 'team/{slug}' => [
+            //     ['slug' => 'daffa', 'title' => 'Daffa'],
+            //     ['slug' => 'sultan', 'title' => 'Sultan']
+            // ]
         ];
         
         return isset($allowedDynamicRoutes[$uri]);
@@ -401,7 +389,7 @@ class SitemapController extends Controller
             '/about' => 'Tentang',
             '/products' => 'Produk',
             '/contact' => 'Kontak',
-            '/team' => 'Tim Centrova',
+            // '/team' => 'Tim Centrova',
             '/sitemap' => 'Peta Situs',
             '/search' => 'Pencarian',
             '/services' => 'Semua Layanan',
@@ -503,7 +491,8 @@ class SitemapController extends Controller
                 } elseif (Str::startsWith($uri, '/legal')) {
                     $organized[$domain]['Legal'][] = $route;
                 } elseif (Str::startsWith($uri, '/team')) {
-                    $organized[$domain]['Tim & Lainnya'][] = $route;
+                    // Removed - team route disabled
+                    continue;
                 } else {
                     $organized[$domain]['Utama'][] = $route;
                 }

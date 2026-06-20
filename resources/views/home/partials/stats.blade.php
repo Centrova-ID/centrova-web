@@ -1,5 +1,5 @@
-{{-- Example: Turbo Frame for Stats Section --}}
-<turbo-frame id="stats" src="{{ route('home.stats') }}" loading="lazy">
+{{-- Stats Section --}}
+<section id="stats">
     @cacheFragment('home.stats.fragment', 300, ['fragments', 'home'])
     <div class="stats-container grid grid-cols-3 gap-4">
         @foreach($stats ?? [] as $key => $value)
@@ -10,4 +10,4 @@
         @endforeach
     </div>
     @endCacheFragment
-</turbo-frame>
+</section>

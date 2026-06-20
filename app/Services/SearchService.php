@@ -154,17 +154,6 @@ class SearchService
                 'keywords' => ['bantuan', 'help', 'support', 'konsultasi', 'teknis', 'chat', 'faq']
             ],
 
-            // Team Pages
-            [
-                'title' => 'Tim Profesional Kami',
-                'description' => 'Kenali tim profesional Centrova yang berpengalaman di bidang teknologi.',
-                'content' => 'tim team profesional expert ahli teknologi developer designer manager pengalaman skill personal profile background biography ceo founder lead senior junior specialist consultant freelance agency creative innovative modern experienced talented skilled certified',
-                'url' => route('team.index'),
-                'type' => 'Tim',
-                'category' => 'team',
-                'keywords' => ['tim', 'team', 'profesional', 'expert', 'ahli', 'developer', 'designer', 'personal', 'profile', 'background', 'biography']
-            ],
-
             // Additional Personal/Portfolio Pages
             [
                 'title' => 'Portfolio & Personal Projects',
@@ -248,7 +237,7 @@ class SearchService
                 'title' => 'Karir & Lowongan Kerja',
                 'description' => 'Bergabunglah dengan tim Centrova dan kembangkan karir di bidang teknologi.',
                 'content' => 'karir career lowongan kerja job vacancy hiring join tim team work opportunity',
-                'url' => route('team.index'),
+                'url' => '#',
                 'type' => 'Karir',
                 'category' => 'company',
                 'keywords' => ['karir', 'career', 'lowongan', 'kerja', 'job', 'vacancy', 'hiring', 'opportunity']

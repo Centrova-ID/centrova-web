@@ -35,11 +35,6 @@ Route::prefix('services')->middleware(['web'])->group(function () {
 });
 
 Route::middleware(['web'])->group(function () {
-    Route::get('/team', [HomeController::class, 'teamIndex']);
-    Route::get('/team/{slug}', [HomeController::class, 'teamProfile']);
-});
-
-Route::middleware(['web'])->group(function () {
     Route::get('/legal', [LegalController::class, 'index']);
     Route::get('/legal/privacy', [LegalController::class, 'privacy']);
     Route::get('/legal/terms', [LegalController::class, 'terms']);

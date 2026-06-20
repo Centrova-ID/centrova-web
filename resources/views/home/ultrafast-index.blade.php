@@ -9,7 +9,7 @@ No queries, no logic, instant render
 @section('content')
 <div class="home">
     {{-- Hero section - static, never changes --}}
-    <section class="hero" data-turbo-permanent>
+    <section class="hero">
         <h1>Welcome to Centrova</h1>
         <p>Ultra-fast Laravel application</p>
     </section>
@@ -34,11 +34,11 @@ No queries, no logic, instant render
         @endCacheFragment
     </section>
     
-    {{-- Products - Another Turbo Frame --}}
+    {{-- Products - Lazy-loaded --}}
     <section class="products">
-        <turbo-frame id="products" src="{{ route('home.products-frame') }}" loading="lazy">
+        <div id="products" data-lazy-src="{{ route('home.products-frame') }}">
             <div class="skeleton-grid"></div>
-        </turbo-frame>
+        </div>
     </section>
 </div>
 @endsection
@@ -46,11 +46,12 @@ No queries, no logic, instant render
 @push('scripts')
 {{-- Minimal inline script for interactivity --}}
 <script>
-// Auto-refresh stats every 60s via Turbo Stream
+// Auto-refresh stats every 60s
 setInterval(() => {
-    fetch('{{ route("home.update-stats") }}', {
-        headers: {'Accept': 'text/vnd.turbo-stream.html'}
-    }).then(r => r.text()).then(html => Turbo.renderStreamMessage(html));
+    fetch('{{ route("home.update-stats") }}').then(r => r.text()).then(html => {
+        // Update stats via replace
+        document.querySelector('.stats-section')?.innerHTML = html;
+    });
 }, 60000);
 </script>
 @endpush

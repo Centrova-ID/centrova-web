@@ -63,7 +63,7 @@ $useTwoColumns = $bioTotalLength > 1000;
     <meta property="og:image" content="{{ asset($member['heroImage']) }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Centrova">
+    <meta property="og:site_name" content="Centrova Indonesia">
     <meta property="og:locale" content="id_ID">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
@@ -93,8 +93,7 @@ $useTwoColumns = $bioTotalLength > 1000;
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type":"ListItem","position":1,"name":"Home","item":"{{ route('home') }}"},
-            {"@type":"ListItem","position":2,"name":"Tim Centrova","item":"{{ route('team.index') }}"},
-            {"@type":"ListItem","position":3,"name":"{{ $member['name'] }}","item":"{{ url()->current() }}"}
+            {"@type":"ListItem","position":2,"name":"{{ $member['name'] }}","item":"{{ url()->current() }}"}
         ]
     }
     </script>
@@ -192,13 +191,5 @@ $useTwoColumns = $bioTotalLength > 1000;
 </div>
 @endif
 
-{{-- Back Link --}}
-<div class="py-8 bg-white border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-        <a href="{{ route('team.index') }}" class="inline-flex items-center gap-2 text-neutral-600 hover:text-primary-600 transition font-medium">
-            <span class="material-symbols-outlined text-base">arrow_back</span>
-            Kembali ke Tim
-        </a>
-    </div>
-</div>
+{{-- Back Link removed --}}
 @endsection
