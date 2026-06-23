@@ -69,7 +69,9 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
     Route::get('/service/consult', [ServiceController::class, 'consult'])->name('service.consult');
 
     // Service Cancellation — redirect to account subdomain (route defined in account.php)
-    Route::redirect('/services/cancellation', 'https://account.centrova.id/services/cancellation', 302)->name('services.cancellation.index');
+    Route::get('/services/cancellation', function () {
+        return redirect('https://account.centrova.id/services/cancellation', 302);
+    })->name('services.cancellation.index');
 
     // English routes (with /en prefix)
     Route::prefix('en')->group(function () {
