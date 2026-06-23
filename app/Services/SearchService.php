@@ -81,7 +81,7 @@ class SearchService
                 'title' => 'Jasa Pembuatan Website Profesional',
                 'description' => 'Layanan pembuatan website profesional, responsif, dan SEO-friendly untuk bisnis Anda.',
                 'content' => 'Jasa pembuatan website profesional dengan teknologi terkini. Kami membuat website responsif, cepat, dan SEO-friendly menggunakan framework modern seperti Laravel, React, dan WordPress. Cocok untuk website personal, portfolio, company profile, e-commerce, dan aplikasi web enterprise.',
-                'url' => route('services.web.index'),
+                'url' => route('services.web-development'),
                 'type' => 'Layanan',
                 'category' => 'services',
                 'keywords' => ['website', 'web', 'development', 'pembuatan', 'profesional', 'responsif', 'seo', 'cms', 'personal', 'portfolio', 'company', 'corporate']
@@ -90,7 +90,7 @@ class SearchService
                 'title' => 'Mobile App Development - iOS & Android',
                 'description' => 'Pengembangan aplikasi mobile native dan hybrid untuk platform iOS dan Android.',
                 'content' => 'Layanan pengembangan aplikasi mobile untuk iOS dan Android. Kami menggunakan teknologi native (Swift, Kotlin) dan cross-platform (Flutter, React Native) untuk menghasilkan aplikasi yang optimal dan performa tinggi. Melayani proyek personal, business, dan enterprise.',
-                'url' => route('services.app.index'),
+                'url' => route('services.mobile-app-development'),
                 'type' => 'Layanan',
                 'category' => 'services',
                 'keywords' => ['mobile', 'app', 'aplikasi', 'ios', 'android', 'native', 'hybrid', 'flutter', 'personal', 'business', 'corporate']
@@ -99,7 +99,7 @@ class SearchService
                 'title' => 'UI/UX Design - Pengalaman Pengguna Optimal',
                 'description' => 'Desain antarmuka dan pengalaman pengguna yang menarik dan user-friendly.',
                 'content' => 'ui ux design desain antarmuka user interface experience pengguna optimal figma adobe xd sketch prototype wireframe',
-                'url' => route('services.uiux.index'),
+                'url' => route('services.uiux-design'),
                 'type' => 'Layanan',
                 'category' => 'services',
                 'keywords' => ['ui', 'ux', 'design', 'desain', 'antarmuka', 'pengguna', 'figma', 'prototype']
@@ -421,19 +421,19 @@ class SearchService
             [
                 'title' => 'Website Development',
                 'description' => 'Pembuatan Website',
-                'url' => route('services.web.index'),
+                'url' => route('services.web-development'),
                 'icon' => 'globe'
             ],
             [
                 'title' => 'Mobile App',
                 'description' => 'Aplikasi Mobile',
-                'url' => route('services.app.index'),
+                'url' => route('services.mobile-app-development'),
                 'icon' => 'mobile'
             ],
             [
                 'title' => 'UI/UX Design',
                 'description' => 'Desain Interface',
-                'url' => route('services.uiux.index'),
+                'url' => route('services.uiux-design'),
                 'icon' => 'design'
             ],
             [

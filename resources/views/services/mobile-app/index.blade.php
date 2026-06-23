@@ -9,7 +9,7 @@
     @include('partials.navbar.services')
     @include('partials.navbar.subnavbar.services', [
         'servicesLinkText' => 'Mobile App Development',
-        'servicesLinkUrl' => route('services.mobile-app.index'),
+        'servicesLinkUrl' => route('services.mobile-app-development'),
         'menuItems' => [
             ['text' => 'Layanan', 'url' => url('#layanan')],
             ['text' => 'Keunggulan', 'url' => url('#keunggulan')],
@@ -32,13 +32,42 @@
     <meta name="twitter:site" content="@centrovaid"/>
     <meta property="og:title" content="Jasa Pembuatan Aplikasi Mobile Android & iOS | Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
-    <meta property="og:image" content="https://centrova.id/assets/image/services/mobile-app-development/og-image.jpg"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:image" content="{{ config('app.url') }}/assets/image/services/mobile-app-development/og-image.jpg"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/mobile-app"/>
+    <meta property="og:url" content="{{ url('/services/mobile-app-development') }}"/>
     <meta name="description" content="Jasa pembuatan aplikasi mobile iOS & Android profesional dengan teknologi hybrid atau native. Siap publish ke Play Store & App Store!"/>
-    <link rel="canonical" href="https://centrova.id/services/mobile-app"/>
+    <link rel="canonical" href="{{ url('/services/mobile-app-development') }}"/>
 @endsection
+
+{{-- Structured Data: Service Schema — SEO untuk halaman jasa --}}
+@push('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "{{ url()->current() }}#service",
+    "name": "Jasa Pembuatan Aplikasi Mobile Android & iOS Profesional",
+    "description": "Centrova menyediakan jasa pembuatan aplikasi mobile Android & iOS profesional. Aplikasi hybrid dan native yang powerful untuk kebutuhan bisnis modern.",
+    "provider": {
+        "@type": "Organization",
+        "@id": "{{ url('/') }}#organization",
+        "name": "Centrova",
+        "url": "{{ url('/') }}"
+    },
+    "serviceType": "Mobile App Development",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "IDR"
+    }
+}
+</script>
+@endpush
 
 {{-- Critical CSS --}}
 @section('style-css')
@@ -444,7 +473,7 @@
             <p class="text-slate-600 text-base sm:text-lg mb-6">
                 Diskusikan konsep dan requirement aplikasi Anda bersama tim expert kami. Dapatkan estimasi dan roadmap yang jelas.
             </p>
-            <button onclick="window.open('{{ route('support.web.consult') }}', '_blank')"
+            <button onclick="window.open('{{ route('service.consult') }}', '_blank')"
                 class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -474,8 +503,8 @@
             document.addEventListener('alpine:init', () => {
                 Alpine.data('quickLinksSection', () => ({
                     quickLinks: [
-                        { text: "Konsultasi Gratis", url: "{{ route('support.web.consult') }}", target: "_blank" },
-                        { text: "Pusat Bantuan", url: "{{ route('support.services.home') }}", target: "_self" },
+                        { text: "Konsultasi Gratis", url: "{{ route('service.consult') }}", target: "_blank" },
+                        { text: "Pusat Bantuan", url: "{{ route('service.consult') }}", target: "_self" },
                         { text: "Pembatalan Layanan", url: "{{ route('services.cancellation.index') }}", target: "_self" },
                     ]
                 }));

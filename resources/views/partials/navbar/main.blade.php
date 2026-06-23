@@ -74,18 +74,18 @@
             <div>
                 <h3 class="text-base font-semibold text-neutral-900 font-semibold mb-4">Berkembang bersama AI</h3>
                 <ul class="space-y-3">
-                    <li><a href="{{ route('services.ai-strategy.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Strategy</a></li>
-                    <li><a href="{{ route('services.ai-agents.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Agents</a></li>
-                    <li><a href="{{ route('services.ai-automation.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Automation</a></li>
+                    <li><a href="{{ route('services.ai-strategy') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Strategy</a></li>
+                    <li><a href="{{ route('services.ai-agents') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Agents</a></li>
+                    <li><a href="{{ route('services.ai-automation') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">AI Automation</a></li>
                 </ul>
             </div>
             {{-- Col 2 --}}
             <div>
                 <h3 class="text-base font-semibold text-neutral-900 font-semibold mb-4">Pengembangan Perangkat Lunak</h3>
                 <ul class="space-y-3">
-                    <li><a href="#" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Custom Software Development</a></li>
-                    <li><a href="#" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Web & Mobile App Development</a></li>
-                    <li><a href="#" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Business Systems</a></li>
+                    <li><a href="{{ route('services.custom-solution.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Custom Software Development</a></li>
+                    <li><a href="{{ route('services.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Web & Mobile App Development</a></li>
+                    <li><a href="{{ route('services.index') }}" class="text-base font-medium text-neutral-700 hover:text-neutral-900 block transition">Business Systems</a></li>
                 </ul>
             </div>
             {{-- Col 4 Banner --}}
@@ -159,7 +159,7 @@
                 <div>
                     <button 
                         @click="layananOpen = !layananOpen"
-                        class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">
+                        class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
                         <span>Layanan</span>
                         <svg :class="layananOpen ? 'rotate-180' : ''" class="h-5 w-5 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -177,7 +177,7 @@
                         <div>
                             <button 
                                 @click="aiOpen = !aiOpen"
-                                class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">
+                                class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
                                 <span>Berkembang bersama AI</span>
                                 <svg :class="aiOpen ? 'rotate-180' : ''" class="h-5 w-5 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -185,9 +185,9 @@
                             </button>
                             
                             <div x-show="aiOpen" x-collapse class="pl-4 space-y-1" style="display: none;">
-                                <a href="{{ route('services.ai-strategy.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">AI Strategy</a>
-                                <a href="{{ route('services.ai-agents.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">AI Agents</a>
-                                <a href="{{ route('services.ai-automation.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">AI Automation</a>
+                                <a href="{{ route('services.ai-strategy') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">AI Strategy</a>
+                                <a href="{{ route('services.ai-agents') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">AI Agents</a>
+                                <a href="{{ route('services.ai-automation') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">AI Automation</a>
                             </div>
                         </div>
                         
@@ -195,7 +195,7 @@
                         <div>
                             <button 
                                 @click="softwareOpen = !softwareOpen"
-                                class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">
+                                class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
                                 <span>Pengembangan Perangkat Lunak</span>
                                 <svg :class="softwareOpen ? 'rotate-180' : ''" class="h-5 w-5 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -203,9 +203,9 @@
                             </button>
                             
                             <div x-show="softwareOpen" x-collapse class="pl-4 space-y-1" style="display: none;">
-                                <a href="#" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">Custom Software Development</a>
-                                <a href="#" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">Web & Mobile App Development</a>
-                                <a href="#" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">Business Systems</a>
+                                <a href="{{ route('services.custom-solution.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">Custom Software Development</a>
+                                <a href="{{ route('services.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">Web & Mobile App Development</a>
+                                <a href="{{ route('services.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">Business Systems</a>
                             </div>
                         </div>
 
@@ -218,7 +218,7 @@
                 </div>
 
                 {{-- Regular Item: Tentang Kami --}}
-                <a href="{{ route('about') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full">
+                <a href="{{ route('about') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
                     Tentang Kami
                 </a>
             </nav>

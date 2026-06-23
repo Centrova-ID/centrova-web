@@ -20,18 +20,18 @@
         'service_keywords' => 'jasa pembuatan website e-commerce, toko online murah, website ecommerce profesional, jasa toko online, pembuatan web ecommerce, desain website toko online, ecommerce murah, jasa web development, website marketplace, centrova',
         'title' => 'Jasa Pembuatan Website E-Commerce Toko Online Murah & Profesional | Centrova.id',
         'description' => 'Jasa pembuatan website e-commerce toko online murah & profesional. Sistem pembayaran lengkap, manajemen produk, SEO ready. Harga mulai 4jt. Konsultasi gratis! ☎️ 085817909560',
-        'canonical_url' => 'https://centrova.id/services/web/showcase/ecommerce',
-        'og_image' => 'https://centrova.id/assets/image/services/web-development/ecommerce/og-image.jpg',
+        'canonical_url' => config('app.url') . '/services/web/showcase/ecommerce',
+        'og_image' => config('app.url') . '/assets/image/services/web-development/ecommerce/og-image.jpg',
         'preload_data' => '/data/services-data.json',
         'prefetch_urls' => [
-            'https://centrova.id/services',
-            'https://centrova.id/contact'
+            config('app.url') . '/services',
+            config('app.url') . '/contact'
         ],
         'breadcrumbs' => [
-            ['name' => 'Home', 'url' => 'https://centrova.id'],
-            ['name' => 'Services', 'url' => 'https://centrova.id/services'],
-            ['name' => 'Web Development', 'url' => 'https://centrova.id/services/web'],
-            ['name' => 'E-Commerce Website', 'url' => 'https://centrova.id/services/web/showcase/ecommerce']
+            ['name' => 'Home', 'url' => config('app.url')],
+            ['name' => 'Services', 'url' => config('app.url') . '/services'],
+            ['name' => 'Web Development', 'url' => config('app.url') . '/services/web-development'],
+            ['name' => 'E-Commerce Website', 'url' => config('app.url') . '/services/web/showcase/ecommerce']
         ],
         'faq_data' => [
             [

@@ -1,25 +1,27 @@
 {
-    "name": "Centrova - Platform Digital Terdepan Indonesia",
+    "name": "Centrova",
     "short_name": "Centrova",
-    "description": "Centrova - Platform digital terdepan untuk solusi web development, hosting, dan layanan teknologi modern di Indonesia",
+    "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#2563eb",
+    "theme_color": "#ffffff",
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/assets/brand/favicon.svg",
+            "src": "/web-app-manifest-192x192.png",
             "sizes": "192x192",
-            "type": "image/svg+xml"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
-            "src": "/assets/brand/favicon.svg",
+            "src": "/web-app-manifest-512x512.png",
             "sizes": "512x512",
-            "type": "image/svg+xml"
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
-    "categories": ["business", "technology", "utilities"],
+    "categories": ["business", "technology"],
     "lang": "id",
     "scope": "/",
     "dir": "ltr"

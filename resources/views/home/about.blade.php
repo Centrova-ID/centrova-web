@@ -28,11 +28,11 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Tentang Kami | PT Centrova Teknologi Indonesia - AI Venture Engineering & Software Development">
     <meta property="og:description" content="PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan Software Development, AI-powered Systems, dan AI Agents untuk transformasi digital bisnis Anda.">
-    <meta property="og:image" content="{{ asset('thumbnail.png') }}">
+    <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png">
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1080">
     <meta property="og:image:alt" content="Centrova - AI Venture Engineering & Software Development Indonesia">
-    <meta property="og:site_name" content="Centrova Indonesia">
+    <meta property="og:site_name" content="Centrova">
     <meta property="og:locale" content="id_ID">
     <meta property="og:country-name" content="Indonesia">
     <meta property="business:contact_data:country_name" content="Indonesia">
@@ -42,7 +42,7 @@
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="Tentang Centrova | PT Centrova Teknologi Indonesia - AI Venture Engineering">
     <meta name="twitter:description" content="PT Centrova Teknologi Indonesia - AI Venture Engineering. Pelajari visi, misi, dan nilai perusahaan dalam memberdayakan bisnis Indonesia melalui AI dan software development.">
-    <meta name="twitter:image" content="{{ asset('thumbnail.png') }}">
+    <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png">
     <meta name="twitter:image:alt" content="Centrova Logo - AI Venture Engineering Indonesia">
     <meta name="twitter:site" content="@centrova_id">
     <meta name="twitter:creator" content="@centrova_id">
@@ -80,7 +80,7 @@
         "name": "Tentang PT Centrova Teknologi Indonesia",
         "description": "PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, sistem berbasis AI, dan AI Agents untuk membantu bisnis membangun, mengotomatisasi, serta mengembangkan operasional mereka.",
         "mainEntity": {
-            "@id": "https://centrova.id/#organization"
+            "@id": "{{ config('app.url') }}/#organization"
         },
         "speakable": {
             "@type": "SpeakableSpecification",
@@ -94,19 +94,19 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "@id": "https://centrova.id/#organization",
+        "@id": "{{ config('app.url') }}/#organization",
         "name": "Centrova",
         "legalName": "PT Centrova Teknologi Indonesia",
-        "alternateName": "Centrova Teknologi Indonesia",
-        "url": "https://centrova.id",
+        "alternateName": "PT Centrova Teknologi Indonesia",
+        "url": "{{ config('app.url') }}",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://centrova.id/assets/brand/centrova-logo.svg",
-            "width": 131,
-            "height": 24
+            "url": "{{ config('app.url') }}/assets/images/centrova-logo.png",
+            "width": 512,
+            "height": 512
         },
-        "image": "https://centrova.id/thumbnail.png",
-        "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation. Membantu bisnis membangun software dan AI automation.",
+        "image": "{{ config('app.url') }}/thumbnail.png",
+        "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
         "foundingDate": "2025",
         "foundingLocation": { "@type": "Place", "name": "Indonesia" },
         "email": "info@centrova.id",
@@ -114,12 +114,11 @@
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "ID",
-            "addressRegion": "Indonesia"
+            "addressRegion": "DKI Jakarta"
         },
         "sameAs": [
-            "https://centrova.id",
             "https://linkedin.com/company/centrova",
-            "https://instagram.com/centrova.id",
+            "https://instagram.com/centrova_id",
             "https://twitter.com/centrova_id"
         ],
         "knowsAbout": [
@@ -141,50 +140,12 @@
                 "contactType": "Customer Service",
                 "availableLanguage": ["Indonesian", "English"],
                 "areaServed": "ID"
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": "+62-858-1790-9560",
-                "contactType": "Sales",
-                "availableLanguage": ["Indonesian", "English"],
-                "areaServed": "ID"
             }
         ]
     }
     </script>
 
-    {{-- LocalBusiness Schema for PT Centrova Teknologi Indonesia --}}
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://centrova.id/#localbusiness",
-        "name": "PT Centrova Teknologi Indonesia",
-        "alternateName": "Centrova",
-        "description": "AI Venture Engineering company - Software Development, AI-powered Systems, dan AI Agent Automation untuk transformasi digital bisnis di Indonesia.",
-        "url": "https://centrova.id",
-        "telephone": "+62-858-1790-9560",
-        "email": "info@centrova.id",
-        "areaServed": "Indonesia",
-        "priceRange": "Rp 699.000 - Rp 10.000.000",
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "08:00",
-                "closes": "20:00"
-            }
-        ],
-        "sameAs": [
-            "https://linkedin.com/company/centrova",
-            "https://instagram.com/centrova.id",
-            "https://twitter.com/centrova_id"
-        ],
-        "parentOrganization": {
-            "@id": "https://centrova.id/#organization"
-        }
-    }
-    </script>
+
 
     {{-- BreadcrumbList Schema --}}
     <script type="application/ld+json">
@@ -197,7 +158,7 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Beranda",
-                "item": "https://centrova.id"
+                "item": "{{ config('app.url') }}"
             },
             {
                 "@type": "ListItem",
@@ -277,11 +238,11 @@
         "url": "{{ url()->current() }}",
         "name": "Tentang Kami | PT Centrova Teknologi Indonesia - AI Venture Engineering & Software Development",
         "description": "PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, AI-powered systems, dan AI Agents. Pelajari visi, misi, dan nilai kami.",
-        "about": { "@id": "https://centrova.id/#organization" },
-        "isPartOf": { "@id": "https://centrova.id/#website" },
+        "about": { "@id": "{{ config('app.url') }}/#organization" },
+        "isPartOf": { "@id": "{{ config('app.url') }}/#website" },
         "primaryImageOfPage": {
             "@type": "ImageObject",
-            "url": "https://centrova.id/thumbnail.png"
+            "url": "{{ config('app.url') }}/thumbnail.png"
         },
         "inLanguage": "id",
         "datePublished": "2025-09-13",
@@ -304,9 +265,9 @@
     </section>
 
     <div class="mt-6 sm:mt-10">
-        <img src="https://www.gstatic.com/marketing-cms/assets/images/0b/d4/e6516d32418884386205621ad689/about-companyinfo-hero.jpg=n-w2000-h625-fcrop64=1,0000051ffffffae1-rw"
-             alt="Centrova Inovasi Digital"
-             class="w-full h-auto object-cover">
+        <img src="{{ asset('assets/image/8934KW4IYT.webp') }}"
+             alt="Centrova Teknologi Indonesia - AI Venture Engineering Company"
+             class="w-full aspect-[16/7] object-cover">
     </div>
 
     {{-- Tentang Kami --}}
@@ -370,31 +331,6 @@
                     <h3 class="text-xl font-semibold text-neutral-900 mb-3 tracking-tight">Cepat & Efisien</h3>
                     <p class="text-neutral-700 text-base tracking-tight">Rasional dalam berpikir, unggul dalam hasil, dan gesit dalam beradaptasi dengan kebutuhan bisnis.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Gallery Gambar --}}
-    <section class="w-full bg-white py-10 sm:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 sm:space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-                     alt="Tim Centrova"
-                     class="w-full h-48 sm:h-64 object-cover rounded-xl">
-                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80"
-                     alt="Kolaborasi Centrova"
-                     class="w-full h-48 sm:h-64 object-cover rounded-xl">
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80"
-                     alt="Workshop Centrova"
-                     class="w-full h-48 sm:h-52 object-cover rounded-xl">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80"
-                     alt="Teknologi Centrova"
-                     class="w-full h-48 sm:h-52 object-cover rounded-xl">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
-                     alt="Tim Centrova"
-                     class="w-full h-48 sm:h-52 object-cover rounded-xl">
             </div>
         </div>
     </section>

@@ -61,10 +61,10 @@
             <h2>Layanan</h2>
             <ul>
                 <li><a href="{{ route('services.index') }}">Overview Layanan</a></li>
-                <li><a href="{{ route('services.web.index') }}">Web Development</a></li>
-                <li><a href="{{ route('services.app.index') }}">Aplikasi &amp; Mobile</a></li>
-                <li><a href="{{ route('services.uiux.index') }}">UI / UX</a></li>
-                <li><a href="{{ route('services.mobile-app.index') }}">Mobile App</a></li>
+                <li><a href="{{ route('services.web-development') }}">Web Development</a></li>
+                <li><a href="{{ route('services.app-development') }}">Aplikasi &amp; Mobile</a></li>
+                <li><a href="{{ route('services.uiux-design') }}">UI / UX</a></li>
+                <li><a href="{{ route('services.mobile-app-development') }}">Mobile App</a></li>
             </ul>
         </div>
         
@@ -72,9 +72,9 @@
             <h2>Dukungan</h2>
             <ul>
                 <li><a href="{{ route('support.home') }}">Halaman Dukungan</a></li>
-                <li><a href="{{ route('support.services.home') }}">Layanan Dukungan</a></li>
+                <li><a href="{{ route('service.consult') }}">Layanan Dukungan</a></li>
                 <li><a href="{{ route('support.web.chat') }}">Chat Dukungan</a></li>
-                <li><a href="{{ route('support.web.consult') }}">Konsultasi / Jadwalkan</a></li>
+                <li><a href="{{ route('service.consult') }}">Konsultasi / Jadwalkan</a></li>
                 <li><a href="{{ route('support.help.home') }}">Pusat Bantuan</a></li>
             </ul>
         </div>

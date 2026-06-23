@@ -31,9 +31,9 @@ $sessionId = session()->getId();
                 </a>
                 <div class="hidden ml-8 md:flex md:space-x-2 text-base font-medium text-neutral-800 items-center text-sm">
                     <a href="{{ route('services.index') }}" class="px-2 hover:text-black transition duration-500">Overview</a>
-                    <a href="{{ route('services.web.index') }}" class="px-2 hover:text-black transition duration-500">Website</a>
-                    <a href="{{ route('services.app.index') }}" class="px-2 hover:text-black transition duration-500">Aplikasi</a>
-                    <a href="{{ route('services.uiux.index') }}" class="px-2 hover:text-black transition duration-500">Desain UI/UX</a>
+                    <a href="{{ route('services.web-development') }}" class="px-2 hover:text-black transition duration-500">Website</a>
+                    <a href="{{ route('services.app-development') }}" class="px-2 hover:text-black transition duration-500">Aplikasi</a>
+                    <a href="{{ route('services.uiux-design') }}" class="px-2 hover:text-black transition duration-500">Desain UI/UX</a>
                 </div>
             </div>
             <!-- Aksi Desktop -->

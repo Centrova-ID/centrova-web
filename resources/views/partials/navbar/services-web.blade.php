@@ -91,9 +91,9 @@
                     <img src="{{ asset('/assets/brand/centrova-logo.svg') }}" class="h-[26px] w-auto" alt="Centrova Logo" draggable="false" />
                 </a>
                 <div class="hidden md:flex md:gap-x-2 text-base font-medium text-neutral-800 items-center text-sm text-left">
-                    <a href="{{ route('services.web.index') }}" class="px-2 hover:text-black transition duration-500">Buat Website</a>
-                    <a href="{{ route('services.web.index') }}" class="px-2 hover:text-black transition duration-500">Keamanan</a>
-                    <a href="{{ route('services.app.index') }}" class="px-2 hover:text-black transition duration-500">Showcase</a>
+                    <a href="{{ route('services.web-development') }}" class="px-2 hover:text-black transition duration-500">Buat Website</a>
+                    <a href="{{ route('services.web-development') }}" class="px-2 hover:text-black transition duration-500">Keamanan</a>
+                    <a href="{{ route('services.app-development') }}" class="px-2 hover:text-black transition duration-500">Showcase</a>
                 </div>
             </div>
             {{-- Aksi Desktop --}}

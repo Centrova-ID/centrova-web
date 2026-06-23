@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\ServiceController;
@@ -22,6 +23,10 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('search.suggestions');
 
+    // Blog Routes
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
     // Legal Routes
     Route::prefix('legal')->group(function () {
         Route::get('/', [LegalController::class, 'index'])->name('legal.index');
@@ -39,18 +44,24 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
     // Service Routes
     Route::prefix('services')->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('services.index');
-        Route::get('/web', [ServiceController::class, 'webDevelopment'])->name('services.web.index');
-        Route::get('/web-company-profile', [ServiceController::class, 'webCompanyProfile'])->name('services.web-company-profile');
-        Route::get('/ecommerce', [ServiceController::class, 'ecommerce'])->name('services.ecommerce');
-        Route::get('/app', [ServiceController::class, 'appDevelopment'])->name('services.app.index');
-        Route::get('/mobile-app', [ServiceController::class, 'mobileAppDevelopment'])->name('services.mobile-app.index');
-        Route::get('/uiux', [ServiceController::class, 'uiuxDesign'])->name('services.uiux.index');
+
+        // SEO: Redirect short-form URLs to canonical long-form (301 permanent redirect)
+        Route::permanentRedirect('/web', '/services/web-development');
+        Route::permanentRedirect('/app', '/services/app-development');
+        Route::permanentRedirect('/uiux', '/services/uiux-design');
+        Route::permanentRedirect('/mobile-app', '/services/mobile-app-development');
+
         Route::get('/custom-solution', [ServiceController::class, 'customSolution'])->name('services.custom-solution.index');
         Route::get('/web/{slug}/{page?}', [ServiceController::class, 'webPortfolio'])->name('services.web.portfolio');
         Route::get('/web-development', [ServiceController::class, 'webDevelopment'])->name('services.web-development');
         Route::get('/app-development', [ServiceController::class, 'appDevelopment'])->name('services.app-development');
         Route::get('/mobile-app-development', [ServiceController::class, 'mobileAppDevelopment'])->name('services.mobile-app-development');
         Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('services.uiux-design');
+
+        // AI Services
+        Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy'])->name('services.ai-strategy');
+        Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents'])->name('services.ai-agents');
+        Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation'])->name('services.ai-automation');
     });
 
     Route::get('/service/consult', [ServiceController::class, 'consult'])->name('service.consult');
@@ -64,6 +75,10 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/sitemap', [SitemapController::class, 'index'])->name('en.sitemap');
         Route::get('/search', [HomeController::class, 'search'])->name('en.search');
         Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('en.search.suggestions');
+
+        // English Blog Routes
+        Route::get('/blog', [BlogController::class, 'index'])->name('en.blog.index');
+        Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('en.blog.show');
 
         // English Legal Routes
         Route::prefix('legal')->group(function () {
@@ -82,18 +97,24 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         // English Service Routes
         Route::prefix('services')->group(function () {
             Route::get('/', [ServiceController::class, 'index'])->name('en.services.index');
-            Route::get('/web', [ServiceController::class, 'webDevelopment'])->name('en.services.web.index');
-            Route::get('/web-company-profile', [ServiceController::class, 'webCompanyProfile'])->name('en.services.web-company-profile');
-            Route::get('/ecommerce', [ServiceController::class, 'ecommerce'])->name('en.services.ecommerce');
-            Route::get('/app', [ServiceController::class, 'appDevelopment'])->name('en.services.app.index');
-            Route::get('/mobile-app', [ServiceController::class, 'mobileAppDevelopment'])->name('en.services.mobile-app.index');
-            Route::get('/uiux', [ServiceController::class, 'uiuxDesign'])->name('en.services.uiux.index');
+
+            // SEO: Redirect short-form URLs to canonical long-form (301 permanent redirect)
+            Route::permanentRedirect('/web', '/en/services/web-development');
+            Route::permanentRedirect('/app', '/en/services/app-development');
+            Route::permanentRedirect('/uiux', '/en/services/uiux-design');
+            Route::permanentRedirect('/mobile-app', '/en/services/mobile-app-development');
+
             Route::get('/custom-solution', [ServiceController::class, 'customSolution'])->name('en.services.custom-solution.index');
             Route::get('/web/{slug}/{page?}', [ServiceController::class, 'webPortfolio'])->name('en.services.web.portfolio');
             Route::get('/web-development', [ServiceController::class, 'webDevelopment'])->name('en.services.web-development');
             Route::get('/app-development', [ServiceController::class, 'appDevelopment'])->name('en.services.app-development');
             Route::get('/mobile-app-development', [ServiceController::class, 'mobileAppDevelopment'])->name('en.services.mobile-app-development');
             Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('en.services.uiux-design');
+
+            // English AI Services
+            Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy'])->name('en.services.ai-strategy');
+            Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents'])->name('en.services.ai-agents');
+            Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation'])->name('en.services.ai-automation');
         });
 
         Route::get('/service/consult', [ServiceController::class, 'consult'])->name('en.service.consult');

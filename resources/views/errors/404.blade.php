@@ -118,7 +118,7 @@
                     {
                         title: 'Jasa Pembuatan Website',
                         description: 'Website profesional dan modern untuk bisnis Anda',
-                        url: '{{ route("services.web.index") }}'
+                        url: '{{ route("services.web-development") }}'
                     },
                     {
                         title: 'Layanan Digital Marketing',
@@ -147,7 +147,7 @@
                     }
                 ],
                 popularSearches: [
-                    { text: 'Website Toko Online', url: '{{ route("services.web.index") }}' },
+                    { text: 'Website Toko Online', url: '{{ route("services.web-development") }}' },
                     { text: 'Mobile App', url: '{{ route("services.index") }}' },
                     { text: 'Digital Marketing', url: '{{ route("services.index") }}' },
                     { text: 'Konsultasi', url: '{{ route("services.index") }}' },

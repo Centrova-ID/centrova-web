@@ -19,14 +19,17 @@ Route::middleware(['web'])->group(function () {
 // Mobile access routes for services
 Route::prefix('services')->middleware(['web'])->group(function () {
     Route::get('/', [ServiceController::class, 'index']);
-    Route::get('/web', [ServiceController::class, 'webDevelopment']);
-    Route::get('/app', [ServiceController::class, 'appDevelopment']);
-    Route::get('/mobile-app', [ServiceController::class, 'mobileAppDevelopment']);
-    Route::get('/uiux', [ServiceController::class, 'uiuxDesign']);
+
+    // SEO: Redirect short-form URLs to canonical long-form (301 permanent redirect)
+    Route::permanentRedirect('/web', '/services/web-development');
+    Route::permanentRedirect('/app', '/services/app-development');
+    Route::permanentRedirect('/uiux', '/services/uiux-design');
+    Route::permanentRedirect('/mobile-app', '/services/mobile-app-development');
+
     Route::get('/custom-solution', [ServiceController::class, 'customSolution']);
-    Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy'])->name('services.ai-strategy.index');
-    Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents'])->name('services.ai-agents.index');
-    Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation'])->name('services.ai-automation.index');
+    Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy']);
+    Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents']);
+    Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation']);
     // Backward compatibility
     Route::get('/web-development', [ServiceController::class, 'webDevelopment']);
     Route::get('/app-development', [ServiceController::class, 'appDevelopment']);
@@ -65,4 +68,6 @@ Route::middleware(['web'])->group(function () {
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact.fallback');
     Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.fallback.send');
     Route::get('/search', [HomeController::class, 'search'])->name('search.fallback');
+    Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.fallback.index');
+    Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.fallback.show');
 });

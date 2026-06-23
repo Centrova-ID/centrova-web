@@ -54,10 +54,12 @@
                 x-transition:leave-end="max-md:opacity-0 transform max-md:-translate-y-16 max-h-0"
                 class="space-y-3 text-base font-medium md:block py-4"
                 style="transition-property: opacity, transform, max-height;">
-              <li><a href="{{ route('services.ai-strategy.index') }}" class="hover:underline">AI Strategy</a></li>
-              <li><a href="#" class="hover:underline">AI Agents</a></li>
-              <li><a href="#" class="hover:underline">AI Automation</a></li>
-              <li><a href="#" class="hover:underline">Custom Software</a></li>
+              <li><a href="{{ route('services.ai-strategy') }}" class="hover:underline">AI Strategy</a></li>
+              <li><a href="{{ route('services.ai-agents') }}" class="hover:underline">AI Agents</a></li>
+              <li><a href="{{ route('services.ai-automation') }}" class="hover:underline">AI Automation</a></li>
+              <li><a href="{{ route('services.custom-solution.index') }}" class="hover:underline">Custom Software</a></li>
+              <li><a href="{{ route('services.web-development') }}" class="hover:underline">Web Development</a></li>
+              <li><a href="{{ route('services.mobile-app-development') }}" class="hover:underline">Mobile App</a></li>
             </ul>
           </div>
         </div>
@@ -89,6 +91,7 @@
                 class="space-y-3 text-base font-medium md:block py-4"
                 style="transition-property: opacity, transform, max-height;">
               <li><a href="{{ url('/about') }}" class="hover:underline">Profil Centrova</a></li>
+              <li><a href="{{ route('blog.index') }}" class="hover:underline">Blog & Artikel</a></li>
               {{-- <li><a href="{{ url('/team') }}" class="hover:underline">Tim Kami</a></li> --}}
               <li><a href="{{ url('/contact') }}" class="hover:underline">Hubungi Kami</a></li>
             </ul>

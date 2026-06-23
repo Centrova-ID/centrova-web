@@ -43,7 +43,7 @@ $hasCertifications = !empty($member['certifications']);
     <meta property="og:image" content="{{ asset($member['heroImage']) }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Centrova Indonesia">
+    <meta property="og:site_name" content="Centrova">
     <meta property="og:locale" content="id_ID">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">

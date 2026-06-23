@@ -9,8 +9,6 @@
     
     {{-- Additional SEO Meta Tags --}}
     @yield('seoMetaTags')
-    {{-- Canonical URL fallback --}}
-    <link rel="canonical" href="{{ url()->current() }}">
     {{-- SEO Meta Tags - Powered by SEOTools --}}
     {{-- {!! SEO::generate() !!} --}}
 
@@ -20,21 +18,8 @@
     {{-- JSON-LD Structured Data --}}
     @stack('structured-data')
     
-    {{-- Global Structured Data --}}
-    @if(isset($organizationSchema))
-    <script type="application/ld+json">
-        {!! $organizationSchema !!}
-    </script>
-    @endif
-    
-    @if(isset($websiteSchema))
-    <script type="application/ld+json">
-        {!! $websiteSchema !!}
-    </script>
-    @endif
-    
-    {{-- Favicon and App Icons (single icon to prevent double request) --}}
-    <link rel="icon" type="image/svg+xml" href="{{ asset('/assets/brand/favicon.svg') }}">
+    {{-- Favicon --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     

@@ -14,38 +14,27 @@
     <meta property="og:title" content="AI Agents - Anggota Tim Digital yang Bekerja 24/7 | Centrova"/>
     <meta property="og:description" content="Deploy AI agents yang memahami konteks, membuat keputusan, menjalankan tugas, dan mengotomatisasi workflow bisnis di seluruh organisasi Anda."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/ai/ai-agents"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
+    <meta property="og:url" content="{{ url('/services/ai/ai-agents') }}"/>
+    <meta property="og:site_name" content="Centrova"/>
     <meta property="og:locale" content="id_ID"/>
+    <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="AI Agents | Centrova"/>
     <meta name="twitter:description" content="AI Agents yang bekerja layaknya anggota tim digital — otomatisasi workflow, pengambilan keputusan, dan integrasi sistem bisnis."/>
-    <link rel="canonical" href="https://centrova.id/services/ai/ai-agents"/>
+    <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png"/>
+    <link rel="canonical" href="{{ url('/services/ai/ai-agents') }}"/>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "AI Agents",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Centrova",
-            "url": "https://centrova.id",
-            "telephone": "+62895397633012",
-            "email": "adm.centrova@gmail.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jakarta",
-                "addressRegion": "DKI Jakarta",
-                "addressCountry": "ID"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -6.200000,
-                "longitude": 106.816666
-            }
-        },
         "description": "AI Agents yang bekerja layaknya anggota tim digital — memahami konteks, mengambil keputusan, menjalankan tugas, dan mengotomatisasi workflow bisnis 24/7.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Centrova",
+            "url": "{{ config('app.url') }}"
+        },
         "areaServed": {
             "@type": "Country",
             "name": "Indonesia"

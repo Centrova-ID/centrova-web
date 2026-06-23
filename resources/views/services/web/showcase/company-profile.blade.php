@@ -20,18 +20,18 @@
         'service_keywords' => 'jasa pembuatan website company profile, pembuatan website perusahaan, website company profile murah, jasa website profesional, pembuatan web company profile, desain website perusahaan, website bisnis murah, jasa web development, website responsive, centrova',
         'title' => 'Jasa Pembuatan Website Company Profile Murah & Profesional | Centrova.id',
         'description' => 'Jasa pembuatan website company profile murah & profesional. Desain responsif, SEO ready, loading cepat. Harga mulai 500rb. Konsultasi gratis! ☎️ 085817909560',
-        'canonical_url' => 'https://centrova.id/services/web/showcase/company-profile',
-        'og_image' => 'https://centrova.id/assets/image/services/web-development/og-image.jpg',
+        'canonical_url' => config('app.url') . '/services/web/showcase/company-profile',
+        'og_image' => config('app.url') . '/assets/image/services/web-development/og-image.jpg',
         'preload_data' => '/data/services-data.json',
         'prefetch_urls' => [
-            'https://centrova.id/services',
-            'https://centrova.id/contact'
+            config('app.url') . '/services',
+            config('app.url') . '/contact'
         ],
         'breadcrumbs' => [
-            ['name' => 'Home', 'url' => 'https://centrova.id'],
-            ['name' => 'Services', 'url' => 'https://centrova.id/services'],
-            ['name' => 'Web Development', 'url' => 'https://centrova.id/services/web'],
-            ['name' => 'Company Profile Website', 'url' => 'https://centrova.id/services/web/showcase/company-profile']
+            ['name' => 'Home', 'url' => config('app.url')],
+            ['name' => 'Services', 'url' => config('app.url') . '/services'],
+            ['name' => 'Web Development', 'url' => config('app.url') . '/services/web-development'],
+            ['name' => 'Company Profile Website', 'url' => config('app.url') . '/services/web/showcase/company-profile']
         ],
         'faq_data' => [
             [
@@ -77,13 +77,13 @@
         "provider": {
             "@type": "Organization",
             "name": "Centrova",
-            "url": "https://centrova.id",
+            "url": "{{ config('app.url') }}",
             "telephone": "+6285817909560",
             "address": {
                 "@type": "PostalAddress",
                 "addressCountry": "ID"
             },
-            "logo": "https://centrova.id/assets/image/logo/centrova-logo.png",
+            "logo": "{{ config('app.url') }}/assets/image/logo/centrova-logo.png",
             "sameAs": [
                 "https://www.instagram.com/centrova.id/",
                 "https://wa.me/6285817909560"

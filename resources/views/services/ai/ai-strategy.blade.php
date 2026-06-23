@@ -3,17 +3,19 @@
 @section('title', 'AI Strategy untuk Bisnis - Roadmap Adopsi AI yang Terukur | Centrova')
 
 @section('seoMetaTags')
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta charset="utf-8"/>
     <meta name="robots" content="index, follow, max-image-preview:large"/>
     <meta name="description" content="Layanan AI Strategy dari Centrova membantu bisnis menyusun roadmap adopsi AI yang realistis, aman, dan berdampak langsung pada efisiensi operasional dan pertumbuhan."/>
     <meta property="og:title" content="AI Strategy untuk Bisnis | Centrova"/>
     <meta property="og:description" content="Audit kesiapan AI, prioritas use case, desain roadmap implementasi, dan governance untuk adopsi AI yang terukur."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/ai/ai-strategy"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
+    <meta property="og:url" content="{{ url('/services/ai/ai-strategy') }}"/>
+    <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png"/>
+    <meta property="og:site_name" content="Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <link rel="canonical" href="https://centrova.id/services/ai/ai-strategy"/>
+    <meta name="twitter:title" content="AI Strategy untuk Bisnis | Centrova"/>
+    <meta name="twitter:description" content="Audit kesiapan AI, prioritas use case, dan roadmap implementasi untuk adopsi AI yang terukur."/>
+    <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png"/>
+    <link rel="canonical" href="{{ url('/services/ai/ai-strategy') }}"/>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -50,27 +52,19 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Centrova",
-            "url": "https://centrova.id",
-            "logo": "https://centrova.id/assets/image/logo.png",
-            "telephone": "+62895397633012",
-            "email": "adm.centrova@gmail.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jakarta",
-                "addressRegion": "DKI Jakarta",
-                "addressCountry": "ID"
+            "@type": "Service",
+            "name": "AI Strategy",
+            "description": "Layanan AI Strategy dari Centrova — audit kesiapan AI, prioritas use case, desain roadmap implementasi, dan governance untuk adopsi AI yang terukur.",
+            "provider": {
+                "@type": "Organization",
+                "name": "Centrova",
+                "url": "{{ config('app.url') }}"
             },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -6.200000,
-                "longitude": 106.816666
+            "areaServed": {
+                "@type": "Country",
+                "name": "Indonesia"
             },
-            "sameAs": [
-                "https://www.linkedin.com/company/centrova",
-                "https://www.instagram.com/centrova"
-            ]
+            "serviceType": "AI Strategy & Consulting"
         }
     </script>
 @endsection

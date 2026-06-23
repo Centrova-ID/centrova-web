@@ -14,38 +14,27 @@
     <meta property="og:title" content="AI Automation - Otomatisasi Proses Bisnis | Centrova"/>
     <meta property="og:description" content="Automate repetitive work. Scale operations faster. Centrova membantu merancang sistem otomatis yang mengurangi pekerjaan manual dan mempercepat proses operasional."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/ai/ai-automation"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
+    <meta property="og:url" content="{{ url('/services/ai/ai-automation') }}"/>
+    <meta property="og:site_name" content="Centrova"/>
     <meta property="og:locale" content="id_ID"/>
+    <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="AI Automation | Centrova"/>
     <meta name="twitter:description" content="Otomatisasi pekerjaan repetitif bisnis Anda dengan AI — lebih cepat, lebih akurat, lebih scalable."/>
-    <link rel="canonical" href="https://centrova.id/services/ai/ai-automation"/>
+    <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png"/>
+    <link rel="canonical" href="{{ url('/services/ai/ai-automation') }}"/>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "AI Automation",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Centrova",
-            "url": "https://centrova.id",
-            "telephone": "+62895397633012",
-            "email": "adm.centrova@gmail.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jakarta",
-                "addressRegion": "DKI Jakarta",
-                "addressCountry": "ID"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -6.200000,
-                "longitude": 106.816666
-            }
-        },
         "description": "Layanan AI Automation untuk mengotomatisasi proses bisnis repetitif dengan integrasi AI, workflow automation, dan multi-system integration.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Centrova",
+            "url": "{{ config('app.url') }}"
+        },
         "areaServed": {
             "@type": "Country",
             "name": "Indonesia"

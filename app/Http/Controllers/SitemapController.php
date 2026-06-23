@@ -31,7 +31,7 @@ class SitemapController extends Controller
 
         $sitemap = Sitemap::create();
 
-        // Track all active routes for the centrova.test domain
+        // Track all active routes for the centrova.id domain
         $activeRoutes = $this->getActiveRoutes();
 
         // ================================================================
@@ -44,11 +44,12 @@ class SitemapController extends Controller
 
         // ================================================================
         // 2. CORE PAGES (priority 0.8)
+        // Note: /search excluded — no SEO value, has noindex
         // ================================================================
         $corePages = [
             '/about'          => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
             '/contact'        => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.8],
-            '/search'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.6],
+            '/blog'           => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.8],
             '/sitemap'        => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.5],
         ];
 
@@ -63,18 +64,13 @@ class SitemapController extends Controller
 
         // ================================================================
         // 3. SERVICES PAGES (priority 0.9 — high commercial value)
+        // Only canonical URLs — short-form aliases redirected via 301
         // ================================================================
         $servicePages = [
             '/services'                     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/web'                 => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/web-development'     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/web-company-profile' => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
-            '/services/ecommerce'           => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/app'                 => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/app-development'     => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/mobile-app'          => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/mobile-app-development' => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/uiux'                => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/uiux-design'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/custom-solution'     => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
             '/services/ai/ai-strategy'      => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
@@ -102,7 +98,7 @@ class SitemapController extends Controller
     }
 
     /**
-     * Get all active GET route URIs for the centrova.test domain.
+     * Get all active GET route URIs for the centrova.id domain.
      */
     private function getActiveRoutes(): array
     {
@@ -119,8 +115,8 @@ class SitemapController extends Controller
                 continue;
             }
 
-            // Only include centrova.test domain routes
-            if ($domain && !str_contains($domain, 'centrova.test') && !str_contains($domain, 'centrova.id')) {
+            // Only include centrova.id domain routes
+            if ($domain && !str_contains($domain, 'centrova.id')) {
                 continue;
             }
 
@@ -176,7 +172,7 @@ class SitemapController extends Controller
                     ->get();
 
                 foreach ($posts as $post) {
-                    $url = $baseUrl . '/news/' . ($post->slug ?? $post->id);
+                    $url = $baseUrl . '/blog/' . ($post->slug ?? $post->id);
                     $sitemap->add(
                         Url::create($url)
                             ->setLastModificationDate($post->updated_at ?? $now)
@@ -254,6 +250,48 @@ class SitemapController extends Controller
                 // Silently skip
             }
         }
+
+        // --- Case Studies ---
+        if (class_exists('\App\Models\CaseStudy')) {
+            try {
+                $caseStudies = \App\Models\CaseStudy::where('status', 'published')
+                    ->orderBy('updated_at', 'desc')
+                    ->take(200)
+                    ->get();
+
+                foreach ($caseStudies as $cs) {
+                    $sitemap->add(
+                        Url::create($baseUrl . '/case-studies/' . ($cs->slug ?? $cs->id))
+                            ->setLastModificationDate($cs->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                            ->setPriority(0.7)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
+            }
+        }
+
+        // --- Landing Pages (high commercial intent) ---
+        if (class_exists('\App\Models\LandingPage')) {
+            try {
+                $landingPages = \App\Models\LandingPage::where('status', 'published')
+                    ->orderBy('updated_at', 'desc')
+                    ->take(100)
+                    ->get();
+
+                foreach ($landingPages as $lp) {
+                    $sitemap->add(
+                        Url::create($baseUrl . '/lp/' . ($lp->slug ?? $lp->id))
+                            ->setLastModificationDate($lp->updated_at ?? $now)
+                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                            ->setPriority(0.9)
+                    );
+                }
+            } catch (\Exception $e) {
+                // Silently skip
+            }
+        }
     }
 
     /**
@@ -294,7 +332,9 @@ class SitemapController extends Controller
             '/callback',
             '/send',
             '/messages',
-            '/close'
+            '/close',
+            '/search',        // No SEO value — has noindex
+            '/search/',       // No SEO value — has noindex
         ];
         
         // Define route names that should be excluded

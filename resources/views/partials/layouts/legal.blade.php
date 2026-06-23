@@ -10,6 +10,8 @@
 
     
     <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg">
+    <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <title>
         @hasSection('title')

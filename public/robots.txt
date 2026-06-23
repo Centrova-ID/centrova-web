@@ -38,12 +38,12 @@ Disallow: /package-lock.json
 Disallow: /phpunit.xml
 Disallow: /README.md
 
-# Disallow dynamic / utility paths
+# Disallow dynamic / utility paths — halaman pencarian tidak memberikan nilai SEO
+Disallow: /search
 Disallow: /search/suggestions
 
 # Allow public paths & assets
 Allow: /
-Allow: /search
 Allow: /sitemap
 Allow: /assets/
 Allow: /css/

@@ -23,11 +23,12 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Centrova | AI Venture Engineering, Software Development & AI Agent Automation">
     <meta property="og:description" content="PT Centrova Teknologi Indonesia - AI Venture Engineering company spesialis software development, AI-powered systems, dan AI Agent Automation untuk transformasi digital bisnis Anda.">
-    <meta property="og:image" content="{{ asset('thumbnail.png') }}">
+    <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png">
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1080">
     <meta property="og:image:alt" content="Centrova - AI Venture Engineering & Software Development Indonesia">
-    <meta property="og:site_name" content="Centrova Indonesia">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:site_name" content="Centrova">
     <meta property="og:locale" content="id_ID">
     <meta property="og:country-name" content="Indonesia">
     <meta property="business:contact_data:country_name" content="Indonesia">
@@ -37,7 +38,7 @@
     <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="Centrova | AI Venture Engineering & Software Development Indonesia">
     <meta name="twitter:description" content="PT Centrova Teknologi Indonesia - AI Venture Engineering. Bangun software, AI-powered systems, dan AI Agent Automation untuk efisiensi dan pertumbuhan bisnis Anda.">
-    <meta name="twitter:image" content="{{ asset('thumbnail.png') }}">
+    <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png">
     <meta name="twitter:image:alt" content="Centrova Logo - AI Venture Engineering Indonesia">
     <meta name="twitter:site" content="@centrova_id">
     <meta name="twitter:creator" content="@centrova_id">
@@ -63,19 +64,20 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "@id": "https://centrova.id/#organization",
+      "@id": "{{ config('app.url') }}/#organization",
       "name": "Centrova",
-      "legalName": "PT Centrova Teknologi Indonesia",
-      "url": "https://centrova.id",
+      "alternateName": "PT Centrova Teknologi Indonesia",
+      "url": "{{ config('app.url') }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://centrova.id/assets/brand/centrova-logo.svg",
-        "width": 131,
-        "height": 24
+        "url": "{{ config('app.url') }}/assets/images/centrova-logo.png",
+        "width": 512,
+        "height": 512
       },
-      "image": "https://centrova.id/thumbnail.png",
-      "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation. Membantu bisnis membangun software dan AI automation.",
+      "image": "{{ config('app.url') }}/thumbnail.png",
+      "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
       "foundingDate": "2025",
+      "legalName": "PT Centrova Teknologi Indonesia",
       "foundingLocation": {
         "@type": "Place",
         "name": "Indonesia"
@@ -86,8 +88,8 @@
       },
       "sameAs": [
         "https://linkedin.com/company/centrova",
-        "https://instagram.com/centrova.id",
-        "https://centrova.id"
+        "https://instagram.com/centrova_id",
+        "{{ config('app.url') }}"
       ],
       "knowsAbout": [
         "AI Automation",
@@ -101,27 +103,20 @@
     }
     </script>
 
-    {{-- WebSite Schema with SearchAction (Google Sitelinks Search Box) --}}
+    {{-- WebSite Schema --}}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "@id": "https://centrova.id/#website",
-      "url": "https://centrova.id",
+      "@id": "{{ config('app.url') }}/#website",
+      "url": "{{ config('app.url') }}",
       "name": "Centrova",
-      "description": "AI Venture Engineering & Software Development - AI Agent Automation, AI-powered Systems, dan Custom Software Development",
+      "alternateName": "PT Centrova Teknologi Indonesia",
+      "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
       "publisher": {
-        "@id": "https://centrova.id/#organization"
+        "@id": "{{ config('app.url') }}/#organization"
       },
-      "inLanguage": "id",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://centrova.id/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "id"
     }
     </script>
 
@@ -130,19 +125,19 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://centrova.id/#webpage",
-      "url": "https://centrova.id",
+      "@id": "{{ config('app.url') }}/#webpage",
+      "url": "{{ config('app.url') }}",
       "name": "Centrova | AI Venture Engineering, Software Development & AI Agent Automation",
-      "description": "PT Centrova Teknologi Indonesia adalah AI Venture Engineering company yang membantu bisnis membangun software, AI-powered systems, dan AI Agent Automation untuk meningkatkan efisiensi, mempercepat pertumbuhan, dan mendorong transformasi digital.",
+      "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
       "about": {
-        "@id": "https://centrova.id/#organization"
+        "@id": "{{ config('app.url') }}/#organization"
       },
       "isPartOf": {
-        "@id": "https://centrova.id/#website"
+        "@id": "{{ config('app.url') }}/#website"
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://centrova.id/thumbnail.png"
+        "url": "{{ config('app.url') }}/thumbnail.png"
       },
       "inLanguage": "id",
       "datePublished": "2025-09-13",
@@ -155,12 +150,12 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "@id": "https://centrova.id/#breadcrumb",
+      "@id": "{{ config('app.url') }}/#breadcrumb",
       "itemListElement": [{
         "@type": "ListItem",
         "position": 1,
         "name": "Beranda",
-        "item": "https://centrova.id"
+        "item": "{{ config('app.url') }}"
       }]
     }
     </script>
@@ -179,32 +174,35 @@
         {{-- Main Hero --}}
         <section class="relative overflow-hidden">
             {{-- Content --}}
-            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:pt-32 pb-20 flex justify-center items-center text-center">
-                <div class="max-w-5xl">
-                    <h1 class="text-4xl md:text-7xl font-semibold tracking-[-4%] mb-8">
-                        Build Smarter. <br class="md:hidden"> Scale Faster. <br> With <span class="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 bg-clip-text text-transparent">AI Automation.</span>
+            <div class="relative max-w-7xl mx-auto px-7 lg:px-8 py-6 md:py-14 flex flex-col-reverse lg:flex-row justify-center items-center text-center lg:text-left gap-x-12 gap-y-6">
+                <div>
+                    <h1 class="text-3xl md:text-6xl font-medium tracking-[-5%] mb-6 lg:mb-7 text-neutral-900">
+                        Tingkatkan Produktivitas dengan <span class="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 bg-clip-text text-transparent">AI Automation.</span>
                     </h1>
-                    <p class="text-lg w-full max-w-3xl mx-auto text-neutral-950 tracking-tight mb-8">
-                        Centrova membantu bisnis membangun software, AI-powered systems, dan AI Agent Automation untuk meningkatkan efisiensi, mempercepat pertumbuhan, dan menciptakan keunggulan kompetitif.
+                    <p class="text-lg w-full max-w-3xl font-normal antialiased text-neutral-700 tracking-tight mb-6 lg:mb-7">
+                        Bangun sistem otomatis yang bekerja 24/7 untuk mendukung operasional dan pertumbuhan bisnis Anda.
                     </p>
-                    <div class="flex justify-center items-center gap-x-5">
-                        <a href="#" class="py-4 px-6 rounded-full bg-primary-500 hover:bg-primary-600 transition text-white font-medium">Mulai konsultasi</a>
-                        <a href="#" class="py-4 px-6 rounded-full bg-neutral-50 hover:bg-neutral-100 transition text-primary-600 font-medium">Jelajahi layanan</a>
+                    <div class="flex max-lg:flex-col lg:justify-start justify-center items-center gap-x-5 gap-y-4 tracking-normal">
+                        <a href="{{ route('service.consult') }}" class="py-4 px-6 max-lg:w-full rounded-full bg-primary-600 hover:bg-primary-700 transition text-white font-semibold">Jadwalkan Konsultasi</a>
+                        <a href="{{ route('services.index') }}" class="py-4 px-6 max-lg:w-full rounded-full hover:bg-gray-50 hover:text-primary-700 transition text-primary-600 font-semibold">Jelajahi layanan lainnya</a>
                     </div>
+                </div>
+                <div class="w-full">
+                    <img src="{{ asset('assets/image/ai_automation_illustration.webp') }}" alt="Ilustrasi Otomasi AI" class="w-full object-contain">
                 </div>
             </div>
         </section>
 
         {{-- Layanan Kami --}}
         <section class="py-20 bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl max-w-4xl mx-auto font-medium tracking-tighter text-neutral-900 mb-4">Memperkuat sistem bisnis melalui digitalisasi dan otomasi</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     
                     {{-- Card 1 --}}
-                    <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
+                    <article class="rounded-xl overflow-hidden bg-white border border-neutral-300 hover:shadow hover:shadow-black/35 transition-shadow duration-150 flex flex-col h-full">
                         <img src="{{ asset('assets/image/U2FuZGkxMjM.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -212,10 +210,10 @@
                              fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
-                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
+                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 border-t border-neutral-300">
                             <div class="flex-1 mb-4">
-                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">AI Venture Engineering</h3>
-                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">Merancang dan membangun produk digital berbasis AI.</p>
+                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-900">AI Venture Engineering</h3>
+                                <p class="text-lg text-neutral-800 antialiased font-medium antialiased tracking-tight leading-relaxed">Merancang dan membangun produk digital berbasis AI.</p>
                             </div>
                             
                             <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
@@ -227,7 +225,7 @@
                     </article>
 
                     {{-- Card 2 --}}
-                    <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
+                    <article class="rounded-xl overflow-hidden bg-white border border-neutral-300 hover:shadow hover:shadow-black/35 transition-shadow duration-150 flex flex-col h-full">
                         <img src="{{ asset('assets/image/3MjM1ZGaFuMlU.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -235,10 +233,10 @@
                              fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
-                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
+                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 border-t border-neutral-300">
                             <div class="flex-1 mb-4">
-                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">Software Development</h3>
-                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">Web applications, mobile applications, SaaS platforms, dan custom software.</p>
+                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-900">Software Development</h3>
+                                <p class="text-lg text-neutral-800 antialiased font-medium antialiased tracking-tight leading-relaxed">Web applications, mobile applications, SaaS platforms, dan custom software.</p>
                             </div>
                             
                             <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
@@ -250,7 +248,7 @@
                     </article>
 
                     {{-- Card 3 --}}
-                    <article class="font-sans rounded-2xl overflow-hidden bg-white border border-neutral-200 hover:shadow transition-shadow duration-150 flex flex-col h-full">
+                    <article class="rounded-xl overflow-hidden bg-white border border-neutral-300 hover:shadow hover:shadow-black/35 transition-shadow duration-150 flex flex-col h-full">
                         <img src="{{ asset('assets/image/X3MjM1ZGaFuMlU.webp') }}"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -258,10 +256,10 @@
                              fetchpriority="low"
                              class="w-full aspect-video object-cover">
                              
-                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 text-neutral-900">
+                        <div class="px-6 pt-5 pb-7 flex flex-col flex-1 border-t border-neutral-300">
                             <div class="flex-1 mb-4">
-                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-950">AI Agent Automation</h3>
-                                <p class="text-lg text-neutral-800 antialiased font-normal tracking-tight leading-relaxed">AI Agents dan intelligent automation untuk mengurangi pekerjaan manual dan meningkatkan produktivitas.</p>
+                                <h3 class="text-2xl font-semibold tracking-tight mb-2 text-neutral-900">AI Agent Automation</h3>
+                                <p class="text-lg text-neutral-800 antialiased font-medium antialiased tracking-tight leading-relaxed">AI Agents dan intelligent automation untuk mengurangi pekerjaan manual dan meningkatkan produktivitas.</p>
                             </div>
                             
                             <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary-600 flex justify-end" target="_blank" rel="noopener noreferrer">
@@ -277,7 +275,7 @@
 
         {{-- Dampak AI --}}
         <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 {{-- Headline --}}
                 <div class="text-center mb-16 max-w-3xl mx-auto">
                     <h2 class="text-4xl max-w-4xl mx-auto font-medium tracking-tighter text-neutral-900 mb-4">
@@ -290,7 +288,7 @@
                     {{-- Stat 1 --}}
                     <div class="flex flex-col items-center px-4">
                         <span class="text-4xl font-bold text-primary-600 mb-5 tracking-tight">
-                            70%+
+                            70%<span class="font-variant-numeric:lashed-zero">+</span>
                         </span>
                         <p class="text-base text-neutral-900 font-normal leading-relaxed max-w-sm">
                             Waktu operasional tim masih tersita oleh tugas repetitif yang dapat diotomatisasi sepenuhnya.
@@ -322,7 +320,7 @@
 
         {{-- Industries --}}
         <section class="py-16 bg-neutral-100 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-7xl mx-auto px-7 lg:px-8 relative z-10">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl max-w-4xl mx-auto font-medium tracking-tighter text-gray-900 mb-4">Mengembangkan Masa Depan Industri Anda</h2>
                 </div>
@@ -419,7 +417,7 @@
 
         {{-- Penawaran Section --}}
         <section class="py-10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 <div class="w-full bg-sky-100 rounded-xl min-h-[400px] lg:h-[540px] flex items-center justify-center lg:justify-start relative overflow-hidden">
                     <div class="absolute inset-0 w-full h-full z-0">
                         <img src="{{ asset('assets/image/home/a2d67684-5efc-6ad8-2cb3-6034d420e88cba88d902848fa4415ffca75da09a257e0c938ac6.webp') }}" class="h-full object-cover w-full" alt="Ilustrasi pembuatan website - Centrova" loading="lazy" decoding="async">

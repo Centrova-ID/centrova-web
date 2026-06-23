@@ -13,7 +13,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Hubungi Centrova | Konsultasi Gratis & Tim Spesialis Siap Membantu">
     <meta property="og:description" content="Hubungi tim Centrova sekarang! Dapatkan konsultasi gratis untuk kebutuhan website, aplikasi, AI automation, dan solusi digital bisnis Anda.">
-    <meta property="og:site_name" content="Centrova Indonesia">
+    <meta property="og:site_name" content="Centrova">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hubungi Centrova | Konsultasi Gratis">
     <meta name="twitter:description" content="Konsultasi gratis dengan tim spesialis Centrova untuk solusi digital bisnis Anda.">

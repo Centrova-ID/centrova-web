@@ -11,7 +11,7 @@
     {{-- Sub Navbar --}}
     @include('partials.navbar.subnavbar.services', [
         'servicesLinkText' => 'Web Development',
-        'servicesLinkUrl' => route('services.web.index'),
+        'servicesLinkUrl' => route('services.web-development'),
         'menuItems' => [
             ['text' => 'Layanan', 'url' => url('#layanan')],
             ['text' => 'Keunggulan', 'url' => url('#keunggulan')],
@@ -40,13 +40,42 @@
     <meta name="twitter:site" content="@centrovaid"/>
     <meta property="og:title" content="Jasa Pembuatan Website Profesional & Modern | Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
-    <meta property="og:image" content="https://centrova.id/assets/image/services/web-development/og-image.jpg"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:image" content="{{ config('app.url') }}/assets/image/services/web-development/og-image.jpg"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/web"/>
+    <meta property="og:url" content="{{ url('/services/web-development') }}"/>
     <meta name="description" content="Jasa pembuatan website profesional, modern, dan responsif untuk bisnis, UMKM, toko online, edukasi, dan kebutuhan lainnya. Gratis konsultasi dan harga terjangkau!"/>
-    <link rel="canonical" href="https://centrova.id/services/web"/>
+    <link rel="canonical" href="{{ url('/services/web-development') }}"/>
 @endsection
+
+{{-- Structured Data: Service Schema — SEO untuk halaman jasa --}}
+@push('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "{{ url()->current() }}#service",
+    "name": "Jasa Pembuatan Website Profesional",
+    "description": "Centrova menyediakan jasa pembuatan website profesional, modern, dan responsif untuk bisnis Anda. Dapatkan website berkualitas, desain elegan, performa optimal, dan support jangka panjang.",
+    "provider": {
+        "@type": "Organization",
+        "@id": "{{ url('/') }}#organization",
+        "name": "Centrova",
+        "url": "{{ url('/') }}"
+    },
+    "serviceType": "Web Development",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "IDR"
+    }
+}
+</script>
+@endpush
 
 {{-- Critical CSS --}}
 @section('style-css')
@@ -828,7 +857,7 @@
             <p class="text-slate-600 text-base sm:text-lg mb-6">
                 Lihat kenapa puluhan pelaku usaha mempercayakan pembuatan website mereka kepada Centrova.
             </p>
-            <button onclick="window.open('{{ route('support.web.consult') }}', '_blank')" aria-label="Hubungi kami untuk konsultasi gratis" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
+            <button onclick="window.open('{{ route('service.consult') }}', '_blank')" aria-label="Hubungi kami untuk konsultasi gratis" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -964,12 +993,12 @@
                     quickLinks: [
                         {
                             text: "Konsultasi Gratis",
-                            url: "{{ route('support.web.consult') }}",
+                            url: "{{ route('service.consult') }}",
                             target: "_blank"
                         },
                         {
                             text: "Pusat Bantuan",
-                            url: "{{ route('support.services.home') }}",
+                            url: "{{ route('service.consult') }}",
                             target: "_self"
                         },
                         {

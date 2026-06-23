@@ -11,7 +11,7 @@
     {{-- Sub Navbar --}}
     @include('partials.navbar.subnavbar.services', [
         'servicesLinkText' => 'UI/UX Design',
-        'servicesLinkUrl' => route('services.uiux.index'),
+        'servicesLinkUrl' => route('services.uiux-design'),
         'menuItems' => [
             ['text' => 'Layanan', 'url' => url('#layanan')],
             ['text' => 'Keunggulan', 'url' => url('#keunggulan')],
@@ -43,13 +43,42 @@
     <meta name="twitter:site" content="@centrovaid"/>
     <meta property="og:title" content="Jasa UI/UX Design Profesional & User-Centered | Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta property="og:site_name" content="Centrova Indonesia"/>
-    <meta property="og:image" content="https://centrova.id/assets/image/services/uiux-design/og-image.jpg"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:image" content="{{ config('app.url') }}/assets/image/services/uiux-design/og-image.jpg"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://centrova.id/services/uiux"/>
+    <meta property="og:url" content="{{ url('/services/uiux-design') }}"/>
     <meta name="description" content="Jasa UI/UX design profesional dengan metodologi design thinking, user research, wireframing, prototyping, dan usability testing. Gratis konsultasi dan harga terjangkau!"/>
-    <link rel="canonical" href="https://centrova.id/services/uiux"/>
+    <link rel="canonical" href="{{ url('/services/uiux-design') }}"/>
 @endsection
+
+{{-- Structured Data: Service Schema — SEO untuk halaman jasa --}}
+@push('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "{{ url()->current() }}#service",
+    "name": "Jasa UI/UX Design Profesional & User-Centered",
+    "description": "Centrova menyediakan jasa UI/UX design profesional dengan pendekatan user-centered. Dapatkan design interface yang menarik, usable, dan meningkatkan konversi bisnis Anda.",
+    "provider": {
+        "@type": "Organization",
+        "@id": "{{ url('/') }}#organization",
+        "name": "Centrova",
+        "url": "{{ url('/') }}"
+    },
+    "serviceType": "UI/UX Design",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "IDR"
+    }
+}
+</script>
+@endpush
 
 {{-- Critical CSS --}}
 @section('style-css')
@@ -1357,7 +1386,7 @@
             <p class="text-slate-600 text-base sm:text-lg mb-6">
                 Lihat kenapa puluhan startup dan enterprise mempercayakan UI/UX design mereka kepada Centrova.
             </p>
-            <a href="{{ route('support.web.consult') }}" target="_blank" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto inline-block">
+            <a href="{{ route('service.consult') }}" target="_blank" class="bg-[#128AEB] hover:bg-[#0f75c6] text-white font-semibold px-6 py-3 rounded-full transition flex items-center justify-center mx-auto inline-block">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                 </svg>

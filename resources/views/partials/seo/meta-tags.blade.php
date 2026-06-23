@@ -13,9 +13,9 @@ Usage: @include('partials.seo.meta-tags', [
 
 @php
     // Default values
-    $site_name = $site_name ?? 'Centrova Indonesia';
-    $site_url = $site_url ?? 'https://centrova.id';
-    $default_image = $default_image ?? 'https://centrova.id/assets/image/services/web-development/og-image.jpg';
+    $site_name = $site_name ?? 'Centrova';
+    $site_url = $site_url ?? config('app.url');
+    $default_image = $default_image ?? config('app.url') . '/assets/image/services/web-development/og-image.jpg';
     $twitter_handle = $twitter_handle ?? '@centrovaid';
     $phone = $phone ?? '+62858-1790-9560';
     $email = $email ?? 'info@centrova.id';
@@ -128,57 +128,24 @@ Usage: @include('partials.seo.meta-tags', [
     <link rel="preload" href="{{ $preload_data }}" as="fetch" crossorigin="anonymous">
 @endif
 
-{{-- Organization Schema --}}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ $business_name }}",
-    "url": "{{ $site_url }}",
-    "logo": "{{ $site_url }}/assets/image/logo/centrova-logo.png",
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "{{ $phone }}",
-        "contactType": "Customer Service",
-        "availableLanguage": ["Indonesian", "English"]
-    },
-    "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "ID",
-        "addressRegion": "{{ $business_location }}"
-    },
-    "sameAs": [
-        "https://instagram.com/centrovaid",
-        "https://twitter.com/centrovaid"
-    ]
-}
-</script>
-
-{{-- WebPage Schema --}}
+{{-- WebPage Schema (references homepage @id to avoid duplication) --}}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": "{{ $page_canonical }}/#webpage",
     "name": "{{ $page_title }}",
     "description": "{{ $page_description }}",
     "url": "{{ $page_canonical }}",
     "inLanguage": "id",
     "isPartOf": {
-        "@type": "WebSite",
-        "name": "{{ $site_name }}",
-        "url": "{{ $site_url }}"
+        "@id": "{{ $site_url }}/#website"
     },
     "author": {
-        "@type": "Organization",
-        "name": "{{ $business_name }}"
+        "@id": "{{ $site_url }}/#organization"
     },
     "publisher": {
-        "@type": "Organization",
-        "name": "{{ $business_name }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ $site_url }}/assets/image/logo/centrova-logo.png"
-        }
+        "@id": "{{ $site_url }}/#organization"
     }
 }
 </script>

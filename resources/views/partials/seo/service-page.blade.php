@@ -20,7 +20,7 @@ Usage for service pages with structured data:
     $service_keywords = $service_keywords ?? 'jasa digital, web development, centrova';
     
     // Page data for meta-tags partial
-    $page_title = $title ?? $service_name . ' Murah & Profesional | Centrova.id';
+    $page_title = $title ?? $service_name . ' Murah & Profesional | Centrova';
     $page_description = $description ?? $service_description . '. Harga mulai ' . number_format($service_price) . '. Konsultasi gratis! ☎️ 085817909560';
     $page_keywords = $keywords ?? $service_keywords;
     $page_canonical = $canonical_url ?? request()->url();
@@ -53,7 +53,7 @@ Usage for service pages with structured data:
     "provider": {
         "@type": "LocalBusiness",
         "name": "Centrova",
-        "url": "https://centrova.id",
+        "url": "{{ config('app.url') }}",
         "telephone": "+62858-1790-9560",
         "address": {
             "@type": "PostalAddress",
@@ -98,10 +98,10 @@ Usage for service pages with structured data:
 {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://centrova.id/#organization",
-    "name": "Centrova - {{ $service_name }}",
-    "description": "{{ $service_description }}. Harga terjangkau, kualitas profesional.",
-    "url": "https://centrova.id",
+    "@id": "{{ config('app.url') }}/#organization",
+    "name": "Centrova",
+    "description": "AI Venture Engineering company specializing in Software Development, AI-powered Systems, and AI Agent Automation.",
+    "url": "{{ config('app.url') }}",
     "telephone": "+62858-1790-9560",
     "address": {
         "@type": "PostalAddress",
@@ -196,21 +196,21 @@ Usage for service pages with structured data:
     "description": "{{ $service_description }}. Panduan lengkap, tips, harga, dan cara mendapatkan layanan berkualitas dengan budget terjangkau.",
     "image": {
         "@type": "ImageObject",
-        "url": "{{ $og_image ?? 'https://centrova.id/assets/image/services/web-development/og-image.jpg' }}",
+        "url": "{{ $og_image ?? config('app.url') . '/assets/image/services/web-development/og-image.jpg' }}",
         "width": 1200,
         "height": 630
     },
     "author": {
         "@type": "Organization",
         "name": "Centrova",
-        "url": "https://centrova.id"
+        "url": "{{ config('app.url') }}"
     },
     "publisher": {
         "@type": "Organization",
         "name": "Centrova",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://centrova.id/assets/image/logo/centrova-logo.png"
+            "url": "{{ config('app.url') }}/assets/image/logo/centrova-logo.png"
         }
     },
     "datePublished": "{{ $date_published ?? '2025-01-15' }}",

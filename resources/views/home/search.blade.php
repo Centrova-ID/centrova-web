@@ -9,7 +9,7 @@
 @section('seoMetaTags')
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="utf-8"/>
-    <meta name="robots" content="{{ $query ? 'noindex, nofollow' : 'index, follow' }}"/>
+    <meta name="robots" content="noindex, nofollow"/>
     <meta name="description" content="{{ $query ? 'Hasil pencarian untuk: ' . $query . '. Temukan halaman, layanan, dan informasi yang Anda cari di website Centrova.' : 'Fitur pencarian canggih Centrova memungkinkan Anda menemukan semua halaman, layanan, informasi legal, dan konten website dengan mudah dan cepat.' }}"/>
     <meta name="keywords" content="pencarian, search, centrova, website, layanan, informasi, teknologi, digital, jasa pembuatan website, website profesional, web development, website bisnis, toko online, landing page, company profile, website responsif, jasa website, pembuatan website, website modern, e-commerce, aplikasi web, desain website, website murah"/>
     
@@ -399,7 +399,7 @@
                             @endforeach
                         @else
                             {{-- Default service cards jika tidak ada quickLinks --}}
-                            <a href="{{ route('services.web.index') }}" class="bg-white rounded-2xl border border-slate-200 p-6 text-center hover:shadow-lg hover:border-[#128AEB] transition-all duration-200 group">
+                            <a href="{{ route('services.web-development') }}" class="bg-white rounded-2xl border border-slate-200 p-6 text-center hover:shadow-lg hover:border-[#128AEB] transition-all duration-200 group">
                                 <div class="w-16 h-16 bg-[#128AEB]/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-[#128AEB]/20 transition-colors duration-200">
                                     <svg class="w-8 h-8 text-[#128AEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 919-9"/>
@@ -697,7 +697,7 @@
                             this.liveSuggestions.unshift({
                                 title: 'Layanan Web Development',
                                 description: 'Jasa pembuatan website profesional dan modern',
-                                url: '{{ route("services.web.index") }}',
+                                url: '{{ route("services.web-development") }}',
                                 type: 'Layanan'
                             });
                         }
