@@ -54,6 +54,8 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/custom-solution', [ServiceController::class, 'customSolution'])->name('services.custom-solution.index');
         Route::get('/web/{slug}/{page?}', [ServiceController::class, 'webPortfolio'])->name('services.web.portfolio');
         Route::get('/web-development', [ServiceController::class, 'webDevelopment'])->name('services.web-development');
+        Route::get('/web-development/company-profile', [ServiceController::class, 'webCompanyProfile'])->name('services.web-company-profile');
+        Route::get('/web-development/ecommerce', [ServiceController::class, 'ecommerce'])->name('services.web-ecommerce');
         Route::get('/app-development', [ServiceController::class, 'appDevelopment'])->name('services.app-development');
         Route::get('/mobile-app-development', [ServiceController::class, 'mobileAppDevelopment'])->name('services.mobile-app-development');
         Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('services.uiux-design');
@@ -107,6 +109,8 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
             Route::get('/custom-solution', [ServiceController::class, 'customSolution'])->name('en.services.custom-solution.index');
             Route::get('/web/{slug}/{page?}', [ServiceController::class, 'webPortfolio'])->name('en.services.web.portfolio');
             Route::get('/web-development', [ServiceController::class, 'webDevelopment'])->name('en.services.web-development');
+            Route::get('/web-development/company-profile', [ServiceController::class, 'webCompanyProfile'])->name('en.services.web-company-profile');
+            Route::get('/web-development/ecommerce', [ServiceController::class, 'ecommerce'])->name('en.services.web-ecommerce');
             Route::get('/app-development', [ServiceController::class, 'appDevelopment'])->name('en.services.app-development');
             Route::get('/mobile-app-development', [ServiceController::class, 'mobileAppDevelopment'])->name('en.services.mobile-app-development');
             Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('en.services.uiux-design');
