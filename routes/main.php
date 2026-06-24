@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BlogEditorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\ServiceController;
@@ -26,6 +27,22 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
     // Blog Routes
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+    // Blog Editor Routes
+    Route::prefix('blog-editor')->name('blog.editor.')->group(function () {
+        Route::get('/login', [BlogEditorController::class, 'login'])->name('login');
+        Route::post('/login', [BlogEditorController::class, 'authenticate'])->name('authenticate');
+        Route::get('/logout', [BlogEditorController::class, 'logout'])->name('logout');
+        Route::get('/', [BlogEditorController::class, 'index'])->name('index');
+        Route::get('/create', [BlogEditorController::class, 'create'])->name('create');
+        Route::post('/', [BlogEditorController::class, 'store'])->name('store');
+        Route::get('/{post}/edit', [BlogEditorController::class, 'edit'])->name('edit');
+        Route::put('/{post}', [BlogEditorController::class, 'update'])->name('update');
+        Route::delete('/{post}', [BlogEditorController::class, 'destroy'])->name('destroy');
+    });
+
+    // Blog Editor Image Upload
+    Route::post('/blog-editor/upload-image', [BlogEditorController::class, 'uploadImage'])->name('blog.editor.upload-image');
 
     // Legal Routes
     Route::prefix('legal')->group(function () {

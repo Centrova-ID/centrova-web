@@ -30,6 +30,7 @@ export default defineConfig({
                     // Separate vendor chunks for better caching
                     'vendor-alpine': ['alpinejs', '@alpinejs/persist'],
                     'vendor-utils': ['cropperjs', 'axios'],
+                    'vendor-editor': ['tinymce'],
                 },
                 // Optimized chunk file names
                 chunkFileNames: 'assets/js/[name]-[hash].js',
@@ -62,6 +63,7 @@ export default defineConfig({
             '@hotwired/turbo',
             'axios',
             'cropperjs',
+            'tinymce',
         ],
         // Force pre-bundling
         force: false,

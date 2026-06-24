@@ -152,7 +152,7 @@
             const a = document.createElement('a');
             a.href = '#' + id;
             a.textContent = h2.textContent;
-            a.className = 'text-sm text-neutral-500 hover:text-[#128AEB] transition block py-1 leading-relaxed';
+            a.className = 'text-base tracking-tight antialiased text-neutral-500 hover:text-primary-600 transition block py-1 leading-relaxed';
             a.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = document.getElementById(id);
@@ -208,7 +208,7 @@
 
 <div class="bg-white min-h-screen">
     {{-- Breadcrumbs --}}
-    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pt-28 pb-6">
+    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-12">
         <nav class="flex flex-wrap text-sm text-neutral-500" aria-label="Breadcrumb">
             @foreach($breadcrumbs as $index => $crumb)
                 @if(!$loop->last)
@@ -223,41 +223,19 @@
 
     {{-- Article Header --}}
     <header class="w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-8 pb-8">
-        <div class="flex flex-wrap items-center gap-3 mb-5">
-            @if($post->category)
-            <span class="inline-flex items-center px-3.5 py-1.5 text-xs font-semibold bg-gradient-to-r from-blue-50 to-indigo-50 text-[#128AEB] rounded-full border border-blue-100/50">
-                <span class="material-symbols-outlined text-[16px] mr-1.5">article</span>
-                {{ $post->category }}
-            </span>
-            @endif
-        </div>
         <h1 class="text-3xl sm:text-4xl lg:text-6xl font-medium text-slate-900 mb-5 leading-relaxed tracking-tight">
             {{ $post->title }}
         </h1>
         @if($post->excerpt)
-        <p class="text-lg sm:text-xl text-neutral-500 mb-6 leading-relaxed">{{ $post->excerpt }}</p>
+        <p class="text-lg text-neutral-600 tracking-tight mb-6 leading-relaxed">{{ $post->excerpt }}</p>
         @endif
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-400 border-b border-neutral-100 pb-6">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#128AEB] to-blue-700 flex items-center justify-center text-white text-xs font-bold">
-                    C
-                </div>
-                <span class="text-neutral-600 font-medium">Centrova</span>
-            </div>
-            <span class="hidden sm:inline text-neutral-300">·</span>
-            <span class="flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-neutral-600 border-b border-neutral-100 pb-6">
+            <span>
                 {{ $post->published_at?->format('d M Y') }}
             </span>
-            <span class="text-neutral-300">·</span>
-            <span class="flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px]">schedule</span>
+            <span>·</span>
+            <span>
                 {{ $post->reading_time }} min read
-            </span>
-            <span class="text-neutral-300">·</span>
-            <span class="flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px]">visibility</span>
-                {{ number_format($post->view_count) }} views
             </span>
         </div>
     </header>
@@ -280,14 +258,14 @@
             {{-- Table of Contents Sidebar (Desktop) --}}
             <aside class="hidden lg:block w-64 flex-shrink-0">
                 <div class="sticky top-24">
-                    <div class="border-l-2 border-neutral-100 pl-5">
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-4">Daftar Isi</h4>
-                        <nav id="table-of-contents"></nav>
+                    <div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4">Daftar Isi</h4>
+                        <nav id="table-of-contents" class="border-l-2 border-neutral-300 pl-5"></nav>
                     </div>
 
                     {{-- Share buttons --}}
                     <div class="mt-8 pt-6 border-t border-neutral-100">
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-4">Bagikan</h4>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-4">Bagikan</h4>
                         <div class="flex flex-col gap-2">
                             <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}" 
                                target="_blank" rel="noopener noreferrer"
@@ -319,7 +297,7 @@
 
             {{-- Main Article --}}
             <article class="flex-1 min-w-0">
-                <div class="article-content prose prose-lg max-w-none prose-headings:font-bold prose-a:text-[#128AEB] prose-blockquote:border-l-[#128AEB] prose-img:rounded-xl">
+                <div class="article-content prose prose-lg max-w-none prose-headings:font-bold prose-a:text-[#128AEB] prose-blockquote:border-l-[#128AEB] prose-img:rounded-xl text-base text-neutral-600 antialiased">
                     {{-- Render the post content --}}
                     {!! $post->content !!}
                 </div>
