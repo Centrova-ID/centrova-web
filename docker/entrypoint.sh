@@ -36,6 +36,9 @@ if [ $MIGRATE_EXIT -ne 0 ]; then
     echo "==> WARNING: Some migrations failed (exit $MIGRATE_EXIT). App may still work."
 fi
 
+# Seed data — will skip if data already exists (duplicate entry errors ignored)
+php artisan db:seed --force 2>/dev/null || echo "==> Seeder skipped (data may already exist)."
+
 # Clear & cache config
 php artisan config:cache
 # Note: route:cache skipped due to duplicate route name 'privacy.request.form' in main.php & account.php
