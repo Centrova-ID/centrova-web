@@ -27,22 +27,12 @@ until php -r "new PDO('mysql:host=${DB_HOST};port=${DB_PORT};dbname=${DB_DATABAS
 done
 echo "==> MySQL ready."
 
-# Run migrations with 60s timeout — continue on partial failure
+# Skip migrate & seed — use existing DB state
 set +e
-timeout 60 php artisan migrate --force
-MIGRATE_EXIT=$?
+echo "==> Cache config & views..."
+php artisan config:cache 2>/dev/null || true
+php artisan view:cache 2>/dev/null || true
 set -e
-if [ $MIGRATE_EXIT -ne 0 ]; then
-    echo "==> WARNING: Some migrations failed (exit $MIGRATE_EXIT). App may still work."
-fi
-
-# Seed data — insert via raw SQL for reliability
-POSTS_COUNT=$(php -r "try{echo new PDO('mysql:host=${DB_HOST};dbname=${DB_DATABASE}','${DB_USERNAME}','${DB_PASSWORD}')->query('SELECT COUNT(*) FROM posts')->fetchColumn();}catch(Exception\$e){echo 0;}")
-if [ "$POSTS_COUNT" = "0" ]; then
-    php artisan db:seed --class=PostSeeder --force 2>/dev/null || echo "==> Seeder skipped."
-fi
-
-# Clear & cache config
 php artisan config:cache
 # Note: route:cache skipped due to duplicate route name 'privacy.request.form' in main.php & account.php
 php artisan view:cache
