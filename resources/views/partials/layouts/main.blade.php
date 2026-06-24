@@ -37,7 +37,7 @@
     {{-- Additional Links from Views --}}
     @yield('link-head')
 
-    {{-- TailwindCSS via local copy (suppress production warning) --}}
+    {{-- TailwindCSS with Typography Plugin via CDN --}}
     <script>
         // Suppress Tailwind Play CDN production warning
         const origWarn = console.warn;
@@ -46,7 +46,7 @@
             origWarn.apply(console, arguments);
         };
     </script>
-    <script src="{{ asset('cdn/tailwindcss.min.js') }}"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     {{-- Vite Assets: Alpine.js with Collapse plugin --}}
     @vite(['resources/js/app.js'])
     
