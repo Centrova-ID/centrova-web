@@ -27,9 +27,9 @@ until php -r "new PDO('mysql:host=${DB_HOST};port=${DB_PORT};dbname=${DB_DATABAS
 done
 echo "==> MySQL ready."
 
-# Run migrations — continue on partial failure (some migrations may fail due to column state mismatch)
+# Run migrations with 60s timeout — continue on partial failure
 set +e
-php artisan migrate --force
+timeout 60 php artisan migrate --force
 MIGRATE_EXIT=$?
 set -e
 if [ $MIGRATE_EXIT -ne 0 ]; then
