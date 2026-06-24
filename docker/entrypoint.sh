@@ -36,8 +36,11 @@ if [ $MIGRATE_EXIT -ne 0 ]; then
     echo "==> WARNING: Some migrations failed (exit $MIGRATE_EXIT). App may still work."
 fi
 
-# Seed data — will skip if data already exists (duplicate entry errors ignored)
-php artisan db:seed --force 2>/dev/null || echo "==> Seeder skipped (data may already exist)."
+# Seed data — insert via raw SQL for reliability
+POSTS_COUNT=$(php -r "try{echo new PDO('mysql:host=${DB_HOST};dbname=${DB_DATABASE}','${DB_USERNAME}','${DB_PASSWORD}')->query('SELECT COUNT(*) FROM posts')->fetchColumn();}catch(Exception\$e){echo 0;}")
+if [ "$POSTS_COUNT" = "0" ]; then
+    php artisan db:seed --class=PostSeeder --force 2>/dev/null || echo "==> Seeder skipped."
+fi
 
 # Clear & cache config
 php artisan config:cache
