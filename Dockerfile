@@ -32,6 +32,9 @@ RUN npm ci
 # Copy app files
 COPY . .
 
+# Remove stale Laravel caches that may exist in a deploy checkout.
+RUN rm -f bootstrap/cache/config.php bootstrap/cache/routes*.php
+
 # Ensure cache/storage dirs exist before runtime artisan commands
 RUN mkdir -p bootstrap/cache storage/app/public storage/framework/{sessions,views,cache} storage/logs \
     && chmod -R 775 bootstrap/cache storage
