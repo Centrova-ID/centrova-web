@@ -19,18 +19,28 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
+# Install PHP dependencies before copying app code so vendor can be reused
+# when only application files change.
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --no-scripts --no-autoloader
+
+# Install Node dependencies before copying app code so node_modules can be reused
+# when package-lock.json is unchanged.
+COPY package.json package-lock.json ./
+RUN npm ci
+
 # Copy app files
 COPY . .
 
-# Ensure cache/storage dirs exist before composer runs artisan scripts
+# Ensure cache/storage dirs exist before runtime artisan commands
 RUN mkdir -p bootstrap/cache storage/app/public storage/framework/{sessions,views,cache} storage/logs \
     && chmod -R 775 bootstrap/cache storage
 
-# Install PHP dependencies (skip scripts — artisan needs env vars available at runtime)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+# Build optimized autoload files after app code is available.
+RUN composer dump-autoload --optimize --no-dev --no-scripts
 
-# Install Node deps and build assets
-RUN npm ci && npm run build && rm -rf node_modules
+# Build assets, then remove build-only Node dependencies from the final image.
+RUN npm run build && rm -rf node_modules
 
 # Fix storage permissions
 RUN chown -R www-data:www-data /var/www/html \
