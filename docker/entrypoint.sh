@@ -20,10 +20,6 @@ fi
 # Discover packages (skipped during build since .env wasn't available)
 php artisan package:discover --ansi
 
-# Clear stale caches copied from previous deploys before building fresh runtime caches.
-php artisan config:clear
-php artisan route:clear
-
 # Wait for MySQL
 echo "==> Waiting for MySQL..."
 until php -r "new PDO('mysql:host=${DB_HOST};port=${DB_PORT};dbname=${DB_DATABASE}', '${DB_USERNAME}', '${DB_PASSWORD}');" 2>/dev/null; do

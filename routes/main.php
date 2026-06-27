@@ -14,9 +14,7 @@ use App\Http\Controllers\SitemapController;
 |--------------------------------------------------------------------------
 */
 
-$mainDomain = parse_url(config('app.url'), PHP_URL_HOST) ?: 'centrova.id';
-
-$mainRoutes = function () {
+Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -147,10 +145,4 @@ $mainRoutes = function () {
 
         Route::get('/service/consult', [ServiceController::class, 'consult'])->name('en.service.consult');
     });
-};
-
-Route::domain($mainDomain)->middleware(['web', 'language'])->group($mainRoutes);
-
-if ($mainDomain !== 'centrova.id') {
-    Route::middleware(['web', 'language'])->group($mainRoutes);
-}
+});
