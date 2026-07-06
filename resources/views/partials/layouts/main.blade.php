@@ -86,7 +86,7 @@
 
 <body class="font-sans antialiased bg-white text-neutral-900">
     {{-- Main Application Wrapper --}}
-    <div id="app" x-data="{ mobileMenuOpen: false }">
+    <div id="app" x-data="{ mobileMenuOpen: false }" @toggle-menu.window="mobileMenuOpen = !mobileMenuOpen">
         {{-- Navigation Bar --}}
         @hasSection('navbar')
             @yield('navbar')
