@@ -65,6 +65,7 @@
     
     {{-- Application initialization --}}
     <script>
+        window.__mobileMenuOpen = false;
         document.addEventListener('alpine:init', () => {
             // Alpine configuration if needed
         });
@@ -83,9 +84,9 @@
     @yield('style-css')
 </head>
 
-<body class="font-sans antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }" x-cloak>
+<body class="font-sans antialiased bg-white text-neutral-900">
     {{-- Main Application Wrapper --}}
-    <div id="app">
+    <div id="app" x-data="{ mobileMenuOpen: false }">
         {{-- Navigation Bar --}}
         @hasSection('navbar')
             @yield('navbar')
