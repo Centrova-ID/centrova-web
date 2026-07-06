@@ -12,11 +12,11 @@ use App\Http\Controllers\FeedController;
 
 /*
 |--------------------------------------------------------------------------
-| Main Domain Routes (centrova.test)
+| Main Domain Routes (centrova.id)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('centrova.test')->middleware(['web', 'language'])->group(function () {
+Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -104,7 +104,7 @@ Route::domain('centrova.test')->middleware(['web', 'language'])->group(function 
 
     // Service Cancellation — redirect to account subdomain (route defined in account.php)
     Route::get('/services/cancellation', function () {
-        return redirect('https://account.centrova.test/services/cancellation', 302);
+        return redirect('https://account.centrova.id/services/cancellation', 302);
     })->name('services.cancellation.index');
 
     // English routes (with /en prefix)
