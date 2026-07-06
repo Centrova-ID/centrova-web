@@ -1,5 +1,5 @@
 {{-- HEADER / NAVBAR CONTAINER --}}
-<header class="sticky top-0 z-50 bg-white border-b border-gray-200" x-data="{ activeMegaMenu: null, hoverTimeout: null }">
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200" x-data="{ activeMegaMenu: null, hoverTimeout: null, mobileMenuOpen: false }">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-start h-16">
             
