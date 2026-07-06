@@ -1,5 +1,5 @@
 {{-- HEADER / NAVBAR CONTAINER --}}
-<header class="sticky top-0 z-50 bg-white border-b border-gray-200" x-data="{ activeMegaMenu: null, hoverTimeout: null, mobileMenuOpen: false }">
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200" x-data="{ activeMegaMenu: null, hoverTimeout: null }">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-start h-16">
             
@@ -7,7 +7,7 @@
             <div class="flex items-center flex-1">
                 {{-- Mobile Menu Button (Hamburger) --}}
                 <button 
-                    @click="mobileMenuOpen = true"
+                    @click="$root.mobileMenuOpen = true"
                     type="button" 
                     class="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:bg-gray-100 hover:text-neutral-900 focus:outline-none md:hidden transition duration-150"
                     aria-label="Buka menu"
@@ -108,13 +108,13 @@
 {{-- MOBILE SIDEBAR (DRAWER) --}}
 {{-- ========================================== --}}
 <div 
-    x-show="mobileMenuOpen" 
-    x-effect="document.body.classList.toggle('overflow-hidden', mobileMenuOpen)"
+    x-show="$root.mobileMenuOpen" 
+    x-effect="document.body.classList.toggle('overflow-hidden', $root.mobileMenuOpen)"
     class="fixed inset-0 z-50 md:hidden" 
     style="display: none;">
     {{-- Backdrop --}}
     <div 
-        x-show="mobileMenuOpen"
+        x-show="$root.mobileMenuOpen"
         x-transition:enter="transition-opacity ease-linear duration-150"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -122,12 +122,12 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
         class="fixed inset-0 bg-black/80" 
-        @click="mobileMenuOpen = false"
+        @click="$root.mobileMenuOpen = false"
     ></div>
 
     {{-- Sidebar Container --}}
     <div 
-        x-show="mobileMenuOpen"
+        x-show="$root.mobileMenuOpen"
         x-transition:enter="transition ease-in-out duration-150 transform"
         x-transition:enter-start="-translate-x-full"
         x-transition:enter-end="translate-x-0"
@@ -145,7 +145,7 @@
                      draggable="false" />
             </a>
             <button 
-                @click="mobileMenuOpen = false"
+                @click="$root.mobileMenuOpen = false"
                 type="button" 
                 class="p-2 rounded-md text-neutral-700 hover:bg-gray-100 focus:outline-none"
             >
