@@ -39,6 +39,9 @@
     {{-- Vite Assets: Include Tailwind CSS dan Alpine.js (bundled) --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
+    {{-- Prevent Alpine.js flash --}}
+    <style>[x-cloak] { display: none !important; }</style>
+    
     {{-- Google Analytics / GA4 --}}
     @if(config('services.google.analytics_id'))
         <!-- Google tag (gtag.js) -->
@@ -80,7 +83,7 @@
     @yield('style-css')
 </head>
 
-<body class="font-sans antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }">
+<body class="font-sans antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }" x-cloak>
     {{-- Main Application Wrapper --}}
     <div id="app">
         {{-- Navigation Bar --}}

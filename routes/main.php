@@ -172,4 +172,9 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
 
         Route::get('/service/consult', [ServiceController::class, 'consult'])->name('en.service.consult');
     });
+
+    // Glide image manipulation — di dalam domain centrova.id
+    Route::get('/img/{path}', \App\Http\Controllers\ImageController::class)
+        ->where('path', '.*')
+        ->name('glide.image');
 });
