@@ -8,7 +8,7 @@
             <div class="flex items-center flex-1">
                 {{-- Mobile Menu Button (Hamburger) --}}
                 <button 
-                    @click="$dispatch('toggle-menu')"
+                    @click="window.dispatchEvent(new CustomEvent('toggle-menu'))"
                     type="button" 
                     class="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:bg-gray-100 hover:text-neutral-900 focus:outline-none md:hidden transition duration-150"
                     aria-label="Buka menu"
