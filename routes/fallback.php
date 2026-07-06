@@ -27,9 +27,9 @@ Route::prefix('services')->middleware(['web'])->group(function () {
     Route::permanentRedirect('/mobile-app', '/services/mobile-app-development');
 
     Route::get('/custom-solution', [ServiceController::class, 'customSolution']);
-    Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy']);
-    Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents']);
-    Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation']);
+    Route::get('/ai/strategy', [ServiceController::class, 'aiStrategy']);
+    Route::get('/ai/agents', [ServiceController::class, 'aiAgents']);
+    Route::get('/ai/automation', [ServiceController::class, 'aiAutomation']);
     // Backward compatibility
     Route::get('/web-development', [ServiceController::class, 'webDevelopment']);
     Route::get('/app-development', [ServiceController::class, 'appDevelopment']);

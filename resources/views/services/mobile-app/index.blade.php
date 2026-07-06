@@ -46,7 +46,7 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "{{ url()->current() }}#service",
+    "@id": "{{ canonical_url() }}#service",
     "name": "Jasa Pembuatan Aplikasi Mobile Android & iOS Profesional",
     "description": "Centrova menyediakan jasa pembuatan aplikasi mobile Android & iOS profesional. Aplikasi hybrid dan native yang powerful untuk kebutuhan bisnis modern.",
     "provider": {

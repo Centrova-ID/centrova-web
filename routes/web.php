@@ -56,6 +56,11 @@ require __DIR__.'/main.php';
 // Fallback routes and mobile compatibility
 require __DIR__.'/fallback.php';
 
+// Glide image manipulation route — catch-all untuk gambar yang di-resize
+Route::get('/img/{path}', \App\Http\Controllers\ImageController::class)
+    ->where('path', '.*')
+    ->name('glide.image');
+
 // Typo redirect fallback routes - harus setelah semua route lain
 Route::fallback(function () {
     // Middleware akan menangani redirect typo otomatis

@@ -57,7 +57,7 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "{{ url()->current() }}#service",
+    "@id": "{{ canonical_url() }}#service",
     "name": "Jasa UI/UX Design Profesional & User-Centered",
     "description": "Centrova menyediakan jasa UI/UX design profesional dengan pendekatan user-centered. Dapatkan design interface yang menarik, usable, dan meningkatkan konversi bisnis Anda.",
     "provider": {

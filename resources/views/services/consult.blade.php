@@ -10,10 +10,10 @@
     <meta property="og:title" content="Konsultasi Centrova"/>
     <meta property="og:description" content="Konsultasi bisnis melalui form email atau hubungi kami langsung via WhatsApp untuk individu."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="{{ url()->current() }}"/>
+    <meta property="og:url" content="{{ canonical_url() }}"/>
     <meta property="og:site_name" content="Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
-    <link rel="canonical" href="{{ url()->current() }}"/>
+    <link rel="canonical" href="{{ canonical_url() }}"/>
     {{-- Memastikan x-cloak bekerja jika belum didefinisikan di app.css --}}
     <style>[x-cloak] { display: none !important; }</style>
 @endsection
@@ -56,43 +56,61 @@
 
                     <form id="businessConsultForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="business_name">Nama Bisnis *</label>
-                                <input id="business_name" name="business_name" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Nama perusahaan">
+                            <div class="relative mt-1">
+                                <input id="business_name" name="business_name" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Nama perusahaan">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="business_name">Nama Bisnis *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="employees_count">Jumlah Karyawan *</label>
-                                <input id="employees_count" name="employees_count" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Contoh: 50">
+                            <div class="relative mt-1">
+                                <input id="employees_count" name="employees_count" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Contoh: 50">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="employees_count">Jumlah Karyawan *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="job_title">Jabatan *</label>
-                                <input id="job_title" name="job_title" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Jabatan Anda">
+                            <div class="relative mt-1">
+                                <input id="job_title" name="job_title" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Jabatan Anda">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="job_title">Jabatan *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="province">Provinsi *</label>
-                                <input id="province" name="province" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Provinsi">
+                            <div class="relative mt-1">
+                                <input id="province" name="province" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Provinsi">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="province">Provinsi *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="business_email">Email Bisnis *</label>
-                                <input id="business_email" name="business_email" type="email" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="name@company.com">
+                            <div class="relative mt-1">
+                                <input id="business_email" name="business_email" type="email" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="name@company.com">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="business_email">Email Bisnis *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="phone">Nomor Telepon (+62) *</label>
-                                <input id="phone" name="phone" type="tel" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="6281234567890">
+                            <div class="relative mt-1">
+                                <input id="phone" name="phone" type="tel" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="6281234567890">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="phone">Nomor Telepon (+62) *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="first_name">Nama Depan *</label>
-                                <input id="first_name" name="first_name" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Nama depan">
+                            <div class="relative mt-1">
+                                <input id="first_name" name="first_name" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Nama depan">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="first_name">Nama Depan *</label>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-slate-700 mb-2" for="last_name">Nama Belakang *</label>
-                                <input id="last_name" name="last_name" type="text" required class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Nama belakang">
+                            <div class="relative mt-1">
+                                <input id="last_name" name="last_name" type="text" required class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Nama belakang">
+                                <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="last_name">Nama Belakang *</label>
                             </div>
                         </div>
 
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-2" for="additional_details">Berikan Detail Tambahan *</label>
-                            <textarea id="additional_details" name="additional_details" required rows="5" class="w-full rounded-2xl border border-neutral-300 px-4 py-3.5 focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Ceritakan kebutuhan, masalah utama, target, atau konteks tambahan lainnya"></textarea>
+                        <div class="relative mt-1">
+                            <textarea id="additional_details" name="additional_details" required rows="5" class="peer block w-full px-4 pt-4 pb-3.5 text-base text-slate-900 bg-transparent border border-slate-300 rounded focus:outline-none focus:ring-0 focus:border-primary-600 transition-colors placeholder-transparent" placeholder="Ceritakan kebutuhan, masalah utama, target, atau konteks tambahan lainnya"></textarea>
+                            <label class="absolute left-3 top-0 text-slate-500 text-sm transition-all duration-200 transform -translate-y-1/2 scale-85 bg-white px-1.5 pointer-events-none origin-[0] 
+                                   peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-placeholder-shown:text-slate-400
+                                   peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:scale-85 peer-focus:text-primary-600 peer-focus:px-1.5" for="additional_details">Berikan Detail Tambahan *</label>
                         </div>
 
                         <div class="space-y-3 rounded-2xl border border-neutral-200 bg-neutral-50 p-4">

@@ -17,15 +17,15 @@
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
 
     {{-- Canonical URL --}}
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ canonical_url() }}">
 
     {{-- Hreflang --}}
-    <link rel="alternate" href="{{ url()->current() }}" hreflang="id">
-    <link rel="alternate" href="{{ url()->current() }}" hreflang="x-default">
+    <link rel="alternate" href="{{ canonical_url() }}" hreflang="id">
+    <link rel="alternate" href="{{ canonical_url() }}" hreflang="x-default">
 
     {{-- Open Graph --}}
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:url" content="{{ canonical_url() }}">
     <meta property="og:title" content="Tentang Kami | PT Centrova Teknologi Indonesia - AI Venture Engineering & Software Development">
     <meta property="og:description" content="PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan Software Development, AI-powered Systems, dan AI Agents untuk transformasi digital bisnis Anda.">
     <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png">
@@ -39,7 +39,7 @@
 
     {{-- Twitter/X --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:url" content="{{ canonical_url() }}">
     <meta name="twitter:title" content="Tentang Centrova | PT Centrova Teknologi Indonesia - AI Venture Engineering">
     <meta name="twitter:description" content="PT Centrova Teknologi Indonesia - AI Venture Engineering. Pelajari visi, misi, dan nilai perusahaan dalam memberdayakan bisnis Indonesia melalui AI dan software development.">
     <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png">
@@ -75,8 +75,8 @@
     {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "@id": "{{ url()->current() }}#aboutpage",
-        "url": "{{ url()->current() }}",
+        "@id": "{{ canonical_url() }}#aboutpage",
+        "url": "{{ canonical_url() }}",
         "name": "Tentang PT Centrova Teknologi Indonesia",
         "description": "PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, sistem berbasis AI, dan AI Agents untuk membantu bisnis membangun, mengotomatisasi, serta mengembangkan operasional mereka.",
         "mainEntity": {
@@ -152,7 +152,7 @@
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "@id": "{{ url()->current() }}#breadcrumb",
+        "@id": "{{ canonical_url() }}#breadcrumb",
         "itemListElement": [
             {
                 "@type": "ListItem",
@@ -164,7 +164,7 @@
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Tentang Kami",
-                "item": "{{ url()->current() }}"
+                "item": "{{ canonical_url() }}"
             }
         ]
     }
@@ -175,7 +175,7 @@
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "@id": "{{ url()->current() }}#faq",
+        "@id": "{{ canonical_url() }}#faq",
         "mainEntity": [
             {
                 "@type": "Question",
@@ -234,8 +234,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": "{{ url()->current() }}#webpage",
-        "url": "{{ url()->current() }}",
+        "@id": "{{ canonical_url() }}#webpage",
+        "url": "{{ canonical_url() }}",
         "name": "Tentang Kami | PT Centrova Teknologi Indonesia - AI Venture Engineering & Software Development",
         "description": "PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, AI-powered systems, dan AI Agents. Pelajari visi, misi, dan nilai kami.",
         "about": { "@id": "{{ config('app.url') }}/#organization" },
@@ -252,84 +252,110 @@
 @endpush
 
 @section('content')
-    {{-- Hero: Esensi Inovasi Digital --}}
-    <section class="w-full bg-white py-10 sm:py-16 tracking-tight">
-        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{-- Hero: Meta-style hero-band-marketing --}}
+    <section class="w-full bg-white py-16 sm:py-24">
+        <div class="w-full max-w-7xl mx-auto px-7 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 sm:mb-8 leading-tight">Build to Shape the Future!</h1>
-                <p class="text-base sm:text-xl text-neutral-900 font-medium leading-relaxed max-w-3xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 sm:mb-8 leading-tight tracking-tight">Build to Shape the Future!</h1>
+                <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed max-w-3xl mx-auto">
                     Centrova hadir dengan pendekatan AI Venture Engineering — melampaui pola pikir pengembangan konvensional, berfokus pada fungsionalitas, otomatisasi, dan konteks penggunaan yang secara langsung meningkatkan efisiensi bisnis Anda.
                 </p>
             </div>
         </div>
     </section>
 
-    <div class="mt-6 sm:mt-10">
-        <img src="{{ asset('assets/image/8934KW4IYT.webp') }}"
-             alt="Centrova Teknologi Indonesia - AI Venture Engineering Company"
-             class="w-full aspect-[16/7] object-cover">
+    {{-- Meta-style card-feature-photo showcase with rounded-[32px] --}}
+    <div class="max-w-7xl mx-auto px-7 lg:px-8">
+        <div class="rounded-[32px] overflow-hidden">
+            <img src="@img('assets/image/8934KW4IYT.webp', ['w' => 1440, 'fit' => 'contain'])"
+                 alt="Centrova Teknologi Indonesia - AI Venture Engineering Company"
+                 class="w-full aspect-[16/7] object-cover"
+                 loading="lazy" decoding="async">
+        </div>
     </div>
 
-    {{-- Tentang Kami --}}
-    <section class="w-full bg-white py-10 sm:py-16 mt-6 sm:mt-10">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900">Tentang Kami</h2>
-            <div class="space-y-4 sm:space-y-6 text-neutral-700 text-base sm:text-lg leading-relaxed lg:col-span-2">
-                <p>
-                    PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, sistem berbasis AI, dan AI Agents untuk membantu bisnis membangun, mengotomatisasi, serta mengembangkan operasional mereka secara lebih efisien, cepat, dan berkelanjutan.
-                </p>
-                <p>
-                    Kami berkomitmen untuk memberikan solusi teknologi yang terintegrasi dan inovatif, membantu bisnis di Indonesia bertransformasi secara digital dengan pendekatan yang terukur, efisien, dan berorientasi pada hasil nyata.
-                </p>
+    {{-- Tentang Kami — Meta-style card-product-feature row --}}
+    <section class="w-full bg-white py-16 sm:py-20">
+        <div class="w-full max-w-7xl mx-auto px-7 lg:px-8">
+            <div class="max-w-6xl mx-auto bg-white rounded-[32px] border border-neutral-200 p-8 sm:p-12 lg:p-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">Tentang Kami</h2>
+                    </div>
+                    <div class="space-y-5 text-neutral-600 text-base sm:text-lg leading-relaxed lg:col-span-2">
+                        <p>
+                            PT Centrova Teknologi Indonesia adalah perusahaan AI Venture Engineering yang menggabungkan software development, sistem berbasis AI, dan AI Agents untuk membantu bisnis membangun, mengotomatisasi, serta mengembangkan operasional mereka secara lebih efisien, cepat, dan berkelanjutan.
+                        </p>
+                        <p>
+                            Kami berkomitmen untuk memberikan solusi teknologi yang terintegrasi dan inovatif, membantu bisnis di Indonesia bertransformasi secara digital dengan pendekatan yang terukur, efisien, dan berorientasi pada hasil nyata.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    {{-- Misi Kami --}}
-    <section class="w-full bg-white py-10 sm:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900">Misi Kami</h2>
-            <p class="text-neutral-700 text-base sm:text-lg leading-relaxed w-full lg:col-span-2">
-                Mengintegrasikan prinsip AI Venture Engineering ke dalam setiap aspek layanan kami, untuk menghadirkan solusi digital yang efisien, terotomatisasi, dan mampu mendorong pertumbuhan bisnis secara berkelanjutan.
-            </p>
+    {{-- Misi Kami — Meta-style card-product-feature row --}}
+    <section class="w-full bg-neutral-50 py-16 sm:py-20">
+        <div class="w-full max-w-7xl mx-auto px-7 lg:px-8">
+            <div class="max-w-6xl mx-auto bg-white rounded-[32px] border border-neutral-200 p-8 sm:p-12 lg:p-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">Misi Kami</h2>
+                    </div>
+                    <p class="text-neutral-600 text-base sm:text-lg leading-relaxed lg:col-span-2">
+                        Mengintegrasikan prinsip AI Venture Engineering ke dalam setiap aspek layanan kami, untuk menghadirkan solusi digital yang efisien, terotomatisasi, dan mampu mendorong pertumbuhan bisnis secara berkelanjutan.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    {{-- Visi Kami --}}
-    <section class="w-full bg-white py-10 sm:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900">Visi Kami</h2>
-            <p class="text-neutral-700 text-base sm:text-lg leading-relaxed w-full lg:col-span-2">
-                Menjadi mitra teknologi terdepan yang memberdayakan bisnis di Indonesia melalui inovasi AI, pengembangan perangkat lunak berkualitas tinggi, dan solusi digital yang terintegrasi.
-            </p>
+    {{-- Visi Kami — Meta-style card-product-feature row --}}
+    <section class="w-full bg-white py-16 sm:py-20">
+        <div class="w-full max-w-7xl mx-auto px-7 lg:px-8">
+            <div class="max-w-6xl mx-auto bg-white rounded-[32px] border border-neutral-200 p-8 sm:p-12 lg:p-16">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">Visi Kami</h2>
+                    </div>
+                    <p class="text-neutral-600 text-base sm:text-lg leading-relaxed lg:col-span-2">
+                        Menjadi mitra teknologi terdepan yang memberdayakan bisnis di Indonesia melalui inovasi AI, pengembangan perangkat lunak berkualitas tinggi, dan solusi digital yang terintegrasi.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    {{-- Prinsip Kami --}}
-    <section class="w-full bg-white py-10 sm:py-16">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900">Prinsip Kami</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:col-span-2 gap-4 sm:gap-6">
-                <div class="rounded-md border border-neutral-200 bg-white p-8 hover:shadow-md hover:shadow-black/35 transition-shadow duration-150">
-                    <div class="text-primary-500 mb-4">
-                        <span class="material-symbols-outlined text-primary-600 text-4xl">lightbulb</span>
-                    </div>
-                    <h3 class="text-xl font-semibold text-neutral-900 mb-3 tracking-tight">Inovatif</h3>
-                    <p class="text-neutral-700 text-base tracking-tight">Bersemangat dalam berkarya dan menghadirkan solusi kreatif yang mendorong perubahan positif.</p>
+    {{-- Prinsip Kami — Meta-style card-icon-feature with rounded-[16px] (xl) --}}
+    <section class="w-full bg-neutral-50 py-16 sm:py-20">
+        <div class="w-full max-w-7xl mx-auto px-7 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight">Prinsip Kami</h2>
                 </div>
-                <div class="rounded-md border border-neutral-200 bg-white p-8 hover:shadow-md hover:shadow-black/35 transition-shadow duration-150">
-                    <div class="text-primary-500 mb-4">
-                        <span class="material-symbols-outlined text-primary-600 text-4xl">verified</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-[16px] border border-neutral-200 bg-white p-8 hover:border-neutral-300 transition-all duration-200">
+                        <div class="mb-5">
+                            <span class="material-symbols-outlined text-primary-600 text-4xl">lightbulb</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 tracking-tight">Inovatif</h3>
+                        <p class="text-neutral-600 leading-relaxed">Bersemangat dalam berkarya dan menghadirkan solusi kreatif yang mendorong perubahan positif.</p>
                     </div>
-                    <h3 class="text-xl font-semibold text-neutral-900 mb-3 tracking-tight">Terpercaya</h3>
-                    <p class="text-neutral-700 text-base tracking-tight">Berprinsip dalam bertindak, mengedepankan integritas dan kejujuran dalam setiap proses.</p>
-                </div>
-                <div class="rounded-md border border-neutral-200 bg-white p-8 hover:shadow-md hover:shadow-black/35 transition-shadow duration-150">
-                    <div class="text-primary-500 mb-4">
-                        <span class="material-symbols-outlined text-primary-600 text-4xl">bolt</span>
+                    <div class="rounded-[16px] border border-neutral-200 bg-white p-8 hover:border-neutral-300 transition-all duration-200">
+                        <div class="mb-5">
+                            <span class="material-symbols-outlined text-primary-600 text-4xl">verified</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 tracking-tight">Terpercaya</h3>
+                        <p class="text-neutral-600 leading-relaxed">Berprinsip dalam bertindak, mengedepankan integritas dan kejujuran dalam setiap proses.</p>
                     </div>
-                    <h3 class="text-xl font-semibold text-neutral-900 mb-3 tracking-tight">Cepat & Efisien</h3>
-                    <p class="text-neutral-700 text-base tracking-tight">Rasional dalam berpikir, unggul dalam hasil, dan gesit dalam beradaptasi dengan kebutuhan bisnis.</p>
+                    <div class="rounded-[16px] border border-neutral-200 bg-white p-8 hover:border-neutral-300 transition-all duration-200 sm:col-span-2 lg:col-span-1">
+                        <div class="mb-5">
+                            <span class="material-symbols-outlined text-primary-600 text-4xl">bolt</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3 tracking-tight">Cepat & Efisien</h3>
+                        <p class="text-neutral-600 leading-relaxed">Rasional dalam berpikir, unggul dalam hasil, dan gesit dalam beradaptasi dengan kebutuhan bisnis.</p>
+                    </div>
                 </div>
             </div>
         </div>

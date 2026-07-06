@@ -14,7 +14,7 @@
     <meta property="og:title" content="AI Agents - Anggota Tim Digital yang Bekerja 24/7 | Centrova"/>
     <meta property="og:description" content="Deploy AI agents yang memahami konteks, membuat keputusan, menjalankan tugas, dan mengotomatisasi workflow bisnis di seluruh organisasi Anda."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="{{ url('/services/ai/ai-agents') }}"/>
+    <meta property="og:url" content="{{ url('/services/ai/agents') }}"/>
     <meta property="og:site_name" content="Centrova"/>
     <meta property="og:locale" content="id_ID"/>
     <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png"/>
@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="AI Agents | Centrova"/>
     <meta name="twitter:description" content="AI Agents yang bekerja layaknya anggota tim digital — otomatisasi workflow, pengambilan keputusan, dan integrasi sistem bisnis."/>
     <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png"/>
-    <link rel="canonical" href="{{ url('/services/ai/ai-agents') }}"/>
+    <link rel="canonical" href="{{ url('/services/ai/agents') }}"/>
 
     <script type="application/ld+json">
     {
@@ -292,7 +292,7 @@
                 <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Solusi AI Agent kami dirancang untuk berbagai fungsi bisnis yang paling kritis.</p>
             </div>
             <div class="max-w-7xl mx-auto px-8">
-                <img src="{{ asset('assets/image/bq87g87g3.png') }}" alt="" class="w-full">
+                <img src="@img('assets/image/bq87g87g3.png', ['w' => 1280, 'fit' => 'contain'])" alt="" class="w-full" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -365,7 +365,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-8 mt-12">
-            <img src="{{ asset('assets/image/qh3r98h293hr23.png') }}" alt="" class="w-full">
+            <img src="@img('assets/image/qh3r98h293hr23.png', ['w' => 1280, 'fit' => 'contain'])" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -377,7 +377,7 @@
                 <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Proses pengembangan yang terstruktur untuk memastikan AI Agent berfungsi sesuai kebutuhan bisnis Anda.</p>
             </div>
             <div class="max-w-7xl mx-auto px-8">
-                <img src="{{ asset('assets/image/wh23r23.png') }}" alt="" class="w-full">
+                <img src="@img('assets/image/wh23r23.png', ['w' => 1280, 'fit' => 'contain'])" alt="" class="w-full" loading="lazy" decoding="async">
             </div>
         </div>
     </section>

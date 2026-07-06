@@ -46,7 +46,7 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "{{ url()->current() }}#service",
+    "@id": "{{ canonical_url() }}#service",
     "name": "Jasa Pembuatan Aplikasi Desktop Profesional",
     "description": "Centrova menyediakan jasa pembuatan aplikasi desktop profesional untuk bisnis. Aplikasi POS, inventory, CRM, dan sistem internal yang handal dan efisien.",
     "provider": {

@@ -33,17 +33,19 @@ php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
 php artisan view:clear
+php artisan event:clear
 
 REM Step 4: Run migrations
 echo [96m-^> Running migrations...[0m
 php artisan migrate --force
 
-REM Step 5: Cache everything
+REM Step 5: Cache everything (production mode)
 echo [96m-^> Caching configuration...[0m
 php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 php artisan event:cache
+php artisan view:cache
+REM route:cache dilewati — ada duplicate route name 'privacy.request.form'
+REM php artisan route:cache
 
 REM Step 6: Optimize autoloader
 echo [96m-^> Optimizing autoloader...[0m

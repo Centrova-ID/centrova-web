@@ -1,1 +1,45 @@
- 
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #e8f4fd;
+  --color-primary-100: #d1e9fb;
+  --color-primary-200: #a3d3f7;
+  --color-primary-300: #75bef3;
+  --color-primary-400: #47a8ef;
+  --color-primary-500: #128aeb;
+  --color-primary-600: #0f75c7;
+  --color-primary-700: #0b5fa3;
+  --color-primary-800: #084a7f;
+  --color-primary-900: #05345b;
+  --color-primary-950: #031d33;
+}
+
+/* Preline UI source for content scanning */
+@source "../node_modules/preline/dist/*.js";
+
+/* Reset default browser body margin */
+body {
+  margin: 0 !important;
+}
+
+/* Safelist: paksa Tailwind generate ukuran font besar */
+@source inline("text-5xl text-6xl text-7xl text-8xl text-9xl");
+
+/* Material Symbols: override ukuran font dari Google Fonts */
+.material-symbols-outlined,
+.material-symbols-rounded,
+.material-symbols-sharp {
+  &.text-xs { font-size: var(--text-xs); }
+  &.text-sm { font-size: var(--text-sm); }
+  &.text-base { font-size: var(--text-base); }
+  &.text-lg { font-size: var(--text-lg); }
+  &.text-xl { font-size: var(--text-xl); }
+  &.text-2xl { font-size: var(--text-2xl); }
+  &.text-3xl { font-size: var(--text-3xl); }
+  &.text-4xl { font-size: var(--text-4xl); }
+  &.text-5xl { font-size: var(--text-5xl); }
+  &.text-6xl { font-size: var(--text-6xl); }
+  &.text-7xl { font-size: var(--text-7xl); }
+  &.text-8xl { font-size: var(--text-8xl); }
+  &.text-9xl { font-size: var(--text-9xl); }
+}

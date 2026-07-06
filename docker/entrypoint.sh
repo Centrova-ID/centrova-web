@@ -29,12 +29,18 @@ echo "==> MySQL ready."
 
 # Skip migrate & seed — use existing DB state
 set +e
-echo "==> Cache config & views..."
+echo "==> Laravel cache pipeline..."
+echo "   -> config:cache"
 php artisan config:cache 2>/dev/null || true
+echo "   -> event:cache"
+php artisan event:cache 2>/dev/null || true
+echo "   -> view:cache"
 php artisan view:cache 2>/dev/null || true
+# route:cache dilewati karena ada duplicate route name 'privacy.request.form'
+# antar file route main.php & account.php — perlu dibersihkan dulu
 set -e
 php artisan config:cache
-# Note: route:cache skipped due to duplicate route name 'privacy.request.form' in main.php & account.php
+php artisan event:cache
 php artisan view:cache
 
 # Fix permissions

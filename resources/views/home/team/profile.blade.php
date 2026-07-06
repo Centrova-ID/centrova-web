@@ -10,7 +10,7 @@
     <meta name="language" content="Indonesian">
     <meta name="author" content="Centrova">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:url" content="{{ canonical_url() }}">
     <meta property="og:title" content="{{ $member['name'] }} - {{ $member['position'] }} | Centrova">
     <meta property="og:description" content="{{ Str::limit(strip_tags($member['bio']['intro']), 160) }}">
     <meta property="og:image" content="{{ asset($member['heroImage']) }}">
@@ -19,13 +19,13 @@
     <meta property="og:site_name" content="Centrova">
     <meta property="og:locale" content="id_ID">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:url" content="{{ canonical_url() }}">
     <meta property="twitter:title" content="{{ $member['name'] }} - {{ $member['position'] }} | Centrova">
     <meta property="twitter:description" content="{{ Str::limit(strip_tags($member['bio']['intro']), 160) }}">
     <meta property="twitter:image" content="{{ asset($member['heroImage']) }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#128AEB">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ canonical_url() }}">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -33,7 +33,7 @@
         "name": "{{ $member['name'] }}",
         "jobTitle": "{{ $member['position'] }}",
         "worksFor": {"@type":"Organization","name":"Centrova","url":"{{ route('home') }}"},
-        "url": "{{ url()->current() }}",
+        "url": "{{ canonical_url() }}",
         "image": "{{ asset($member['heroImage']) }}",
         "description": "{{ Str::limit(strip_tags($member['bio']['intro']), 200) }}",
         "email": "{{ $member['email'] }}",
@@ -46,7 +46,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type":"ListItem","position":1,"name":"Home","item":"{{ route('home') }}"},
-            {"@type":"ListItem","position":2,"name":"{{ $member['name'] }}","item":"{{ url()->current() }}"}
+            {"@type":"ListItem","position":2,"name":"{{ $member['name'] }}","item":"{{ canonical_url() }}"
         ]
     }
     </script>

@@ -8,14 +8,14 @@
     <meta property="og:title" content="AI Strategy untuk Bisnis | Centrova"/>
     <meta property="og:description" content="Audit kesiapan AI, prioritas use case, desain roadmap implementasi, dan governance untuk adopsi AI yang terukur."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="{{ url('/services/ai/ai-strategy') }}"/>
+    <meta property="og:url" content="{{ url('/services/ai/strategy') }}"/>
     <meta property="og:image" content="{{ config('app.url') }}/thumbnail.png"/>
     <meta property="og:site_name" content="Centrova"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="AI Strategy untuk Bisnis | Centrova"/>
     <meta name="twitter:description" content="Audit kesiapan AI, prioritas use case, dan roadmap implementasi untuk adopsi AI yang terukur."/>
     <meta name="twitter:image" content="{{ config('app.url') }}/thumbnail.png"/>
-    <link rel="canonical" href="{{ url('/services/ai/ai-strategy') }}"/>
+    <link rel="canonical" href="{{ url('/services/ai/strategy') }}"/>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -86,7 +86,7 @@
         </div>
 
         <div class="w-full">
-            <img src="{{ asset('assets/image/2g30b8u24fg.webp') }}" alt="AI Strategy & Transformation" class="w-full max-md:h-56 object-contain">
+            <img src="@img('assets/image/2g30b8u24fg.webp', ['w' => 720, 'fit' => 'contain'])" alt="AI Strategy & Transformation" class="w-full max-md:h-56 object-contain" loading="lazy" decoding="async">
         </div>
     </div>
 </section>
@@ -321,7 +321,7 @@
             <p class="text-center w-full max-w-4xl mx-auto text-base text-neutral-800">Pendekatan strategis yang mengutamakan integrasi kebutuhan operasional dan tujuan bisnis, memastikan setiap implementasi teknologi kecerdasan buatan memberikan dampak nyata dan terukur.</p>
         </div>
         <div class="max-w-7xl mx-auto px-8">
-            <img src="{{ asset('assets/image/w3yr9y283h872h8.png') }}" alt="" class="w-full">
+            <img src="@img('assets/image/w3yr9y283h872h8.png', ['w' => 1280, 'fit' => 'contain'])" alt="" class="w-full" loading="lazy" decoding="async">
         </div>
     </section>
     {{-- Closing CTA --}}

@@ -9,112 +9,225 @@
 @section('seoMetaTags')
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="utf-8"/>
-    <meta name="robots" content="index, follow, max-image-preview:large"/>
+    {{-- E-E-A-T signals: explicit author, reviewer, and publisher metadata --}}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
     <meta name="description" content="{{ $post->seo_description }}"/>
+    <meta name="author" content="Centrova"/>
+    <meta name="publisher" content="Centrova"/>
     @if($post->meta_keywords)
     <meta name="keywords" content="{{ $post->meta_keywords }}"/>
     @endif
+    
+    {{-- Hreflang for Indonesian primary + English alternate --}}
+    <link rel="alternate" href="{{ route('blog.show', ['slug' => $post->slug]) }}" hreflang="id"/>
+    <link rel="alternate" href="{{ route('en.blog.show', ['slug' => $post->slug]) }}" hreflang="en"/>
+    <link rel="alternate" href="{{ route('en.blog.show', ['slug' => $post->slug]) }}" hreflang="x-default"/>
     
     {{-- Open Graph --}}
     <meta property="og:title" content="{{ $post->seo_title }}"/>
     <meta property="og:description" content="{{ $post->seo_description }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="{{ $post->url }}"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:locale" content="id_ID"/>
     @if($post->featured_image)
     <meta property="og:image" content="{{ $post->featured_image }}"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="{{ $post->title }}"/>
     @endif
     <meta property="article:published_time" content="{{ $post->published_at?->toIso8601String() }}"/>
+    <meta property="article:modified_time" content="{{ $post->updated_at?->toIso8601String() ?? $post->published_at?->toIso8601String() }}"/>
     @if($post->category)
     <meta property="article:section" content="{{ $post->category }}"/>
     @endif
+    @if($post->tags && is_array($post->tags))
+        @foreach($post->tags as $tag)
+    <meta property="article:tag" content="{{ $tag }}"/>
+        @endforeach
+    @endif
     
-    {{-- Twitter --}}
+    {{-- Twitter / X Card --}}
     <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@centrova_id"/>
+    <meta name="twitter:creator" content="@centrova_id"/>
     <meta name="twitter:title" content="{{ $post->seo_title }}"/>
     <meta name="twitter:description" content="{{ $post->seo_description }}"/>
     @if($post->featured_image)
     <meta name="twitter:image" content="{{ $post->featured_image }}"/>
     @endif
 
+    {{-- Canonical + alternate feed links for GEO/instant indexing --}}
     <link rel="canonical" href="{{ $post->url }}"/>
+    <link rel="alternate" type="application/rss+xml" title="Blog Centrova RSS Feed" href="{{ route('feed.rss') }}"/>
+    <link rel="alternate" type="application/atom+xml" title="Blog Centrova Atom Feed" href="{{ route('feed.atom') }}"/>
+    <link rel="alternate" type="application/xml" title="Google News Sitemap" href="{{ route('feed.news-sitemap') }}"/>
+    
+    {{-- GEO / AI Engine signals: explicit content type and structured data discovery --}}
+    <meta name="syndication-source" content="{{ $post->url }}"/>
+    <meta name="original-source" content="{{ $post->url }}"/>
+    <meta http-equiv="content-language" content="id"/>
+    
+    {{-- Preconnect for critical 3rd-party resources --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com"/>
+    
+    {{-- Preload the featured image for LCP optimization --}}
+    @if($post->featured_image)
+    <link rel="preload" as="image" href="{{ $post->featured_image }}" fetchpriority="high"/>
+    @endif
+
+    {{-- Geo tags for location targeting --}}
+    <meta name="geo.region" content="ID"/>
+    <meta name="geo.placename" content="Indonesia"/>
 @endsection
 
-{{-- Structured Data: Article Schema --}}
+{{-- Structured Data: NewsArticle + Organization + Website + BreadcrumbList in @graph (single block for AI engines) --}}
 @push('structured-data')
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "{{ $post->url }}#article",
-    "headline": "{{ $post->title }}",
-    "description": "{{ $post->seo_description }}",
-    "datePublished": "{{ $post->published_at?->toIso8601String() }}",
-    "dateModified": "{{ $post->updated_at?->toIso8601String() }}",
-    "author": {
-        "@type": "Organization",
-        "name": "Centrova",
-        "url": "{{ url('/') }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "@id": "{{ url('/') }}#organization",
-        "name": "Centrova",
-        "url": "{{ url('/') }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ url('/logo/centrova-logo.png') }}"
-        }
-    },
-    @if($post->featured_image)
-    "image": {
-        "@type": "ImageObject",
-        "url": "{{ $post->featured_image }}"
-    },
-    @endif
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ $post->url }}"
-    }
-}
-</script>
-
-{{-- BreadcrumbList Schema --}}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    "@graph": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "{{ url('/') }}"
+            "@type": "NewsArticle",
+            "@id": "{{ $post->url }}#article",
+            "headline": "{{ $post->title }}",
+            "description": "{{ $post->seo_description }}",
+            "url": "{{ $post->url }}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ $post->url }}"
+            },
+            "datePublished": "{{ $post->published_at?->toIso8601String() }}",
+            "dateModified": "{{ $post->updated_at?->toIso8601String() ?? $post->published_at?->toIso8601String() }}",
+            @if($post->featured_image)
+            "image": {
+                "@type": "ImageObject",
+                "url": "{{ $post->featured_image }}",
+                "width": 1200,
+                "height": 630
+            },
+            @endif
+            @if($post->excerpt)
+            "articleBody": {{ json_encode(strip_tags($post->excerpt)) }},
+            @endif
+            "author": {
+                "@type": "Organization",
+                "@id": "{{ url('/') }}#organization",
+                "name": "Centrova",
+                "url": "{{ url('/') }}"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "{{ url('/') }}#organization",
+                "name": "Centrova",
+                "url": "{{ url('/') }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ url('/logo/centrova-logo.png') }}",
+                    "width": 600,
+                    "height": 60
+                }
+            },
+            @if($post->category)
+            "articleSection": "{{ $post->category }}",
+            @endif
+            @if($post->tags && is_array($post->tags))
+            "keywords": "{{ implode(', ', $post->tags) }}",
+            @endif
+            "inLanguage": "id",
+            "isAccessibleForFree": "True",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".article-content h2",
+                    ".article-content p"
+                ]
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "{{ route('blog.index') }}"
+            "@type": "Organization",
+            "@id": "{{ url('/') }}#organization",
+            "name": "Centrova",
+            "url": "{{ url('/') }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ url('/logo/centrova-logo.png') }}",
+                "width": 600,
+                "height": 60
+            },
+            "description": "PT Centrova Teknologi Indonesia — AI Venture Engineering, Software Development & AI Agent Automation",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "ID",
+                "addressLocality": "Indonesia"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "availableLanguage": ["Indonesian", "English"]
+            },
+            "sameAs": [
+                "https://facebook.com/centrova",
+                "https://twitter.com/centrova_id",
+                "https://instagram.com/centrova_id",
+                "https://linkedin.com/company/centrova"
+            ]
         },
-        @if($post->category)
         {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ $post->category }}",
-            "item": "{{ route('blog.index', ['category' => $post->category]) }}"
+            "@type": "WebSite",
+            "@id": "{{ url('/') }}#website",
+            "url": "{{ url('/') }}",
+            "name": "Centrova",
+            "description": "AI Venture Engineering, Software Development & AI Agent Automation",
+            "publisher": {
+                "@id": "{{ url('/') }}#organization"
+            },
+            "inLanguage": "id",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "{{ url('/search') }}?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            }
         },
         {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "{{ $post->title }}"
+            "@type": "BreadcrumbList",
+            "@id": "{{ $post->url }}#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "{{ url('/') }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog",
+                    "item": "{{ route('blog.index') }}"
+                }@if($post->category),
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "{{ $post->category }}",
+                    "item": "{{ route('blog.index', ['category' => $post->category]) }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "{{ $post->title }}"
+                }@else,
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "{{ $post->title }}"
+                }@endif
+            ]
         }
-        @else
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ $post->title }}"
-        }
-        @endif
     ]
 }
 </script>
@@ -352,31 +465,6 @@
         </div>
     </div>
 
-    {{-- Author / CTA Card --}}
-    <div class="w-full max-w-3xl mx-auto px-4 sm:px-6 md:px-8 pb-16">
-        <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-2xl p-8 md:p-10 text-center">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#128AEB] to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-blue-900/30">
-                <span class="text-white text-2xl font-bold">C</span>
-            </div>
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-3">Ditinjau oleh Tim Centrova</h3>
-            <p class="text-blue-200/80 text-base leading-relaxed max-w-lg mx-auto mb-6">
-                Artikel ini ditulis dan ditinjau oleh tim ahli Centrova yang berpengalaman di bidang AI, pengembangan software, dan transformasi digital.
-            </p>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="{{ route('blog.index') }}" 
-                   class="inline-flex items-center px-6 py-3 bg-white/10 text-white rounded-full hover:bg-white/20 transition text-sm font-medium border border-white/10">
-                    <span class="material-symbols-outlined text-[18px] mr-2">arrow_back</span>
-                    Kembali ke Blog
-                </a>
-                <a href="{{ route('service.consult') }}" 
-                   class="inline-flex items-center px-6 py-3 bg-[#128AEB] text-white rounded-full hover:bg-blue-600 transition text-sm font-medium">
-                    Konsultasi Gratis
-                    <span class="material-symbols-outlined text-[18px] ml-2">arrow_forward</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
     {{-- Related Posts --}}
     @if($relatedPosts->isNotEmpty())
     <section class="w-full bg-neutral-50 border-t border-neutral-100 py-16">
@@ -431,19 +519,5 @@
         </div>
     </section>
     @endif
-
-    {{-- CTA Section --}}
-    <section class="w-full bg-gradient-to-r from-[#128AEB] via-blue-600 to-blue-700 py-16 md:py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE4YzEuNjU3IDAgMy0xLjM0MyAzLTNzLTEuMzQzLTMtMy0zLTMgMS4zNDMtMyAzIDEuMzQzIDMgMyAzem0tMjQgMGMxLjY1NyAwIDMtMS4zNDMgMy0zcy0xLjM0My0zLTMtMy0zIDEuMzQzLTMgMyAxLjM0MyAzIDMgM3oiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40"></div>
-        <div class="w-full max-w-3xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">Siap Transformasi Digital?</h2>
-            <p class="text-lg md:text-xl text-blue-100/90 mb-8 max-w-lg mx-auto">Wujudkan ide Anda bersama Centrova. Konsultasi gratis untuk solusi terbaik bisnis Anda.</p>
-            <a href="{{ route('service.consult') }}" 
-               class="inline-flex items-center px-8 py-4 bg-white text-[#128AEB] font-semibold rounded-full hover:bg-blue-50 hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300 text-base group">
-                Mulai Konsultasi
-                <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-            </a>
-        </div>
-    </section>
 </div>
 @endsection

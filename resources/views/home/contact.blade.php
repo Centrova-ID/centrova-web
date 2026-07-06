@@ -8,9 +8,9 @@
     <meta name="description" content="Hubungi tim Centrova sekarang! Dapatkan konsultasi gratis untuk kebutuhan website, aplikasi, AI automation, dan solusi digital bisnis Anda. Tim spesialis siap membantu 24/7.">
     <meta name="keywords" content="kontak centrova, hubungi centrova, konsultasi website, konsultasi AI, centrova.id, PT Centrova Teknologi Indonesia, tim centrova, spesialis website Indonesia, jasa pembuatan website, konsultasi digital gratis">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="canonical" href="{{ canonical_url() }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:url" content="{{ canonical_url() }}">
     <meta property="og:title" content="Hubungi Centrova | Konsultasi Gratis & Tim Spesialis Siap Membantu">
     <meta property="og:description" content="Hubungi tim Centrova sekarang! Dapatkan konsultasi gratis untuk kebutuhan website, aplikasi, AI automation, dan solusi digital bisnis Anda.">
     <meta property="og:site_name" content="Centrova">

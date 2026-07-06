@@ -73,9 +73,9 @@ class SitemapController extends Controller
             '/services/mobile-app-development' => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/uiux-design'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/services/custom-solution'     => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
-            '/services/ai/ai-strategy'      => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/ai/ai-agents'        => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
-            '/services/ai/ai-automation'    => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/ai/strategy'         => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/ai/agents'           => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
+            '/services/ai/automation'       => ['freq' => Url::CHANGE_FREQUENCY_WEEKLY,  'prio' => 0.9],
             '/service/consult'              => ['freq' => Url::CHANGE_FREQUENCY_MONTHLY, 'prio' => 0.9],
         ];
 
@@ -163,19 +163,18 @@ class SitemapController extends Controller
      */
     private function addDynamicContent($sitemap, string $baseUrl, Carbon $now)
     {
-        // --- Blog Posts ---
+        // --- Blog Posts (fixed: using scopePublished() instead of non-existent 'published' column) ---
         if (class_exists('\App\Models\Post')) {
             try {
-                $posts = \App\Models\Post::where('published', true)
+                $posts = \App\Models\Post::published()
                     ->orderBy('updated_at', 'desc')
                     ->take(500)
                     ->get();
 
                 foreach ($posts as $post) {
-                    $url = $baseUrl . '/blog/' . ($post->slug ?? $post->id);
                     $sitemap->add(
-                        Url::create($url)
-                            ->setLastModificationDate($post->updated_at ?? $now)
+                        Url::create($post->url)
+                            ->setLastModificationDate($post->updated_at ?? $post->published_at ?? $now)
                             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                             ->setPriority(0.7)
                     );

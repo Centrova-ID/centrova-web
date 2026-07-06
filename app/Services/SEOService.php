@@ -100,7 +100,7 @@ class SEOService
     }
 
     /**
-     * Set blog/article SEO
+     * Set blog/article SEO — enhanced for NewsArticle + GEO compatibility
      */
     public function setArticleSEO(array $article)
     {
@@ -108,31 +108,53 @@ class SEOService
         $description = $article['excerpt'] ?? substr(strip_tags($article['content']), 0, 160);
         $image = $article['featured_image'] ?? $this->defaultImage;
         $keywords = $this->generateArticleKeywords($article);
+        $url = $article['url'] ?? URL::current();
 
         $this->setPageSEO([
             'title' => $title,
             'description' => $description,
             'keywords' => $keywords,
             'image' => $image,
+            'url' => $url,
             'type' => 'article'
         ]);
 
-        // Add article-specific JSON-LD
-        JsonLd::setType('Article');
+        // Add article-specific JSON-LD (NewsArticle type for Google News eligibility)
+        JsonLd::setType('NewsArticle');
         JsonLd::addValue('author', [
-            '@type' => 'Person',
-            'name' => $article['author'] ?? 'Centrova Team'
+            '@type' => 'Organization',
+            'name' => $article['author'] ?? 'Centrova Team',
+            'url' => config('app.url')
         ]);
         JsonLd::addValue('publisher', [
             '@type' => 'Organization',
             'name' => 'Centrova',
+            'url' => config('app.url'),
             'logo' => [
                 '@type' => 'ImageObject',
-                'url' => asset('assets/images/centrova-logo.png')
+                'url' => asset('assets/images/centrova-logo.png'),
+                'width' => 600,
+                'height' => 60
             ]
         ]);
         JsonLd::addValue('datePublished', $article['published_at'] ?? now()->toISOString());
         JsonLd::addValue('dateModified', $article['updated_at'] ?? now()->toISOString());
+        JsonLd::addValue('inLanguage', 'id');
+        JsonLd::addValue('isAccessibleForFree', 'True');
+
+        if (isset($article['category'])) {
+            JsonLd::addValue('articleSection', $article['category']);
+        }
+
+        if (isset($article['tags']) && is_array($article['tags'])) {
+            JsonLd::addValue('keywords', implode(', ', $article['tags']));
+        }
+
+        // Add speakable sections for voice assistants and AI engines (GEO)
+        JsonLd::addValue('speakable', [
+            '@type' => 'SpeakableSpecification',
+            'cssSelector' => ['.article-content h2', '.article-content p']
+        ]);
 
         return $this;
     }

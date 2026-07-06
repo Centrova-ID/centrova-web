@@ -24,7 +24,7 @@ Usage: @include('partials.seo.meta-tags', [
     $page_title = $title ?? 'Centrova - Solusi Digital Terpercaya';
     $page_description = $description ?? 'Centrova menyediakan layanan digital terpercaya untuk mengembangkan bisnis Anda di era digital.';
     $page_keywords = $keywords ?? 'centrova, jasa website, digital marketing, web development';
-    $page_canonical = $canonical_url ?? request()->url();
+    $page_canonical = $canonical_url ?? canonical_url();
     $page_image = $og_image ?? $default_image;
     $page_type = $page_type ?? 'website';
     

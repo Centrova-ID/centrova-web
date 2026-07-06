@@ -23,7 +23,7 @@ Usage for service pages with structured data:
     $page_title = $title ?? $service_name . ' Murah & Profesional | Centrova';
     $page_description = $description ?? $service_description . '. Harga mulai ' . number_format($service_price) . '. Konsultasi gratis! ☎️ 085817909560';
     $page_keywords = $keywords ?? $service_keywords;
-    $page_canonical = $canonical_url ?? request()->url();
+    $page_canonical = $canonical_url ?? canonical_url();
     
     // Business data
     $business_latitude = $business_latitude ?? -6.2088;

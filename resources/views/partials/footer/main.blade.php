@@ -91,6 +91,7 @@
                 class="space-y-3 text-base font-medium md:block py-4"
                 style="transition-property: opacity, transform, max-height;">
               <li><a href="{{ url('/about') }}" class="hover:underline">Profil Centrova</a></li>
+              <li><a href="{{ route('brands.index') }}" class="hover:underline">Brand Guidelines</a></li>
               <li><a href="{{ route('blog.index') }}" class="hover:underline">Blog & Artikel</a></li>
               {{-- <li><a href="{{ url('/team') }}" class="hover:underline">Tim Kami</a></li> --}}
               <li><a href="{{ url('/contact') }}" class="hover:underline">Hubungi Kami</a></li>

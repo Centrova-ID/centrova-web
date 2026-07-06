@@ -46,7 +46,7 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "{{ url()->current() }}#service",
+    "@id": "{{ canonical_url() }}#service",
     "name": "Custom Software Solution - Sistem Bisnis Tailor-Made",
     "description": "Centrova menyediakan custom software solution untuk bisnis - ERP, CRM, Accounting, HR, Workflow Automation yang disesuaikan 100% dengan kebutuhan Anda.",
     "provider": {

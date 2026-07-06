@@ -15,13 +15,13 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="{{ request()->url() }}"/>
+    <meta property="og:url" content="{{ canonical_url() }}"/>
     <meta property="og:title" content="{{ $query ? 'Hasil Pencarian: ' . $query . ' - Centrova' : 'Pencarian Cerdas - Centrova' }}"/>
     <meta property="og:description" content="{{ $query ? 'Hasil pencarian untuk: ' . $query : 'Temukan semua yang Anda butuhkan di website Centrova dengan fitur pencarian yang canggih' }}"/>
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image"/>
-    <meta property="twitter:url" content="{{ request()->url() }}"/>
+    <meta property="twitter:url" content="{{ canonical_url() }}"/>
     <meta property="twitter:title" content="{{ $query ? 'Hasil Pencarian: ' . $query . ' - Centrova' : 'Pencarian Cerdas - Centrova' }}"/>
     <meta property="twitter:description" content="{{ $query ? 'Hasil pencarian untuk: ' . $query : 'Temukan semua yang Anda butuhkan di website Centrova' }}"/>
 

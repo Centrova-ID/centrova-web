@@ -17,6 +17,8 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.6",
         "league/flysystem-aws-s3-v3": "^3.30",
+        "league/glide": "^4.0",
+        "renatomarinho/laravel-page-speed": "^4.4",
         "silber/page-cache": "*",
         "spatie/laravel-sitemap": "^7.3",
         "spatie/laravel-tags": "^4.10"

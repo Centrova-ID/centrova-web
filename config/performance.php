@@ -10,6 +10,15 @@ return [
     |
     */
 
+    // ── HTML Optimization ──
+    'html' => [
+        'page_speed_enable' => env('LARAVEL_PAGE_SPEED_ENABLE', true),
+        'minify_html' => true,
+        'remove_comments' => true,
+        'inline_css' => true,
+        'dns_prefetch' => true,
+    ],
+
     // Response Cache TTL (in seconds)
     'cache' => [
         'ttl' => [

@@ -3,26 +3,43 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogEditorController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\FeedController;
 
 /*
 |--------------------------------------------------------------------------
-| Main Domain Routes (centrova.id)
+| Main Domain Routes (centrova.test)
 |--------------------------------------------------------------------------
 */
 
-Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
+Route::domain('centrova.test')->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.send');
     Route::get('/sitemap', [SitemapController::class, 'index'])->name('sitemap');
     Route::get('/sitemap.xml', [SitemapController::class, 'xml'])->name('sitemap.xml');
+
+    // RSS/Atom Feeds & Google News Sitemap — for instant indexing
+    Route::get('/feed.xml', [FeedController::class, 'rss'])->name('feed.rss');
+    Route::get('/feed.atom', [FeedController::class, 'atom'])->name('feed.atom');
+    Route::get('/news-sitemap.xml', [FeedController::class, 'newsSitemap'])->name('feed.news-sitemap');
+    // Feed ping endpoints (WebSub / Google indexing)
+    Route::get('/feed/ping', [FeedController::class, 'ping'])->name('feed.ping');
+    Route::get('/feed/notify-google', [FeedController::class, 'notifyGoogle'])->name('feed.notify-google');
+
     Route::get('/search', [HomeController::class, 'search'])->name('search');
     Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('search.suggestions');
+
+    // Brand Guidelines Routes
+    Route::prefix('brands')->name('brands.')->group(function () {
+        Route::get('/', [BrandController::class, 'index'])->name('index');
+        Route::get('/centrova', [BrandController::class, 'centrova'])->name('centrova');
+    });
 
     // Blog Routes
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
@@ -78,16 +95,16 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('services.uiux-design');
 
         // AI Services
-        Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy'])->name('services.ai-strategy');
-        Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents'])->name('services.ai-agents');
-        Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation'])->name('services.ai-automation');
+        Route::get('/ai/strategy', [ServiceController::class, 'aiStrategy'])->name('services.ai-strategy');
+        Route::get('/ai/agents', [ServiceController::class, 'aiAgents'])->name('services.ai-agents');
+        Route::get('/ai/automation', [ServiceController::class, 'aiAutomation'])->name('services.ai-automation');
     });
 
     Route::get('/service/consult', [ServiceController::class, 'consult'])->name('service.consult');
 
     // Service Cancellation — redirect to account subdomain (route defined in account.php)
     Route::get('/services/cancellation', function () {
-        return redirect('https://account.centrova.id/services/cancellation', 302);
+        return redirect('https://account.centrova.test/services/cancellation', 302);
     })->name('services.cancellation.index');
 
     // English routes (with /en prefix)
@@ -100,9 +117,19 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/search', [HomeController::class, 'search'])->name('en.search');
         Route::get('/search/suggestions', [HomeController::class, 'searchSuggestions'])->name('en.search.suggestions');
 
+        // English Brand Guidelines Routes
+        Route::prefix('brands')->name('en.brands.')->group(function () {
+            Route::get('/', [BrandController::class, 'index'])->name('index');
+            Route::get('/centrova', [BrandController::class, 'centrova'])->name('centrova');
+        });
+
         // English Blog Routes
         Route::get('/blog', [BlogController::class, 'index'])->name('en.blog.index');
         Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('en.blog.show');
+
+        // English Feeds
+        Route::get('/feed.xml', [FeedController::class, 'rss'])->name('en.feed.rss');
+        Route::get('/feed.atom', [FeedController::class, 'atom'])->name('en.feed.atom');
 
         // English Legal Routes
         Route::prefix('legal')->group(function () {
@@ -138,9 +165,9 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
             Route::get('/uiux-design', [ServiceController::class, 'uiuxDesign'])->name('en.services.uiux-design');
 
             // English AI Services
-            Route::get('/ai/ai-strategy', [ServiceController::class, 'aiStrategy'])->name('en.services.ai-strategy');
-            Route::get('/ai/ai-agents', [ServiceController::class, 'aiAgents'])->name('en.services.ai-agents');
-            Route::get('/ai/ai-automation', [ServiceController::class, 'aiAutomation'])->name('en.services.ai-automation');
+            Route::get('/ai/strategy', [ServiceController::class, 'aiStrategy'])->name('en.services.ai-strategy');
+            Route::get('/ai/agents', [ServiceController::class, 'aiAgents'])->name('en.services.ai-agents');
+            Route::get('/ai/automation', [ServiceController::class, 'aiAutomation'])->name('en.services.ai-automation');
         });
 
         Route::get('/service/consult', [ServiceController::class, 'consult'])->name('en.service.consult');

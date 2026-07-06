@@ -16,9 +16,87 @@
     <meta property="og:description" content="Artikel, insight, dan panduan lengkap seputar teknologi, AI, web development, dan transformasi digital."/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="{{ url('/blog') }}"/>
+    <meta property="og:site_name" content="Centrova"/>
+    <meta property="og:locale" content="id_ID"/>
     <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@centrova_id"/>
     <link rel="canonical" href="{{ url('/blog') }}"/>
+    {{-- Feed links for Google News / RSS discovery --}}
+    <link rel="alternate" type="application/rss+xml" title="Blog Centrova RSS Feed" href="{{ route('feed.rss') }}"/>
+    <link rel="alternate" type="application/atom+xml" title="Blog Centrova Atom Feed" href="{{ route('feed.atom') }}"/>
+    <link rel="alternate" type="application/xml" title="Google News Sitemap" href="{{ route('feed.news-sitemap') }}"/>
+    {{-- Hreflang --}}
+    <link rel="alternate" href="{{ route('blog.index') }}" hreflang="id"/>
+    <link rel="alternate" href="{{ route('en.blog.index') }}" hreflang="en"/>
+    <link rel="alternate" href="{{ route('en.blog.index') }}" hreflang="x-default"/>
+    {{-- GEO signals --}}
+    <meta name="syndication-source" content="{{ url('/blog') }}"/>
+    <meta name="geo.region" content="ID"/>
+    <meta name="geo.placename" content="Indonesia"/>
 @endsection
+
+{{-- Structured Data for Blog Index --}}
+@push('structured-data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "@id": "{{ url('/blog') }}#webpage",
+            "url": "{{ url('/blog') }}",
+            "name": "Blog Centrova — Artikel, Insight & Panduan Teknologi",
+            "description": "Artikel, insight, dan panduan lengkap seputar teknologi, AI, web development, mobile app, UI/UX design, dan transformasi digital.",
+            "inLanguage": "id",
+            "isPartOf": {
+                "@id": "{{ url('/') }}#website"
+            },
+            "breadcrumb": {
+                "@id": "{{ url('/blog') }}#breadcrumb"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "{{ url('/blog') }}#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "{{ url('/') }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog"
+                }
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "{{ url('/') }}#website",
+            "url": "{{ url('/') }}",
+            "name": "Centrova",
+            "publisher": {
+                "@id": "{{ url('/') }}#organization"
+            }
+        },
+        {
+            "@type": "Organization",
+            "@id": "{{ url('/') }}#organization",
+            "name": "Centrova",
+            "url": "{{ url('/') }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ url('/logo/centrova-logo.png') }}",
+                "width": 600,
+                "height": 60
+            }
+        }
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <div class="bg-[#f8f9fa] min-h-screen text-[#1f1f1f] font-sans antialiased">

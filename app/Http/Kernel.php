@@ -41,6 +41,16 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\TypoRedirectMiddleware::class,
             \App\Http\Middleware\CaptureFailedLogin::class,
             \App\Http\Middleware\SEOMiddleware::class,
+
+            // HTML Optimization — Laravel Page Speed
+            // Dokumen: vendor/renatomarinho/laravel-page-speed/docs
+            \VinkiusLabs\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\ElideAttributes::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\RemoveComments::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\RemoveQuotes::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\TrimUrls::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\InlineCss::class,
+            \VinkiusLabs\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
         ],
 
         'api' => [

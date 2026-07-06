@@ -29,3 +29,6 @@ Route::prefix('sso')->group(function () {
 
 // Web routes untuk auto login dari aplikasi
 Route::get('/sso/auto-login', [SSOController::class, 'autoLogin'])->name('sso.auto-login');
+
+// Chatbot API
+Route::post('/chatbot/ask', [\App\Http\Controllers\Api\ChatbotController::class, 'ask']);

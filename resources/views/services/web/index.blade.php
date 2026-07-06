@@ -54,7 +54,7 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "{{ url()->current() }}#service",
+    "@id": "{{ canonical_url() }}#service",
     "name": "Jasa Pembuatan Website Profesional",
     "description": "Centrova menyediakan jasa pembuatan website profesional, modern, dan responsif untuk bisnis Anda. Dapatkan website berkualitas, desain elegan, performa optimal, dan support jangka panjang.",
     "provider": {

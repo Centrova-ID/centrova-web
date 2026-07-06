@@ -46,6 +46,11 @@
                     <a href="{{ route('about') }}" class="px-3 h-full flex items-center text-[15px] font-semibold transition hover:bg-gray-50 rounded-md text-neutral-600 hover:text-neutral-900">
                         Tentang Kami
                     </a>
+
+                    {{-- Brand --}}
+                    <a href="{{ route('brands.index') }}" class="px-3 h-full flex items-center text-[15px] font-semibold transition hover:bg-gray-50 rounded-md text-neutral-600 hover:text-neutral-900">
+                        Brand
+                    </a>
                 </nav>
             </div>
         </div>
@@ -220,6 +225,11 @@
                 {{-- Regular Item: Tentang Kami --}}
                 <a href="{{ route('about') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
                     Tentang Kami
+                </a>
+
+                {{-- Regular Item: Brand --}}
+                <a href="{{ route('brands.index') }}" class="w-full flex items-center justify-between px-5 py-3 text-base font-medium text-neutral-900 active:bg-gray-100 rounded-full text-left">
+                    Brand
                 </a>
             </nav>
         </div>

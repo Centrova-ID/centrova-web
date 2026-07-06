@@ -34,6 +34,21 @@ class Kernel extends ConsoleKernel
         $schedule->command('auth:cleanup-failed-attempts --days=7')
             ->dailyAt('01:30')
             ->withoutOverlapping();
+
+        // SEO: Notify search engines about new content — every 6 hours
+        $schedule->command('seo:notify-search-engines')
+            ->everySixHours()
+            ->withoutOverlapping()
+            ->runInBackground();
+
+        // SEO: Regenerate sitemap daily
+        $schedule->call(function () {
+            $sitemapController = app(\App\Http\Controllers\SitemapController::class);
+            $sitemapController->xml();
+            \Illuminate\Support\Facades\Cache::forget('feed.rss');
+            \Illuminate\Support\Facades\Cache::forget('feed.atom');
+            \Illuminate\Support\Facades\Cache::forget('feed.news-sitemap');
+        })->dailyAt('04:00')->withoutOverlapping()->runInBackground();
     }
 
     /**

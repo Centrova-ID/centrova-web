@@ -40,8 +40,36 @@ import 'tinymce/plugins/wordcount';
 
 window.tinymce = tinymce;
 
+// Initialize AOS (Animate On Scroll)
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+// Initialize AOS immediately (module scripts run after DOM parsing)
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => AOS.init({
+        duration: 700,
+        once: true,
+        offset: 50
+    }));
+} else {
+    AOS.init({
+        duration: 700,
+        once: true,
+        offset: 50
+    });
+}
+
 Alpine.plugin(persist);
 Alpine.plugin(collapse);
 window.Alpine = Alpine;
 window.Cropper = Cropper;
 Alpine.start();
+
+// Initialize AOS after DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({
+        duration: 700,
+        once: true,
+        offset: 50
+    });
+});

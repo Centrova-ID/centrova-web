@@ -19,8 +19,7 @@
     @stack('structured-data')
     
     {{-- Favicon --}}
-    <link rel="icon" type="image/svg+xml" href="{{ asset('/favicon.svg') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
@@ -31,24 +30,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
 
-    {{-- Icons --}}
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    {{-- Icons: Material Symbols (Outlined, Rounded, Sharp) --}}
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1&family=Material+Symbols+Sharp:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet"/>
 
     {{-- Additional Links from Views --}}
     @yield('link-head')
 
-    {{-- TailwindCSS with Typography Plugin via CDN --}}
-    <script>
-        // Suppress Tailwind Play CDN production warning
-        const origWarn = console.warn;
-        console.warn = function(msg) {
-            if (typeof msg === 'string' && msg.includes('cdn.tailwindcss.com should not be used')) return;
-            origWarn.apply(console, arguments);
-        };
-    </script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    {{-- Vite Assets: Alpine.js with Collapse plugin --}}
-    @vite(['resources/js/app.js'])
+    {{-- Vite Assets: Include Tailwind CSS dan Alpine.js (bundled) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     {{-- Google Analytics / GA4 --}}
     @if(config('services.google.analytics_id'))
@@ -61,6 +50,15 @@
             gtag('config', '{{ config('services.google.analytics_id') }}');
         </script>
     @endif
+
+    {{-- Microsoft Clarity --}}
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xf2ndgele8");
+    </script>
     
     {{-- Application initialization --}}
     <script>
@@ -82,7 +80,7 @@
     @yield('style-css')
 </head>
 
-<body class="font-sans antialiased max-w-[2560px] mx-auto" x-data="{ mobileMenuOpen: false }">
+<body class="font-sans antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }">
     {{-- Main Application Wrapper --}}
     <div id="app">
         {{-- Navigation Bar --}}
@@ -93,29 +91,22 @@
         @endif
 
         {{-- Main Content Area --}}
-        <main class="min-h-screen tracking-[-0.020em]" id="main-content">
+        <main id="main-content">
             @yield('content')
         </main>
 
         {{-- Cookie Consent Banner - Persistent component --}}
         @include('components.cookie-consent')
 
-        {{-- Account Switcher Modal - Disabled --}}
-        {{-- @auth
-            @include('auth.components.account-switcher')
-        @endauth --}}
-
         {{-- Footer - Persistent across pages --}}
         @include('partials.footer.main')
-    </div>
 
+        {{-- Floating Customer Service Icon --}}
+        @include('partials.components.floating-cs')
+    </div>
     
-    {{-- Core Application Scripts --}}
-    <script src="{{ asset('js/disable-image-copy.js') }}" defer></script>
-    {{-- <script src="{{ asset('js/hashing-attribute.js') }}" defer></script> --}}
-    
-    {{-- AOS Animation Library - Optimized Loading --}}
-    <script src="{{ asset('js/aos-init.js') }}" defer></script>
+    {{-- Preline UI JS (via CDN) --}}
+    <script src="https://cdn.jsdelivr.net/npm/preline@4.2.0/dist/preline.js"></script>
 
     {{-- Editor Scripts --}}
     @yield('scripts-body')
