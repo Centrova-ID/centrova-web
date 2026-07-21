@@ -46,13 +46,13 @@
     },
     "scripts": {
         "vercel": [
-            "@php -r \"echo '🚀 Running Vercel build...\\n';\"",
-            "npm ci --no-optional --production 2>/dev/null || npm install --no-optional --production",
-            "npm run build",
-            "@php artisan event:cache --no-interaction 2>/dev/null || true",
-            "@php artisan config:cache --no-interaction 2>/dev/null || true",
-            "@php artisan route:cache --no-interaction 2>/dev/null || true",
-            "@php artisan view:cache --no-interaction 2>/dev/null || true",
+            "@php -r \"echo '� Vercel build started...\\n';\"",
+            "npm install 2>&1",
+            "npx vite build 2>&1",
+            "@php artisan event:cache --no-interaction 2>&1 || true",
+            "@php artisan config:cache --no-interaction 2>&1 || true",
+            "@php artisan route:cache --no-interaction 2>&1 || true",
+            "@php artisan view:cache --no-interaction 2>&1 || true",
             "@php -r \"echo '✅ Vercel build complete!\\n';\""
         ],
         "post-autoload-dump": [
