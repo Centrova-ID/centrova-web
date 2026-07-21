@@ -24,11 +24,12 @@
     "SESSION_DRIVER": "database",
     "SESSION_SECURE_COOKIE": "true",
     "CACHE_DRIVER": "database",
-    "FILESYSTEM_DISK": "s3",
-    "APP_CONFIG_CACHE": "/tmp/config.php",
-    "APP_EVENTS_CACHE": "/tmp/events.php",
-    "APP_ROUTES_CACHE": "/tmp/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/services.php",
-    "VIEW_COMPILED_PATH": "/tmp/view"
+    "FILESYSTEM_DISK": "local",
+    "APP_STORAGE_PATH": "/tmp/laravel-storage",
+    "APP_CONFIG_CACHE": "/tmp/laravel-storage/config.php",
+    "APP_EVENTS_CACHE": "/tmp/laravel-storage/events.php",
+    "APP_ROUTES_CACHE": "/tmp/laravel-storage/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/laravel-storage/services.php",
+    "VIEW_COMPILED_PATH": "/tmp/laravel-storage/view"
   }
 }

@@ -10,18 +10,53 @@
  * @see https://github.com/vercel-community/php
  */
 
+// ──────────────────────────────────────────────
+// Serverless Bootstrap — setup writable paths
+// ──────────────────────────────────────────────
+
+// Use /tmp for all writable storage (serverless filesystem is read-only except /tmp)
+$tmpStorage = $_ENV['VERCEL_STORAGE_PATH'] ?? '/tmp/laravel-storage';
+$storageDirs = [
+    $tmpStorage . '/framework/views',
+    $tmpStorage . '/framework/cache',
+    $tmpStorage . '/framework/sessions',
+    $tmpStorage . '/logs',
+    $tmpStorage . '/app/public',
+];
+
+foreach ($storageDirs as $dir) {
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0755, true);
+    }
+}
+
+// Override Laravel's storage path so compiled views, logs, etc write to /tmp
+$_ENV['APP_STORAGE_PATH'] = $tmpStorage;
+
+// Ensure the real storage link exists for public assets
+$publicStorage = __DIR__ . '/../public/storage';
+if (!is_dir($publicStorage) && is_dir($tmpStorage . '/app/public')) {
+    @symlink($tmpStorage . '/app/public', $publicStorage);
+}
+
+// ──────────────────────────────────────────────
+// Serve static assets
+// ──────────────────────────────────────────────
+
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? ''
 );
 
-// Serve static assets directly if they exist in public/
 if ($uri !== '/' && file_exists($file = __DIR__ . '/../public' . $uri)) {
     header('Content-type: ' . get_mime_type($file) . '; charset: UTF-8;');
     readfile($file);
     return;
 }
 
-// Forward all other requests to Laravel
+// ──────────────────────────────────────────────
+// Boot Laravel
+// ──────────────────────────────────────────────
+
 require_once __DIR__ . '/../public/index.php';
 
 /**
