@@ -1,19 +1,16 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "public",
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.3",
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/(build|assets|css|js|images|favicon.ico|robots.txt)(.*)",
-      "dest": "/$1$2"
-    },
+      "src": "api/index.php",
+      "use": "vercel-php@0.9.0",
+      "config": {
+        "memory": 1024,
+        "maxDuration": 30
+      }
+    }
+  ],
+  "routes": [
     {
       "src": "/(.*)",
       "dest": "/api/index.php"
@@ -27,6 +24,6 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie",
     "CACHE_DRIVER": "array",
-    "FILESYSTEM_DISK": "array"
+    "FILESYSTEM_DISK": "local"
   }
 }
