@@ -2,26 +2,16 @@
 
 /**
  * Vercel Serverless Entry Point for Laravel
- * 
- * This file serves as the PHP serverless function entry point for Vercel.
- * It routes static assets from the public/ directory and forwards all
- * other requests to Laravel's public/index.php.
- * 
- * @see https://github.com/vercel-community/php
  */
 
-// ──────────────────────────────────────────────
-// Serverless Bootstrap — setup writable paths
-// ──────────────────────────────────────────────
-
-// Use /tmp for all writable storage (serverless filesystem is read-only except /tmp)
+// 1. Setup writable paths di /tmp (serverless filesystem read-only)
 $tmpStorage = $_ENV['VERCEL_STORAGE_PATH'] ?? '/tmp/laravel-storage';
 $storageDirs = [
     $tmpStorage . '/framework/views',
     $tmpStorage . '/framework/cache',
     $tmpStorage . '/framework/sessions',
+    $tmpStorage . '/bootstrap/cache',
     $tmpStorage . '/logs',
-    $tmpStorage . '/app/public',
 ];
 
 foreach ($storageDirs as $dir) {
@@ -30,19 +20,11 @@ foreach ($storageDirs as $dir) {
     }
 }
 
-// Override Laravel's storage path so compiled views, logs, etc write to /tmp
-$_ENV['APP_STORAGE_PATH'] = $tmpStorage;
+// Set environment variables untuk storage & compiled views
+$_ENV['APP_STORAGE'] = $tmpStorage;
+$_ENV['VIEW_COMPILED_PATH'] = $tmpStorage . '/framework/views';
 
-// Ensure the real storage link exists for public assets
-$publicStorage = __DIR__ . '/../public/storage';
-if (!is_dir($publicStorage) && is_dir($tmpStorage . '/app/public')) {
-    @symlink($tmpStorage . '/app/public', $publicStorage);
-}
-
-// ──────────────────────────────────────────────
-// Serve static assets
-// ──────────────────────────────────────────────
-
+// 2. Serve static assets langsung jika ada di public/
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? ''
 );
@@ -50,14 +32,25 @@ $uri = urldecode(
 if ($uri !== '/' && file_exists($file = __DIR__ . '/../public' . $uri)) {
     header('Content-type: ' . get_mime_type($file) . '; charset: UTF-8;');
     readfile($file);
-    return;
+    exit(0);
 }
 
-// ──────────────────────────────────────────────
-// Boot Laravel
-// ──────────────────────────────────────────────
+// 3. Bootstrapping Laravel secara manual
+require __DIR__ . '/../vendor/autoload.php';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
-require_once __DIR__ . '/../public/index.php';
+// Override storage path secara eksplisit pada instance Laravel
+$app->useStoragePath($tmpStorage);
+
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
+
+$response->send();
+
+$kernel->terminate($request, $response);
 
 /**
  * Get MIME type for a file based on its extension.
@@ -74,7 +67,6 @@ function get_mime_type(string $filename): string
         'js' => 'application/javascript',
         'json' => 'application/json',
         'xml' => 'application/xml',
-        // images
         'png' => 'image/png',
         'jpg' => 'image/jpeg',
         'jpeg' => 'image/jpeg',
@@ -82,18 +74,10 @@ function get_mime_type(string $filename): string
         'webp' => 'image/webp',
         'svg' => 'image/svg+xml',
         'ico' => 'image/vnd.microsoft.icon',
-        // fonts
         'woff' => 'font/woff',
         'woff2' => 'font/woff2',
         'ttf' => 'font/ttf',
         'otf' => 'font/otf',
-        'eot' => 'application/vnd.ms-fontobject',
-        // archives
-        'zip' => 'application/zip',
-        'gz' => 'application/gzip',
-        // audio/video
-        'mp3' => 'audio/mpeg',
-        'mp4' => 'video/mp4',
         'pdf' => 'application/pdf',
     ];
 

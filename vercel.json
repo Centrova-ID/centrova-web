@@ -11,6 +11,10 @@
   },
   "routes": [
     {
+      "src": "/(build|assets|css|js|images|favicon.ico|robots.txt)(.*)",
+      "dest": "/$1$2"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
@@ -21,15 +25,8 @@
     "APP_URL": "https://centrova.id",
     "ASSET_URL": "https://centrova.id",
     "LOG_CHANNEL": "stderr",
-    "SESSION_DRIVER": "database",
-    "SESSION_SECURE_COOKIE": "true",
-    "CACHE_DRIVER": "database",
-    "FILESYSTEM_DISK": "local",
-    "APP_STORAGE_PATH": "/tmp/laravel-storage",
-    "APP_CONFIG_CACHE": "/tmp/laravel-storage/config.php",
-    "APP_EVENTS_CACHE": "/tmp/laravel-storage/events.php",
-    "APP_ROUTES_CACHE": "/tmp/laravel-storage/routes.php",
-    "APP_SERVICES_CACHE": "/tmp/laravel-storage/services.php",
-    "VIEW_COMPILED_PATH": "/tmp/laravel-storage/view"
+    "SESSION_DRIVER": "cookie",
+    "CACHE_DRIVER": "array",
+    "FILESYSTEM_DISK": "array"
   }
 }
