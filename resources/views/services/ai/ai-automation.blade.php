@@ -131,7 +131,7 @@
 @section('content')
 
 {{-- ============================ HERO ============================ --}}
-<section class="relative overflow-hidden bg-white py-16 md:py-24">
+<section class="relative overflow-hidden bg-white py-16 md:py-24" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -221,7 +221,7 @@
     </div>
 </section>
 
-<section class="border-y border-neutral-200 py-8 overflow-hidden">
+<section class="border-y border-neutral-200 py-8 overflow-hidden" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p class="text-sm font-semibold text-neutral-500 text-center tracking-wider uppercase mb-8">Partner & Klien yang Bekerja Sama</p>
         <div class="flex overflow-hidden mask-edges">
@@ -236,7 +236,7 @@
     </div>
 </section>
 
-<section class="py-16 lg:py-24 bg-neutral-50">
+<section class="py-16 lg:py-24 bg-neutral-50" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {{-- Meta-style card-product-feature with rounded-[32px] --}}
         <div class="bg-white rounded-[32px] border border-neutral-200 p-8 sm:p-12 lg:p-16">
@@ -259,10 +259,10 @@
     </div>
 </section>
 
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="max-w-2xl mx-auto mb-12 text-center">
+        <div class="max-w-2xl mx-auto mb-12 text-center" data-aos="fade-up" data-aos-duration="700">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">
                 Layanan
             </h2>
@@ -273,7 +273,7 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-blue-50 sm:col-span-2 lg:col-span-2">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-blue-50 sm:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
                         Strategi dan Konsultasi Otomasi AI
@@ -284,7 +284,7 @@
                 </div>
             </div>
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-green-50">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-green-50" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
                 <span class="material-symbols-outlined text-3xl text-green-700 mb-4">settings_suggest</span>
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
@@ -296,7 +296,7 @@
                 </div>
             </div>
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-red-50">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-red-50" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                 <span class="material-symbols-outlined text-3xl text-red-600 mb-4">smart_toy</span>
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
@@ -308,7 +308,7 @@
                 </div>
             </div>
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-purple-50 sm:col-span-2 lg:col-span-2">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-purple-50 sm:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
                 <span class="material-symbols-outlined text-3xl text-purple-600 mb-4">hub</span>
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
@@ -320,7 +320,7 @@
                 </div>
             </div>
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-cyan-50 sm:col-span-2 lg:col-span-2">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-cyan-50 sm:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                 <span class="material-symbols-outlined text-3xl text-cyan-600 mb-4">auto_stories</span>
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
@@ -332,7 +332,7 @@
                 </div>
             </div>
 
-            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-yellow-50">
+            <div class="border border-neutral-200 rounded-[16px] p-6 hover:border-neutral-300 transition-all duration-200 flex flex-col bg-yellow-50" data-aos="fade-up" data-aos-duration="700" data-aos-delay="350">
                 <span class="material-symbols-outlined text-3xl text-yellow-700 mb-4">monitoring</span>
                 <div>
                     <h3 class="text-lg font-semibold text-neutral-900 mb-2">
@@ -349,10 +349,10 @@
     </div>
 </section>
 
-<section class="py-16 lg:py-24 bg-neutral-50">
+<section class="py-16 lg:py-24 bg-neutral-50" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="max-w-2xl mx-auto mb-12 text-center">
+        <div class="max-w-2xl mx-auto mb-12 text-center" data-aos="fade-up" data-aos-duration="700">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">
                 Cara Kerja
             </h2>
@@ -468,7 +468,7 @@
 </section>
 
 {{-- ============================ TRANSFORMASI ============================ --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center mb-12">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">Transformasi yang Bisa Kamu Dapatkan</h2>
@@ -599,24 +599,24 @@
 </section>
 
 {{-- ============================ PENDEKATAN KAMI ============================ --}}
-<section class="py-16 lg:py-24 bg-neutral-50">
+<section class="py-16 lg:py-24 bg-neutral-50" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center mb-12">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">Pendekatan Kami di Setiap Proyek</h2>
             <p class="text-neutral-600 text-base md:text-lg">Sebagai partner otomasi yang mengutamakan hasil nyata, kami membangun setiap sistem dengan standar yang sama.</p>
         </div>
         <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center">
+            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                 <span class="material-symbols-outlined text-3xl text-primary-600 mb-4 block mx-auto">assignment_turned_in</span>
                 <h3 class="text-base font-semibold text-neutral-900 mb-2">Onboarding Efisien</h3>
                 <p class="text-sm md:text-base text-neutral-600">Proses <em>onboarding</em> yang efisien, <em>workflow</em> teruji sebelum digunakan penuh.</p>
             </div>
-            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center">
+            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                 <span class="material-symbols-outlined text-3xl text-primary-600 mb-4 block mx-auto">description</span>
                 <h3 class="text-base font-semibold text-neutral-900 mb-2">Dokumentasi Lengkap</h3>
                 <p class="text-sm md:text-base text-neutral-600">Dokumentasi lengkap agar timmu bisa mengoperasikan sistem dengan percaya diri.</p>
             </div>
-            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center">
+            <div class="border border-neutral-200 rounded-[16px] p-6 bg-white text-center" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                 <span class="material-symbols-outlined text-3xl text-primary-600 mb-4 block mx-auto">bar_chart</span>
                 <h3 class="text-base font-semibold text-neutral-900 mb-2">Hasil Terukur</h3>
                 <p class="text-sm md:text-base text-neutral-600">Target dan metrik dibahas di awal kerja sama, hasilnya bisa diukur sejak proyek pertama.</p>
@@ -626,7 +626,7 @@
 </section>
 
 {{-- ============================ HASIL NYATA (STATS) ============================ --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center mb-12">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">Hasil Nyata</h2>
@@ -649,7 +649,7 @@
 </section>
 
 {{-- ============================ MENGAPA MEMILIH CENTROVA ============================ --}}
-<section class="py-16 lg:py-24 bg-neutral-50">
+<section class="py-16 lg:py-24 bg-neutral-50" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start max-w-5xl mx-auto">
             <div>
@@ -685,7 +685,7 @@
 </section>
 
 {{-- ============================ KEAHLIAN TEKNOLOGI ============================ --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center mb-12">
             <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl mb-4">Keahlian Teknologi</h2>
@@ -764,7 +764,7 @@
 </section>
 
 {{-- ============================ FAQ ============================ --}}
-<section class="py-16 lg:py-24 bg-white">
+<section class="py-16 lg:py-24 bg-white" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-12">
@@ -951,7 +951,7 @@
 </section>
 
 {{-- ============================ CTA (Meta-style card-promo-strip) ============================ --}}
-<section class="py-16 lg:py-24 bg-neutral-50">
+<section class="py-16 lg:py-24 bg-neutral-50" data-aos="fade-up" data-aos-duration="700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-neutral-900 rounded-[32px] p-8 sm:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 class="text-2xl font-bold text-white lg:text-3xl mb-4">Saatnya Bertindak</h2>

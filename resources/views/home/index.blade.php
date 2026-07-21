@@ -172,7 +172,7 @@
 
     <div class="relative">
         {{-- Main Hero — Meta-style full-bleed photographic hero with dual-CTA --}}
-        <section class="relative overflow-hidden bg-white">
+        <section class="relative overflow-hidden bg-white" data-aos="fade-up" data-aos-duration="700">
             <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 <div class="flex flex-col-reverse lg:flex-row justify-center items-center text-center lg:text-left gap-x-16 gap-y-8 py-10 md:py-20">
                     <div class="max-w-2xl">
@@ -196,15 +196,15 @@
         </section>
 
         {{-- Layanan Kami — Meta-style card-product-feature with rounded-[32px] (xxxl) --}}
-        <section class="py-20 bg-neutral-100">
+        <section class="py-20 bg-neutral-100" data-aos="fade-up" data-aos-duration="700">
             <div class="max-w-7xl mx-auto px-7 lg:px-8">
-                <div class="text-center mb-14">
+                <div class="text-center mb-14" data-aos="fade-up" data-aos-duration="700">
                     <h2 class="text-4xl md:text-5xl max-w-4xl mx-auto font-bold tracking-tight text-neutral-900">Memperkuat sistem bisnis melalui digitalisasi dan otomasi</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     {{-- Card 1 --}}
-                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full">
+                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                         <img src="@img('assets/image/U2FuZGkxMjM.webp', ['w' => 600, 'fit' => 'crop', 'h' => 338])"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -226,7 +226,7 @@
                     </article>
 
                     {{-- Card 2 --}}
-                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full">
+                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                         <img src="@img('assets/image/3MjM1ZGaFuMlU.webp', ['w' => 600, 'fit' => 'crop', 'h' => 338])"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -248,7 +248,7 @@
                     </article>
 
                     {{-- Card 3 --}}
-                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full">
+                    <article class="rounded-[32px] overflow-hidden bg-white border border-neutral-200 hover:border-neutral-300 transition-all duration-200 flex flex-col h-full" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                         <img src="@img('assets/image/X3MjM1ZGaFuMlU.webp', ['w' => 600, 'fit' => 'crop', 'h' => 338])"
                              alt="Tim mengembangkan layanan web - Centrova"
                              loading="lazy"
@@ -273,10 +273,10 @@
         </section>
 
         {{-- Dampak AI / Stats — Meta-style feature-icon-row with rounded-[16px] (xl) --}}
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-white" data-aos="fade-up" data-aos-duration="700">
             <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 {{-- Headline --}}
-                <div class="text-center mb-16 max-w-3xl mx-auto">
+                <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="700">
                     <h2 class="text-4xl md:text-5xl max-w-4xl mx-auto font-bold tracking-tight text-neutral-900 mb-4">
                         Akselerasi Efisiensi dan Pertumbuhan Bisnis dengan Integrasi AI
                     </h2>
@@ -285,7 +285,7 @@
                 {{-- Stats Grid — Meta-style 3-up why-buy tiles --}}
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-6xl mx-auto">
                     {{-- Stat 1 --}}
-                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200">
+                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                         <span class="text-5xl font-bold text-primary-600 mb-5 tracking-tight">
                             70%<span class="font-variant-numeric:lashed-zero">+</span>
                         </span>
@@ -295,7 +295,7 @@
                     </div>
 
                     {{-- Stat 2 --}}
-                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200">
+                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                         <span class="text-5xl font-bold text-primary-600 mb-5 tracking-tight whitespace-nowrap">
                             2x Lipat
                         </span>
@@ -305,7 +305,7 @@
                     </div>
 
                     {{-- Stat 3 --}}
-                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200">
+                    <div class="flex flex-col items-center px-6 py-10 rounded-[16px] bg-white border border-neutral-200" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                         <span class="text-5xl font-bold text-primary-600 mb-5 tracking-tight">
                             24/7
                         </span>
@@ -318,16 +318,16 @@
         </section>
 
         {{-- Industries — Meta-style card-feature-photo full-bleed showcase with rounded-[32px] --}}
-        <section class="py-20 bg-neutral-100 relative overflow-hidden">
+        <section class="py-20 bg-neutral-100 relative overflow-hidden" data-aos="fade-up" data-aos-duration="700">
             <div class="max-w-7xl mx-auto px-7 lg:px-8 relative z-10">
-                <div class="text-center mb-14">
+                <div class="text-center mb-14" data-aos="fade-up" data-aos-duration="700">
                     <h2 class="text-4xl md:text-5xl max-w-4xl mx-auto font-bold tracking-tight text-neutral-900">Mengembangkan Masa Depan Industri Anda</h2>
                 </div>
                 
                 {{-- Industries List --}}
                 <div class="grid grid-cols-1 gap-8">
                     {{-- Industri Software --}}
-                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
                         <div class="w-full h-full px-8 py-10 lg:py-16 lg:px-12 flex justify-center items-center">
                             <div class="w-full text-base lg:text-lg tracking-tight max-lg:text-center">
                                 <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-neutral-900">Industri Software</h3>
@@ -344,7 +344,7 @@
                     </div>
 
                     {{-- Teknologi Keuangan --}}
-                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
                         <div class="bg-neutral-100 aspect-square order-2 lg:order-1">
                             <img src="@img('assets/image/home/industri_keuangan.jpg', ['w' => 720, 'fit' => 'crop', 'h' => 720])" class="w-full h-full object-cover" alt="Teknologi Keuangan" loading="lazy" decoding="async">
                         </div>
@@ -361,7 +361,7 @@
                     </div>
 
                     {{-- Transportasi & Logistik --}}
-                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
                         <div class="w-full h-full px-8 py-10 lg:py-16 lg:px-12 flex justify-center items-center">
                             <div class="w-full text-base lg:text-lg tracking-tight max-lg:text-center">
                                 <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-neutral-900">Transportasi & Logistik</h3>
@@ -378,7 +378,7 @@
                     </div>
 
                     {{-- Sektor Pendidikan --}}
-                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
                         <div class="bg-neutral-100 aspect-square order-2 lg:order-1">
                             <img src="@img('assets/image/home/sektor_pendidikan.jpg', ['w' => 720, 'fit' => 'crop', 'h' => 720])" class="w-full h-full object-cover" alt="Sektor Pendidikan" loading="lazy" decoding="async">
                         </div>
@@ -395,7 +395,7 @@
                     </div>
 
                     {{-- Medical System --}}
-                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+                    <div class="w-full bg-white rounded-[32px] border border-neutral-200 grid grid-cols-1 lg:grid-cols-2 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
                         <div class="w-full h-full px-8 py-10 lg:py-16 lg:px-12 flex justify-center items-center">
                             <div class="w-full text-base lg:text-lg tracking-tight max-lg:text-center">
                                 <h3 class="text-3xl lg:text-4xl font-bold mb-4 text-neutral-900">Medical System</h3>
@@ -415,7 +415,7 @@
         </section>
 
         {{-- Penawaran / CTA Section — Meta-style card-promo-strip with dark background + rounded-[32px] --}}
-        <section class="py-16">
+        <section class="py-16" data-aos="fade-up" data-aos-duration="700">
             <div class="max-w-7xl mx-auto px-7 lg:px-8">
                 <div class="w-full bg-neutral-900 rounded-[32px] min-h-[400px] lg:h-[480px] flex items-center justify-center lg:justify-start relative overflow-hidden">
                     <div class="absolute inset-0 w-full h-full z-0">

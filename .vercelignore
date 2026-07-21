@@ -1,0 +1,59 @@
+# ============================================
+# .vercelignore — Files/folders to exclude from Vercel deployment
+# ============================================
+
+# Dependencies (installed during build by Vercel PHP runtime)
+/vendor
+/node_modules
+
+# Local environment
+.env
+.env.*
+.storage
+
+# Docker files (not needed on Vercel)
+Dockerfile
+docker-compose.yml
+docker/
+.docker/
+
+# Development & CI/CD
+.editorconfig
+.php-cs-fixer.php
+.phpunit.result.cache
+.styleci.yml
+.git/
+.gitattributes
+.gitignore
+.github/
+
+# Build artifacts
+public/build/
+public/hot
+
+# Local storage (not writable on serverless)
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+/storage/debugbar/
+
+# Documentation and design files
+docs/
+design.md
+*.psd
+*.ai
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite/Node
+package-lock.json
+yarn.lock

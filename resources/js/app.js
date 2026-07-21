@@ -44,28 +44,13 @@ window.tinymce = tinymce;
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Initialize AOS immediately (module scripts run after DOM parsing)
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => AOS.init({
-        duration: 700,
-        once: true,
-        offset: 50
-    }));
-} else {
-    AOS.init({
-        duration: 700,
-        once: true,
-        offset: 50
-    });
-}
-
 Alpine.plugin(persist);
 Alpine.plugin(collapse);
 window.Alpine = Alpine;
 window.Cropper = Cropper;
 Alpine.start();
 
-// Initialize AOS after DOM is ready
+// Initialize AOS after Alpine has started (ensures DOM is fully rendered)
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
         duration: 700,
@@ -73,3 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         offset: 50
     });
 });
+
+// Floating CS Chatbot
+import './floating-cs';
+
+// Re-initialize AOS after a short delay to catch any layout shifts from Alpine
+setTimeout(() => AOS.refresh(), 300);

@@ -36,13 +36,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     {{-- Tailwind Config for Custom Fonts --}}
+    {{-- Guard untuk mencegah ReferenceError jika CDN gagal dimuat --}}
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'Helvetica Neue', 'Helvetica', 'Noto Sans', 'Arial', 'sans-serif'],
-                        'helvetica': ['Helvetica Neue', 'Helvetica', 'Inter', 'Arial', 'sans-serif']
+        if (typeof tailwind !== 'undefined') {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            'sans': ['Inter', 'Helvetica Neue', 'Helvetica', 'Noto Sans', 'Arial', 'sans-serif'],
+                            'helvetica': ['Helvetica Neue', 'Helvetica', 'Inter', 'Arial', 'sans-serif']
+                        }
                     }
                 }
             }

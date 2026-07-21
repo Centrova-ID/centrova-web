@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.9.0",
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false",
+    "APP_URL": "https://centrova.id",
+    "ASSET_URL": "https://centrova.id",
+    "LOG_CHANNEL": "stderr",
+    "SESSION_DRIVER": "database",
+    "SESSION_SECURE_COOKIE": "true",
+    "CACHE_DRIVER": "database",
+    "FILESYSTEM_DISK": "s3",
+    "APP_CONFIG_CACHE": "/tmp/config.php",
+    "APP_EVENTS_CACHE": "/tmp/events.php",
+    "APP_ROUTES_CACHE": "/tmp/routes.php",
+    "APP_SERVICES_CACHE": "/tmp/services.php",
+    "VIEW_COMPILED_PATH": "/tmp/view",
+    "APP_KEY": "@laravel_app_key"
+  }
+}

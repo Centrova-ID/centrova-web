@@ -12,11 +12,11 @@ use App\Http\Controllers\FeedController;
 
 /*
 |--------------------------------------------------------------------------
-| Main Domain Routes (centrova.id)
+| Main Domain Routes
 |--------------------------------------------------------------------------
 */
 
-Route::domain('centrova.id')->middleware(['web', 'language'])->group(function () {
+Route::domain(parse_url(config('app.url'), PHP_URL_HOST))->middleware(['web', 'language'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -104,7 +104,8 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
 
     // Service Cancellation — redirect to account subdomain (route defined in account.php)
     Route::get('/services/cancellation', function () {
-        return redirect('https://account.centrova.id/services/cancellation', 302);
+        $accountUrl = str_replace(parse_url(config('app.url'), PHP_URL_HOST), 'account.' . parse_url(config('app.url'), PHP_URL_HOST), config('app.url'));
+        return redirect($accountUrl . '/services/cancellation', 302);
     })->name('services.cancellation.index');
 
     // English routes (with /en prefix)
@@ -173,7 +174,7 @@ Route::domain('centrova.id')->middleware(['web', 'language'])->group(function ()
         Route::get('/service/consult', [ServiceController::class, 'consult'])->name('en.service.consult');
     });
 
-    // Glide image manipulation — di dalam domain centrova.id
+    // Glide image manipulation — di dalam domain centrova.test
     Route::get('/img/{path}', \App\Http\Controllers\ImageController::class)
         ->where('path', '.*')
         ->name('glide.image');

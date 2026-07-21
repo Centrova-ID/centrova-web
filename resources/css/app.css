@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-plusjakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-figtree: 'Figtree', sans-serif;
+
   --color-primary-50: #e8f4fd;
   --color-primary-100: #d1e9fb;
   --color-primary-200: #a3d3f7;

@@ -1,5 +1,3 @@
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
-
 <div x-data="navbar()" x-init="init" class="z-20 sticky top-0">
     <nav id="subNavbar"
          :style="'height: ' + height"

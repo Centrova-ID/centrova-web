@@ -23,14 +23,20 @@
     <link rel="apple-touch-icon" href="{{ asset('/assets/brand/apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
     
-    {{-- Preconnect / DNS Prefetch --}}
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    {{-- Prevent FOUC: Critical CSS & x-cloak harus paling awal --}}
+    <style>
+        [x-cloak] { display: none !important; }
+        /* Critical: prevent white flash sebelum CSS Vite ter-load */
+        html { background-color: #ffffff; }
+        body { background-color: #ffffff; color: #171717; font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+    </style>
+
+    {{-- Preconnect / DNS Prefetch (hanya yang esensial) --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
 
-    {{-- Icons: Material Symbols (Outlined, Rounded, Sharp) --}}
+    {{-- Icons: Material Symbols — preload agar tidak FOUC icon --}}
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1&family=Material+Symbols+Sharp:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet"/>
 
     {{-- Additional Links from Views --}}
@@ -74,7 +80,7 @@
     {{-- Head Scripts from Views --}}
     @yield('scripts-head')
 
-    {{-- Font Component --}}
+    {{-- Font Component (paling akhir di head agar tidak blocking render) --}}
     @include('partials.components.font')
 
     {{-- Color Palletes --}}
@@ -86,7 +92,7 @@
 
 <body class="font-sans antialiased bg-white text-neutral-900">
     {{-- Main Application Wrapper --}}
-    <div id="app" x-data="{ mobileMenuOpen: false }" @toggle-menu.window="mobileMenuOpen = !mobileMenuOpen">
+    <div id="app">
         {{-- Navigation Bar --}}
         @hasSection('navbar')
             @yield('navbar')

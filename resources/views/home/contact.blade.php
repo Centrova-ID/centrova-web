@@ -145,7 +145,7 @@
 
                     <h1 class="font-bold text-xl my-1 text-gray-900">Kirim pesan ke Sales Centrova</h1>
                     <p class="text-gray-700 text-base">Diskusikan kebutuhan website Anda dengan tim ahli kami.</p>
-                    <button x-data x-on:click="$dispatch('open-modal')" class="mt-4 text-blue-600">Kirimkan Pesan</button>
+                    <button x-data="{}" x-on:click="$dispatch('open-modal')" class="mt-4 text-blue-600">Kirimkan Pesan</button>
                 </div>
                 <div class="flex flex-col items-start w-full max-lg:py-6 lg:px-10">
                     <svg class="h-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -3,17 +3,30 @@
 @section('title', 'Peta Situs')
 
 @section('style-css')
-    <style type="text/tailwindcss">
+    {{-- Tailwind v4 via PostCSS: @apply tidak tersedia di CDN style tag, pakai CSS biasa --}}
+    <style>
         .sites-links-container ul {
-            @apply space-y-3 text-left text-base;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.5rem;
         }
 
         .sites-links-container h2 {
-            @apply font-medium text-slate-800 mb-4;
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 1rem;
         }
 
         .sites-links-container ul li a {
-            @apply text-neutral-700/80 hover:text-neutral-700 font-medium;
+            color: color-mix(in srgb, #404040 80%, transparent);
+            font-weight: 500;
+        }
+
+        .sites-links-container ul li a:hover {
+            color: #404040;
         }
     </style>
 @endsection
