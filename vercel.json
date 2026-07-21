@@ -8,6 +8,19 @@
       "maxDuration": 30
     }
   },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.centrova.id"
+        }
+      ],
+      "destination": "https://centrova.id/$1",
+      "permanent": true
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
