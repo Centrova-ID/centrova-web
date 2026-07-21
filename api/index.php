@@ -4,6 +4,18 @@
  * Vercel Serverless Entry Point for Laravel
  */
 
+// ── CORS Headers ────────────────────────────
+// Allow both centrova.id and www.centrova.id to load assets from each other
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Origin, Authorization');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit(0);
+}
+
 // 1. Setup writable paths di /tmp (serverless filesystem read-only)
 $tmpStorage = $_ENV['VERCEL_STORAGE_PATH'] ?? '/tmp/laravel-storage';
 $storageDirs = [
